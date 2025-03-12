@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to LombokRec</title>
+    <link rel="stylesheet" href="landingStyles.css">
+</head>
+<body>
+
+    <div id="text-content">
+        <h1>Discover the beauty of Lombok <br>
+        from stunning destinations <br>
+        to delicious local cuisine</h1>
+    </div>
+
+    <script>
+        // Daftar gambar latar belakang
+        const slides = [
+            {image: 'url("LandingPagePic1.jpg")', text:""},
+            {image: 'url("LandingPagePic2.png")', text:"Beauty of nature."},
+            {image: 'url("LandingPagePic3.png")', text:"Stunning natural landscapes."},
+            {image: 'url("LandingPagePic4.png")', text:"Rich cultural heritage."},
+            {image: 'url("LandingPagePic5.png")', text:"Various local traditions."},
+            {image: 'url("LandingPagePic6.png")', text:"Delightful authentic cuisine."}
+        ];
+
+        let currentIndex = 0;
+
+        function changeSlide() {
+            document.body.style.backgroundImage = slides[currentIndex].image;
+            document.getElementById('text-content').innerText = slides[currentIndex].text;
+            currentIndex = (currentIndex + 1) % slides.length;
+        }
+
+        // Panggil pertama kali
+        changeSlide();
+
+        // Ganti latar belakang setiap 30 detik
+        setInterval(changeSlide, 5000);
+    </script>
+
+</body>
+</html>
