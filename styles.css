@@ -56,10 +56,20 @@ body {
 
 .forgot-password{
     text-align: right;
+    color: red;
 }
 
 .register{
     margin-top: 20px;
+}
+
+a.register {
+    text-decoration: none;
+    color: #8D6E63;
+}
+
+a:hover {
+    color:blue;
 }
 
 .big-button {
