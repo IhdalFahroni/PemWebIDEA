@@ -8,37 +8,41 @@
 </head>
 <body>
 
-    <div id="text-content">
-        <h1>Discover the beauty of Lombok <br>
+    <div class="nav">
+        <a href="LoginPage.html">Login</a> | <a href="SignUpPage.html">Sign Up</a>
+    </div>
+
+    <div class="content">
+        Discover the beauty of Lombok <br>
         from stunning destinations <br>
-        to delicious local cuisine</h1>
+        to delicious local cuisine
     </div>
 
     <script>
-        // Daftar gambar latar belakang
         const slides = [
-            {image: 'url("LandingPagePic1.jpg")', text:""},
-            {image: 'url("LandingPagePic2.png")', text:"Beauty of nature."},
-            {image: 'url("LandingPagePic3.png")', text:"Stunning natural landscapes."},
-            {image: 'url("LandingPagePic4.png")', text:"Rich cultural heritage."},
-            {image: 'url("LandingPagePic5.png")', text:"Various local traditions."},
-            {image: 'url("LandingPagePic6.png")', text:"Delightful authentic cuisine."}
+            'url("LandingPagePic1.jpg")',
+            'url("LandingPagePic2.png")',
+            'url("LandingPagePic3.png")',
+            'url("LandingPagePic4.png")',
+            'url("LandingPagePic5.png")',
+            'url("LandingPagePic6.png")'
         ];
 
         let currentIndex = 0;
 
         function changeSlide() {
-            document.body.style.backgroundImage = slides[currentIndex].image;
-            document.getElementById('text-content').innerText = slides[currentIndex].text;
+            document.body.style.backgroundImage = slides[currentIndex];
             currentIndex = (currentIndex + 1) % slides.length;
         }
 
-        // Panggil pertama kali
         changeSlide();
 
-        // Ganti latar belakang setiap 30 detik
         setInterval(changeSlide, 5000);
     </script>
+
+    <video width="800" height="450" controls autoplay loop muted>
+        <source src="lombokvideo.mp4" type="video/mp4">
+    </video>
 
 </body>
 </html>

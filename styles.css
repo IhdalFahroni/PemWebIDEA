@@ -68,7 +68,7 @@ a.sign-up {
     color: #8D6E63;
 }
 
-a:hover {
+.clickable a:hover {
     color:blue;
 }
 
@@ -88,3 +88,11 @@ a:hover {
     background: #a89e8c;
 }
 
+.clickable-big-button-text {
+    text-decoration: none;
+    color: white;
+}
+
+.clickable-big-button-text a:hover {
+    text-decoration: none;
+}
