@@ -75,10 +75,20 @@ body {
 .forgot-password{
     display: block;
     text-align: right;
+    color: red;
 }
 
-.register{
+.sign-up{
     margin-top: 20px;
+}
+
+a.sign-up {
+    text-decoration: none;
+    color: #8D6E63;
+}
+
+.clickable a:hover {
+    color:blue;
 }
 
 .big-button {
@@ -97,3 +107,11 @@ body {
     background: #a89e8c;
 }
 
+.clickable-big-button-text {
+    text-decoration: none;
+    color: white;
+}
+
+.clickable-big-button-text a:hover {
+    text-decoration: none;
+}

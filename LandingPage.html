@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -88,3 +89,52 @@
 
 </body>
 </html>
+=======
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to LombokRec</title>
+    <link rel="stylesheet" href="landingStyles.css">
+</head>
+<body>
+
+    <div class="nav">
+        <a href="LoginPage.html">Login</a> | <a href="SignUpPage.html">Sign Up</a>
+    </div>
+
+    <div class="content">
+        Discover the beauty of Lombok <br>
+        from stunning destinations <br>
+        to delicious local cuisine
+    </div>
+
+    <script>
+        const slides = [
+            'url("LandingPagePic1.jpg")',
+            'url("LandingPagePic2.png")',
+            'url("LandingPagePic3.png")',
+            'url("LandingPagePic4.png")',
+            'url("LandingPagePic5.png")',
+            'url("LandingPagePic6.png")'
+        ];
+
+        let currentIndex = 0;
+
+        function changeSlide() {
+            document.body.style.backgroundImage = slides[currentIndex];
+            currentIndex = (currentIndex + 1) % slides.length;
+        }
+
+        changeSlide();
+
+        setInterval(changeSlide, 5000);
+    </script>
+
+    <video width="800" height="450" controls autoplay loop muted>
+        <source src="lombokvideo.mp4" type="video/mp4">
+    </video>
+
+</body>
+</html>
+>>>>>>> cf024a4b5174d69e28904c6886ae515d8f69c853
