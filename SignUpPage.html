@@ -2,22 +2,19 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD:RegisterPage.html
-        <title>Register</title>
-=======
         <title>Sign Up | LombokRec</title>
->>>>>>> cf024a4b5174d69e28904c6886ae515d8f69c853:SignUpPage.html
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="background-overlay">
             <div class="container">
                 <h2>Sign Up</h2>
-                <input type="text" class="input-box" placeholder="Email">
-                <input type="text" class="input-box" placeholder="Username">
-                <input type="password" class="input-box" placeholder="Password">
-                <button class="big-button"><a href="LandingPage.html" class="clickable-big-button-text">Sign Up</a></button>
+                <input type="text" id="email" class="input-box" placeholder="Email">
+                <input type="text" id="username"class="input-box" placeholder="Username">
+                <input type="password" id="password" class="input-box" placeholder="Password">
+                <button class="big-button" onclick="return handleAuth()"><a href="LandingPage.html" class="clickable-big-button-text">Sign Up</a></button>
             </div>
         </div>
+        <script src="script.js"></script>
     </body>
 </html>
