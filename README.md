@@ -12,13 +12,35 @@ Localhost
 
 **Menu Utama**
 
-- Landing Page
-- Sign Up
-- Login
-- Melihat Daftar Tempat Wisata/Kuliner
-- Melihat Informasi Tempat Wisata/Kuliner
+    USER
+      -Landing Page
+        -Sign Up
+        -Login
+          -Menambahkan Tempat Wisata Kuliner
+          -Menambahkan Comment/Review
+      -Klaim Tempat Kuliner
+      -Melihat Daftar Tempat Wisata Kuliner
+      -Melihat Informasi Tempat Wisata Kuliner
+
+    ADMIN
+      -Landing Page
+      -Login
+        -Verifikasi Penambahan Tempat
+        -Menambahkan Tempat Wisata dan Kuliner
+        -Melihat Comment dan Review
+        -Mengelola Informasi Tempat Wisata dan Kuliner
+        -Verifikasi Klaim Tempat Kuliner
+    
+    PEMILIK TEMPAT KULINER
+      -Landing Page
+      -Login
+        -Edit Informasi Tempat Kuliner
+        -Menambahkan Informasi Promo/Menu
+        -Melihat Daftar Tempat Wisata Kuliner
+        -Melihat Informasi Tempat Wisata Kuliner
 
 **Teknologi**
+
 HTML
 CSS
 JavaScript
