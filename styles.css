@@ -1,3 +1,4 @@
+/* Global reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +8,14 @@
 
 body {
     background: url('https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/LandingPagePic1.jpg') no-repeat center center/cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    flex-direction: column;
 }
 
+/* Overlay background blur */
 .background-overlay {
     position: absolute;
     width: 100%;
@@ -24,7 +26,8 @@ body {
     align-items: center;
 }
 
-.container{
+/* Auth container */
+.container {
     background: rgba(255, 250, 230, 0.85);
     padding: 30px;
     border-radius: 15px;
@@ -35,6 +38,7 @@ body {
     z-index: 1;
 }
 
+/* Headers */
 .container h2 {
     font-size: 22px;
     font-weight: bold;
@@ -42,6 +46,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Inputs */
 .input-box {
     width: 100%;
     padding: 10px;
@@ -56,41 +61,7 @@ body {
     color: #a89e8c;
 }
 
-.clickable {
-    display: inline;
-    font-size: 12px;
-    margin-bottom: 15px;
-    color: #8D6E63;
-    text-decoration: none;
-}
-
-.no-click {
-    display: inline;
-    font-size: 12px;
-    margin-bottom: 15px;
-    color: #8D6E63;
-    text-decoration: none;
-}
-
-.forgot-password{
-    display: block;
-    text-align: right;
-    color: red;
-}
-
-.sign-up{
-    margin-top: 20px;
-}
-
-a.sign-up {
-    text-decoration: none;
-    color: #8D6E63;
-}
-
-.clickable a:hover {
-    color:blue;
-}
-
+/* Buttons */
 .big-button {
     width: 100%;
     padding: 12px;
@@ -105,6 +76,33 @@ a.sign-up {
 
 .big-button:hover {
     background: #a89e8c;
+}
+
+/* Links and clickable texts */
+.clickable,
+.no-click {
+    font-size: 12px;
+    color: #8D6E63;
+    text-decoration: none;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    color: red;
+}
+
+.sign-up {
+    margin-top: 20px;
+}
+
+a.sign-up {
+    text-decoration: none;
+    color: #8D6E63;
+}
+
+.clickable a:hover {
+    color: blue;
 }
 
 .clickable-big-button-text {

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard | LombokRec</title>
+    <link rel="stylesheet" href="DashStyles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Welcome to LombokRec Dashboard</h1>
+        <nav>
+            <a href="LandingPage.html">Home</a>
+            <a href="LoginPage.html">Logout</a>
+        </nav>
+    </header>
+
+    <section class="search-section">
+        <input type="text" placeholder="Search destinations or food..." id="search-box" />
+        <button onclick="searchItems()">Search</button>
+    </section>
+
+    <section class="destinations-section">
+        <h2>Recommended Destinations</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="LandingPagePic2.png" alt="Selong Belanak Beach"/>
+                <h3>Selong Belanak Beach</h3>
+                <p>Located in South Lombok, this beach offers a peaceful setting and stunning sunsets. Perfect for surfing and relaxing.</p>
+                <p class="rating"><i class="fas fa-star"></i> 4.2</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic3.png" alt="Rinjani Mountain"/>
+                <h3>Rinjani Mountain</h3>
+                <p>The second highest volcano in Indonesia. Ideal for hikers and adventurers who seek breathtaking views.</p>
+                <p class="rating"><i class="fas fa-star"></i> 5.0</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic4.png" alt="Gili Meno"/>
+                <h3>Gili Meno</h3>
+                <p>A peaceful island north of Lombok, perfect for snorkeling, diving, and a quiet getaway.</p>
+                <p class="rating"><i class="fas fa-star"></i> 3.4</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic7.png" alt="Tanjung Aan Beach"/>
+                <h3>Tanjung Aan Beach</h3>
+                <p>Famous for its pepper-like sand and turquoise water. Great for beach lovers and sunbathers.</p>
+                <p class="rating"><i class="fas fa-star"></i> 4.7</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic8.png" alt="Pink Beach"/>
+                <h3>Pink Beach</h3>
+                <p>One of the few pink sand beaches in the world. A rare and picturesque location for photography and swimming.</p>
+                <p class="rating"><i class="fas fa-star"></i> 4.5</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="culinary-section">
+        <h2>Top Culinary in Lombok</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="LandingPagePic4.png" alt="Plecing Kangkung"/>
+                <h3>Plecing Kangkung</h3>
+                <p>A spicy water spinach dish served with sambal. A must-try local delicacy full of bold flavors.</p>
+                <p class="rating"><i class="fas fa-star"></i> 4.8</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic5.png" alt="Sate Bulayak"/>
+                <h3>Sate Bulayak</h3>
+                <p>Unique satay served with compressed rice wrapped in palm leaf. Rich in taste and tradition.</p>
+                <p class="rating"><i class="fas fa-star"></i> 3.6</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic6.png" alt="Nasi Puyung"/>
+                <h3>Nasi Puyung</h3>
+                <p>Rice dish with spicy shredded chicken and local side dishes, perfect for a hearty meal.</p>
+                <p class="rating"><i class="fas fa-star"></i> 1.2</p>
+            </div>
+            <div class="card">
+                <img src="LandingPagePic9.png" alt="Ayam Taliwang"/>
+                <h3>Ayam Taliwang</h3>
+                <p>Spicy grilled chicken dish typical of Lombok. Bold, spicy, and rich in flavor.</p>
+                <p class="rating"><i class="fas fa-star"></i> 4.9</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LombokRec | Contact: lombokrec@gmail.com | IG: @lombokrec</p>
+    </footer>
+
+    <script>
+        function searchItems() {
+            const query = document.getElementById("search-box").value.toLowerCase();
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? "block" : "none";
+            });
+        }
+    </script>
+</body>
+</html>
