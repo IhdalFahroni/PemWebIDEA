@@ -1,349 +1,408 @@
-/* ======================================================
-   STYLESHEET UNTUK LOMBOKREC EXPLORE PAGE
-   ======================================================
-   Table of Contents:
-   1.  Import Font & Global Setup
-   2.  CSS Variables (Warna & Jarak)
-   3.  Reset & Body Styles
-   4.  Container Utama
-   5.  Header Styles
-   6.  Tabs Navigation Styles
-   7.  Search Bar Styles
-   8.  Content Area & Navigation Arrows
-   9.  Card Grid Layout
-   10. Individual Card Styles
-   11. Floating Action Button (FAB)
-   12. Responsive Design (Media Queries)
-   ====================================================== */
-
-/* 1. Import Font & Global Setup */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
+/* Reset CSS - Menghapus margin dan padding default browser */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Membuat width/height termasuk padding dan border */
 }
 
-/* 2. CSS Variables (Warna & Jarak) */
-:root {
-    /* Palet Warna */
-    --bg-gradient-start: #ffc107; /* Kuning Krem */
-    --bg-gradient-end: #fffbe6;   /* Oranye Muda (Moccasin) */
-    --tab-color: #007BFF;       /* Biru untuk Tab */
-    --tab-active-color: #0056b3;/* Biru Tua untuk Tab Aktif */
-    --card-bg: #FFFFFF;         /* Putih */
-    --text-dark: #333333;       /* Hitam Abu-abu */
-    --text-light: #666666;      /* Abu-abu */
-    --star-color: #FFD700;      /* Emas */
-    --border-color: #E0E0E0;    /* Abu-abu Sangat Muda */
-    --fab-color: #FFC107;       /* Kuning (Amber) */
-
-    /* Jarak (Berdasarkan Gambar) */
-    --spacing-unit: 1px; /* Unit dasar, bisa disesuaikan */
-    --gap-horizontal: calc(40 * var(--spacing-unit)); /* Jarak antar kartu (horizontal) */
-    --padding-sides: calc(25 * var(--spacing-unit));  /* Padding kiri-kanan utama */
-    --gap-internal-1: calc(9 * var(--spacing-unit));  /* Jarak internal kartu (kecil) */
-    --gap-internal-2: calc(17 * var(--spacing-unit)); /* Jarak internal kartu (besar) */
-    --gap-vertical: calc(30 * var(--spacing-unit));   /* Jarak antar baris kartu (estimasi) */
-}
-
-/* 3. Reset & Body Styles */
+/* Styling untuk body - Background dan font dasar */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #ffc107 0%, #ffc1078f 24%, #fffbe6 100%);
-    color: var(--text-dark);
-    min-height: 100vh;
-    line-height: 1.6; /* Keterbacaan teks */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #FFE082, #FFA726); /* Gradient kuning ke orange */
+    min-height: 100vh; /* Minimal tinggi full viewport */
 }
 
-/* 4. Container Utama */
+/* Container utama - Mengatur lebar maksimal dan posisi tengah */
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px var(--padding-sides);
-    position: relative;
-    padding-bottom: 90px; /* Beri ruang lebih untuk FAB */
+    margin: 0 auto; /* Center horizontal */
+    padding: 20px;
 }
 
-/* 5. Header Styles */
-.header {
+/* ===== SIDEBAR NAVIGATION ===== */
+/* Sidebar kiri dengan ikon navigasi */
+.sidebar {
+    position: fixed; /* Fixed position agar tidak bergerak saat scroll */
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 100vh; /* Full viewport height */
+    background: rgba(255, 255, 255, 0.1); /* Background transparan */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Ikon tersusun vertikal */
     align-items: center;
-    margin-bottom: 25px;
-    padding: 10px 0;
+    padding: 20px 0;
+    gap: 30px; /* Jarak antar ikon */
+    z-index: 100; /* Pastikan di atas konten lain */
 }
 
-.menu-btn {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-dark);
-}
-
-.header h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: center;
-    color: var(--text-dark);
-    flex-grow: 1; /* Agar judul memenuhi ruang */
-}
-
-.placeholder {
-    width: 1.5rem; /* Samakan dengan lebar tombol menu */
-    visibility: hidden; /* Sembunyikan tapi tetap ambil ruang */
-}
-
-/* 6. Tabs Navigation Styles */
-.tabs {
+/* Styling untuk setiap ikon di sidebar */
+.sidebar-icon {
+    width: 30px;
+    height: 30px;
+    background: #FF9800; /* Warna orange */
+    border-radius: 5px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 15px; /* Tambah padding bawah */
-}
-
-.tab {
-    text-decoration: none;
-    color: var(--tab-color);
-    background-color: transparent;
-    border: 2px solid var(--tab-color);
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Jarak antara ikon dan teks */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
-}
-
-.tab:hover,
-.tab.active {
-    background-color: var(--tab-color);
     color: white;
-    border-color: var(--tab-color);
-}
-
-/* 7. Search Bar Styles */
-.search-bar {
-    display: flex;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 40px auto; /* Tambah margin bawah */
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-
-.search-bar input {
-    flex-grow: 1;
-    border: none;
-    padding: 15px 25px; /* Tambah padding */
-    font-size: 1rem;
-    outline: none;
-    background: none;
-}
-
-.search-bar button {
-    background: none;
-    border: none;
-    padding: 0 25px; /* Tambah padding */
-    font-size: 1.1rem;
-    color: var(--text-light);
+    font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease; /* Animasi smooth */
 }
 
-/* 8. Content Area & Navigation Arrows */
-.content-area {
-    position: relative;
-    /* Beri padding jika panah ditaruh di dalam */
-    /* padding: 0 45px; */
+/* Efek hover untuk ikon sidebar */
+.sidebar-icon:hover {
+    transform: scale(1.1); /* Membesar sedikit saat hover */
 }
 
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8); /* Agak transparan */
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 45px; /* Perbesar sedikit */
-    height: 45px; /* Perbesar sedikit */
-    font-size: 1.3rem;
-    color: var(--text-dark);
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.nav-arrow:hover {
-    background-color: white;
-    transform: translateY(-50%) scale(1.05);
-}
-
-.nav-arrow.left {
-    left: 0px; /* Posisikan tepat di tepi (atau sedikit keluar: -15px) */
-}
-
-.nav-arrow.right {
-    right: 0px; /* Posisikan tepat di tepi (atau sedikit keluar: -15px) */
-}
-
-/* 9. Card Grid Layout */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
-    /* Jarak Vertikal var(--gap-vertical), Jarak Horizontal var(--gap-horizontal) */
-    gap: var(--gap-vertical) var(--gap-horizontal); 
-    padding: 10px 0;
-}
-
-/* 10. Individual Card Styles */
-.card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Penting untuk border-radius gambar */
+/* ===== EXPANDED SIDEBAR MENU ===== */
+/* Sidebar menu yang muncul ketika hamburger diklik */
+.sidebar-menu {
+    position: fixed;
+    left: -300px; /* Tersembunyi di kiri */
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: left 0.3s ease;
+    z-index: 200;
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar menu ketika aktif/terbuka */
+.sidebar-menu.active {
+    left: 0; /* Muncul dari kiri */
+}
+
+/* Header sidebar dengan logo */
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    background: #FF9800;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.logo-highlight {
+    background: #333;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 2px;
+}
+
+/* Konten utama sidebar menu */
+.sidebar-content {
+    flex: 1;
+    padding: 20px 0;
+}
+
+/* Styling untuk setiap menu item */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    color: #333;
+}
+
+.menu-item:hover {
+    background: rgba(255, 152, 0, 0.1);
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF9800;
+    font-weight: bold;
+}
+
+.menu-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Menu bagian bawah */
+.sidebar-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+/* Email di bawah username */
+.menu-email {
+    font-size: 12px;
+    color: #666;
+    margin-left: auto;
+}
+
+/* Overlay untuk menutup sidebar */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 150;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Overlay aktif */
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===== MAIN CONTENT AREA ===== */
+/* Area konten utama - diberi margin kiri untuk menghindari sidebar */
+.main-content {
+    margin-left: 80px; /* Memberikan ruang untuk sidebar */
+}
+
+/* ===== HEADER SECTION ===== */
+/* Container untuk header dengan judul dan filter */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Judul utama halaman */
+.header h1 {
+    color: white;
+    font-size: 3rem; /* 48px */
+    font-weight: 300; /* Light weight */
+    margin-bottom: 30px;
+}
+
+/* ===== FILTER TABS ===== */
+/* Container untuk tab filter */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar tab */
+    margin-bottom: 30px;
+}
+
+/* Styling untuk setiap tab */
+.tab {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.3); /* Background transparan */
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara emoji dan teks */
+}
+
+/* Tab yang sedang aktif */
+.tab.active {
+    background: rgba(255, 255, 255, 0.5); /* Background lebih terang */
+}
+
+/* ===== SEARCH BOX ===== */
+/* Container untuk search box */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+/* Styling untuk input search */
+.search-box {
+    width: 500px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px; /* Fully rounded */
+    background: rgba(255, 255, 255, 0.9); /* Hampir putih */
+    font-size: 16px;
+    outline: none; /* Menghilangkan outline default */
+}
+
+/* ===== DESTINATIONS GRID ===== */
+/* Grid container untuk card destinasi */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Jarak antar card */
+    margin-bottom: 30px;
+}
+
+/* ===== DESTINATION CARDS ===== */
+/* Styling untuk setiap card destinasi */
+.destination-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar tidak keluar dari border-radius */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Shadow lembut */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Untuk positioning badge */
 }
 
-.card:hover {
-    transform: translateY(-8px); /* Efek angkat lebih jelas */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+/* Efek hover untuk card */
+.destination-card:hover {
+    transform: translateY(-5px); /* Naik sedikit */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Shadow lebih kuat */
 }
 
-.card img {
+/* Gambar di dalam card */
+.card-image {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Agar gambar pas tanpa distorsi */
-    display: block; /* Hapus spasi ekstra */
+    object-fit: cover; /* Gambar proporsional tanpa distorsi */
 }
 
-.card-body {
-    padding: 20px; /* Padding seragam */
-    text-align: center;
+/* Container untuk konten teks card */
+.card-content {
+    padding: 20px;
+}
+
+/* Judul destinasi */
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600; /* Semi-bold */
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Container untuk rating dan "See details" */
+.card-rating {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; /* Pisah kiri dan kanan */
     align-items: center;
-    flex-grow: 1; /* Agar bagian bawah kartu memenuhi ruang */
 }
 
-.card h3 {
-    font-size: 1.15rem; /* Sedikit lebih besar */
-    font-weight: 600;
-    margin-bottom: var(--gap-internal-1); /* 9px */
-    min-height: 48px; /* Sesuaikan agar tinggi konsisten */
-    color: var(--text-dark);
+/* Styling untuk bintang rating */
+.stars {
+    color: #FFD700; /* Warna emas */
+    font-size: 14px;
 }
 
-.rating {
-    color: var(--star-color);
-    margin-bottom: var(--gap-internal-1); /* 9px */
-    font-size: 0.95rem; /* Sedikit lebih besar */
-}
-
-.details-link {
+/* Link "See details" */
+.see-details {
+    color: #FF9800; /* Warna orange */
+    font-size: 12px;
     text-decoration: none;
-    color: var(--tab-color);
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin-top: var(--gap-internal-2); /* 17px */
-    display: inline-block;
-    padding: 5px 10px; /* Beri area klik yang lebih baik */
-    border: 1px solid transparent;
-    border-radius: 5px;
-    transition: all 0.2s ease;
-}
-
-.details-link:hover {
-    background-color: var(--tab-color);
-    color: white;
-}
-
-/* 11. Floating Action Button (FAB) */
-.floating-btn {
-    position: fixed;
-    bottom: 30px;
-    left: var(--padding-sides);
-    background-color: var(--fab-color);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 60px; /* Perbesar */
-    height: 60px; /* Perbesar */
-    font-size: 1.6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    z-index: 100;
-    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.floating-btn:hover {
-    transform: scale(1.1);
-    background-color: #FFB300; /* Kuning lebih gelap */
+/* ===== NAVIGATION ARROW ===== */
+/* Tombol arrow navigasi di sisi kanan */
+.navigation-arrow {
+    position: absolute;
+    right: 20px;
+    top: 50%; /* Tengah vertikal */
+    transform: translateY(-50%); /* Center perfect */
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    color: #FF9800;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* 12. Responsive Design (Media Queries) */
-@media (max-width: 992px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
-        gap: var(--gap-vertical) calc(var(--gap-horizontal) * 0.75); /* Kurangi gap horizontal */
-    }
-    .header h1 {
-        font-size: 1.6rem;
-    }
+/* Efek hover untuk navigation arrow */
+.navigation-arrow:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1); /* Tetap center + membesar */
 }
 
-@media (max-width: 600px) {
-    .card-grid {
-        grid-template-columns: 1fr; /* 1 kolom untuk mobile */
-        gap: var(--gap-vertical) 0;
+/* ===== FIXED ICONS ===== */
+/* Ikon pengaturan di pojok kiri bawah */
+.settings-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    background: #FF9800;
+    border-radius: 50%; /* Circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+/* Ikon user di pojok kiri bawah */
+.user-icon {
+    position: fixed;
+    bottom: 70px; /* Di atas settings icon */
+    left: 15px;
+    width: 30px;
+    height: 30px;
+    background: #FF9800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Media query untuk layar mobile/tablet */
+@media (max-width: 768px) {
+    /* Hilangkan margin kiri di mobile */
+    .main-content {
+        margin-left: 0;
     }
-    .header {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .header h1 {
-        font-size: 1.4rem;
-        order: -1; /* Pindahkan judul ke atas di mobile */
-    }
-    .menu-btn {
-        position: absolute;
-        top: 25px;
-        left: var(--padding-sides);
-    }
-    .placeholder {
+    
+    /* Sembunyikan sidebar di mobile */
+    .sidebar {
         display: none;
     }
-    .tabs {
-        flex-direction: column;
-        align-items: stretch; /* Agar tab penuh */
-        text-align: center;
+    
+    /* Perkecil ukuran judul di mobile */
+    .header h1 {
+        font-size: 2rem; /* 32px */
     }
-    .nav-arrow {
-        display: none; /* Sembunyikan panah di mobile */
+    
+    /* Search box responsif */
+    .search-box {
+        width: 90%; /* Hampir full width */
     }
-    .search-bar input, .search-bar button {
-        padding: 12px 18px;
-    }
-    .floating-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.3rem;
-        bottom: 20px;
+    
+    /* Grid menjadi 1 kolom di mobile */
+    .destinations-grid {
+        grid-template-columns: 1fr;
     }
 }
