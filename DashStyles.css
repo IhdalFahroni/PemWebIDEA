@@ -1,128 +1,349 @@
-/* Reset & base styles */
+/* ======================================================
+   STYLESHEET UNTUK LOMBOKREC EXPLORE PAGE
+   ======================================================
+   Table of Contents:
+   1.  Import Font & Global Setup
+   2.  CSS Variables (Warna & Jarak)
+   3.  Reset & Body Styles
+   4.  Container Utama
+   5.  Header Styles
+   6.  Tabs Navigation Styles
+   7.  Search Bar Styles
+   8.  Content Area & Navigation Arrows
+   9.  Card Grid Layout
+   10. Individual Card Styles
+   11. Floating Action Button (FAB)
+   12. Responsive Design (Media Queries)
+   ====================================================== */
+
+/* 1. Import Font & Global Setup */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
+/* 2. CSS Variables (Warna & Jarak) */
+:root {
+    /* Palet Warna */
+    --bg-gradient-start: #ffc107; /* Kuning Krem */
+    --bg-gradient-end: #fffbe6;   /* Oranye Muda (Moccasin) */
+    --tab-color: #007BFF;       /* Biru untuk Tab */
+    --tab-active-color: #0056b3;/* Biru Tua untuk Tab Aktif */
+    --card-bg: #FFFFFF;         /* Putih */
+    --text-dark: #333333;       /* Hitam Abu-abu */
+    --text-light: #666666;      /* Abu-abu */
+    --star-color: #FFD700;      /* Emas */
+    --border-color: #E0E0E0;    /* Abu-abu Sangat Muda */
+    --fab-color: #FFC107;       /* Kuning (Amber) */
+
+    /* Jarak (Berdasarkan Gambar) */
+    --spacing-unit: 1px; /* Unit dasar, bisa disesuaikan */
+    --gap-horizontal: calc(40 * var(--spacing-unit)); /* Jarak antar kartu (horizontal) */
+    --padding-sides: calc(25 * var(--spacing-unit));  /* Padding kiri-kanan utama */
+    --gap-internal-1: calc(9 * var(--spacing-unit));  /* Jarak internal kartu (kecil) */
+    --gap-internal-2: calc(17 * var(--spacing-unit)); /* Jarak internal kartu (besar) */
+    --gap-vertical: calc(30 * var(--spacing-unit));   /* Jarak antar baris kartu (estimasi) */
+}
+
+/* 3. Reset & Body Styles */
 body {
-    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ffc107 0%, #ffc1078f 24%, #fffbe6 100%);
+    color: var(--text-dark);
     min-height: 100vh;
+    line-height: 1.6; /* Keterbacaan teks */
 }
 
-/* Header */
-.dashboard-header {
-    width: 100%;
-    background-color: #005f73;
-    color: white;
-    padding: 1em;
-    text-align: center;
+/* 4. Container Utama */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px var(--padding-sides);
+    position: relative;
+    padding-bottom: 90px; /* Beri ruang lebih untuk FAB */
 }
 
-.dashboard-header nav a {
-    color: white;
-    margin: 0 1em;
-    text-decoration: none;
-}
-
-.dashboard-header nav a:hover {
-    text-decoration: underline;
-}
-
-/* Search Section */
-.search-section {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
-    margin: 2em auto;
-}
-
-.search-section input {
-    padding: 0.5em;
-    width: 60%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
-
-.search-section button {
-    padding: 0.5em 1em;
-    background-color: #8D6E63;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.search-section button:hover {
-    background-color: #6e4e3f;
-}
-
-/* Section Titles */
-.destinations-section h2,
-.culinary-section h2 {
-    text-align: center;
-    margin-top: 2em;
-    color: #333;
-}
-
-/* Cards Container */
-.cards {
+/* 5. Header Styles */
+.header {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 10px 0;
 }
 
-/* Individual Card */
-.card {
-    background: white;
-    width: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
     text-align: center;
-    padding-bottom: 1em;
-    transition: transform 0.3s ease;
+    color: var(--text-dark);
+    flex-grow: 1; /* Agar judul memenuhi ruang */
+}
+
+.placeholder {
+    width: 1.5rem; /* Samakan dengan lebar tombol menu */
+    visibility: hidden; /* Sembunyikan tapi tetap ambil ruang */
+}
+
+/* 6. Tabs Navigation Styles */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px; /* Tambah padding bawah */
+}
+
+.tab {
+    text-decoration: none;
+    color: var(--tab-color);
+    background-color: transparent;
+    border: 2px solid var(--tab-color);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
+}
+
+.tab:hover,
+.tab.active {
+    background-color: var(--tab-color);
+    color: white;
+    border-color: var(--tab-color);
+}
+
+/* 7. Search Bar Styles */
+.search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px auto; /* Tambah margin bawah */
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    padding: 15px 25px; /* Tambah padding */
+    font-size: 1rem;
+    outline: none;
+    background: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    padding: 0 25px; /* Tambah padding */
+    font-size: 1.1rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+/* 8. Content Area & Navigation Arrows */
+.content-area {
+    position: relative;
+    /* Beri padding jika panah ditaruh di dalam */
+    /* padding: 0 45px; */
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Agak transparan */
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px; /* Perbesar sedikit */
+    height: 45px; /* Perbesar sedikit */
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-arrow:hover {
+    background-color: white;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.nav-arrow.left {
+    left: 0px; /* Posisikan tepat di tepi (atau sedikit keluar: -15px) */
+}
+
+.nav-arrow.right {
+    right: 0px; /* Posisikan tepat di tepi (atau sedikit keluar: -15px) */
+}
+
+/* 9. Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    /* Jarak Vertikal var(--gap-vertical), Jarak Horizontal var(--gap-horizontal) */
+    gap: var(--gap-vertical) var(--gap-horizontal); 
+    padding: 10px 0;
+}
+
+/* 10. Individual Card Styles */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Penting untuk border-radius gambar */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px); /* Efek angkat lebih jelas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* Agar gambar pas tanpa distorsi */
+    display: block; /* Hapus spasi ekstra */
+}
+
+.card-body {
+    padding: 20px; /* Padding seragam */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1; /* Agar bagian bawah kartu memenuhi ruang */
 }
 
 .card h3 {
-    margin: 0.5em 0 0.2em;
-    color: #5d4037;
-}
-
-.card p {
-    padding: 0 1em;
-    font-size: 14px;
-    color: #444;
+    font-size: 1.15rem; /* Sedikit lebih besar */
+    font-weight: 600;
+    margin-bottom: var(--gap-internal-1); /* 9px */
+    min-height: 48px; /* Sesuaikan agar tinggi konsisten */
+    color: var(--text-dark);
 }
 
 .rating {
-    font-weight: bold;
-    color: #ffa500;
-    margin-top: 0.5em;
+    color: var(--star-color);
+    margin-bottom: var(--gap-internal-1); /* 9px */
+    font-size: 0.95rem; /* Sedikit lebih besar */
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #005f73;
+.details-link {
+    text-decoration: none;
+    color: var(--tab-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: var(--gap-internal-2); /* 17px */
+    display: inline-block;
+    padding: 5px 10px; /* Beri area klik yang lebih baik */
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.details-link:hover {
+    background-color: var(--tab-color);
     color: white;
-    margin-top: 2em;
-    width: 100%;
+}
+
+/* 11. Floating Action Button (FAB) */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    left: var(--padding-sides);
+    background-color: var(--fab-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px; /* Perbesar */
+    height: 60px; /* Perbesar */
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    background-color: #FFB300; /* Kuning lebih gelap */
+}
+
+/* 12. Responsive Design (Media Queries) */
+@media (max-width: 992px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
+        gap: var(--gap-vertical) calc(var(--gap-horizontal) * 0.75); /* Kurangi gap horizontal */
+    }
+    .header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 kolom untuk mobile */
+        gap: var(--gap-vertical) 0;
+    }
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .header h1 {
+        font-size: 1.4rem;
+        order: -1; /* Pindahkan judul ke atas di mobile */
+    }
+    .menu-btn {
+        position: absolute;
+        top: 25px;
+        left: var(--padding-sides);
+    }
+    .placeholder {
+        display: none;
+    }
+    .tabs {
+        flex-direction: column;
+        align-items: stretch; /* Agar tab penuh */
+        text-align: center;
+    }
+    .nav-arrow {
+        display: none; /* Sembunyikan panah di mobile */
+    }
+    .search-bar input, .search-bar button {
+        padding: 12px 18px;
+    }
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+        bottom: 20px;
+    }
 }
