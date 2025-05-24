@@ -3,176 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Destinations</title>
-    <!-- Link ke file CSS eksternal -->
+    <title>Travel Destinations | LombokRec</title>
     <link rel="stylesheet" href="../public/output.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Gradient background untuk body tetap di sini karena kompleksitasnya */
+        body {
+            background: linear-gradient(to bottom, rgba(255, 193, 7, 0.75) 1%, rgba(255, 193, 7, 0.5) 24%, #FFFFFF 50%);
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif; /* Font default dari CSS asli Anda */
+        }
+        /* Style scrollbar (opsional) */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #FF9800; border-radius: 6px;} /* Warna oranye untuk thumb */
+        ::-webkit-scrollbar-thumb:hover { background: #e08700; }
+    </style>
 </head>
-<body>
-    <!-- Sidebar kiri dengan ikon navigasi -->
-    <div class="sidebar">
-        <!-- Ikon menu hamburger -->
-        <div class="sidebar-icon hamburger-icon">≡</div>
-        <!-- Ikon tambah/plus -->
-        <div class="sidebar-icon">+</div>
-        <!-- Ikon sort/urutkan -->
-        <div class="sidebar-icon">↕</div>
-        <!-- Ikon notifikasi -->
-        <div class="sidebar-icon">🔔</div>
-    </div>
+<body class="text-gray-800">
 
-    <!-- Expanded sidebar menu yang muncul saat hamburger diklik -->
-    <div class="sidebar-menu" id="sidebarMenu">
-        <!-- Header sidebar dengan logo -->
-        <div class="sidebar-header">
-            <div class="sidebar-logo">
-                <span class="logo-icon">≡</span>
-                <span class="logo-text">LOMBOK<span class="logo-highlight">REC</span></span>
-            </div>
+    <div class="fixed left-0 top-0 w-[60px] h-screen bg-white/50 flex-col items-center py-5 gap-8 z-[100] hidden md:flex">
+        <div id="hamburgerBtn" class="w-8 h-8 bg-[#FF9800] rounded flex items-center justify-center text-white font-bold cursor-pointer transition hover:scale-110">
+            <i class="fa-solid fa-bars"></i>
         </div>
-        
-        <!-- Menu items -->
-        <div class="sidebar-content">
-            <div class="menu-item">
-                <span class="menu-icon">+</span>
-                <span class="menu-text">Add tourist destination</span>
-            </div>
-            
-            <div class="menu-item">
-                <span class="menu-icon">↕</span>
-                <span class="menu-text">Manage culinary site</span>
-            </div>
-            
-            <div class="menu-item">
-                <span class="menu-icon">🔔</span>
-                <span class="menu-text">Notifications</span>
-            </div>
+        <div class="w-8 h-8 bg-[#FF9800] rounded flex items-center justify-center text-white font-bold cursor-pointer transition hover:scale-110">
+            <i class="fa-solid fa-plus"></i>
         </div>
-        
-        <!-- Bottom menu items -->
-        <div class="sidebar-bottom">
-            <div class="menu-item">
-                <span class="menu-icon">⚙</span>
-                <span class="menu-text">Settings</span>
+        <div class="w-8 h-8 bg-[#FF9800] rounded flex items-center justify-center text-white font-bold cursor-pointer transition hover:scale-110">
+            <i class="fa-solid fa-sort"></i>
+        </div>
+        <div class="w-8 h-8 bg-[#FF9800] rounded flex items-center justify-center text-white font-bold cursor-pointer transition hover:scale-110">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+         <div class="absolute bottom-5 left-0 right-0 flex flex-col items-center gap-5">
+            <div class="w-8 h-8 bg-[#FF9800] rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110">
+                <i class="fa-solid fa-user"></i>
             </div>
-            
-            <div class="menu-item">
-                <span class="menu-icon">👤</span>
-                <span class="menu-text">Username</span>
-                <span class="menu-email">@email.gmail.com</span>
+             <div class="w-8 h-8 bg-[#FF9800] rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110">
+                <i class="fa-solid fa-gear"></i>
             </div>
         </div>
     </div>
 
-    <!-- Overlay untuk menutup sidebar ketika diklik di luar -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-white/95 backdrop-blur-md z-[200] flex flex-col shadow-lg transition-transform duration-300 ease-in-out -translate-x-full">
+        <div class="p-5 border-b border-black/10">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-[#FF9800] rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeBtn">
+                     <i class="fa-solid fa-bars"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
+            </div>
+        </div>
+        <div class="flex-1 p-5 space-y-2">
+            <a href="#" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-[#FF9800]/10 text-gray-800">
+                <span class="w-5 h-5 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-plus"></i></span>
+                <span class="text-sm font-medium">Add tourist destination</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-[#FF9800]/10 text-gray-800">
+                <span class="w-5 h-5 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-sort"></i></span>
+                <span class="text-sm font-medium">Manage culinary site</span>
+            </a>
+             <a href="#" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-[#FF9800]/10 text-gray-800">
+                <span class="w-5 h-5 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-bell"></i></span>
+                <span class="text-sm font-medium">Notifications</span>
+            </a>
+        </div>
+        <div class="p-5 border-t border-black/10 space-y-3">
+             <a href="#" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-[#FF9800]/10 text-gray-800">
+                <span class="w-5 h-5 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-gear"></i></span>
+                <span class="text-sm font-medium">Settings</span>
+            </a>
+            <div class="flex items-center gap-4 p-3 rounded text-gray-800">
+                <span class="w-8 h-8 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-sm font-medium">Username</span>
+                    <span class="text-xs text-gray-500">@email.gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Ikon pengaturan di pojok kiri bawah -->
-    <div class="settings-icon">⚙</div>
-    <!-- Ikon user di pojok kiri bawah -->
-    <div class="user-icon">👤</div>
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/30 z-[150] opacity-0 invisible transition-all duration-300"></div>
 
-    <!-- Container utama untuk semua konten -->
-    <div class="container">
+    <div class="container mx-auto px-4 md:px-8 py-5 md:ml-[60px]">
         <div class="main-content">
-            <!-- Header section dengan judul dan filter -->
-            <div class="header">
-                <!-- Judul utama halaman -->
-                <h1>Where do you want to go?</h1>
-                
-                <!-- Tab filter untuk kategori destinasi -->
-                <div class="filter-tabs">
-                    <!-- Tab aktif untuk destinasi wisata -->
-                    <button class="tab active">
-                        📍 Tourist destination
+            <div class="header text-center mb-10">
+                <h1 class="text-white text-3xl md:text-5xl font-light mb-8 pt-10">Where do you want to go?</h1>
+                <div class="filter-tabs flex justify-center gap-5 mb-8">
+                    <button class="tab py-2.5 px-6 bg-white/50 rounded-full text-white cursor-pointer transition flex items-center gap-2 hover:bg-white/70 shadow-sm">
+                        <i class="fa-solid fa-location-dot"></i> Tourist destination
                     </button>
-                    <!-- Tab untuk kuliner -->
-                    <button class="tab">
-                        🍽️ Culinary
+                    <button class="tab py-2.5 px-6 bg-white/30 rounded-full text-white cursor-pointer transition flex items-center gap-2 hover:bg-white/50 shadow-sm">
+                        <i class="fa-solid fa-utensils"></i> Culinary
                     </button>
                 </div>
-
-                <!-- Container untuk search box -->
-                <div class="search-container">
-                    <input type="text" class="search-box" placeholder="Search...">
+                <div class="search-container flex justify-center mb-10">
+                    <input type="text" class="search-box w-full max-w-[500px] py-4 px-6 border-none rounded-full bg-white/90 text-base outline-none shadow-md placeholder:text-gray-400" placeholder="Search...">
                 </div>
             </div>
 
-            <!-- Grid container untuk menampilkan card destinasi -->
-            <div class="destinations-grid">
-                <!-- Card destinasi 1: Selong Belanak Beach -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" 
-                         alt="Selong Belanak Beach" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Selong Belanak Beach, South Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★★</div>
-                            <div class="see-details">See details</div>
+            <div class="destinations-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Selong Belanak Beach, South Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★★</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card destinasi 2: Rinjani Mountain -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
-                         alt="Rinjani Mountain" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Rinjani Mountain, East Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★☆</div>
-                            <div class="see-details">See details</div>
+                <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★☆</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card destinasi 3: Gili Meno -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" 
-                         alt="Gili Meno" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Gili Meno, North Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★☆</div>
-                            <div class="see-details">See details</div>
+                <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" alt="Gili Meno" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Gili Meno, North Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★☆</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card destinasi 4: Rinjani Mountain (baris kedua) -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
-                         alt="Rinjani Mountain" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Rinjani Mountain, East Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★★</div>
-                            <div class="see-details">See details</div>
+                <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★★</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card destinasi 5: Rinjani Mountain (baris kedua) -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
-                         alt="Rinjani Mountain" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Rinjani Mountain, East Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★☆</div>
-                            <div class="see-details">See details</div>
+                 <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★☆</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Card destinasi 6: Rinjani Mountain (baris kedua) -->
-                <div class="destination-card">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
-                         alt="Rinjani Mountain" class="card-image">
-                    <div class="card-content">
-                        <div class="card-title">Rinjani Mountain, East Lombok</div>
-                        <div class="card-rating">
-                            <div class="stars">★★★★☆</div>
-                            <div class="see-details">See details</div>
+                 <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                    <div class="p-4 flex flex-col flex-1">
+                        <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                        <div class="flex justify-between items-center mt-auto">
+                            <div class="text-yellow-500 text-sm">★★★★☆</div>
+                            <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
                         </div>
                     </div>
                 </div>
@@ -180,10 +168,39 @@
         </div>
     </div>
 
-    <!-- Tombol navigasi arrow di sisi kanan -->
-    <button class="navigation-arrow">›</button>
+    <button class="navigation-arrow absolute right-5 top-1/2 -translate-y-1/2 bg-white/80 rounded-full w-12 h-12 text-xl text-[#FF9800] cursor-pointer transition hover:bg-white hover:scale-110 shadow-md hidden md:flex items-center justify-center">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
 
-    <!-- JavaScript untuk interaktivitas -->
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const closeBtn = document.getElementById('closeBtn');
+            const sidebarMenu = document.getElementById('sidebarMenu');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+            const openSidebar = () => {
+                sidebarMenu.classList.remove('-translate-x-full');
+                sidebarOverlay.classList.remove('opacity-0', 'invisible');
+                sidebarOverlay.classList.add('opacity-100', 'visible');
+            };
+
+            const closeSidebar = () => {
+                sidebarMenu.classList.add('-translate-x-full');
+                sidebarOverlay.classList.remove('opacity-100', 'visible');
+                sidebarOverlay.classList.add('opacity-0', 'invisible');
+            };
+
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', openSidebar);
+            }
+            if (closeBtn) {
+                 closeBtn.addEventListener('click', closeSidebar);
+            }
+             if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', closeSidebar);
+            }
+        });
+    </script>
 </body>
 </html>
