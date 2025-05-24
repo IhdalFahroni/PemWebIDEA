@@ -271,6 +271,9 @@
   .my-auto {
     margin-block: auto;
   }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
   }
@@ -282,6 +285,12 @@
   }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-2\.5 {
+    margin-bottom: calc(var(--spacing) * 2.5);
   }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
@@ -505,6 +514,9 @@
   .border-\[\#D7D5BA\] {
     border-color: #D7D5BA;
   }
+  .border-\[\#c8b7a6\] {
+    border-color: #c8b7a6;
+  }
   .border-black {
     border-color: var(--color-black);
   }
@@ -529,17 +541,65 @@
   .bg-\[\#FF8E13\] {
     background-color: #FF8E13;
   }
+  .bg-\[\#FFFBE2\] {
+    background-color: #FFFBE2;
+  }
+  .bg-\[\#FFFBE6\/85\] {
+    background-color: #FFFBE6/85;
+  }
+  .bg-\[\#FFFBE6\/\] {
+    background-color: #FFFBE6/;
+  }
+  .bg-\[\#FFFBE6\] {
+    background-color: #FFFBE6;
+  }
+  .bg-\[\#FFFBE6\]\/8 {
+    background-color: color-mix(in oklab, #FFFBE6 8%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/9 {
+    background-color: color-mix(in oklab, #FFFBE6 9%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/15 {
+    background-color: color-mix(in oklab, #FFFBE6 15%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/50 {
+    background-color: color-mix(in oklab, #FFFBE6 50%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/75 {
+    background-color: color-mix(in oklab, #FFFBE6 75%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/85 {
+    background-color: color-mix(in oklab, #FFFBE6 85%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/90 {
+    background-color: color-mix(in oklab, #FFFBE6 90%, transparent);
+  }
+  .bg-\[\#FFFBE6\]\/95 {
+    background-color: color-mix(in oklab, #FFFBE6 95%, transparent);
+  }
+  .bg-\[\#FFFBE\] {
+    background-color: #FFFBE;
+  }
   .bg-\[\#FFFFDC\] {
     background-color: #FFFFDC;
   }
   .bg-\[\#\] {
     background-color: #;
   }
+  .bg-\[\#c8b7a6\] {
+    background-color: #c8b7a6;
+  }
+  .bg-\[\#f5f2e8\] {
+    background-color: #f5f2e8;
+  }
   .bg-\[\#fffaf0\] {
     background-color: #fffaf0;
   }
   .bg-\[E9E9D1\] {
     background-color: E9E9D1;
+  }
+  .bg-\[rgba\(255\,250\,230\,0\.85\)\] {
+    background-color: rgba(255,250,230,0.85);
   }
   .bg-black {
     background-color: var(--color-black);
@@ -722,6 +782,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .placeholder-\[\#a89e8c\] {
+    &::placeholder {
+      color: #a89e8c;
+    }
+  }
   .opacity-0 {
     opacity: 0%;
   }
@@ -811,6 +876,11 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .placeholder\:text-\[\#a89e8c\] {
+    &::placeholder {
+      color: #a89e8c;
+    }
   }
   .hover\:scale-105 {
     &:hover {

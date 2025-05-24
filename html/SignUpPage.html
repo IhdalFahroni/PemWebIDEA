@@ -4,69 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | LombokRec</title>
-    <link rel="stylesheet" href="../public/output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: url('https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/LandingPagePic1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: url('https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/Assets/LandingPagePic1.jpg') no-repeat center center/cover;
         }
     </style>
 </head>
-<body class="min-h-screen flex justify-center items-center antialiased backdrop-blur-sm">
+<body class="min-h-screen flex justify-center items-center">
 
-    <div class="bg-white/90 backdrop-blur-sm p-8 sm:p-10 rounded-2xl shadow-xl w-full max-w-md">
+    <div class="absolute inset-0 w-full h-full backdrop-blur-sm flex justify-center items-center">
+        <div class="bg-[#FFFBE6]/85 p-8 rounded-[15px] shadow-lg text-center w-[350px] relative z-10">
+            
+            <h2 class="text-[22px] font-bold text-[#8D6E63] mb-5">Sign Up</h2>
 
-        <h2 class="text-3xl font-semibold text-[#8D6E63] text-center mb-8">Sign Up</h2>
+            <input 
+                type="text" 
+                id="email" 
+                class="w-full p-2.5 my-2.5 border-[#c8b7a6] border rounded-md bg-[#f5f2e8] text-sm placeholder-[#a89e8c]" 
+                placeholder="Email">
 
-        <form action="#" method="POST">
-            <div class="space-y-6">
+            <input 
+                type="text" 
+                id="username"
+                class="w-full p-2.5 my-2.5 border-[#c8b7a6] border rounded-md bg-[#f5f2e8] text-sm placeholder-[#a89e8c]" 
+                placeholder="Username">
 
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email"
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-stone-500 focus:border-stone-500 sm:text-sm" 
-                        placeholder="you@example.com">
-                </div>
+            <input 
+                type="password" 
+                id="password" 
+                class="w-full p-2.5 my-2.5 border-[#c8b7a6] border rounded-md bg-[#f5f2e8] text-sm placeholder-[#a89e8c]" 
+                placeholder="Password">
 
-                <div>
-                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        name="username"
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-stone-500 focus:border-stone-500 sm:text-sm" 
-                        placeholder="your_username">
-                </div>
+            <a 
+                href="LandingPage.html" 
+                class="block w-full py-3 mt-4 mb-2.5 bg-[#8D6E63] text-white font-bold rounded-full cursor-pointer text-base hover:bg-[#a89e8c] no-underline">
+                Sign Up
+            </a>
 
-                <div class="relative">
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password"
-                        class="w-full px-4 py-2.5 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-stone-500 focus:border-stone-500 sm:text-sm" 
-                        placeholder="••••••••">
-                    <span class="absolute inset-y-0 right-0 pr-3 flex items-center pt-7"> 
-                        <i class="fas fa-eye text-gray-400 cursor-pointer"></i>
-                    </span>
-                </div>
+        </div>
+    </div>
 
-                <div>
-                    <button 
-                        type="submit"
-                        class="w-full py-3 px-4 bg-stone-600 hover:bg-stone-700 text-white font-semibold rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-stone-500 focus:ring-offset-2 transition duration-150 ease-in-out">
-                        Sign Up
-                    </button>
-                </div>
-
-            </div>
-        </form>
-
-    </div> </body>
+    <script src="script.js"></script> 
+</body>
 </html>
