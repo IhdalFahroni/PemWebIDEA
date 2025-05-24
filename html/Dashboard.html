@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Destinations</title>
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="../public/output.css">
+</head>
+<body>
+    <!-- Sidebar kiri dengan ikon navigasi -->
+    <div class="sidebar">
+        <!-- Ikon menu hamburger -->
+        <div class="sidebar-icon hamburger-icon">≡</div>
+        <!-- Ikon tambah/plus -->
+        <div class="sidebar-icon">+</div>
+        <!-- Ikon sort/urutkan -->
+        <div class="sidebar-icon">↕</div>
+        <!-- Ikon notifikasi -->
+        <div class="sidebar-icon">🔔</div>
+    </div>
+
+    <!-- Expanded sidebar menu yang muncul saat hamburger diklik -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <!-- Header sidebar dengan logo -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="logo-icon">≡</span>
+                <span class="logo-text">LOMBOK<span class="logo-highlight">REC</span></span>
+            </div>
+        </div>
+        
+        <!-- Menu items -->
+        <div class="sidebar-content">
+            <div class="menu-item">
+                <span class="menu-icon">+</span>
+                <span class="menu-text">Add tourist destination</span>
+            </div>
+            
+            <div class="menu-item">
+                <span class="menu-icon">↕</span>
+                <span class="menu-text">Manage culinary site</span>
+            </div>
+            
+            <div class="menu-item">
+                <span class="menu-icon">🔔</span>
+                <span class="menu-text">Notifications</span>
+            </div>
+        </div>
+        
+        <!-- Bottom menu items -->
+        <div class="sidebar-bottom">
+            <div class="menu-item">
+                <span class="menu-icon">⚙</span>
+                <span class="menu-text">Settings</span>
+            </div>
+            
+            <div class="menu-item">
+                <span class="menu-icon">👤</span>
+                <span class="menu-text">Username</span>
+                <span class="menu-email">@email.gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay untuk menutup sidebar ketika diklik di luar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Ikon pengaturan di pojok kiri bawah -->
+    <div class="settings-icon">⚙</div>
+    <!-- Ikon user di pojok kiri bawah -->
+    <div class="user-icon">👤</div>
+
+    <!-- Container utama untuk semua konten -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Header section dengan judul dan filter -->
+            <div class="header">
+                <!-- Judul utama halaman -->
+                <h1>Where do you want to go?</h1>
+                
+                <!-- Tab filter untuk kategori destinasi -->
+                <div class="filter-tabs">
+                    <!-- Tab aktif untuk destinasi wisata -->
+                    <button class="tab active">
+                        📍 Tourist destination
+                    </button>
+                    <!-- Tab untuk kuliner -->
+                    <button class="tab">
+                        🍽️ Culinary
+                    </button>
+                </div>
+
+                <!-- Container untuk search box -->
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Search...">
+                </div>
+            </div>
+
+            <!-- Grid container untuk menampilkan card destinasi -->
+            <div class="destinations-grid">
+                <!-- Card destinasi 1: Selong Belanak Beach -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" 
+                         alt="Selong Belanak Beach" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Selong Belanak Beach, South Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★★</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card destinasi 2: Rinjani Mountain -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
+                         alt="Rinjani Mountain" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Rinjani Mountain, East Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card destinasi 3: Gili Meno -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" 
+                         alt="Gili Meno" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Gili Meno, North Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card destinasi 4: Rinjani Mountain (baris kedua) -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
+                         alt="Rinjani Mountain" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Rinjani Mountain, East Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★★</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card destinasi 5: Rinjani Mountain (baris kedua) -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
+                         alt="Rinjani Mountain" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Rinjani Mountain, East Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card destinasi 6: Rinjani Mountain (baris kedua) -->
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" 
+                         alt="Rinjani Mountain" class="card-image">
+                    <div class="card-content">
+                        <div class="card-title">Rinjani Mountain, East Lombok</div>
+                        <div class="card-rating">
+                            <div class="stars">★★★★☆</div>
+                            <div class="see-details">See details</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tombol navigasi arrow di sisi kanan -->
+    <button class="navigation-arrow">›</button>
+
+    <!-- JavaScript untuk interaktivitas -->
+    <script src="script.js"></script>
+</body>
+</html>
