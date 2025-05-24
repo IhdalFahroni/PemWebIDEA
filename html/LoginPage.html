@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login | LombokRec</title>
-        <link rel="stylesheet" href="../css/styles.css">
-    </head>
-    <body>
-        <div class="background-overlay">
-            <div class="container">
-                <h2>Login</h2>
-                <input type="text" id="username" class="input-box" placeholder="Username">
-                <input type="password" id="password" class="input-box" placeholder="Password">
-                <a href="ForgotPassword.html" class="clickable forgot-password">Forgot Password</a>
-                <button class="big-button" onclick="return handleAuth()">Login</button>
-                <p class="clickable sign-up">Don't have any account?<a href="SignUpPage.html" class="sign-up"> Sign Up</a></p>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | LombokRec</title>
+    <link rel="stylesheet" href="../public/output.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lombok-brown': '#8D6E63',
+                        'lombok-light': '#c8b7a6',
+                        'lombok-bg': '#f5f2e8',
+                        'lombok-ivory': 'rgba(255, 250, 230, 0.85)',
+                        'lombok-placeholder': '#a89e8c',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: url('https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/Assets/LandingPagePic1.jpg') no-repeat center center/cover;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex justify-center items-center">
+
+    <div class="absolute inset-0 w-full h-full backdrop-blur-xs flex justify-center items-center">
+        <div class="bg-white p-8 rounded-[15px] shadow-lg text-center w-[350px] relative z-10">
+
+            <h2 class="text-[22px] font-bold text-[#8D6E63] mb-5">Login</h2>
+
+            <input 
+                type="text" 
+                id="username" 
+                class="w-full p-2.5 my-2.5 border border-[#D7D5BA] rounded-md bg-lombok-bg text-sm placeholder:text-lombok-placeholder" 
+                placeholder="Username">
+
+            <input 
+                type="password" 
+                id="password" 
+                class="w-full p-2.5 my-2.5 border border-[#D7D5BA] rounded-md bg-lombok-bg text-sm placeholder:text-lombok-placeholder" 
+                placeholder="Password">
+
+            <a href="ForgotPassword.html" class="block text-right text-xs text-red-600 no-underline mb-4 hover:text-blue-600">
+                Forgot Password
+            </a>
+
+            <button 
+                class="w-full py-3 bg-[#8D6E63] text-white font-bold rounded-full cursor-pointer text-base hover:bg-[#a89e8c]" 
+                onclick="return handleAuth()">
+                Login
+            </button>
+
+            <p class="text-xs text-lombok-brown mt-5">
+                Don't have any account?
+                <a href="SignUpPage.html" class="font-bold text-lombok-brown no-underline hover:text-blue-600"> 
+                    Sign Up
+                </a>
+            </p>
+
         </div>
-        <script src="script.js"></script>
-    </body>
+    </div>
+
+    <script src="script.js"></script> </body>
 </html>
