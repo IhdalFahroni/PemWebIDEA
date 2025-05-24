@@ -7,8 +7,8 @@
 
 /* Styling untuk body - Background dan font dasar */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #FFE082, #FFA726); /* Gradient kuning ke orange */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, rgba(255, 193, 7, 0.75) 1%, rgba(255, 193, 7, 0.5) 24%, #FFFFFF 50%);
     min-height: 100vh; /* Minimal tinggi full viewport */
 }
 
@@ -27,7 +27,7 @@ body {
     top: 0;
     width: 60px;
     height: 100vh; /* Full viewport height */
-    background: rgba(255, 255, 255, 0.1); /* Background transparan */
+    background: rgba(255, 255, 255, 0.5); /* Background transparan */
     display: flex;
     flex-direction: column; /* Ikon tersusun vertikal */
     align-items: center;
@@ -265,7 +265,7 @@ body {
 /* ===== DESTINATION CARDS ===== */
 /* Styling untuk setiap card destinasi */
 .destination-card {
-    background: white;
+    background: #fffdcf;
     border-radius: 15px;
     overflow: hidden; /* Agar gambar tidak keluar dari border-radius */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Shadow lembut */
@@ -289,7 +289,7 @@ body {
 
 /* Container untuk konten teks card */
 .card-content {
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Judul destinasi */
