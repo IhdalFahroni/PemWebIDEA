@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tourist Attraction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .custom-gradient {
+            background: linear-gradient(to bottom, #FFC107, #FFFFFF);
+        }
+        /* Custom input styles to match image */
+        .form-box {
+            background-color: white;
+            border-radius: 1rem; /* rounded-xl */
+            padding: 1.25rem; /* p-5 */
+            margin-bottom: 1rem; /* space-y-4 equivalent */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .form-box label {
+            display: block;
+            font-weight: 600; /* font-semibold */
+            color: #4B5563; /* text-gray-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-size: 1.1em; /* Slightly larger label */
+        }
+        .form-box input[type="text"],
+        .form-box textarea {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #D1D5DB; /* border-gray-300 */
+            padding: 0.5rem 0.1rem; /* py-2 px-1 (adjust as needed) */
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+        }
+        .form-box input[type="text"]:focus,
+        .form-box textarea:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box textarea {
+            resize: vertical; /* Allow vertical resize */
+        }
+        .form-box input::placeholder,
+        .form-box textarea::placeholder {
+            color: #9CA3AF; /* text-gray-400 */
+        }
+        /* Style for the modal content area for scrolling */
+        .modal-scroll-area {
+            max-height: 75vh; /* Adjust as needed */
+            overflow-y: auto;
+            padding-right: 15px; /* Space for scrollbar */
+            margin-right: -15px; /* Compensate for padding */
+        }
+         /* Simple scrollbar styling (optional) */
+        .modal-scroll-area::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll-area::-webkit-scrollbar-thumb {
+            background-color: #E6A94E;
+            border-radius: 4px;
+        }
+        .modal-scroll-area::-webkit-scrollbar-track {
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body class="bg-yellow-50 flex items-center justify-center min-h-screen">
+
+    <button id="openModalBtn" class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl text-lg transition duration-300">
+        Add Tourist Attraction
+    </button>
+
+    <div id="modalForm" class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 flex items-center justify-center p-4">
+        <div class="custom-gradient rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-lg relative">
+
+            <button id="closeModalBtn" class="absolute top-4 right-5 text-gray-700 hover:text-gray-900 text-3xl font-bold">&times;</button>
+
+            <h2 class="text-3xl font-bold text-center text-white mb-3">
+                Add tourist attraction
+            </h2>
+            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                All questions must be answered. Once submitted, answers cannot be changed. <br>
+                Please check the answers are correct before submitting.
+            </p>
+
+            <form id="attractionForm" class="modal-scroll-area">
+                <div class="form-box">
+                    <label for="place_name">Place name</label>
+                    <input type="text" id="place_name" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="district_city">District/city</label>
+                    <input type="text" id="district_city" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="subdistrict">Subdistrict</label>
+                    <input type="text" id="subdistrict" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="village">Village</label>
+                    <input type="text" id="village" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="street">Street</label>
+                    <input type="text" id="street" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="description">Place description</label>
+                    <textarea id="description" required rows="3" placeholder="Answer"></textarea>
+                </div>
+                <div class="form-box">
+                    <label>Photo(s)</label>
+                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <span class="font-medium">Upload File(s)</span>
+                    </label>
+                    <input id="file-upload" type="file" multiple required class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
+
+                <div class="mt-8 mb-4"> <button type="submit" class="w-full bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modalForm");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+        const fileInput = document.getElementById("file-upload");
+        const fileList = document.getElementById("file-list");
+
+        openBtn.onclick = () => modal.classList.remove("hidden");
+        closeBtn.onclick = () => modal.classList.add("hidden");
+
+        window.onclick = (e) => {
+            if (e.target === modal) modal.classList.add("hidden");
+        };
+
+        // Show selected file names
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+                let filesText = Array.from(fileInput.files)
+                                    .map(file => file.name)
+                                    .join(', ');
+                fileList.textContent = `Selected: ${filesText}`;
+            } else {
+                fileList.textContent = '';
+            }
+        };
+
+        document.getElementById("attractionForm").onsubmit = (e) => {
+            e.preventDefault();
+            // Lakukan validasi tambahan jika perlu
+            alert("Form submitted!");
+            modal.classList.add("hidden");
+            // Reset form jika perlu
+            e.target.reset();
+            fileList.textContent = '';
+        };
+    </script>
+
+</body>
+</html>
