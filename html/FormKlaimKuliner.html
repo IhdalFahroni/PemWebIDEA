@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,4 +158,165 @@
     </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Claim Culinary Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .custom-gradient {
+            background: linear-gradient(to bottom, #FFC107, #FFFFFF);
+        }
+        /* Custom input styles to match image */
+        .form-box {
+            background-color: white;
+            border-radius: 1rem; /* rounded-xl */
+            padding: 1.25rem; /* p-5 */
+            margin-bottom: 1rem; /* space-y-4 equivalent */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .form-box label {
+            display: block;
+            font-weight: 600; /* font-semibold */
+            color: #4B5563; /* text-gray-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-size: 1.1em;
+        }
+        .form-box input[type="text"],
+        .form-box input[type="email"],
+        .form-box input[type="tel"] { /* Added tel type */
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #D1D5DB; /* border-gray-300 */
+            padding: 0.5rem 0.1rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+        }
+        .form-box input[type="text"]:focus,
+        .form-box input[type="email"]:focus,
+        .form-box input[type="tel"]:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box input::placeholder {
+            color: #9CA3AF; /* text-gray-400 */
+        }
+        /* Style for the modal content area for scrolling */
+        .modal-scroll-area {
+            max-height: 75vh;
+            overflow-y: auto;
+            padding-right: 15px;
+            margin-right: -15px;
+        }
+        .modal-scroll-area::-webkit-scrollbar { width: 8px; }
+        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-yellow-50 flex items-center justify-center min-h-screen">
+
+    <button id="openModalBtn" class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl text-lg transition duration-300">
+        Claim Culinary Site
+    </button>
+
+    <div id="modalForm" class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 flex items-center justify-center p-4">
+        <div class="custom-gradient rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-lg relative">
+
+            <button id="closeModalBtn" class="absolute top-4 right-5 text-white hover:text-gray-200 text-3xl font-bold">&times;</button>
+
+            <h2 class="text-3xl font-bold text-center text-white mb-3">
+                Claim culinary site
+            </h2>
+            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                All questions must be answered. Once submitted, answers cannot be changed. <br>
+                Please check the answers are correct before submitting.
+            </p>
+
+            <form id="claimForm" class="modal-scroll-area"> <div class="form-box">
+                    <label for="full_name">Full name</label>
+                    <input type="text" id="full_name" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="phone_number">Phone number</label>
+                    <input type="tel" id="phone_number" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="tin">Taxpayer Identification Number</label>
+                    <input type="text" id="tin" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label>Supporting document(s)</label>
+                    <p class="text-xs text-gray-500 mb-3 font-light"> Supporting documents may include a photo of the building tax
+                        certificate, a photo of the taxpayer identification number, or other
+                        proof of ownership.
+                    </p>
+                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <span class="font-medium">Upload</span> </label>
+                    <input id="file-upload" type="file" multiple required class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p>
+                </div>
+
+                <div class="mt-8 mb-4">
+                    <button type="submit" class="w-full bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("modalForm");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+        const fileInput = document.getElementById("file-upload");
+        const fileList = document.getElementById("file-list");
+        const claimForm = document.getElementById("claimForm"); // Get form
+
+        openBtn.onclick = () => modal.classList.remove("hidden");
+        closeBtn.onclick = () => modal.classList.add("hidden");
+
+        window.onclick = (e) => {
+            if (e.target === modal) modal.classList.add("hidden");
+        };
+
+        fileInput.onchange = () => {
+            if (fileInput.files.length > 0) {
+                let filesText = Array.from(fileInput.files)
+                                    .map(file => file.name)
+                                    .join(', ');
+                fileList.textContent = `Selected: ${filesText}`;
+            } else {
+                fileList.textContent = '';
+            }
+        };
+
+        claimForm.onsubmit = (e) => { // Use the correct form ID
+            e.preventDefault();
+            alert("Claim form submitted!");
+            modal.classList.add("hidden");
+            e.target.reset();
+            fileList.textContent = '';
+        };
+    </script>
+
+</body>
+>>>>>>> eadea3b5046d7f03f08cbe1c71a2697b79b8d6c9
 </html>

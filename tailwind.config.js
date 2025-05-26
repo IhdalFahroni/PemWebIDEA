@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors : {
         'golden' : ['#FFC107'],
+        'grayish' : ['#8D6E63'],
       },
       fontFamily: {
         'josefin' : ['"Josefin Sans"', 'sans-serif'],

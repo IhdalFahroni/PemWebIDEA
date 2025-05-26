@@ -1,97 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RM Sumber Rejeki</title>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replikasi Halaman - RM Sumber Rejeki (Tailwind)</title>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="../public/output.css">
-  </head>
-<body class="font-josefin bg-gradient-to-br from-golden-0 0% via golden-0 24% to-white 75%">
-    <!-- Header -->
-    <header class="py-4 px-6 flex items-center justify-between relative">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        // Opsi konfigurasi Tailwind (opsional, untuk warna kustom jika perlu)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#fef5d6', // Mirip kuning asli
+                        'brand-orange': '#f9a825', // Mirip oranye asli
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white font-josefin" >
 
-        <button class="text-white text-2xl z-10" aria-label="Menu">
-            &#9776;
-        </button>
-    
-        <div class="pt-5 text-5xl font-extrabold text-white text-center 
-                    absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            RM Sumber Rejeki
-        </div>
-      </header>
-      <span class="text-white text-sm hidden md:flex md:items-center z-10 font-bold justify-end pr-24">
-          <p class="drop-shadow-xl">Own this place?</p>
-          <button class="bg-golden-0 hover:bg-orange-400 text-white px-4 py-1 rounded text-sm ml-2 shadow-xl">
-              Claim
-          </button>
-      </span>
-      
+    <div class="flex min-h-screen ">
 
-    <!-- Main Content -->
-    <main class="max-w-screen-2xl mx-auto mt-6 text-[#8D6E63]">
-      <div class="bg-[#FFF5EE] rounded-xl shadow p-6">
-        <div class="flex flex-col md:flex-row gap-12">
-          <!-- Image -->
-        <div class="flex flex-col items-center md:items-start md:w-3/12 w-full">
-            <img src="https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/Assets/review_sumberRejeki.png" alt="RM Sumber Rejeki" class="rounded-lg w-full h-auto object-cover" />
-            <p class="font-semibold text-sm mt-2 text-center md:text-left">
-                Jl. Mareje, Panjisari, Kec. Praya, Kabupaten Lombok Tengah,<br />
-                Nusa Tenggara Bar. 83511
-            </p>
-            <div class="mt-4 flex gap-4 text-sm font-bold">
-                <a href="#" class="underline">Google Maps</a>
-            </div>
-            <div class="mt-4 flex gap-4 text-yellow-500">
-                <button class="bg-white px-3 py-1 rounded font-medium drop-shadow-lg">Menu</button>
-                <button class="bg-white px-3 py-1 rounded font-medium drop-shadow-lg">Promo</button>
-            </div>
-        </div>
+        <aside class="w-20 px-4 py-6 flex flex-col items-center sticky top-0 h-screen text-2xl text-golden-0">
+            <button class="p-6">
+              <i class="fas fa-bars"></i> 
+            </button>
+            </aside>
 
-          <!-- Details -->
-          <div class="flex-1">
-            <div class="text-yellow-500 mt-2 text-4xl">★★★★★</div>
-            <p class="mt-2 text-sm font-light ">Kategori:</p>
-            <p class="mt-2 text-sm font-medium pl-16">Tempat Kuliner</p>
-            <p class="mt-2 text-sm font-light">Deskripsi:</p>
-            <p class="mt-2 text-sm text-justify pl-16">
-              RM Sumber Rejeki adalah rumah makan khas Nusantara yang menyajikan beragam masakan rumahan dengan cita rasa autentik. Menu andalan di RM Sumber Rejeki meliputi ayam goreng, ikan bakar, sayur asem, tempe penyet, dan sambal khas yang pedas menggugah selera. Suasana rumah makan yang sederhana namun nyaman menjadikan pengalaman bersantap semakin menyenangkan, cocok untuk makan siang keluarga maupun makan bersama rombongan wisata. Pelayanan yang ramah dan cepat juga menjadi nilai tambah dari RM Sumber Rejeki, membuat banyak pelanggan datang kembali. Rumah makan ini juga menyediakan fasilitas parkir yang cukup luas dan tempat duduk yang memadai untuk tamu dalam jumlah besar.
-            </p>
+        <main class="flex-1 p-6 md:p-8 ">
 
-          </div>
-        </div>
-      </div>
+            <div class="bg-gradient-to-br from-golden-0 to-white-0 rounded-2xl shadow-xl p-6 md:p-10 w-full">
 
-      <!-- Review Section -->
-      <div class="text-center mt-8 text-sm">
-        <a href="#" class="bg-golden-0 text-white font-bold hover:bg-orange-400 px-5 py-3 rounded-md">Add Review</a>
-      </div>
+                <header class="my-8 pb-6 border-gray-100 flex items-center justify-center">
+                  <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 mx-auto text-center flex-1">RM Sumber Rejeki</h1>
+                </header>
+                <div class="text-white font-bold text-sm flex items-center justify-end mb-8 w-full">
+                  Own this place? 
+                  <button class="ml-2 bg-yellow-500 py-2 px-5 rounded-md shadow hover:bg-yellow-600 transition">Claim</button>
+                </div>
 
-      <!-- Reviews -->
-      <div class="mt-6 space-y-6">
-        <!-- Single Review -->
-        <div class="bg-white p-4 rounded-lg shadow">
-          <p class="font-semibold text-sm">ihdal_f <span class="text-gray-400 text-xs ml-2">4 hour ago</span></p>
-          <p class="text-sm mb-2">★ 4.4</p>
-          <p class="text-sm text-justify">
-            Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.
-          </p>
-          <img src="https://via.placeholder.com/150x100" alt="Review image" class="mt-2 rounded-md" />
-        </div>
+                <section class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 border border-gray-50 md:flex">
+                    <div class="">
+                        <img class="h-56 w-full object-cover p-2" src="https://raw.githubusercontent.com/IhdalFahroni/PemWebIDEA/main/Assets/sumber_rejeki.png" alt="Foto RM Sumber Rejeki">
+                        <div class="mt-1 text-lg text-grayish-0 pl-5 font-bold">
+                          Jl. Mereje, Panjisari, Kec. Praya, Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83511
+                        </div>
+                        <a href="#" class="text-grayish-0 underline pl-5">Google Maps</a>
+                        <span class="fas fa-map-marker-alt mr-2"></span>
+                        <div class="mb-6 ml-6 mt-3 flex space-x-3">
+                            <button class="drop-shadow-lg bg-white text-golden-0 py-1 px-4 rounded-sm font-medium hover:bg-gray-300 transition text-sm">Menu</button>
+                            <button class="drop-shadow-lg bg-white text-golden-0 py-1 px-4 rounded-sm font-medium hover:bg-red-600 transition text-sm">Promo</button>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col">
+                        <div class="flex-grow">
+                            <div class="flex items-center text-yellow-500 text-2xl mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-grayish-0 text-lg font-light mb-2">Kategori</p>
+                            <h2 class="uppercase tracking-wide text-lg text-grayish-0 font-semibold mb-1 pl-16">Tempat kuliner</h2>
+                            <p class="text-grayish-0 text-lg font-light mb-2">Deskripsi</p>
+                            <p class="mt-2 text-grayish-0 text-lg leading-relaxed pl-16">
+                              RM Sumber Rejeki adalah rumah makan khas Nusantara yang menyajikan beragam masakan rumahan dengan cita rasa autentik. Menu andalan di RM Sumber Rejeki meliputi ayam goreng, ikan bakar, sayur asem, tempe penyet, dan sambal khas yang pedas menggugah selera. Suasana rumah makan yang sederhana namun nyaman menjadikan pengalaman bersantap semakin menyenangkan, cocok untuk makan siang keluarga maupun makan bersama rombongan wisata. Pelayanan yang ramah dan cepat juga menjadi nilai tambah dari RM Sumber Rejeki, membuat banyak pelanggan datang.
+                            </p>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Duplicate Review (for similarity) -->
-        <div class="bg-white p-4 rounded-lg shadow">
-          <p class="font-semibold text-sm">ihdal_f <span class="text-gray-400 text-xs ml-2">8 hour ago</span></p>
-          <p class="text-sm mb-2">★ 4.4</p>
-          <p class="text-sm text-justify">
-            Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.
-          </p>
-          <img src="https://via.placeholder.com/150x100" alt="Review image" class="mt-2 rounded-md" />
-        </div>
-        <div>
-          <p class="py-20"></p>
-        </div>
-      </div>
-    </main>
-  </body>
+                <div class="mb-6 flex items-center justify-between border-b pb-4 border-gray-100">
+                    <button class="text-lg font-medium text-gray-800 hover:text-indigo-600 transition">
+                       <i class="fas fa-plus-circle mr-2"></i>Add review
+                    </button>
+                </div>
+
+                <article class="bg-white rounded-xl shadow-md p-5 mb-6 border-l-[6px] border-yellow-400 flex space-x-4 border border-gray-50">
+
+                    <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                            <div class="flex items-center">
+                                <img src="https://via.placeholder.com/40" alt="Avatar" class="w-8 h-8 rounded-full mr-3">
+                                <span class="font-bold text-gray-900">ihdal_f</span>
+                            </div>
+                            <div class="text-xs text-gray-500">4 hours ago</div>
+                        </div>
+                        <div class="flex items-center text-yellow-500 mb-3 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <span class="ml-2 text-gray-800 font-semibold">4.4</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.
+                        </p>
+                        <img class="w-48 h-auto rounded-md shadow-sm" src="https://lh5.googleusercontent.com/p/AF1QipNq4wY-n5z2gXz6gX8R8y5y4R5m9W5W8s9v9w8S=w408-h306-k-no" alt="Foto Ulasan">
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl shadow-md p-5 mb-6 border-l-[6px] border-yellow-400 flex space-x-4 border border-gray-50">
+                     <div class="flex-1">
+                        <div class="flex justify-between items-center mb-2">
+                           <div class="flex items-center">
+                                <img src="https://via.placeholder.com/40" alt="Avatar" class="w-8 h-8 rounded-full mr-3">
+                                <span class="font-bold text-gray-900">ihdal_f</span>
+                            </div>
+                            <div class="text-xs text-gray-500">5 hours ago</div>
+                        </div>
+                        <div class="flex items-center text-yellow-500 mb-3 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                             <span class="ml-2 text-gray-800 font-semibold">4.4</span>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.
+                        </p>
+                        <img class="w-48 h-auto rounded-md shadow-sm" src="https://lh5.googleusercontent.com/p/AF1QipNq4wY-n5z2gXz6gX8R8y5y4R5m9W5W8s9v9w8S=w408-h306-k-no" alt="Foto Ulasan">
+                    </div>
+                </article>
+
+                </div> </main> </div> </body>
 </html>

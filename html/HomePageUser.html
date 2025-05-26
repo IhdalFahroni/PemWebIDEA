@@ -222,20 +222,20 @@
         </div>
     </div>
 
-    <div id="addAttractionModal" class="fixed inset-0 hidden z-50 flex items-center justify-center p-4 rounded-full  drop-shadow-2xl shadow-2xl">
-        <div class="custom-gradient-modal rounded-2xl p-6 md:p-8 w-6/12 max-w-md relative">
+    <div id="addAttractionModal" class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 flex items-center justify-center p-4">
+        <div class="custom-gradient rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-lg relative">
 
             <button id="closeModalBtn" class="absolute top-4 right-5 text-white hover:text-gray-200 text-3xl font-bold">&times;</button>
 
             <h2 class="text-3xl font-bold text-center text-white mb-3">
                 Add tourist attraction
             </h2>
-            <p class="text-xs font-light text-gray-600 text-center bg-white p-3 rounded-lg mb-6 shadow-sm border border-yellow-200">
+            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
                 All questions must be answered. Once submitted, answers cannot be changed. <br>
                 Please check the answers are correct before submitting.
             </p>
 
-            <form id="attractionForm" class="modal-scroll-area mt-6">
+            <form id="attractionForm" class="modal-scroll-area">
                 <div class="form-box">
                     <label for="place_name">Place name</label>
                     <input type="text" id="place_name" required placeholder="Answer" />
@@ -271,7 +271,7 @@
                     <input id="file-upload" type="file" multiple required class="hidden"/>
                     <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
 
-                <div class="mt-8 mb-4"> <button type="submit" class="w-full justify-center bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
+                <div class="mt-8 mb-4"> <button type="submit" class="w-full bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
                         Submit
                     </button>
                 </div>
