@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Destinations | LombokRec</title>
-    <!-- <link rel="stylesheet" href="../public/output.css">  -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -98,8 +97,8 @@
     <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-white backdrop-blur-md z-[200] flex flex-col shadow-lg transition-transform duration-300 ease-in-out -translate-x-full">
         <div class="p-5 border-b border-black/10">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-[#FFC107] rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeSidebarMenuBtn"> {/* ID diubah agar lebih jelas */}
-                    <i class="fa-solid fa-bars warna-kuning"></i> {/* Sebaiknya ikon berbeda atau warna kontras */}
+                <div class="w-12 h-12 rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeBtn">
+                    <i class="fa-solid fa-bars warna-kuning text-xl"></i>
                 </div>
                 <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
             </div>
@@ -132,10 +131,10 @@
             <div class="header text-center mb-5">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 text-with-shadow">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
-                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md font-light">
+                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
                         <i class="fa-solid fa-location-dot"></i> Tourist destination
                     </button>
-                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md opacity-80 hover:opacity-100 font-light">
+                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
                         <i class="fa-solid fa-utensils"></i> Culinary
                     </button>
                 </div>
@@ -150,7 +149,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Selong Belanak Beach, South Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Selong Belanak Beach, South Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -160,7 +159,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -170,7 +169,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" alt="Gili Meno" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Gili Meno, North Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -188,7 +187,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -198,7 +197,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -208,7 +207,7 @@
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-gray-800 mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
@@ -318,7 +317,7 @@
             const addAttractionModalElement = document.getElementById('addAttractionModal');
             const openModalFixedBtn = document.getElementById('openAddAttractionModalBtnFixed'); // Tombol plus di sidebar kiri
             const openModalLinkInSidebar = document.getElementById('openAddAttractionModalLink'); // Link di sidebar menu geser
-            const closeModalInModalBtn = document.getElementById('closeAddAttractionModalBtn'); // Tombol close di dalam modal
+            const closeModalInModalBtn = document.getElementById('closeModalBtn'); // Tombol close di dalam modal
             const attractionFormElement = document.getElementById('attractionForm');
             const fileInputInModal = document.getElementById("file-upload-modal");
             const fileListInModal = document.getElementById("file-list-modal");
