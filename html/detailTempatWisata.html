@@ -104,45 +104,47 @@
                         <hr class="border-[#8E5E38] opacity-50 mt-1 mb-6">
                     </div>
                     <div id="fillReview" class="w-full hidden">
-                        <div class="flex justify-between items-center ">
-                            <span class="text-base font-base text-[#8E5E38] opacity-50">
-                                Please refrain from using harsh or inappropriate language
-                            </span>
-                            <div class="flex gap-3 text-lg">
-                                <i id="closeReview" class="fas fa-xmark text-[#8E5E38]"></i>
-                                <i class="fas fa-paper-plane text-[#8E5E38]"></i> 
-                            </div>
-                        </div>
-                        <hr class="border-[#8E5E38] opacity-40">
-                        <div class="flex gap-3 text-lg mt-2 mb-4">
-                            <i id="openRating" class="fas fa-star text-[#8E5E38]"></i> 
-                            <i id="openImage" class="fas fa-image text-[#8E5E38]"></i>
-                        </div>
-                    </div>
-                    <div id="afterReview" class="w-full hidden">
-                        <div class="mb-3">
-                            <p class="text-sm font-light text-[#8E5E38] opacity-70">
-                                Rating: 
-                                <span id="displayedRating" class="font-semibold text-opacity-90">4.5</span> 
-                                </p>
-                            <p class="text-sm font-light text-[#8E5E38] opacity-70 mt-1">
-                                Image: 
-                                <span id="displayedImageName" class="font-semibold text-opacity-90 truncate max-w-xs">selong_belanak_beach.jpg</span> 
-                                </p>
-                        </div>
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-sm font-normal text-[#8E5E38] opacity-60"> 
-                                Please refrain from using harsh or inappropriate language
-                            </span>
-                            <div class="flex gap-3 text-lg">
-                                <i id="closeReview" class="fas fa-xmark text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
-                                <i class="fas fa-paper-plane text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
+                        <div class="flex justify-between items-center mb-0">
+                            <input type="text"
+                                id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
+                                class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
+                                <div class="flex gap-3 text-lg">
+                                <i id="closeReview" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
                             </div>
                         </div>
                         <hr class="border-[#8E5E38] opacity-40">
                         <div class="flex gap-3 text-lg mt-3 mb-4">
-                            <i id="openRating" class="fas fa-star text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
-                            <i id="openImage" class="fas fa-image text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
+                            <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                            <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                        </div>
+                    </div>
+                    <div id="afterReview" class="w-full hidden">
+                        <div class="mb-3">
+                            <div class="inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="font-semibold">4.4</span>
+                                <i class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
+                            </div>
+                            <div class="inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
+                                <i class="fas fa-image"></i>
+                                <span class="font-semibold">selong_belanak_review.jpg</span>
+                                <i class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center mb-0">
+                            <input type="text"
+                                id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
+                                class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
+                                <div class="flex gap-3 text-lg">
+                                <i id="closeReview2" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                            </div>
+                        </div>
+                        <hr class="border-[#8E5E38] opacity-40">
+                        <div class="flex gap-3 text-lg mt-3 mb-4">
+                            <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                            <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
                         </div>
                     </div>
                 </div>
@@ -234,8 +236,12 @@
         });
 
         document.getElementById('closeReview').addEventListener('click', function() {
-                document.getElementById('fillReview').classList.add('hidden');
-                document.getElementById('addReview').classList.remove('hidden');
+            document.getElementById('fillReview').classList.add('hidden');
+            document.getElementById('addReview').classList.remove('hidden');
+        });
+        document.getElementById('closeReview2').addEventListener('click', function() {
+            document.getElementById('afterReview').classList.add('hidden');
+            document.getElementById('addReview').classList.remove('hidden');
         });
         document.getElementById('openRating').addEventListener('click', function() {
             document.getElementById('ratingModal').classList.remove('hidden');
@@ -257,6 +263,7 @@
                 document.getElementById('afterReview').classList.remove('hidden');
             });
         });
+
     </script>
     
 </body>
