@@ -116,7 +116,33 @@
                         <hr class="border-[#8E5E38] opacity-40">
                         <div class="flex gap-3 text-lg mt-2 mb-4">
                             <i id="openRating" class="fas fa-star text-[#8E5E38]"></i> 
-                            <i class="fas fa-image text-[#8E5E38]"></i>
+                            <i id="openImage" class="fas fa-image text-[#8E5E38]"></i>
+                        </div>
+                    </div>
+                    <div id="afterReview" class="w-full hidden">
+                        <div class="mb-3">
+                            <p class="text-sm font-light text-[#8E5E38] opacity-70">
+                                Rating: 
+                                <span id="displayedRating" class="font-semibold text-opacity-90">4.5</span> 
+                                </p>
+                            <p class="text-sm font-light text-[#8E5E38] opacity-70 mt-1">
+                                Image: 
+                                <span id="displayedImageName" class="font-semibold text-opacity-90 truncate max-w-xs">selong_belanak_beach.jpg</span> 
+                                </p>
+                        </div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-sm font-normal text-[#8E5E38] opacity-60"> 
+                                Please refrain from using harsh or inappropriate language
+                            </span>
+                            <div class="flex gap-3 text-lg">
+                                <i id="closeReview" class="fas fa-xmark text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
+                                <i class="fas fa-paper-plane text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
+                            </div>
+                        </div>
+                        <hr class="border-[#8E5E38] opacity-40">
+                        <div class="flex gap-3 text-lg mt-3 mb-4">
+                            <i id="openRating" class="fas fa-star text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
+                            <i id="openImage" class="fas fa-image text-[#8E5E38] opacity-60 hover:opacity-90 cursor-pointer transition-opacity"></i>
                         </div>
                     </div>
                 </div>
@@ -144,11 +170,11 @@
 
     <div id="ratingModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
 
-        <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#8E5E38]/30 w-full max-w-lg relative text-[#8E5E38]">
+        <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#8D6E63]/30 w-full max-w-lg relative text-[#8D6E63]">
             
-            <div class="border border-[#8E5E38] rounded-xl p-6 relative">
+            <div class="border border-[#8D6E63] rounded-xl p-6 relative">
                 
-                <button id="closeRating" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#8E5E38] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
+                <button id="closeRating" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#8D6E63] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
                     <i class="fas fa-xmark text-base"></i>
                 </button>
 
@@ -162,9 +188,38 @@
                     <input type="text"
                         id="ratingInput"
                         placeholder="Example 4.5"
-                        class="rating-input block w-3/5 mx-auto border-0 border-b-2 border-[#8E5E38]/60 text-center pt-2 px-2 pb-0 text-base opacity-50 font-light focus:outline-none focus:ring-0 focus:border-[#8E5E38] mb-12">
+                        class="rating-input block w-3/5 mx-auto border-0 border-b-2 border-[#8D6E63]/60 text-center pt-2 px-2 pb-0 text-base opacity-50 font-light focus:outline-none focus:ring-0 focus:border-[#8D6E63] mb-12">
 
-                    <button class="block mx-auto bg-[#8E5E38] text-white px-12 py-3 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                    <button id="openAfterReview" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                        OK
+                    </button>
+                </div>
+            </div> 
+        </div> 
+    </div>
+
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
+
+        <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#8E5E38]/30 w-full max-w-lg relative text-[#8E5E38]">
+            
+            <div class="border border-[#8E5E38] rounded-xl p-6 relative">
+                
+                <button id="closeImage" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#8E5E38] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
+                    <i class="fas fa-xmark text-base"></i>
+                </button>
+
+                <div class="text-center">
+                    <h2 class="text-xl font-bold mt-0 mb-2">Add Photos</h2>
+
+                    <p class="text-sm opacity-80 mb-10 font-light max-w-xs mx-auto">
+                        You can photo up to 5. The photo can be jpg or png.
+                    </p>
+                    <div class="flex items-center justify-center text-center gap-2"> 
+                        <i class="fas fa-upload text-xl text-black opacity-40 mb-6"></i> 
+                        <span class="text-lg font-light text-[#8D6E63] opacity-50 mb-6">Upload</span>
+                    </div>
+                    <input type="file" id="fileUpload" class="hidden">
+                    <button id="openAfterReview" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
                         OK
                     </button>
                 </div>
@@ -187,6 +242,20 @@
         });
         document.getElementById('closeRating').addEventListener('click', function() {
             document.getElementById('ratingModal').classList.add('hidden');
+        });
+        document.getElementById('openImage').addEventListener('click', function() {
+            document.getElementById('imageModal').classList.remove('hidden');
+        });
+        document.getElementById('closeImage').addEventListener('click', function() {
+            document.getElementById('imageModal').classList.add('hidden');
+        });
+        document.querySelectorAll('#openAfterReview').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.getElementById('imageModal').classList.add('hidden');
+                document.getElementById('ratingModal').classList.add('hidden');
+                document.getElementById('fillReview').classList.add('hidden');
+                document.getElementById('afterReview').classList.remove('hidden');
+            });
         });
     </script>
     
