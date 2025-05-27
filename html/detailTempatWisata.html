@@ -45,14 +45,22 @@
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8">
-        <i class="fas fa-bars text-xl hover:bg-gray-100"></i>
-        <i class="fas fa-plus text-xl hover:bg-gray-100"></i>
-        <i class="fas fa-bell text-xl hover:bg-gray-100"></i>
-        <i class="fas fa-user text-xl hover:bg-gray-100"></i>
+    <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFF0]">
+        <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
+        </div>
+        <div id="openAddAttractionModalBtnFixed" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
+        </div>
+        <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
+        </div>
+        <div class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-user text-[#FFC107] text-xl"></i>
+        </div>
     </aside>
 
-    <main class="flex-1 pt-3 overflow-y-auto">
+    <main class="flex-1 pt-3 overflow-y-auto ml-20">
         <div class="main-container p-6 md:p-8 shadow-2xl w-full">
 
             <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8">Selong Belanak Beach</h1>
@@ -87,10 +95,38 @@
                 </div>
             </div>
 
-            
+            <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#8E5E38]">
 
+                <div class="mt-8 px-6 md:px-8"> 
+                    <div class="grid grid-cols-[auto_1fr] items-center gap-x-2 mb-8">
+                        <i class="fas fa-plus-circle text-lg text-gray-500"></i> 
+                        <div class="w-full">
+                            <span class="font-medium text-gray-600 cursor-pointer hover:text-black transition">Add review</span>
+                            <hr class="border-gray-300 mt-1">
+                        </div>
+                    </div>
+                </div>
+                
+                <hr class="border-[#8D6E63] mb-4">
+                
+                <div class="space-y-8">
+                    <div>
+                        <div class="mb-2">
+                            <p class="font-semibold text-[#8E5E38]">ihdal_f <span class="text-xs text-[#8E5E38] font-normal ml-2">4 hour ago</span></p>
+                            <div class="flex items-center text-yellow-500 text-sm">
+                                <i class="fas fa-star"></i>
+                                <span class="ml-1 font-semibold text-[#8E5E38]">4.4</span>
+                            </div>
+                        </div>
+                        <p class="text-base font-semibold text-[#8E5E38] mb-4 leading-relaxed">
+                            Pantai Selong Belanak adalah salah satu destinasi pantai paling memukau di Lombok, Nusa Tenggara Barat. Pantai ini sangat cocok untuk wisatawan yang ingin bersantai, menikmati matahari, atau belajar surfing—karena ombak di bagian ujung pantai cukup tenang untuk pemula. Di sepanjang pantai, pengunjung juga bisa menemukan deretan warung yang menyajikan makanan lokal dan minuman segar.
+                        </p>
+                        <img src="../Assets/review_selong_belanak.png" alt="Review Image" class="rounded-xl w-80 h-52 object-cover shadow-md mb-3">
+                    </div>
+                </div> 
+            </div>
         </div>
     </main>
-
+    
 </body>
 </html>
