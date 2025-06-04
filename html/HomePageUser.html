@@ -257,27 +257,27 @@
 
             <form id="attractionForm" class="modal-scroll-area">
                 <div class="form-box">
-                    <label for="place_name">Place name</label>
+                    <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="place_name" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
-                    <label for="district_city">District/city</label>
+                    <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="district_city" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
-                    <label for="subdistrict">Subdistrict</label>
+                    <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="subdistrict" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
-                    <label for="village">Village</label>
+                    <label for="village">Village<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="village" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
-                    <label for="street">Street</label>
+                    <label for="street">Street<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="street" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
-                    <label for="description">Place description</label>
+                    <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
                     <textarea id="description" required rows="3" placeholder="Answer"></textarea>
                 </div>
                 <div class="form-box">
@@ -291,7 +291,8 @@
                     <input id="file-upload" type="file" multiple required class="hidden"/>
                     <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
 
-                <div class="mt-8 mb-4"> <button type="submit" class="w-full bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
+                <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
+                    <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
                         Submit
                     </button>
                 </div>
