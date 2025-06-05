@@ -1,35 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Destinations | LombokRec</title>
+    <title>Home Page | LombokRec</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jaldi&display=swap" rel="stylesheet">
     <style>
         body {
+            background-color: #FFFFF0;
+            font-family: 'Josefin Sans';
+        }
+        .main-container {
             background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
-            min-height: 100vh;
-            font-family: 'Josefin Sans', sans-serif;
+            border-top-left-radius: 1rem;
         }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%); }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%); border-radius: 6px;}
-        ::-webkit-scrollbar-thumb:hover { background: #FFFFF0; }
-        .text-with-shadow {
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        .warna-kuning {color: #FFC107 !important;}
+        .jaldi-font {font-family: 'Jaldi', sans-serif;}
+        .sidebar i {
+            padding: 6px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #FFC107;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .warna-kuning { /* Mengganti nama kelas agar lebih deskriptif */
-            color: #FFC107 !important;
+        ::-webkit-scrollbar {width: 6px;}
+        ::-webkit-scrollbar-track {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
+            border-radius: 3px;
         }
-
-        /* Styles untuk Modal */
-        .custom-gradient-modal { /* Nama kelas diubah agar spesifik untuk modal */
-            background: linear-gradient(to bottom, #FFC107, #FFFFFF); /* Contoh, sesuaikan jika perlu */
-        }
+        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #FFFFFF); }
         .form-box {
             background-color: white;
             border-radius: 1rem;
@@ -55,46 +60,38 @@
             transition: border-color 0.2s ease-in-out;
         }
         .form-box input[type="text"]:focus,
-        .form-box textarea:focus {
-            border-bottom-color: #F59E0B;
-        }
-        .form-box textarea {
-            resize: vertical;
-        }
+        .form-box textarea:focus {border-bottom-color: #F59E0B;}
+        .form-box textarea {resize: vertical;}
         .form-box input::placeholder,
-        .form-box textarea::placeholder {
-            color: #9CA3AF;
-        }
+        .form-box textarea::placeholder {color: #9CA3AF;}
         .modal-scroll-area {
-            max-height: 70vh; /* Disesuaikan dari 75vh */
+            max-height: 70vh;
             overflow-y: auto;
-            padding-right: 10px; /* Sedikit padding untuk scrollbar */
+            padding-right: 10px;
         }
         .modal-scroll-area::-webkit-scrollbar { width: 8px; }
         .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
         .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="flex min-h-screen">
 
-    <div class="fixed left-0 top-0 w-[60px] h-screen bg-white flex-col items-center py-5 gap-8 z-[100] hidden md:flex shadow-lg">
+    <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFF0]">
         <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-bars warna-kuning text-xl"></i>
+            <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
         </div>
-        <div id="openAddAttractionModalBtnFixed" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-plus warna-kuning text-xl"></i>
+        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
         </div>
         <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-bell warna-kuning text-xl"></i>
+            <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
         </div>
-        <div class="absolute bottom-5 left-0 right-0 flex flex-col items-center gap-5">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-user warna-kuning text-xl"></i>
-            </div>
+        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-user text-[#FFC107] text-xl"></i>
         </div>
-    </div>
+    </aside>
 
-    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-white backdrop-blur-md z-[200] flex flex-col shadow-lg transition-transform duration-300 ease-in-out -translate-x-full">
+    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-[#FFFFF0] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5 border-b border-black/10">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeBtn">
@@ -104,32 +101,31 @@
             </div>
         </div>
         <div class="flex-1 p-5 space-y-2">
-            <a href="#" id="openAddAttractionModalLink" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+            <a href="#" id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
-                <span class="text-sm font-medium warna-kuning">Add tourist destination</span>
+                <span class="text-lg font-medium warna-kuning">Add Place</span>
             </a>
-            <a href="#" id="notificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+            <a href="#" id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
-                <span class="text-sm font-medium warna-kuning">Notifications</span>
+                <span class="text-lg font-medium warna-kuning">Notifications</span>
             </a>
         </div>
-        <div class="p-5 border-t border-black/10 space-y-3">
-            <div class="flex items-center gap-4 p-3 rounded text-gray-800">
+        <div class="p-5 space-y-3">
+            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user warna-kuning"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-sm font-medium warna-kuning">Username</span>
-                    <span class="text-xs warna-kuning">@email.gmail.com</span>
+                    <span class="text-lg font-semibold warna-kuning">username</span>
+                    <span class="text-base font-light warna-kuning">@email.gmail.com</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="sidebarOverlay" class="fixed inset-0 bg-black/30 z-[150] opacity-0 invisible transition-all duration-300"></div>
 
-    <div class="container mx-auto px-4 md:px-8 py-4 md:ml-[84px]">
-        <div class="main-content">
-            <div class="header text-center mb-5">
-                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 text-with-shadow">Where do you want to go?</h1>
+    <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFF0]">
+        <div class="main-container p-6 md:p-8 shadow-2xl w-full">
+            <div id="header" class="header text-center mb-5 hidden">
+                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
                     <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
                         <i class="fa-solid fa-location-dot"></i> Tourist destination
@@ -139,40 +135,45 @@
                     </button>
                 </div>
                 <div class="search-container flex justify-center">
-                   <input type="text" class="search-box w-full max-w-[500px] py-2.5 px-6 border-none rounded-full bg-white/90 text-base outline-none shadow-md placeholder:text-[#F4A261]" placeholder="Search...">
+                    <div class="relative w-full max-w-[500px]">
+                        <input type="text" class="search-box w-full py-2.5 px-6 pr-12 border-none rounded-full bg-white/90 text-base text-[#F4A261] outline-none shadow-md placeholder:text-[#F4A261]" placeholder="Search...">
+                        <span id="searchIcon" class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition">
+                            <i class="fa-solid fa-magnifying-glass text-[#F4A261] hover:opacity-45 text-lg"></i>
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-[#FFF5EE] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden">
+            <div id="awal" class="space-y-6 hidden">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Selong Belanak Beach, South Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
+                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-0">Selong Belanak Beach, South Lombok</div>
+                                <div class="flex justify-between items-center mt-2">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=200&fit=crop" alt="Gili Meno" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
+                            <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
@@ -182,35 +183,35 @@
                     </button>
                 </div>
 
-                <div class="bg-[#FFF5EE] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1">
-                                <div class="text-lg font-semibold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <div class="p-4 flex flex-col flex-1 jaldi-font">
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#FF9800] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
@@ -220,42 +221,99 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div id="notification" class="bg-[#FFFFF0] fixed inset-0 hidden z-50 items-center justify-center p-4 m-10 w-3/12 ml-28 shadow-lg rounded-lg transition-all duration-300">
-        <div>
-            <h1 class="text-[#5C3211] text-2xl md:text-3xl font-bold mb-4">
-                Notifications
-            </h1>
-        </div>
-        <div>
-            <hr class="border-t border-[#E6A94E] mb-4">
-            <h3 class="font-semibold mb-1 text-lg">
-                New place Approved
-            </h3>
-            <p class="pt-3">
-                Thank you for submitting your place. Request for "Bukit Merese" has been approved. <br>You can search for "Bukit Merese" from now on.
-            </p>
-            <p class="font-light text-xs mt-2">
-                10:30, July 28, 2025
-        </div>
-    </div>
+            <div id="afterSearch" class="space-y-6 hidden">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
+                    <div class="flex flex-col sm:flex-row w-full gap-6">
+                        <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
+                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-100 h-50 object-cover rounded-lg mb-4">
+                            <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
+                                <span class="hover:underline">Google Maps</span>
+                                <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
+                            </a>
+                        </div>
+                        <div class="flex flex-col justify-start w-full sm:w-2/3">
+                            <h2 class="text-2xl font-bold text-[#5C3211] mb-2">Selong Belanak Beach</h2>
+                            <div class="text-yellow-500 text-lg mb-2">★★★★☆</div>
+                            <p class="text-[#5C3211] font-semibold">
+                                Pantai Selong Belanak adalah salah satu destinasi pantai paling memukau di Lombok, Nusa Tenggara Barat. Pantai ini sangat cocok untuk wisatawan yang ingin bersantai, menikmati matahari, atau belajar surfing—karena ombak di bagian ujung pantai cukup tenang untuk pemula.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
+                    <div class="flex flex-col sm:flex-row w-full gap-6">
+                        <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
+                            <img src="../Assets/SelongSelo.png" alt="Selong Belanak Beach" class="w-100 h-50 object-cover rounded-lg mb-4">
+                            <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
+                                <span class="hover:underline">Google Maps</span>
+                                <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
+                            </a>
+                        </div>
+                        <div class="flex flex-col justify-start w-full sm:w-2/3">
+                            <h2 class="text-2xl font-bold text-[#5C3211] mb-2">Selong Selo Restaurant</h2>
+                            <div class="text-yellow-500 text-lg mb-2">★★★★☆</div>
+                            <p class="text-[#5C3211] font-semibold">
+                                Selong Selo, khususnya Aura Lounge & Bar, adalah restoran terkenal di Lombok Selatan yang dikenal dengan pemandangan lautnya yang menakjubkan dan menu makanan Indonesia autentik. Restoran ini menawarkan hidangan lezat yang dibuat oleh chef terkenal, serta berbagai macam minuman dan koktail.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="notification" class="header mb-5 hidden">
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
+                <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        New place Approved
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting your place. Request for "Bukit Merese" has been approved. <br>You can search for "Bukit Merese" from now on.
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        New place Denied
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Request for “Bukit Merese” has been denied. Please check the information you provide. 
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        Claim Approved
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been approved. You can edit the information about the culinary site such as place description, menu and promo from now on. 
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        Claim Denied
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been denied. The information provided did not enough to clarify whether or not you are the owner of the culinary site. You can try to provide more supporting documents.
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    
+                    <p class="pt-3 text-center">
+                        That's all.
+                    </p>
+                </div>
+            </div>
+            <div id="addPlace" class="header mb-5 hidden">
+                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
+                    Add tourist attraction
+                </h2>
+                <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                    All questions must be answered. Once submitted, answers cannot be changed. <br>
+                    Please check the answers are correct before submitting.
+                </p>
 
-    <div id="addAttractionModal" class="fixed inset-0 hidden z-50 flex items-center justify-center p-4">
-        <div class="custom-gradient-modal rounded-2xl shadow-2xl p-6 md:p-8 w-6/12 relative">
-
-            <button id="closeModalBtn" class="absolute top-4 right-5 text-white hover:text-gray-200 text-3xl font-bold">&times;</button>
-
-            <h2 class="text-3xl font-bold text-center text-white mb-3">
-                Add tourist attraction
-            </h2>
-            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
-                All questions must be answered. Once submitted, answers cannot be changed. <br>
-                Please check the answers are correct before submitting.
-            </p>
-
-            <form id="attractionForm" class="modal-scroll-area">
                 <div class="form-box">
                     <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="place_name" required placeholder="Answer" />
@@ -277,6 +335,10 @@
                     <input type="text" id="street" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
+                    <label for="gmaps">Google Map Location<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="gmaps" required placeholder="Google Maps" />
+                </div>
+                <div class="form-box">
                     <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
                     <textarea id="description" required rows="3" placeholder="Answer"></textarea>
                 </div>
@@ -284,7 +346,7 @@
                     <label>Photo(s)</label>
                     <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
                         <span class="font-medium">Upload File(s)</span>
                     </label>
@@ -296,167 +358,262 @@
                         Submit
                     </button>
                 </div>
-            </form>
+            </div>
+            <div id="profil" class="header mb-5">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                    <div id="profilPage" class="flex items-center w-full relative">
+                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <div class="ml-6 flex flex-col">
+                            <span class="text-5xl font-normal text-[#5C3211]">Username</span>
+                            <div class="flex items-center mt-1 gap-4">
+                                <span class="text-xl text-[#5C3211] font-normal">Nama Lengkap</span>
+                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="editProfilePage" class="flex items-center w-full relative hidden">
+                        <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <div class="ml-6 flex flex-col">
+                            <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg mb-1 px-3" placeholder="Username" />
+                            <p id="usernameError" class="text-sm text-[#FF0000] hidden">Username must be 8-20 characters</p>
+                            <div class="flex items-center mt-2 gap-4">
+                                <input type="text" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg px-3" placeholder="Nama Lengkap" />
+                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                    <div class="flex flex-col w-full">
+                        <button class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fas fa-gear text-xl hover:opacity-50"></i>
+                            <span class="hover:underline">Account setting</span>
+                        </button>
+                        <hr class="my-3 border-[#F0D3B3]">
+                        <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
+                            <span class="hover:underline">Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Kode untuk Sidebar Menu Geser
             const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const closeSidebarMenuBtn = document.getElementById('closeBtn'); // ID dari tombol close di sidebar menu
+            const closeSidebarMenuBtn = document.getElementById('closeBtn');
             const sidebarMenu = document.getElementById('sidebarMenu');
-            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const mainContent = document.querySelector('main');
 
-            const openSidebar = () => {
-                if (sidebarMenu && sidebarOverlay) {
-                    sidebarMenu.classList.remove('-translate-x-full');
-                    sidebarOverlay.classList.remove('opacity-0', 'invisible');
-                    sidebarOverlay.classList.add('opacity-100', 'visible');
-                }
-            };
+            mainContent.style.transition = 'margin-left 0.3s';
 
-            const closeSidebar = () => {
-                if (sidebarMenu && sidebarOverlay) {
-                    sidebarMenu.classList.add('-translate-x-full');
-                    sidebarOverlay.classList.remove('opacity-100', 'visible');
-                    sidebarOverlay.classList.add('opacity-0', 'invisible');
-                }
-            };
+            hamburgerBtn.addEventListener('click', () => {
+            sidebarMenu.classList.remove('-translate-x-full');
+            sidebarMenu.classList.add('translate-x-0');
+            mainContent.style.marginLeft = '18rem'; 
+            });
 
-            if (hamburgerBtn) {
-                hamburgerBtn.addEventListener('click', openSidebar);
-            }
-            if (closeSidebarMenuBtn) {
-                closeSidebarMenuBtn.addEventListener('click', closeSidebar);
-            }
-            if (sidebarOverlay) {
-                sidebarOverlay.addEventListener('click', closeSidebar);
-            }
+            closeSidebarMenuBtn.addEventListener('click', () => {
+            sidebarMenu.classList.remove('translate-x-0');
+            sidebarMenu.classList.add('-translate-x-full');
+            mainContent.style.marginLeft = '5rem'; 
+            });
 
-            // Kode untuk Modal Pop-up "Add Tourist Attraction"
-            const addAttractionModalElement = document.getElementById('addAttractionModal');
-            const openModalFixedBtn = document.getElementById('openAddAttractionModalBtnFixed'); // Tombol plus di sidebar kiri
-            const openModalLinkInSidebar = document.getElementById('openAddAttractionModalLink'); // Link di sidebar menu geser
-            const closeModalInModalBtn = document.getElementById('closeModalBtn'); // Tombol close di dalam modal
-            const attractionFormElement = document.getElementById('attractionForm');
-            const fileInputInModal = document.getElementById("file-upload-modal");
-            const fileListInModal = document.getElementById("file-list-modal");
-            const notificationBtn = document.getElementById('notificationBtn');
-            const notification = document.getElementById('notification'); // Menggunakan kelas yang sesuai untuk notifikasi
-            if (notificationBtn && notification) {
-                notificationBtn.addEventListener('click', () => {
-                    notification.classList.remove('hidden');
-                });
-                // Optional: Close notification when clicking outside or pressing Escape
-                notification.addEventListener('click', (e) => {
-                    if (e.target === notification) {
-                        notification.classList.add('hidden');
-                    }
-                });
-                window.addEventListener('keydown', (event) => {
-                    if (event.key === 'Escape' && !notification.classList.contains('hidden')) {
-                        notification.classList.add('hidden');
-                    }
-                });
+            const searchIcon = document.getElementById('searchIcon');
+            const awalDiv = document.getElementById('awal');
+            const afterSearchDiv = document.getElementById('afterSearch');
+            const headerDiv = document.getElementById('header');
 
-                // Tambahkan tombol close di dalam notifikasi
-                // Pastikan ada elemen dengan id="closeNotificationBtn" di dalam #notification
-                const closeNotificationBtn = document.createElement('button');
-                closeNotificationBtn.innerHTML = '&times;';
-                closeNotificationBtn.className = 'absolute top-4 right-5 text-[#E6A94E] hover:text-[#D4983E] text-3xl font-bold';
-                closeNotificationBtn.style.position = 'absolute';
-                closeNotificationBtn.style.top = '1rem';
-                closeNotificationBtn.style.right = '1.25rem';
-                closeNotificationBtn.style.background = 'transparent';
-                closeNotificationBtn.style.border = 'none';
-                closeNotificationBtn.style.cursor = 'pointer';
-                closeNotificationBtn.setAttribute('aria-label', 'Close notification');
-                notification.appendChild(closeNotificationBtn);
+            searchIcon.addEventListener('click', () => {
+                awalDiv.classList.add('hidden');
+                afterSearchDiv.classList.remove('hidden');
+            });
 
-                closeNotificationBtn.addEventListener('click', () => {
-                    notification.classList.add('hidden');
-                });
-            }
+            const openNotification = document.getElementById('notificationBtn'); 
+            const openNotif = document.getElementById('openNotificationBtn');
+            const notification = document.getElementById('notification');
+            
+            const openAddPlace = document.getElementById('addPlaceBtn'); 
+            const addPlaceOpen = document.getElementById('openAddPlaceBtn');
+            const addPlaceForm = document.getElementById('addPlace');
+            
+            const openProfil = document.getElementById('profilBtn'); 
+            const openedProfil = document.getElementById('openProfilBtn');
+            const profile = document.getElementById('profil');
 
-            const openAddAttractionModal = () => {
-                if (addAttractionModalElement) {
-                    addAttractionModalElement.classList.remove('hidden');
-                }
-            };
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const saveEditBtn = document.getElementById('saveEditBtn');
+            const profilPage = document.getElementById('profilPage');
+            const editProfilePage = document.getElementById('editProfilePage');
+            const userError = document.getElementById('usernameError');
+            
+            let notificationVisible = false;
+            let addPlaceFormVisible = false;
+            let profilVisible = false;
 
-            const closeAddAttractionModal = () => {
-                if (addAttractionModalElement) {
-                    addAttractionModalElement.classList.add('hidden');
-                    if (attractionFormElement) {
-                        attractionFormElement.reset();
-                    }
-                    if (fileListInModal) {
-                        fileListInModal.textContent = '';
-                    }
-                }
-            };
+            editProfileBtn.addEventListener('click', () => {
+                profilPage.classList.add('hidden');
+                editProfilePage.classList.remove('hidden');
+            });
 
-            if (openModalFixedBtn) {
-                openModalFixedBtn.addEventListener('click', openAddAttractionModal);
-            }
-            if (openModalLinkInSidebar) {
-                openModalLinkInSidebar.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openAddAttractionModal();
-                });
-            }
-            if (closeModalInModalBtn) {
-                closeModalInModalBtn.addEventListener('click', closeAddAttractionModal);
-            }
+            saveEditBtn.addEventListener('click', () => {
+                profilPage.classList.remove('hidden');
+                editProfilePage.classList.add('hidden');
+            });
 
-            if (addAttractionModalElement) {
-                addAttractionModalElement.addEventListener('click', (event) => {
-                    if (event.target === addAttractionModalElement) {
-                        closeAddAttractionModal();
-                    }
-                });
-            }
-
-            window.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && addAttractionModalElement && !addAttractionModalElement.classList.contains('hidden')) {
-                    closeAddAttractionModal();
+            const usernameInput = document.querySelector('#editProfilePage input.text-5xl');
+            usernameInput.addEventListener('input', () => {
+                const username = usernameInput.value.trim();
+                if (username.length < 8 || username.length > 20) {
+                    userError.classList.remove('hidden');
+                } else {
+                    userError.classList.add('hidden');
                 }
             });
 
-            if (attractionFormElement) {
-                attractionFormElement.onsubmit = (e) => {
+            function showAddPlaceForm() {
+                addPlaceForm.classList.remove('hidden');
+                headerDiv.classList.add('hidden');
+                awalDiv.classList.add('hidden');
+                afterSearchDiv.classList.add('hidden');
+                if(notificationVisible) {
+                   notification.classList.add('hidden');
+                   notificationVisible = false;
+                }
+                if (profilVisible) {
+                    profile.classList.add('hidden');
+                    profilVisible = false;
+                }
+                addPlaceFormVisible = true;
+            }
+
+            function hideAddPlaceForm() {
+                addPlaceForm.classList.add('hidden');
+                headerDiv.classList.remove('hidden');
+                awalDiv.classList.remove('hidden');
+                afterSearchDiv.classList.add('hidden');
+                addPlaceFormVisible = false;
+            }
+
+            function showNotification() {
+                notification.classList.remove('hidden');
+                headerDiv.classList.add('hidden');
+                awalDiv.classList.add('hidden');
+                afterSearchDiv.classList.add('hidden');
+                if (addPlaceFormVisible) {
+                    addPlaceForm.classList.add('hidden');
+                    addPlaceFormVisible = false;
+                }
+                if (profilVisible) {
+                    profile.classList.add('hidden');
+                    profilVisible = false;
+                }
+                notificationVisible = true;
+            }
+
+            function hideNotification() {
+                notification.classList.add('hidden');
+                headerDiv.classList.remove('hidden');
+                awalDiv.classList.remove('hidden');
+                afterSearchDiv.classList.add('hidden');
+                notificationVisible = false;
+            }
+
+            function showProfil() {
+                profile.classList.remove('hidden');
+                headerDiv.classList.add('hidden');
+                awalDiv.classList.add('hidden');
+                afterSearchDiv.classList.add('hidden');
+                if (addPlaceFormVisible) {
+                    addPlaceForm.classList.add('hidden');
+                    addPlaceFormVisible = false;
+                }
+                if (notificationVisible) {
+                    notification.classList.add('hidden');
+                    notificationVisible = false;
+                }
+                profilVisible = true;
+            }
+
+            function hideProfil() {
+                profile.classList.add('hidden');
+                headerDiv.classList.remove('hidden');
+                awalDiv.classList.remove('hidden');
+                afterSearchDiv.classList.add('hidden');
+                profilVisible = false;
+            }
+
+            if (openNotification) {
+                openNotification.addEventListener('click', (e) => {
                     e.preventDefault();
-                    alert("Attraction form submitted!");
-                    closeAddAttractionModal();
-                };
-            }
-
-            if (fileInputInModal) {
-                fileInputInModal.onchange = () => {
-                    if (fileInputInModal.files.length > 0) {
-                        let filesText = Array.from(fileInputInModal.files)
-                            .map(file => file.name)
-                            .join(', ');
-                        if (fileListInModal) {
-                            fileListInModal.textContent = `Selected: ${filesText}`;
-                        }
+                    if (notificationVisible) {
+                        hideNotification();
                     } else {
-                        if (fileListInModal) {
-                            fileListInModal.textContent = '';
-                        }
+                        showNotification();
                     }
-                };
+                });
             }
 
-            const sidebar = document.querySelector('.fixed.left-0.top-0');
-            if (sidebar) {
-                sidebar.style.position = 'fixed';
-                sidebar.style.top = '0';
-                sidebar.style.left = '0';
-                sidebar.style.height = '100vh';
-                sidebar.style.zIndex = '100';
+            if (openNotif) {
+                openNotif.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (notificationVisible) {
+                        hideNotification();
+                    } else {
+                        showNotification();
+                    }
+                });
+            }
+
+            if (openAddPlace) {
+                openAddPlace.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (addPlaceFormVisible) {
+                        hideAddPlaceForm();
+                    } else {
+                        showAddPlaceForm();
+                    }
+                });
+            }
+
+            if (addPlaceOpen) {
+                addPlaceOpen.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (addPlaceFormVisible) {
+                        hideAddPlaceForm();
+                    } else {
+                        showAddPlaceForm();
+                    }
+                });
+            }
+
+            if (openProfil) {
+                openProfil.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (profilVisible) {
+                        hideProfil();
+                    } else {
+                        showProfil();
+                    }
+                });
+            }
+
+            if (openedProfil) {
+                openedProfil.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (profilVisible) {
+                        hideProfil();
+                    } else {
+                        showProfil();
+                    }
+                });
             }
         });
     </script>
+    
 </body>
 </html>
