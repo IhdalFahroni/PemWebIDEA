@@ -353,6 +353,12 @@ ALTER TABLE `tempat_wisata`
   ADD CONSTRAINT `tempat_wisata_ibfk_1` FOREIGN KEY (`ID_tempat`) REFERENCES `tempat` (`ID_tempat`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
+ALTER TABLE `form_pengajuantempat`
+MODIFY COLUMN `kategori` ENUM('tourist_destination','culinary') NOT NULL;
+
+ALTER TABLE `form_pengajuantempat`
+MODIFY COLUMN `kabupaten_kota` ENUM('mataram','lombok_barat','lombok_tengah','lombok_timur','lombok_utara') NOT NULL;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
