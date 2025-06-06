@@ -85,135 +85,363 @@
         <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
         </div>
-        <div id="openAddAttractionModalBtnFixed" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
         </div>
-        <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+        <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
         </div>
-        <div class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-user text-[#FFC107] text-xl"></i>
         </div>
     </aside>
 
+    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-[#FFFFF0] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
+        <div class="p-5">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeBtn">
+                    <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
+                </div>
+                <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
+            </div>
+        </div>
+        <div class="flex-1 p-5 space-y-2">
+            <a href="#" id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus text-[#FFC107]"></i></span>
+                <span class="text-lg font-medium text-[#FFC107]">Add Place</span>
+            </a>
+            <a href="#" id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-bell text-[#FFC107]"></i></span>
+                <span class="text-lg font-medium text-[#FFC107]">Notifications</span>
+            </a>
+        </div>
+        <div class="p-5 space-y-3">
+            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded text-gray-800">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user warna-kuning"></i></span>
+                <div class="flex flex-col">
+                    <span class="text-lg font-semibold text-[#FFC107]">username</span>
+                    <span class="text-base font-light text-[#FFC107]">@email.gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main class="flex-1 pt-3 overflow-y-auto ml-20">
-        <div class="main-container p-6 md:p-8 shadow-2xl w-full">
+        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
 
-            <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8">Selong Belanak Beach</h1>
+            <div id="awal">
+                <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8">RM Sumber Rejeki</h1>
 
-            <div class="flex justify-end items-center space-x-3">
-                <span class="text-base font-bold text-white mb-3 text-shadow-sm" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.4);">Own this place?</span>
-                <div id="openClaim" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition mb-3 shadow-md">
-                    Claim
+                <div class="flex justify-end items-center space-x-3">
+                    <span class="text-base font-bold text-white mb-3 text-shadow-sm" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.4);">Own this place?</span>
+                    <div id="openClaim" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition mb-3 shadow-md">
+                        Claim
+                    </div>
                 </div>
-            </div>
 
-            <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#8E5E38]">
-                <div class="flex flex-col md:flex-row gap-6">
-                    <div class="md:w-1/3 flex-shrink-0">
-                        <img src="../Assets/review_sumberRejeki.png" alt="Selong Belanak Beach" class="rounded-xl w-full h-auto object-cover shadow-md mb-3">
-                        <p class="text-sm text-[#5C3211] mb-1 font-bold">Jl. Mareje, Panjisari, Kec. Praya, Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83511</p>
-                        <a href="#" class="text-[#5C3211] text-sm hover:underline flex items-center gap-1 font-bold">
-                            Google Maps<i class="fas fa-map-marker-alt text-base"></i> 
-                        </a>
-                        <div class="flex items-center gap-x-3 mt-3"> 
-                            <div id="openMenu" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition shadow-md">
-                                Menu
+                <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#8E5E38]">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/3 flex-shrink-0">
+                            <img src="../Assets/sumber_rejeki.png" alt="Selong Belanak Beach" class="rounded-xl w-full h-auto object-cover shadow-md mb-3">
+                            <p class="text-sm text-[#5C3211] mb-1 font-bold">Jl. Mareje, Panjisari, Kec. Praya, Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83511</p>
+                            <a href="#" class="text-[#5C3211] text-sm hover:underline flex items-center gap-1 font-bold">
+                                Google Maps<i class="fas fa-map-marker-alt text-base"></i> 
+                            </a>
+                            <div class="flex items-center gap-x-3 mt-3"> 
+                                <div id="openMenu" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition shadow-md">
+                                    Menu
+                                </div>
+                                <div id="openPromo" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition shadow-md">
+                                    Promo
+                                </div>
                             </div>
-                            <div class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition shadow-md">
-                                Promo
+                        </div>
+                        <div class="md:w-2/3">
+                            <div class="flex items-center mb-2 text-[#FFC107] text-2xl">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i> </div>
+                            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4"> <p class="text-[#5C3211] text-base font-light">Kategori</p>
+                                <p class="text-[#5C3211] font-medium text-base">Tempat kuliner</p>
+
+                                <p class="text-[#5C3211] text-base mt-0.5 font-light">Deskripsi</p> <p class="text-base text-[#5C3211] leading-relaxed text-justify">
+                                    RM Sumber Rejeki adalah rumah makan khas Nusantara yang menyajikan beragam masakan rumahan dengan cita rasa autentik. Menu andalan di RM Sumber Rejeki meliputi ayam goreng, ikan bakar, sayur asem, tempe penyet, dan sambal khas yang pedas menggugah selera. Suasana rumah makan yang sederhana namun nyaman menjadikan pengalaman bersantap semakin menyenangkan, cocok untuk makan siang keluarga maupun makan bersama rombongan wisata. Pelayanan yang ramah dan cepat juga menjadi nilai tambah dari RM Sumber Rejeki, membuat banyak pelanggan datang.
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-2/3">
-                        <div class="flex items-center mb-2 text-[#FFC107] text-2xl">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i> </div>
-                        <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4"> <p class="text-[#5C3211] text-base font-light">Kategori</p>
-                            <p class="text-[#5C3211] font-medium text-base">Tempat kuliner</p>
+                </div>
 
-                            <p class="text-[#5C3211] text-base mt-0.5 font-light">Deskripsi</p> <p class="text-base text-[#5C3211] leading-relaxed text-justify">
-                                RM Sumber Rejeki adalah rumah makan khas Nusantara yang menyajikan beragam masakan rumahan dengan cita rasa autentik. Menu andalan di RM Sumber Rejeki meliputi ayam goreng, ikan bakar, sayur asem, tempe penyet, dan sambal khas yang pedas menggugah selera. Suasana rumah makan yang sederhana namun nyaman menjadikan pengalaman bersantap semakin menyenangkan, cocok untuk makan siang keluarga maupun makan bersama rombongan wisata. Pelayanan yang ramah dan cepat juga menjadi nilai tambah dari RM Sumber Rejeki, membuat banyak pelanggan datang.
+                <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#F0B845]">
+
+                    <div class="mt-2 px-6 md:px-8"> 
+                        <div id="addReview" class=" w-full">
+                            <i class="fas fa-plus-circle text-lg text-[#8E5E38] opacity-50 "></i> 
+                            <span class="font-medium text-[#8E5E38] opacity-50 cursor-pointer hover:text-black transition">Add review</span>
+                            <hr class="border-[#8E5E38] opacity-50 mt-1 mb-6">
+                        </div>
+                        <div id="fillReview" class="w-full hidden">
+                            <div class="mb-3">
+                                <div id="afterRating" class="hidden inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
+                                    <i class="fas fa-star"></i>
+                                    <span class="font-semibold">4.4</span>
+                                    <i id="cancelRating" class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
+                                </div>
+                                <div id="afterImage" class="hidden inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
+                                    <i class="fas fa-image"></i>
+                                    <span class="font-semibold">sumber_rejeki_review.jpg</span>
+                                    <i id="cancelImage" class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mb-0">
+                                <input type="text"
+                                    id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
+                                    class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
+                                    <div class="flex gap-3 text-lg">
+                                    <i id="closeReview" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                    <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                </div>
+                            </div>
+                            <hr class="border-[#8E5E38] opacity-40">
+                            <div class="flex gap-3 text-lg mt-3 mb-4">
+                                <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr class="border-[#8D6E63] mb-4">
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <div class="mb-2">
+                                <p class="font-semibold text-[#8E5E38]">ihdal_f <span class="text-xs text-[#8E5E38] font-normal ml-2">4 hour ago</span></p>
+                                <div class="flex items-center text-yellow-500 text-sm">
+                                    <i class="fas fa-star"></i>
+                                    <span class="ml-1 font-semibold text-[#8E5E38]">4.4</span>
+                                </div>
+                            </div>
+                            <p class="text-base font-semibold text-[#8E5E38] mb-4 leading-relaxed">
+                                Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.
                             </p>
+                            <img src="../Assets/review_sumberRejeki.png" alt="Review Image" class="rounded-xl w-80 h-52 object-cover shadow-md mb-3">
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
+            <div id="claimForm" class="header mb-5 hidden">
+                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
+                    Claim culinary site
+                </h2>
+                <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                    All questions must be answered. Once submitted, answers cannot be changed. <br>
+                    Please check the answers are correct before submitting.
+                </p>
 
-            <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#8E5E38]">
+                <div class="form-box">
+                    <label for="full_name">Full name<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="full_name" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="phone_number">Phone number<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="phone_number" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="email">Email<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="email" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="taxpayer">Taxpayer Identification Number<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="taxpayer" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label>Supporting document(s)</label>
+                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <span class="font-medium">Upload</span>
+                    </label>
+                    <input id="claim_doc" type="file" multiple required class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
 
-                <div class="mt-2 px-6 md:px-8"> 
-                    <div id="addReview" class=" w-full">
-                        <i class="fas fa-plus-circle text-lg text-[#8E5E38] opacity-50 "></i> 
-                        <span class="font-medium text-[#8E5E38] opacity-50 cursor-pointer hover:text-black transition">Add review</span>
-                        <hr class="border-[#8E5E38] opacity-50 mt-1 mb-6">
+                <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
+                    <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            <div id="notification" class="header mb-5 hidden">
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
+                <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        New place Approved
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting your place. Request for "Bukit Merese" has been approved. <br>You can search for "Bukit Merese" from now on.
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        New place Denied
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Request for “Bukit Merese” has been denied. Please check the information you provide. 
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        Claim Approved
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been approved. You can edit the information about the culinary site such as place description, menu and promo from now on. 
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    <h3 class="font-semibold mb-1 text-lg">
+                        Claim Denied
+                    </h3>
+                    <p class="pt-0 ">
+                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been denied. The information provided did not enough to clarify whether or not you are the owner of the culinary site. You can try to provide more supporting documents.
+                    </p>
+                    <p class="font-light text-sm mt-4">
+                        10:30, July 28, 2025
+                    <hr class="my-2">
+                    
+                    <p class="pt-3 text-center">
+                        That's all.
+                    </p>
+                </div>
+            </div>
+            <div id="addPlace" class="header mb-5 hidden">
+                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
+                    Add tourist attraction
+                </h2>
+                <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                    All questions must be answered. Once submitted, answers cannot be changed. <br>
+                    Please check the answers are correct before submitting.
+                </p>
+
+                <div class="form-box">
+                    <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="place_name" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="district_city" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="subdistrict" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="village">Village<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="village" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="street">Street<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="street" required placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="gmaps">Google Map Location<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="gmaps" required placeholder="Google Maps" />
+                </div>
+                <div class="form-box">
+                    <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
+                    <textarea id="description" required rows="3" placeholder="Answer"></textarea>
+                </div>
+                <div class="form-box">
+                    <label>Photo(s)</label>
+                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <span class="font-medium">Upload</span>
+                    </label>
+                    <input id="file-upload" type="file" multiple required class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
+
+                <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
+                    <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </div>
+            <div id="profil" class="header mb-5 hidden">
+                <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                    <div id="profilPage" class="flex items-center w-full relative">
+                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <div class="ml-6 flex flex-col">
+                            <span class="text-5xl font-normal text-[#5C3211]">Username</span>
+                            <div class="flex items-center mt-1 gap-4">
+                                <span class="text-xl text-[#5C3211] font-normal">Nama Lengkap</span>
+                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
+                            </div>
+                        </div>
                     </div>
-                    <div id="fillReview" class="w-full hidden">
-                        <div class="flex justify-between items-center mb-0">
-                            <input type="text"
-                                id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
-                                class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
-                                <div class="flex gap-3 text-lg">
-                                <i id="closeReview" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                                <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                    <div id="editProfilePage" class="flex items-center w-full relative hidden">
+                        <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <div class="ml-6 flex flex-col">
+                            <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg mb-1 px-3" placeholder="Username" />
+                            <p id="usernameError" class="text-sm text-[#FF0000] hidden">Username must be 8-20 characters</p>
+                            <div class="flex items-center mt-2 gap-4">
+                                <input type="text" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg px-3" placeholder="Nama Lengkap" />
+                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
                             </div>
-                        </div>
-                        <hr class="border-[#8E5E38] opacity-40">
-                        <div class="flex gap-3 text-lg mt-3 mb-4">
-                            <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                            <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                        </div>
-                    </div>
-                    <div id="afterReview" class="w-full hidden">
-                        <div class="mb-3">
-                            <div class="inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
-                                <i class="fas fa-star"></i>
-                                <span class="font-semibold">4.4</span>
-                                <i class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
-                            </div>
-                            <div class="inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
-                                <i class="fas fa-image"></i>
-                                <span class="font-semibold">selong_belanak_review.jpg</span>
-                                <i class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center mb-0">
-                            <input type="text"
-                                id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
-                                class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
-                                <div class="flex gap-3 text-lg">
-                                <i id="closeReview2" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                                <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                            </div>
-                        </div>
-                        <hr class="border-[#8E5E38] opacity-40">
-                        <div class="flex gap-3 text-lg mt-3 mb-4">
-                            <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                            <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
                         </div>
                     </div>
                 </div>
-                
-                <hr class="border-[#8D6E63] mb-4">
-                
-                <div class="space-y-8">
-                    <div>
-                        <div class="mb-2">
-                            <p class="font-semibold text-[#8E5E38]">ihdal_f <span class="text-xs text-[#8E5E38] font-normal ml-2">4 hour ago</span></p>
-                            <div class="flex items-center text-yellow-500 text-sm">
-                                <i class="fas fa-star"></i>
-                                <span class="ml-1 font-semibold text-[#8E5E38]">4.4</span>
-                            </div>
-                        </div>
-                        <p class="text-base font-semibold text-[#8E5E38] mb-4 leading-relaxed">
-                            Pantai Selong Belanak adalah salah satu destinasi pantai paling memukau di Lombok, Nusa Tenggara Barat. Pantai ini sangat cocok untuk wisatawan yang ingin bersantai, menikmati matahari, atau belajar surfing—karena ombak di bagian ujung pantai cukup tenang untuk pemula. Di sepanjang pantai, pengunjung juga bisa menemukan deretan warung yang menyajikan makanan lokal dan minuman segar.
-                        </p>
-                        <img src="../Assets/review_selong_belanak.png" alt="Review Image" class="rounded-xl w-80 h-52 object-cover shadow-md mb-3">
+                <div id="bawahProfil" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3] hidden">
+                    <div class="flex flex-col w-full">
+                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fas fa-gear text-xl hover:opacity-50"></i>
+                            <span class="hover:underline">Account setting</span>
+                        </button>
+                        <hr class="my-3 border-[#F0D3B3]">
+                        <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
+                            <span class="hover:underline">Logout</span>
+                        </button>
                     </div>
-                </div> 
+                </div>
+                <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                    <div class="w-full relative">
+                        <button id="closeAccountSettingBtn" class="absolute right-4 text-[#5C3211] hover:bg-gray-100 rounded-full transition" title="Close">
+                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        </button>
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
+                        </div>
+                        <hr class="my-3 border-[#5C3211] opacity-50">
+                        <div class="mb-4">
+                            <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
+                        </div>
+                        <div class="flex flex-col max-w-sm gap-3"> 
+                            <input type="password" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+                        </div>
+                        <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                            Save new password
+                        </button>
+                        <div class="mt-8">
+                            <span class="text-lg font-semibold text-[#5C3211]">Delete Account</span>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-sm font-normal text-[#5C3211]">Permanently delete your account</span>
+                        </div>
+                        <button class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#ff0000] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                            Delete account
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -240,7 +468,7 @@
                         placeholder="Example 4.5"
                         class="rating-input block w-3/5 mx-auto border-0 border-b-2 border-[#8D6E63]/60 text-center pt-2 px-2 pb-0 text-base opacity-50 font-light focus:outline-none focus:ring-0 focus:border-[#8D6E63] mb-12">
 
-                    <button id="openAfterReview" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                    <button id="openAfterRating" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
                         OK
                     </button>
                 </div>
@@ -269,7 +497,7 @@
                         <span class="text-lg font-light text-[#8D6E63] opacity-50 mb-6">Upload</span>
                     </div>
                     <input type="file" id="fileUpload" class="hidden">
-                    <button id="openAfterReview" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                    <button id="openAfterImage" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
                         OK
                     </button>
                 </div>
@@ -277,86 +505,75 @@
         </div> 
     </div>
 
-    <div id="claimCulinarySite" class="fixed inset-0 hidden z-50 flex items-center justify-center p-4">
-        <div class="custom-gradient-modal rounded-2xl shadow-2xl p-6 md:p-8 w-6/12 relative">
-
-            <button id="closeClaim" class="absolute top-4 right-5 text-white hover:text-gray-200 text-3xl font-bold">&times;</button>
-
-            <h2 class="text-3xl font-bold text-center text-white mb-3">
-                Claim culinary site
-            </h2>
-            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
-                All questions must be answered. Once submitted, answers cannot be changed. <br>
-                Please check the answers are correct before submitting.
-            </p>
-
-            <form id="attractionForm" class="modal-scroll-area">
-                <div class="form-box">
-                    <label for="full_name">Full name<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="full_name" required placeholder="Answer" />
-                </div>
-                <div class="form-box">
-                    <label for="phone_number">Phone number<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="phone_number" required placeholder="Answer" />
-                </div>
-                <div class="form-box">
-                    <label for="email">Email<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="email" required placeholder="Answer" />
-                </div>
-                <div class="form-box">
-                    <label for="taxpayer">Taxpayer Identification Number<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="taxpayer" required placeholder="Answer" />
-                </div>
-                <div class="form-box">
-                    <label>Supporting document(s)</label>
-                    <p class="mb-3 font-light">Supporting documents may include a photo of the building tax certificate, a photo of the taxpayer identification number, or other proof of ownership.</p>
-                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
-                        <i class="fas fa-upload text-xl text-black opacity-40 mb-6"></i> 
-                        <span class="text-lg font-light text-[#8D6E63] opacity-50 mb-6">Upload</span>
-                    </label>
-                    <input id="file-upload" type="file" multiple required class="hidden"/>
-                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
-
-                <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
-                    <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="menuModal" class="modal-overlay fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-50 p-4 hidden">
+    <div id="menuModal" class="hidden modal-overlay fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-50 p-4">
         
-        <div id="closeMenu" class="bg-white rounded-lg shadow-xl w-full max-w-lg md:max-w-xl relative">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg md:max-w-xl relative">
             
-            <button class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl">
+            <button id="closeMenu" class="absolute top-3 right-3 text-[#8E5E38] hover:opacity-50 text-2xl">
                 <i class="fas fa-xmark"></i>
             </button>
 
             <div class="p-6 md:p-8">
-                <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col md:flex-row gap-4">
                     <div class="md:w-1/3 flex-shrink-0">
-                        <img src="https://via.placeholder.com/300x300.png?text=Pelecing+Kangkung" 
+                        <img src="../Assets/Pelecing.png" 
                              alt="Pelecing Kangkung" 
-                             class="w-full h-auto object-cover rounded-md aspect-square">
+                             class="w-32 h-32 object-cover rounded-md aspect-square">
                              </div>
 
                     <div class="md:w-2/3 flex flex-col">
-                        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Pelecing Kangkung</h2>
-                        <p class="text-sm text-gray-600 leading-relaxed mb-3">
+                        <h2 class="text-2xl md:text-xl font-bold text-[#8E5E38] mb-2">Pelecing Kangkung</h2>
+                        <p class="text-md font-light text-[#8E5E38] leading-relaxed mb-3">
                             Kale (kangkung) blanched (or steamed) and served cold with spicy tomato chili sauce
                         </p>
-                        <p class="text-xl font-semibold text-green-600 mt-auto"> {/* mt-auto mendorong harga ke bawah jika ada ruang */}
+                        <p class="text-lg font-normal text-[#8E5E38] mt-2 mb-2">
                             Rp10.000/serving
                         </p>
                     </div>
                 </div>
+                <hr class="border-[#8E5E38]">
 
-                <hr class="my-6 border-gray-300">
+                <p class="text-center text-[#8E5E38] font-light text-base mt-4">
+                    That's all.
+                </p>
+            </div>
 
-                <p class="text-center text-gray-500 text-sm">
-                    That's All
+        </div>
+    </div>
+
+    <div id="promoModal" class="hidden modal-overlay fixed inset-0 bg-black bg-opacity-50 justify-center items-center z-50 p-4">
+        
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg md:max-w-xl relative">
+            
+            <button id="closePromo" class="absolute top-3 right-3 text-[#8E5E38] hover:opacity-50 text-2xl">
+                <i class="fas fa-xmark"></i>
+            </button>
+
+            <div class="p-6 md:p-8">
+                <div class="md:w-2/3 flex flex-col">
+                    <h2 class="text-2xl md:text-xl font-bold text-[#8E5E38] mb-1">Diskon 30%</h2>
+                    <p class="text-md font-light text-[#8E5E38] leading-relaxed mb-2">
+                        Every purchase of 2 servings Pelecing Kangkung
+                    </p>
+                    <p class="text-lg font-medium text-[#8E5E38] mb-2">
+                        Valid until: 2 December 2025
+                    </p>
+                </div>
+                <hr class="border-[#8E5E38] mb-4">
+
+                <div class="md:w-2/3 flex flex-col">
+                    <h2 class="text-2xl md:text-xl font-bold text-[#8E5E38] mb-1">Buy 2 Get 3</h2>
+                    <p class="text-md font-light text-[#8E5E38] leading-relaxed mb-2">
+                        Buy 2 serving get 3 serving of Es Campur
+                    </p>
+                    <p class="text-lg font-medium text-[#8E5E38] mb-2">
+                        Valid until: 10 November 2025
+                    </p>
+                </div>
+                <hr class="border-[#8E5E38] mb-4">
+
+                <p class="text-center text-[#8E5E38] font-light text-base">
+                    That's all.
                 </p>
             </div>
 
@@ -364,6 +581,193 @@
     </div>
 
     <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const closeSidebarMenuBtn = document.getElementById('closeBtn');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContent = document.querySelector('main');
+        
+        const awalDiv = document.getElementById('awal');
+        const notification = document.getElementById('notification');
+        const addPlaceForm = document.getElementById('addPlace');
+        const claimPlaceForm = document.getElementById('claimForm');
+        const profile = document.getElementById('profil');
+        
+        const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')].filter(Boolean);
+        const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')].filter(Boolean);
+        const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')].filter(Boolean);
+        const openClaimForm = [document.getElementById('openClaim')].filter(Boolean);
+
+        const containerProfile = document.getElementById('containerProfile');
+        const profilPage = document.getElementById('profilPage');
+        const editProfilePage = document.getElementById('editProfilePage');
+        const bawahProfil = document.getElementById('bawahProfil');
+        const accountSetting = document.getElementById('accountSetting');
+        
+        const editProfileBtn = document.getElementById('editProfileBtn');
+        const saveEditBtn = document.getElementById('saveEditBtn');
+        const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
+        const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
+        
+        const usernameInput = document.getElementById('editUsername');
+        const userError = document.getElementById('usernameError');
+        const passwordInput = document.getElementById('newPass');
+        const passError = document.getElementById('passwordError');
+
+        let activePanel = 'awal'; 
+
+        function showPanel(panelName) {
+            awalDiv.classList.add('hidden');
+            notification.classList.add('hidden');
+            addPlaceForm.classList.add('hidden');
+            claimPlaceForm.classList.add('hidden');
+            profile.classList.add('hidden');
+            
+            switch (panelName) {
+                case 'awal':
+                    awalDiv.classList.remove('hidden');
+                    break;
+                case 'notification':
+                    notification.classList.remove('hidden');
+                    break;
+                case 'addPlace':
+                    addPlaceForm.classList.remove('hidden');
+                    break;
+                case 'claimForm':
+                    claimPlaceForm.classList.remove('hidden');
+                    break;
+                case 'profil':
+                    profile.classList.remove('hidden');
+                    containerProfile.classList.remove('hidden');
+                    profilPage.classList.remove('hidden');
+                    bawahProfil.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                    accountSetting.classList.add('hidden');
+                    break;
+            }
+            activePanel = panelName;
+
+            if (sidebarMenu.classList.contains('translate-x-0')) {
+                sidebarMenu.classList.remove('translate-x-0');
+                sidebarMenu.classList.add('-translate-x-full');
+                mainContent.style.marginLeft = '5rem';
+            }
+        }
+
+        mainContent.style.transition = 'margin-left 0.3s';
+        hamburgerBtn.addEventListener('click', () => {
+            sidebarMenu.classList.remove('-translate-x-full');
+            mainContent.style.marginLeft = '18rem'; 
+        });
+        closeSidebarMenuBtn.addEventListener('click', () => {
+            sidebarMenu.classList.add('-translate-x-full');
+            mainContent.style.marginLeft = '5rem'; 
+        });
+        
+        openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (activePanel === 'notification') {
+                showPanel('awal');
+            } else {
+                showPanel('notification');
+            }
+        }));
+
+        openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (activePanel === 'addPlace') {
+                showPanel('awal');
+            } else {
+                showPanel('addPlace');
+            }
+        }));
+
+        openClaimForm.forEach(btn => btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (activePanel === 'claimForm') {
+                showPanel('awal');
+            } else {
+                showPanel('claimForm');
+            }
+        }));
+        
+        openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (activePanel === 'profil') {
+                showPanel('awal');
+            } else {
+                showPanel('profil');
+            }
+        }));
+        
+        if (editProfileBtn) {
+            editProfileBtn.addEventListener('click', () => {
+                profilPage.classList.add('hidden');
+                editProfilePage.classList.remove('hidden');
+            });
+        }
+
+        if (saveEditBtn) {
+            saveEditBtn.addEventListener('click', () => {
+                profilPage.classList.remove('hidden');
+                editProfilePage.classList.add('hidden');
+            });
+        }
+        
+        if (openAccountSettingBtn) {
+            openAccountSettingBtn.addEventListener('click', () => {
+                containerProfile.classList.add('hidden');
+                bawahProfil.classList.add('hidden');
+                accountSetting.classList.remove('hidden');
+            });
+        }
+
+        if (closeAccountSettingBtn) {
+            closeAccountSettingBtn.addEventListener('click', () => {
+                accountSetting.classList.add('hidden');
+                containerProfile.classList.remove('hidden');
+                bawahProfil.classList.remove('hidden');
+                profilPage.classList.remove('hidden');
+                editProfilePage.classList.add('hidden');
+            });
+        }
+
+        if (usernameInput) {
+            usernameInput.addEventListener('input', () => {
+                const username = usernameInput.value.trim();
+                if (username.length > 0 && (username.length < 8 || username.length > 20)) {
+                    userError.classList.remove('hidden');
+                } else {
+                    userError.classList.add('hidden');
+                }
+            });
+        }
+
+        if (passwordInput) {
+            passwordInput.addEventListener('input', () => {
+                const password = passwordInput.value.trim();
+                if (password.length > 0 && (password.length < 8 || password.length > 20)) {
+                    passError.classList.remove('hidden');
+                } else {
+                    passError.classList.add('hidden');
+                }
+            });
+        }
+        
+        showPanel('awal');
+
+        document.getElementById('openMenu').addEventListener('click', function() {
+            document.getElementById('menuModal').classList.remove('hidden');
+        });
+        document.getElementById('closeMenu').addEventListener('click', function() {
+            document.getElementById('menuModal').classList.add('hidden');
+        });
+        document.getElementById('openPromo').addEventListener('click', function() {
+            document.getElementById('promoModal').classList.remove('hidden');
+        });
+        document.getElementById('closePromo').addEventListener('click', function() {
+            document.getElementById('promoModal').classList.add('hidden');
+        });
+
         document.getElementById('addReview').addEventListener('click', function() {
             document.getElementById('addReview').classList.add('hidden');
             document.getElementById('fillReview').classList.remove('hidden');
@@ -371,10 +775,6 @@
 
         document.getElementById('closeReview').addEventListener('click', function() {
             document.getElementById('fillReview').classList.add('hidden');
-            document.getElementById('addReview').classList.remove('hidden');
-        });
-        document.getElementById('closeReview2').addEventListener('click', function() {
-            document.getElementById('afterReview').classList.add('hidden');
             document.getElementById('addReview').classList.remove('hidden');
         });
         document.getElementById('openRating').addEventListener('click', function() {
@@ -389,25 +789,27 @@
         document.getElementById('closeImage').addEventListener('click', function() {
             document.getElementById('imageModal').classList.add('hidden');
         });
-        document.querySelectorAll('#openAfterReview').forEach(function(btn) {
+        document.getElementById('cancelRating').addEventListener('click', function() {
+            document.getElementById('afterRating').classList.add('hidden');
+            document.getElementById('ratingModal').classList.remove('hidden');
+        });
+        document.getElementById('cancelImage').addEventListener('click', function() {
+            document.getElementById('afterImage').classList.add('hidden');
+            document.getElementById('imageModal').classList.remove('hidden');
+        });
+        document.querySelectorAll('#openAfterRating').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                document.getElementById('imageModal').classList.add('hidden');
                 document.getElementById('ratingModal').classList.add('hidden');
-                document.getElementById('fillReview').classList.add('hidden');
-                document.getElementById('afterReview').classList.remove('hidden');
+                document.getElementById('fillReview').classList.remove('hidden');
+                document.getElementById('afterRating').classList.remove('hidden');
             });
         });
-        document.getElementById('openClaim').addEventListener('click', function() {
-            document.getElementById('claimCulinarySite').classList.remove('hidden');
-        });
-        document.getElementById('closeClaim').addEventListener('click', function() {
-            document.getElementById('claimCulinarySite').classList.add('hidden');
-        });
-        document.getElementById('openMenu').addEventListener('click', function() {
-            document.getElementById('menuModal').classList.remove('hidden');
-        });
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            document.getElementById('menuModal').classList.add('hidden');
+        document.querySelectorAll('#openAfterImage').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.getElementById('imageModal').classList.add('hidden');
+                document.getElementById('fillReview').classList.remove('hidden');
+                document.getElementById('afterImage').classList.remove('hidden');
+            });
         });
     </script>
     
