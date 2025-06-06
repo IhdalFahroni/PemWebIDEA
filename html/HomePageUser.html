@@ -123,8 +123,8 @@
 
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFF0]">
-        <div class="main-container p-6 md:p-8 shadow-2xl w-full">
-            <div id="header" class="header text-center mb-5 hidden">
+        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
+            <div id="header" class="header text-center mb-5 ">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
                     <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
@@ -144,7 +144,7 @@
                 </div>
             </div>
 
-            <div id="awal" class="space-y-6 hidden">
+            <div id="awal" class="space-y-6 ">
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
@@ -359,8 +359,8 @@
                     </button>
                 </div>
             </div>
-            <div id="profil" class="header mb-5">
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+            <div id="profil" class="header mb-5 hidden">
+                <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
                         <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
                         <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
@@ -385,9 +385,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                <div id="bawahProfil" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3] hidden">
                     <div class="flex flex-col w-full">
-                        <button class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
                             <i class="fas fa-gear text-xl hover:opacity-50"></i>
                             <span class="hover:underline">Account setting</span>
                         </button>
@@ -395,6 +395,37 @@
                         <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
                             <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
                             <span class="hover:underline">Logout</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                    <div class="w-full relative">
+                        <button id="closeAccountSettingBtn" class="absolute right-4 text-[#5C3211] hover:bg-gray-100 rounded-full transition" title="Close">
+                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        </button>
+                        <div class="mb-4">
+                            <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
+                        </div>
+                        <hr class="my-3 border-[#5C3211] opacity-50">
+                        <div class="mb-4">
+                            <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
+                        </div>
+                        <div class="flex flex-col max-w-sm gap-3"> 
+                            <input type="password" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+                        </div>
+                        <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                            Save new password
+                        </button>
+                        <div class="mt-8">
+                            <span class="text-lg font-semibold text-[#5C3211]">Delete Account</span>
+                        </div>
+                        <div class="mb-4">
+                            <span class="text-sm font-normal text-[#5C3211]">Permanently delete your account</span>
+                        </div>
+                        <button class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#ff0000] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                            Delete account
                         </button>
                     </div>
                 </div>
@@ -408,210 +439,172 @@
             const closeSidebarMenuBtn = document.getElementById('closeBtn');
             const sidebarMenu = document.getElementById('sidebarMenu');
             const mainContent = document.querySelector('main');
-
-            mainContent.style.transition = 'margin-left 0.3s';
-
-            hamburgerBtn.addEventListener('click', () => {
-            sidebarMenu.classList.remove('-translate-x-full');
-            sidebarMenu.classList.add('translate-x-0');
-            mainContent.style.marginLeft = '18rem'; 
-            });
-
-            closeSidebarMenuBtn.addEventListener('click', () => {
-            sidebarMenu.classList.remove('translate-x-0');
-            sidebarMenu.classList.add('-translate-x-full');
-            mainContent.style.marginLeft = '5rem'; 
-            });
-
-            const searchIcon = document.getElementById('searchIcon');
+            
+            const headerDiv = document.getElementById('header');
             const awalDiv = document.getElementById('awal');
             const afterSearchDiv = document.getElementById('afterSearch');
-            const headerDiv = document.getElementById('header');
-
-            searchIcon.addEventListener('click', () => {
-                awalDiv.classList.add('hidden');
-                afterSearchDiv.classList.remove('hidden');
-            });
-
-            const openNotification = document.getElementById('notificationBtn'); 
-            const openNotif = document.getElementById('openNotificationBtn');
             const notification = document.getElementById('notification');
-            
-            const openAddPlace = document.getElementById('addPlaceBtn'); 
-            const addPlaceOpen = document.getElementById('openAddPlaceBtn');
             const addPlaceForm = document.getElementById('addPlace');
-            
-            const openProfil = document.getElementById('profilBtn'); 
-            const openedProfil = document.getElementById('openProfilBtn');
             const profile = document.getElementById('profil');
-
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const saveEditBtn = document.getElementById('saveEditBtn');
+            
+            const searchIcon = document.getElementById('searchIcon');
+            const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
+            const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
+            const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
+            
+            const containerProfile = document.getElementById('containerProfile');
             const profilPage = document.getElementById('profilPage');
             const editProfilePage = document.getElementById('editProfilePage');
-            const userError = document.getElementById('usernameError');
+            const bawahProfil = document.getElementById('bawahProfil');
+            const accountSetting = document.getElementById('accountSetting');
             
-            let notificationVisible = false;
-            let addPlaceFormVisible = false;
-            let profilVisible = false;
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const saveEditBtn = document.getElementById('saveEditBtn');
+            const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
+            const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
+            
+            const usernameInput = document.getElementById('editUsername');
+            const userError = document.getElementById('usernameError');
+            const passwordInput = document.getElementById('newPass');
+            const passError = document.getElementById('passwordError');
 
-            editProfileBtn.addEventListener('click', () => {
-                profilPage.classList.add('hidden');
-                editProfilePage.classList.remove('hidden');
-            });
+            let activePanel = 'awal'; 
 
-            saveEditBtn.addEventListener('click', () => {
-                profilPage.classList.remove('hidden');
-                editProfilePage.classList.add('hidden');
-            });
-
-            const usernameInput = document.querySelector('#editProfilePage input.text-5xl');
-            usernameInput.addEventListener('input', () => {
-                const username = usernameInput.value.trim();
-                if (username.length < 8 || username.length > 20) {
-                    userError.classList.remove('hidden');
-                } else {
-                    userError.classList.add('hidden');
-                }
-            });
-
-            function showAddPlaceForm() {
-                addPlaceForm.classList.remove('hidden');
+            function showPanel(panelName) {
                 headerDiv.classList.add('hidden');
                 awalDiv.classList.add('hidden');
                 afterSearchDiv.classList.add('hidden');
-                if(notificationVisible) {
-                   notification.classList.add('hidden');
-                   notificationVisible = false;
-                }
-                if (profilVisible) {
-                    profile.classList.add('hidden');
-                    profilVisible = false;
-                }
-                addPlaceFormVisible = true;
-            }
-
-            function hideAddPlaceForm() {
-                addPlaceForm.classList.add('hidden');
-                headerDiv.classList.remove('hidden');
-                awalDiv.classList.remove('hidden');
-                afterSearchDiv.classList.add('hidden');
-                addPlaceFormVisible = false;
-            }
-
-            function showNotification() {
-                notification.classList.remove('hidden');
-                headerDiv.classList.add('hidden');
-                awalDiv.classList.add('hidden');
-                afterSearchDiv.classList.add('hidden');
-                if (addPlaceFormVisible) {
-                    addPlaceForm.classList.add('hidden');
-                    addPlaceFormVisible = false;
-                }
-                if (profilVisible) {
-                    profile.classList.add('hidden');
-                    profilVisible = false;
-                }
-                notificationVisible = true;
-            }
-
-            function hideNotification() {
                 notification.classList.add('hidden');
-                headerDiv.classList.remove('hidden');
-                awalDiv.classList.remove('hidden');
-                afterSearchDiv.classList.add('hidden');
-                notificationVisible = false;
-            }
-
-            function showProfil() {
-                profile.classList.remove('hidden');
-                headerDiv.classList.add('hidden');
-                awalDiv.classList.add('hidden');
-                afterSearchDiv.classList.add('hidden');
-                if (addPlaceFormVisible) {
-                    addPlaceForm.classList.add('hidden');
-                    addPlaceFormVisible = false;
-                }
-                if (notificationVisible) {
-                    notification.classList.add('hidden');
-                    notificationVisible = false;
-                }
-                profilVisible = true;
-            }
-
-            function hideProfil() {
+                addPlaceForm.classList.add('hidden');
                 profile.classList.add('hidden');
-                headerDiv.classList.remove('hidden');
-                awalDiv.classList.remove('hidden');
-                afterSearchDiv.classList.add('hidden');
-                profilVisible = false;
+                
+                switch (panelName) {
+                    case 'awal':
+                        headerDiv.classList.remove('hidden');
+                        awalDiv.classList.remove('hidden');
+                        break;
+                    case 'afterSearch':
+                        headerDiv.classList.remove('hidden');
+                        afterSearchDiv.classList.remove('hidden');
+                        break;
+                    case 'notification':
+                        notification.classList.remove('hidden');
+                        break;
+                    case 'addPlace':
+                        addPlaceForm.classList.remove('hidden');
+                        break;
+                    case 'profil':
+                        profile.classList.remove('hidden');
+                        containerProfile.classList.remove('hidden');
+                        profilPage.classList.remove('hidden');
+                        bawahProfil.classList.remove('hidden');
+                        editProfilePage.classList.add('hidden');
+                        accountSetting.classList.add('hidden');
+                        break;
+                }
+                activePanel = panelName;
+
+                if (sidebarMenu.classList.contains('translate-x-0')) {
+                    sidebarMenu.classList.remove('translate-x-0');
+                    sidebarMenu.classList.add('-translate-x-full');
+                    mainContent.style.marginLeft = '5rem';
+                }
             }
 
-            if (openNotification) {
-                openNotification.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (notificationVisible) {
-                        hideNotification();
+            mainContent.style.transition = 'margin-left 0.3s';
+            hamburgerBtn.addEventListener('click', () => {
+                sidebarMenu.classList.remove('-translate-x-full');
+                mainContent.style.marginLeft = '18rem'; 
+            });
+            closeSidebarMenuBtn.addEventListener('click', () => {
+                sidebarMenu.classList.add('-translate-x-full');
+                mainContent.style.marginLeft = '5rem'; 
+            });
+
+            searchIcon.addEventListener('click', () => showPanel('afterSearch'));
+            
+            openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'notification') {
+                    showPanel('awal');
+                } else {
+                    showPanel('notification');
+                }
+            }));
+
+            openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'addPlace') {
+                    showPanel('awal');
+                } else {
+                    showPanel('addPlace');
+                }
+            }));
+            
+            openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'profil') {
+                    showPanel('awal');
+                } else {
+                    showPanel('profil');
+                }
+            }));
+            
+            if (editProfileBtn) {
+                editProfileBtn.addEventListener('click', () => {
+                    profilPage.classList.add('hidden');
+                    editProfilePage.classList.remove('hidden');
+                });
+            }
+
+            if (saveEditBtn) {
+                saveEditBtn.addEventListener('click', () => {
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+            
+            if (openAccountSettingBtn) {
+                openAccountSettingBtn.addEventListener('click', () => {
+                    containerProfile.classList.add('hidden');
+                    bawahProfil.classList.add('hidden');
+                    accountSetting.classList.remove('hidden');
+                });
+            }
+
+            if (closeAccountSettingBtn) {
+                closeAccountSettingBtn.addEventListener('click', () => {
+                    accountSetting.classList.add('hidden');
+                    containerProfile.classList.remove('hidden');
+                    bawahProfil.classList.remove('hidden');
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+
+            if (usernameInput) {
+                usernameInput.addEventListener('input', () => {
+                    const username = usernameInput.value.trim();
+                    if (username.length > 0 && (username.length < 8 || username.length > 20)) {
+                        userError.classList.remove('hidden');
                     } else {
-                        showNotification();
+                        userError.classList.add('hidden');
                     }
                 });
             }
 
-            if (openNotif) {
-                openNotif.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (notificationVisible) {
-                        hideNotification();
+            if (passwordInput) {
+                passwordInput.addEventListener('input', () => {
+                    const password = passwordInput.value.trim();
+                    if (password.length > 0 && (password.length < 8 || password.length > 20)) {
+                        passError.classList.remove('hidden');
                     } else {
-                        showNotification();
+                        passError.classList.add('hidden');
                     }
                 });
             }
-
-            if (openAddPlace) {
-                openAddPlace.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (addPlaceFormVisible) {
-                        hideAddPlaceForm();
-                    } else {
-                        showAddPlaceForm();
-                    }
-                });
-            }
-
-            if (addPlaceOpen) {
-                addPlaceOpen.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (addPlaceFormVisible) {
-                        hideAddPlaceForm();
-                    } else {
-                        showAddPlaceForm();
-                    }
-                });
-            }
-
-            if (openProfil) {
-                openProfil.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (profilVisible) {
-                        hideProfil();
-                    } else {
-                        showProfil();
-                    }
-                });
-            }
-
-            if (openedProfil) {
-                openedProfil.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (profilVisible) {
-                        hideProfil();
-                    } else {
-                        showProfil();
-                    }
-                });
-            }
+            
+            showPanel('awal');
         });
     </script>
     
