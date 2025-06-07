@@ -89,6 +89,10 @@
             <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
         </div>
 
+        <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-home text-[#FFC107] text-xl"></i>
+        </div>  
+
         <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
         </div>
@@ -117,17 +121,21 @@
         </div>
 
         <div class="flex-1 p-5 space-y-2">
+            <a href="#" id="openHomeBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-home warna-kuning"></i></span>
+                <span class="text-lg font-medium warna-kuning pt-2">Home</span>
+            </a>
             <a href="#" id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
-                <span class="text-lg font-medium warna-kuning">Add Place</span>
+                <span class="text-lg font-medium warna-kuning pt-2">Add Place</span>
             </a>
             <a href="#" id="openManageVerificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
-                <span class="text-lg font-medium warna-kuning">Manage Verification</span>
+                <span class="text-lg font-medium warna-kuning pt-2">Manage Verification</span>
             </a>
             <a href="#" id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
-                <span class="text-lg font-medium warna-kuning">Notifications</span>
+                <span class="text-lg font-medium warna-kuning pt-1">Notifications</span>
             </a>
         </div>
 
@@ -135,7 +143,7 @@
             <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user warna-kuning"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold warna-kuning">Admin</span> <!-- Changed username to Admin -->
+                    <span class="text-lg font-semibold warna-kuning">Admin</span> 
                     <span class="text-base font-light warna-kuning">@email.gmail.com</span>
                 </div>
             </div>
@@ -485,6 +493,7 @@
             const profile = document.getElementById('profil');
             
             const searchIcon = document.getElementById('searchIcon');
+            const openHomeBtns = [document.getElementById('homeBtn'), document.getElementById('openHomeBtn')]
             const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
             const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
             const openManageVerificationBtns = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')];
@@ -560,32 +569,25 @@
             });
 
             searchIcon.addEventListener('click', () => showPanel('afterSearch'));
+
+            openHomeBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPanel('awal'); 
+            }));
             
             openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (activePanel === 'notification') {
-                    showPanel('awal');
-                } else {
                     showPanel('notification');
-                }
             }));
 
             openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (activePanel === 'addPlace') {
-                    showPanel('awal');
-                } else {
                     showPanel('addPlace');
-                }
             }));
 
             openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (activePanel === 'manageVerification') {
-                    showPanel('awal');
-                } else {
                     showPanel('manageVerification');
-                }
                 document.querySelectorAll('.verification-item').forEach(item => {
                     item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
                         button.classList.add('btn-disabled');
@@ -603,11 +605,7 @@
             
             openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (activePanel === 'profil') {
-                    showPanel('awal');
-                } else {
                     showPanel('profil');
-                }
             }));
             
             if (openAccountSettingBtn) {
