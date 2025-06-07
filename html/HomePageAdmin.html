@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page | LombokRec</title>
+    <title>Home Page Admin | LombokRec</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jaldi&display=swap" rel="stylesheet">
     <style>
@@ -14,8 +14,11 @@
             font-family: 'Josefin Sans';
         }
         .main-container {
-            background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
+            background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px); 
             border-top-left-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            z-index: 30; 
         }
         .warna-kuning {color: #FFC107 !important;}
         .jaldi-font {font-family: 'Jaldi', sans-serif;}
@@ -72,26 +75,38 @@
         .modal-scroll-area::-webkit-scrollbar { width: 8px; }
         .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
         .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
+
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFF0]">
+    <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
         </div>
+
         <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
         </div>
+        
+        <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <i class="fa-solid fa-clipboard-check text-[#FFC107] text-xl"></i>
+        </div>
+
         <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
         </div>
+
         <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-user text-[#FFC107] text-xl"></i>
         </div>
     </aside>
 
-    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-[#FFFFF0] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
+    <div id="sidebarMenu" class="fixed top-0 w-72 h-screen bg-[#FFFFFF] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5 border-b border-black/10">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded flex items-center justify-center text-white font-bold cursor-pointer" id="closeBtn">
@@ -100,21 +115,27 @@
                 <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
             </div>
         </div>
+
         <div class="flex-1 p-5 space-y-2">
             <a href="#" id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning">Add Place</span>
+            </a>
+            <a href="#" id="openManageVerificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
+                <span class="text-lg font-medium warna-kuning">Manage Verification</span>
             </a>
             <a href="#" id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning">Notifications</span>
             </a>
         </div>
+
         <div class="p-5 space-y-3">
             <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user warna-kuning"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold warna-kuning">username</span>
+                    <span class="text-lg font-semibold warna-kuning">Admin</span> <!-- Changed username to Admin -->
                     <span class="text-base font-light warna-kuning">@email.gmail.com</span>
                 </div>
             </div>
@@ -122,7 +143,7 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFF0]">
-        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
+        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="header" class="header text-center mb-5 ">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
@@ -147,7 +168,7 @@
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Belanak+Beach" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
                                 <div class="text-lg font-bold text-[#8D6E63] mb-0">Selong Belanak Beach, South Lombok</div>
                                 <div class="flex justify-between items-center mt-2">
@@ -157,7 +178,7 @@
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Rinjani+Mountain" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
                                 <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
@@ -167,7 +188,7 @@
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Gili+Meno" alt="Gili Meno" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
                                 <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
@@ -182,12 +203,12 @@
                     </button>
                 </div>
 
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+1" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Local Restaurant, Mataram</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
                                     <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
@@ -195,9 +216,9 @@
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+2" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Seafood Shack, Senggigi</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
@@ -205,9 +226,9 @@
                             </div>
                         </div>
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+3" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Traditional Cafe, Kuta Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
                                     <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
@@ -220,12 +241,12 @@
                     </button>
                 </div>
             </div>
-
+            
             <div id="afterSearch" class="space-y-6 hidden">
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="flex flex-col sm:flex-row w-full gap-6">
                         <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
-                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-100 h-50 object-cover rounded-lg mb-4">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Belanak+Beach" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
                             <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
                                 <span class="hover:underline">Google Maps</span>
                                 <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
@@ -243,7 +264,7 @@
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="flex flex-col sm:flex-row w-full gap-6">
                         <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
-                            <img src="../Assets/SelongSelo.png" alt="Selong Belanak Beach" class="w-100 h-50 object-cover rounded-lg mb-4">
+                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Selo+Restaurant" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
                             <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
                                 <span class="hover:underline">Google Maps</span>
                                 <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
@@ -259,57 +280,40 @@
                     </div>
                 </div>
             </div>
+
             <div id="notification" class="header mb-5 hidden">
                 <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
                     <h3 class="font-semibold mb-1 text-lg">
-                        New place Approved
+                        Request for new place addition
                     </h3>
                     <p class="pt-0 ">
-                        Thank you for submitting your place. Request for "Bukit Merese" has been approved. <br>You can search for "Bukit Merese" from now on.
+                        ihdal_f has submitted a request to add a new place.
                     </p>
                     <p class="font-light text-sm mt-4">
                         10:30, July 28, 2025
                     <hr class="my-2">
                     <h3 class="font-semibold mb-1 text-lg">
-                        New place Denied
+                        Request for culinary site claim 
                     </h3>
                     <p class="pt-0 ">
-                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Request for “Bukit Merese” has been denied. Please check the information you provide. 
+                        ihdal_f has submitted a request to claim a culinary site.
                     </p>
                     <p class="font-light text-sm mt-4">
                         10:30, July 28, 2025
                     <hr class="my-2">
-                    <h3 class="font-semibold mb-1 text-lg">
-                        Claim Approved
-                    </h3>
-                    <p class="pt-0 ">
-                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been approved. You can edit the information about the culinary site such as place description, menu and promo from now on. 
-                    </p>
-                    <p class="font-light text-sm mt-4">
-                        10:30, July 28, 2025
-                    <hr class="my-2">
-                    <h3 class="font-semibold mb-1 text-lg">
-                        Claim Denied
-                    </h3>
-                    <p class="pt-0 ">
-                        Thank you for submitting blblblbl (nd tau mau nyebutnya apa). Claim for “RM Sumber Rejeki” has been denied. The information provided did not enough to clarify whether or not you are the owner of the culinary site. You can try to provide more supporting documents.
-                    </p>
-                    <p class="font-light text-sm mt-4">
-                        10:30, July 28, 2025
-                    <hr class="my-2">
-                    
                     <p class="pt-3 text-center">
                         That's all.
                     </p>
                 </div>
             </div>
+
             <div id="addPlace" class="header mb-5 hidden">
                 <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
                     Add tourist attraction
                 </h2>
                 <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
-                    All questions (<span class="text-[#FF0000]">*</span>) must be answered. Once submitted, answers cannot be changed. <br>
+                    All questions must be answered. Once submitted, answers cannot be changed. <br>
                     Please check the answers are correct before submitting.
                 </p>
 
@@ -345,7 +349,7 @@
                     <label>Photo(s)</label>
                     <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
                         <span class="font-medium">Upload File(s)</span>
                     </label>
@@ -358,22 +362,65 @@
                     </button>
                 </div>
             </div>
+
+            <div id="manageVerification" class="header mb-5 hidden">
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Manage Verification</h1>
+                <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3] modal-scroll-area">
+                    
+                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex-grow">
+                            <p class="font-semibold text-lg text-gray-700">ihdal_f</p>
+                            <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
+                            <h3 class="font-semibold mt-2 text-base md:text-lg">Addition of new place</h3>
+                            <a href="#" class="view-form-link text-blue-500 text-sm hover:underline flex items-center mt-1">
+                                <i class="fa-solid fa-file-alt mr-1"></i> Lihat formulir
+                            </a>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <button class="deny-btn border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full btn-disabled hover:bg-red-500 hover:text-white" disabled>
+                                <i class="fa-solid fa-times"></i> Deny
+                            </button>
+                            <button class="approve-btn border border-blue-500 text-blue-500 text-xs px-3 py-1 rounded-full btn-disabled hover:bg-blue-500 hover:text-white" disabled>
+                                <i class="fa-solid fa-check"></i> Approve
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex-grow">
+                            <p class="font-semibold text-lg text-gray-700">ihdal_f</p>
+                            <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
+                            <h3 class="font-semibold mt-2 text-base md:text-lg">Claim culinary request</h3>
+                            <a href="#" class="view-form-link text-blue-500 text-sm hover:underline flex items-center mt-1">
+                                <i class="fa-solid fa-file-alt mr-1"></i> Lihat formulir
+                            </a>
+                        </div>
+                        <div class="flex-shrink-0 flex gap-2">
+                            <button class="deny-btn border border-red-500 text-red-500 text-xs px-3 py-1 rounded-full btn-disabled hover:bg-red-500 hover:text-white" disabled>
+                                <i class="fa-solid fa-times"></i> Deny
+                            </button>
+                            <button class="approve-btn border border-blue-500 text-blue-500 text-xs px-3 py-1 rounded-full btn-disabled hover:bg-blue-500 hover:text-white" disabled>
+                                <i class="fa-solid fa-check"></i> Approve
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="pt-3 text-center">That's all.</p>
+                </div>
+            </div>
+
             <div id="profil" class="header mb-5 hidden">
                 <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
-                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
-                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
-                            <span class="text-5xl font-normal text-[#5C3211]">Username</span>
-                            <div class="flex items-center mt-1 gap-4">
-                                <span class="text-xl text-[#5C3211] font-normal">Nama Lengkap</span>
-                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
-                            </div>
+                            <span class="text-5xl font-normal text-[#5C3211]">Admin</span>
                         </div>
                     </div>
+                    <!-- editProfilePage disembunyikan secara permanen -->
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
                         <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
-                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
                             <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg mb-1 px-3" placeholder="Username" />
                             <p id="usernameError" class="text-sm text-[#FF0000] hidden">Username must be 8-20 characters</p>
@@ -386,7 +433,7 @@
                 </div>
                 <div id="bawahProfil" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3] hidden">
                     <div class="flex flex-col w-full">
-                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
                             <i class="fas fa-gear text-xl hover:opacity-50"></i>
                             <span class="hover:underline">Account setting</span>
                         </button>
@@ -394,7 +441,7 @@
                         <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
                             <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
                             <span class="hover:underline">Logout</span>
-                        </button>
+                        </button> 
                     </div>
                 </div>
                 <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
@@ -405,7 +452,6 @@
                         <div class="mb-4">
                             <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
                         </div>
-                        <hr class="my-3 border-[#5C3211] opacity-50">
                         <div class="mb-4">
                             <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
                         </div>
@@ -416,15 +462,6 @@
                         </div>
                         <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
                             Save new password
-                        </button>
-                        <div class="mt-8">
-                            <span class="text-lg font-semibold text-[#5C3211]">Delete Account</span>
-                        </div>
-                        <div class="mb-4">
-                            <span class="text-sm font-normal text-[#5C3211]">Permanently delete your account</span>
-                        </div>
-                        <button class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#ff0000] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
-                            Delete account
                         </button>
                     </div>
                 </div>
@@ -444,11 +481,13 @@
             const afterSearchDiv = document.getElementById('afterSearch');
             const notification = document.getElementById('notification');
             const addPlaceForm = document.getElementById('addPlace');
+            const manageVerification = document.getElementById('manageVerification'); 
             const profile = document.getElementById('profil');
             
             const searchIcon = document.getElementById('searchIcon');
             const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
             const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
+            const openManageVerificationBtns = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')];
             const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
             
             const containerProfile = document.getElementById('containerProfile');
@@ -457,13 +496,9 @@
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const saveEditBtn = document.getElementById('saveEditBtn');
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
             
-            const usernameInput = document.getElementById('editUsername');
-            const userError = document.getElementById('usernameError');
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
 
@@ -475,6 +510,7 @@
                 afterSearchDiv.classList.add('hidden');
                 notification.classList.add('hidden');
                 addPlaceForm.classList.add('hidden');
+                manageVerification.classList.add('hidden'); 
                 profile.classList.add('hidden');
                 
                 switch (panelName) {
@@ -492,12 +528,15 @@
                     case 'addPlace':
                         addPlaceForm.classList.remove('hidden');
                         break;
+                    case 'manageVerification':
+                        manageVerification.classList.remove('hidden');
+                        break;
                     case 'profil':
                         profile.classList.remove('hidden');
                         containerProfile.classList.remove('hidden');
                         profilPage.classList.remove('hidden');
                         bawahProfil.classList.remove('hidden');
-                        editProfilePage.classList.add('hidden');
+                        editProfilePage.classList.add('hidden'); 
                         accountSetting.classList.add('hidden');
                         break;
                 }
@@ -539,6 +578,28 @@
                     showPanel('addPlace');
                 }
             }));
+
+            openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'manageVerification') {
+                    showPanel('awal');
+                } else {
+                    showPanel('manageVerification');
+                }
+                document.querySelectorAll('.verification-item').forEach(item => {
+                    item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
+                        button.classList.add('btn-disabled');
+                        button.disabled = true;
+                        if (button.classList.contains('deny-btn')) {
+                            button.classList.add('border', 'border-red-500', 'text-red-500');
+                            button.classList.remove('bg-red-500', 'text-white'); 
+                        } else if (button.classList.contains('approve-btn')) {
+                            button.classList.add('border', 'border-blue-500', 'text-blue-500'); 
+                            button.classList.remove('bg-blue-500', 'text-white'); 
+                        }
+                    });
+                });
+            }));
             
             openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -548,20 +609,6 @@
                     showPanel('profil');
                 }
             }));
-            
-            if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', () => {
-                    profilPage.classList.add('hidden');
-                    editProfilePage.classList.remove('hidden');
-                });
-            }
-
-            if (saveEditBtn) {
-                saveEditBtn.addEventListener('click', () => {
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            }
             
             if (openAccountSettingBtn) {
                 openAccountSettingBtn.addEventListener('click', () => {
@@ -581,17 +628,6 @@
                 });
             }
 
-            if (usernameInput) {
-                usernameInput.addEventListener('input', () => {
-                    const username = usernameInput.value.trim();
-                    if (username.length > 0 && (username.length < 8 || username.length > 20)) {
-                        userError.classList.remove('hidden');
-                    } else {
-                        userError.classList.add('hidden');
-                    }
-                });
-            }
-
             if (passwordInput) {
                 passwordInput.addEventListener('input', () => {
                     const password = passwordInput.value.trim();
@@ -602,6 +638,68 @@
                     }
                 });
             }
+
+            function disableOtherButton(clickedButton, parentItem) {
+                const approveBtn = parentItem.querySelector('.approve-btn');
+                const denyBtn = parentItem.querySelector('.deny-btn');
+
+                approveBtn.classList.add('btn-disabled');
+                approveBtn.disabled = true;
+                denyBtn.classList.add('btn-disabled');
+                denyBtn.disabled = true;
+
+                if (clickedButton === approveBtn) {
+                    approveBtn.classList.remove('border', 'border-blue-500', 'text-blue-500');
+                    approveBtn.classList.add('bg-blue-500', 'text-white');
+                } else if (clickedButton === denyBtn) {
+                    denyBtn.classList.remove('border', 'border-red-500', 'text-red-500');
+                    denyBtn.classList.add('bg-red-500', 'text-white');
+                }
+            }
+
+            document.querySelectorAll('.view-form-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    const parentItem = link.closest('.verification-item');
+                    if (parentItem) {
+                        const approveBtn = parentItem.querySelector('.approve-btn');
+                        const denyBtn = parentItem.querySelector('.deny-btn');
+
+                        approveBtn.classList.remove('btn-disabled');
+                        approveBtn.disabled = false;
+                        denyBtn.classList.remove('btn-disabled');
+                        denyBtn.disabled = false;
+                        
+                        denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
+                        denyBtn.classList.remove('bg-red-500', 'text-white');
+                        
+                        approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
+                        approveBtn.classList.remove('bg-blue-500', 'text-white');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.deny-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (!button.disabled) {
+                        if (window.confirm('Are you sure you want to DENY this request?')) {
+                            const parentItem = button.closest('.verification-item');
+                            disableOtherButton(button, parentItem);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.approve-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    if (!button.disabled) {
+                        if (window.confirm('Are you sure you want to APPROVE this request?')) {
+                            const parentItem = button.closest('.verification-item');
+                            disableOtherButton(button, parentItem);
+                        }
+                    }
+                });
+            });
             
             showPanel('awal');
         });
