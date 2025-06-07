@@ -496,15 +496,9 @@
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
-            // Variabel editProfileBtn dan saveEditBtn tidak lagi diperlukan karena opsi edit dihilangkan
-            // const editProfileBtn = document.getElementById('editProfileBtn'); 
-            // const saveEditBtn = document.getElementById('saveEditBtn'); 
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
             
-            // Variabel usernameInput dan userError tidak lagi diperlukan karena username tetap "Admin"
-            // const usernameInput = document.getElementById('editUsername');
-            // const userError = document.getElementById('usernameError');
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
 
@@ -542,7 +536,7 @@
                         containerProfile.classList.remove('hidden');
                         profilPage.classList.remove('hidden');
                         bawahProfil.classList.remove('hidden');
-                        editProfilePage.classList.add('hidden'); // Memastikan editProfilePage selalu tersembunyi
+                        editProfilePage.classList.add('hidden'); 
                         accountSetting.classList.add('hidden');
                         break;
                 }
@@ -596,7 +590,6 @@
                     item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
                         button.classList.add('btn-disabled');
                         button.disabled = true;
-                        // Reset button styles to initial (bordered for deny, default for approve)
                         if (button.classList.contains('deny-btn')) {
                             button.classList.add('border', 'border-red-500', 'text-red-500');
                             button.classList.remove('bg-red-500', 'text-white'); 
@@ -617,21 +610,6 @@
                 }
             }));
             
-            // Menghapus event listener untuk editProfileBtn dan saveEditBtn
-            /* if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', () => {
-                    profilPage.classList.add('hidden');
-                    editProfilePage.classList.remove('hidden');
-                });
-            }
-
-            if (saveEditBtn) {
-                saveEditBtn.addEventListener('click', () => {
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            } */
-            
             if (openAccountSettingBtn) {
                 openAccountSettingBtn.addEventListener('click', () => {
                     containerProfile.classList.add('hidden');
@@ -649,18 +627,6 @@
                     editProfilePage.classList.add('hidden');
                 });
             }
-
-            // Menghapus event listener untuk usernameInput
-            /* if (usernameInput) {
-                usernameInput.addEventListener('input', () => {
-                    const username = usernameInput.value.trim();
-                    if (username.length > 0 && (username.length < 8 || username.length > 20)) {
-                        userError.classList.remove('hidden');
-                    } else {
-                        userError.classList.add('hidden');
-                    }
-                });
-            } */
 
             if (passwordInput) {
                 passwordInput.addEventListener('input', () => {
