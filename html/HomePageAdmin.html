@@ -14,10 +14,11 @@
             font-family: 'Josefin Sans';
         }
         .main-container {
-            background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px);
+            background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px); 
             border-top-left-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
             position: relative; 
-            z-index: 40;
+            z-index: 30; 
         }
         .warna-kuning {color: #FFC107 !important;}
         .jaldi-font {font-family: 'Jaldi', sans-serif;}
@@ -75,7 +76,6 @@
         .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
         .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
 
-        /* Styles for disabled buttons */
         .btn-disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -121,7 +121,6 @@
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning">Add Place</span>
             </a>
-            <!-- New "Manage Verification" link in expanded sidebar -->
             <a href="#" id="openManageVerificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning">Manage Verification</span>
@@ -136,7 +135,7 @@
             <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded text-gray-800">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl bg-gray-200 rounded-full"><i class="fa-solid fa-user warna-kuning"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold warna-kuning">Admin</span>
+                    <span class="text-lg font-semibold warna-kuning">Admin</span> <!-- Changed username to Admin -->
                     <span class="text-base font-light warna-kuning">@email.gmail.com</span>
                 </div>
             </div>
@@ -144,7 +143,7 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFF0]">
-        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
+        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="header" class="header text-center mb-5 ">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
@@ -204,7 +203,7 @@
                     </button>
                 </div>
 
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
                         <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
                             <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+1" alt="Rinjani Mountain" class="w-full h-52 object-cover">
@@ -367,7 +366,7 @@
             <div id="manageVerification" class="header mb-5 hidden">
                 <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Manage Verification</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3] modal-scroll-area">
-                    <!-- Verification Request Item -->
+                    
                     <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div class="flex-grow">
                             <p class="font-semibold text-lg text-gray-700">ihdal_f</p>
@@ -413,16 +412,12 @@
             <div id="profil" class="header mb-5 hidden">
                 <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
-                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
                         <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
                             <span class="text-5xl font-normal text-[#5C3211]">Admin</span>
-                            <div class="flex items-center mt-1 gap-4">
-                                <span class="text-xl text-[#5C3211] font-normal">Nama Lengkap</span>
-                                <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
-                            </div>
                         </div>
                     </div>
+                    <!-- editProfilePage disembunyikan secara permanen -->
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
                         <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
                         <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
@@ -446,7 +441,7 @@
                         <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
                             <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
                             <span class="hover:underline">Logout</span>
-                        </button>
+                        </button> 
                     </div>
                 </div>
                 <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
@@ -457,7 +452,6 @@
                         <div class="mb-4">
                             <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
                         </div>
-                        <hr class="my-3 border-[#5C3211] opacity-50">
                         <div class="mb-4">
                             <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
                         </div>
@@ -468,15 +462,6 @@
                         </div>
                         <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
                             Save new password
-                        </button>
-                        <div class="mt-8">
-                            <span class="text-lg font-semibold text-[#5C3211]">Delete Account</span>
-                        </div>
-                        <div class="mb-4">
-                            <span class="text-sm font-normal text-[#5C3211]">Permanently delete your account</span>
-                        </div>
-                        <button class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#ff0000] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
-                            Delete account
                         </button>
                     </div>
                 </div>
@@ -511,13 +496,15 @@
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const saveEditBtn = document.getElementById('saveEditBtn');
+            // Variabel editProfileBtn dan saveEditBtn tidak lagi diperlukan karena opsi edit dihilangkan
+            // const editProfileBtn = document.getElementById('editProfileBtn'); 
+            // const saveEditBtn = document.getElementById('saveEditBtn'); 
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
             
-            const usernameInput = document.getElementById('editUsername');
-            const userError = document.getElementById('usernameError');
+            // Variabel usernameInput dan userError tidak lagi diperlukan karena username tetap "Admin"
+            // const usernameInput = document.getElementById('editUsername');
+            // const userError = document.getElementById('usernameError');
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
 
@@ -555,7 +542,7 @@
                         containerProfile.classList.remove('hidden');
                         profilPage.classList.remove('hidden');
                         bawahProfil.classList.remove('hidden');
-                        editProfilePage.classList.add('hidden');
+                        editProfilePage.classList.add('hidden'); // Memastikan editProfilePage selalu tersembunyi
                         accountSetting.classList.add('hidden');
                         break;
                 }
@@ -614,8 +601,8 @@
                             button.classList.add('border', 'border-red-500', 'text-red-500');
                             button.classList.remove('bg-red-500', 'text-white'); 
                         } else if (button.classList.contains('approve-btn')) {
-                            button.classList.add('border', 'border-blue-500', 'text-blue-500'); // Added border, text-blue-500
-                            button.classList.remove('bg-blue-500', 'text-white'); // Removed bg-blue-500, text-white
+                            button.classList.add('border', 'border-blue-500', 'text-blue-500'); 
+                            button.classList.remove('bg-blue-500', 'text-white'); 
                         }
                     });
                 });
@@ -630,7 +617,8 @@
                 }
             }));
             
-            if (editProfileBtn) {
+            // Menghapus event listener untuk editProfileBtn dan saveEditBtn
+            /* if (editProfileBtn) {
                 editProfileBtn.addEventListener('click', () => {
                     profilPage.classList.add('hidden');
                     editProfilePage.classList.remove('hidden');
@@ -642,7 +630,7 @@
                     profilPage.classList.remove('hidden');
                     editProfilePage.classList.add('hidden');
                 });
-            }
+            } */
             
             if (openAccountSettingBtn) {
                 openAccountSettingBtn.addEventListener('click', () => {
@@ -662,7 +650,8 @@
                 });
             }
 
-            if (usernameInput) {
+            // Menghapus event listener untuk usernameInput
+            /* if (usernameInput) {
                 usernameInput.addEventListener('input', () => {
                     const username = usernameInput.value.trim();
                     if (username.length > 0 && (username.length < 8 || username.length > 20)) {
@@ -671,7 +660,7 @@
                         userError.classList.add('hidden');
                     }
                 });
-            }
+            } */
 
             if (passwordInput) {
                 passwordInput.addEventListener('input', () => {
