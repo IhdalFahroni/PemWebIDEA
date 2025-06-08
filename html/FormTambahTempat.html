@@ -24,11 +24,12 @@
         }
         .form-box label {
             display: block;
-            font-weight: 600; /* font-semibold */
-            color: #4B5563; /* text-gray-600 */
-            margin-bottom: 0.5rem; /* mb-2 */
-            font-size: 1.1em; /* Slightly larger label */
+            font-weight: 600; 
+            color: #4B5563; 
+            margin-bottom: 0.5rem; 
+            font-size: 1.1em; 
         }
+
         .form-box input[type="text"],
         .form-box textarea {
             width: 100%;
@@ -45,8 +46,25 @@
             box-shadow: none;
             ring: 0;
         }
+
+        .form-box input[type="url"],
+        .form-box textarea{ 
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #D1D5DB; 
+            padding: 0.5rem 0.1rem; 
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+         }
+        .form-box input[type="url"]:focus,
+        .form-box textarea:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+        }
+
         .form-box textarea {
-            resize: vertical; /* Allow vertical resize */
+            resize: vertical; 
         }
         .form-box input::placeholder,
         .form-box textarea::placeholder {
@@ -127,26 +145,20 @@
             font-weight: 400; 
             padding-bottom: 0.3rem;
         }
-        .google-map-input-container input[type="url"],
-        .google-map-input-container input[type="text"][readonly] {
+        .upload-photo-container input[type="url"],
+        .upload-photo-container input[type="text"][readonly] {
             border-bottom: none; 
             padding-bottom: 0;  
         }
 
-        /* Pastikan juga efek fokusnya hilang atau diganti jika tidak ada border */
-        .google-map-input-container input[type="url"]:focus,
-        .google-map-input-container input[type="text"][readonly]:focus {
-            box-shadow: none;
-            ring: 0;
-        }
-        .google-map-input-container {
+        .upload-photo-container {
             display: flex;
             align-items: center;
             padding: 0.7rem 0.1rem;
             transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             cursor: pointer;
         }
-        .google-map-input-container input {
+        .upload-photo-container input {
             flex-grow: 1;
             border: none;
             background-color: transparent;
@@ -160,29 +172,29 @@
             margin-top: 0;
             margin-bottom: 0;
         }
-        .google-map-input-container input::placeholder {
+        .upload-photo-container input::placeholder {
             color: #9CA3AF;
             vertical-align: middle; 
             line-height: normal; 
         }
-        .google-map-input-container svg {
+        .upload-photo-container svg {
             margin-right: 0.3rem;
             flex-shrink: 0;
             position: relative; 
             bottom: 3px; 
         }
-        .google-map-input-container:hover input::placeholder,
-        .google-map-input-container:hover svg {
+        .upload-photo-container:hover input::placeholder,
+        .upload-photo-container:hover svg {
             color: #F59E0B;
             text-decoration: underline; 
         }
-        .google-map-input-container input::placeholder {
+        .upload-photo-container input::placeholder {
             color: #9CA3AF; 
             vertical-align: middle;
             line-height: normal;
             transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; 
         }
-        .google-map-input-container svg {
+        .upload-photo-container svg {
             height: 1.25rem;
             width: 1.25rem;
             margin-right: 0.5rem;
@@ -278,13 +290,8 @@
                     <textarea id="street" required rows="1" placeholder="Answer"></textarea>
                 </div>
                 <div class="form-box">
-                    <label for="Maps_link">Google Map Location<span class="text-[#FF0000]">*</span></label>
-                    <div class="google-map-input-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                        </svg>
-                        <input type="url" id="Maps_link" required placeholder="Google Maps" />
-                    </div>
+                    <label for="Maps_link">Google Map<span class="text-[#FF0000]">*</span></label>
+                    <input type="url" id="Maps_link" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
                     <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
@@ -292,7 +299,7 @@
                 </div>
                 <div class="form-box">
                     <label>Photo(s)</label>
-                    <div id="fileUploadVisual" class="google-map-input-container"> 
+                    <div id="fileUploadVisual" class="upload-photo-container"> 
                         <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
