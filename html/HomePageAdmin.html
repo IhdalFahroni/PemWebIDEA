@@ -31,19 +31,19 @@
             transition: background-color 0.3s;
         }
         ::-webkit-scrollbar {width: 6px;}
-        ::-webkit-scrollbar-track {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-track {background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px);}
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
             border-radius: 3px;
         }
-        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px);}
         .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #FFFFFF); }
         .form-box {
             background-color: white;
             border-radius: 1rem;
             padding: 1.25rem;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         }
         .form-box label {
             display: block;
@@ -67,6 +67,145 @@
         .form-box textarea {resize: vertical;}
         .form-box input::placeholder,
         .form-box textarea::placeholder {color: #9CA3AF;}
+
+        .form-box select {
+            width: 100%;
+            background-color: transparent; 
+            border: none;
+            border-bottom: 1px solid #D1D5DB; /* Garis bawah yang sama */
+            padding: 0.5rem 0.1rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E"); /* Ikon panah ke bawah */
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem; 
+            color: #9CA3AF; 
+        }
+        .form-box select:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box select option {
+            color: black; 
+        }
+        .form-box select:valid {
+            color: black; 
+        }
+        .radio-group-container {
+            display: flex; 
+            gap: 1.5rem;
+            padding-top: 1rem; 
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #4B5563; /* text-gray-600 */
+        }
+        .radio-option input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #D1D5DB; 
+            border-radius: 50%; 
+            margin-right: 0.1rem; 
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            position: relative; 
+        }
+        .radio-option input[type="radio"]:checked {
+            background-color: #F59E0B; 
+            border-color: #F59E0B; 
+        }
+        .radio-option input[type="radio"]:focus {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.5); 
+        }
+        .radio-option input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 0.5rem; 
+            height: 0.5rem;
+            background-color: white; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .radio-option span {
+            font-weight: 400; 
+            padding-bottom: 0.3rem;
+        }
+        .upload-photo-container input[type="url"],
+        .upload-photo-container input[type="text"][readonly] {
+            border-bottom: none; 
+            padding-bottom: 0;  
+        }
+
+        .upload-photo-container {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0.1rem;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .upload-photo-container input {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            padding: 0; 
+            color: #4B5563;
+            vertical-align: middle;
+            line-height: normal; 
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF;
+            vertical-align: middle; 
+            line-height: normal; 
+        }
+        .upload-photo-container svg {
+            margin-right: 0.3rem;
+            flex-shrink: 0;
+            position: relative; 
+            bottom: 3px; 
+        }
+        .upload-photo-container:hover input::placeholder,
+        .upload-photo-container:hover svg {
+            color: #F59E0B;
+            text-decoration: underline; 
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF; 
+            vertical-align: middle;
+            line-height: normal;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; 
+        }
+        .upload-photo-container svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            color: #9CA3AF; 
+            vertical-align: middle;
+            transition: color 0.2s ease-in-out; 
+        }
+        #uploadIcon {
+            position: relative;
+            top: 2px;
+        }
+
         .modal-scroll-area {
             max-height: 70vh;
             overflow-y: auto;
@@ -321,17 +460,37 @@
                     Add tourist attraction
                 </h2>
                 <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
-                    All questions must be answered. Once submitted, answers cannot be changed. <br>
+                    All questions (<span class="text-[#FF0000]">*</span>) must be answered. Once submitted, answers cannot be changed. <br>
                     Please check the answers are correct before submitting.
                 </p>
-
+                <form id="attractionForm" class="modal-scroll-area">
                 <div class="form-box">
                     <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="place_name" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
+                    <label>Category<span class="text-[#FF0000]">*</span></label>
+                    <div class="radio-group-container">
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="tourist_destination" required>
+                            <span>Tourist destination</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="culinary">
+                            <span>Culinary</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-box">
                     <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="district_city" required placeholder="Answer" />
+                    <select id="district_city" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="mataram">Mataram</option>
+                        <option value="lombok_barat">Lombok Barat</option>
+                        <option value="lombok_tengah">Lombok Tengah</option>
+                        <option value="lombok_timur">Lombok Timur</option>
+                        <option value="lombok_utara">Lombok Utara</option>
+                    </select>
                 </div>
                 <div class="form-box">
                     <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
@@ -343,32 +502,34 @@
                 </div>
                 <div class="form-box">
                     <label for="street">Street<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="street" required placeholder="Answer" />
+                    <input type="text" id="street" required rows="1" placeholder="Answer" />
                 </div>
                 <div class="form-box">
                     <label for="gmaps">Google Map Location<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="gmaps" required placeholder="Google Maps" />
+                    <input type="text" id="gmaps" required placeholder="Paste Google Map location link here" />
                 </div>
                 <div class="form-box">
                     <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
-                    <textarea id="description" required rows="3" placeholder="Answer"></textarea>
+                    <textarea id="description" required rows="1" placeholder="Answer"></textarea>
                 </div>
                 <div class="form-box">
                     <label>Photo(s)</label>
-                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    <div id="fileUploadVisual" class="upload-photo-container"> 
+                        <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
-                        <span class="font-medium">Upload File(s)</span>
-                    </label>
-                    <input id="file-upload" type="file" multiple required class="hidden"/>
-                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
+                        <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly />
+                    </div>
+                    <input id="file-upload" type="file" multiple class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> 
+                </div>
 
                 <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
                     <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
                         Submit
                     </button>
                 </div>
+                </form>
             </div>
 
             <div id="manageVerification" class="header mb-5 hidden">
@@ -425,7 +586,6 @@
                             <span class="text-5xl font-normal text-[#5C3211]">Admin</span>
                         </div>
                     </div>
-                    <!-- editProfilePage disembunyikan secara permanen -->
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
                         <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
                         <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
@@ -510,6 +670,12 @@
             
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
+
+            const fileInput = document.getElementById("file-upload");
+            const fileList = document.getElementById("file-list");
+            const fileUploadVisual = document.getElementById("fileUploadVisual");
+            const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
+            const gmapsInput = document.getElementById("gmaps");
 
             let activePanel = 'awal'; 
 
@@ -635,6 +801,95 @@
                         passError.classList.add('hidden');
                     }
                 });
+            }
+
+            if (fileUploadVisual) { 
+            fileUploadVisual.onclick = () => {
+                fileInput.click();
+                };
+            } else {
+                console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+            }
+
+            if (fileInput) { 
+            fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                    let filesText = Array.from(fileInput.files)
+                                            .map(file => file.name)
+                                            .join(', ');
+                    fileList.textContent = `Selected: ${filesText}`;
+                    fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; 
+                } else {
+                    fileList.textContent = '';
+                    fileUploadPlaceholder.value = ''; 
+                    fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                }
+            };
+            } else {
+                console.error("Error: Input 'file-upload' tidak ditemukan!");
+            }
+
+            const attractionForm = document.getElementById("attractionForm");
+            if (attractionForm) {
+                attractionForm.onsubmit = (e) => {
+                    e.preventDefault(); 
+                    let isValid = true; 
+
+                    const showError = (inputElement, message) => {
+                        inputElement.classList.add('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (!errorSpan || !errorSpan.classList.contains('error-message')) {
+                            errorSpan = document.createElement('p');
+                            errorSpan.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
+                            inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling); 
+                        }
+                        errorSpan.textContent = message;
+                        isValid = false; 
+                    };
+                   
+                    const hideError = (inputElement) => {
+                        inputElement.classList.remove('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (errorSpan && errorSpan.classList.contains('error-message')) {
+                            errorSpan.textContent = ''; 
+                            
+                        }
+                    };
+
+                    // 1. Validasi Umum untuk input teks dan textarea
+                    attractionForm.querySelectorAll('input[type="text"]:not(#fileUploadPlaceholder), textarea').forEach(input => {
+                        if (!input.value.trim()) {
+                            showError(input, "This field is required.");
+                        } else {
+                            hideError(input);
+                        }
+                    });
+
+                    // 2. Validasi Google Map (URL) - menggunakan input type="text"
+                    const urlRegex = /^(https?:\/\/(?:www\.|m\.)?google\.(?:com|co\.\w{2}|ru)\/maps\S*|https?:\/\/(?:www\.|m\.)?waze\.com\S*|https?:\/\/(?:www\.|m\.)?openstreetmap\.org\S*|https?:\/\/(?:www\.)?bing\.com\/maps\S*|https?:\/\/(?:www\.)?mapbox\.com\S*)/i;
+
+                    if (!gmapsInput.value.trim()) {
+                        showError(gmapsInput, "This field is required.");
+                    } else if (!urlRegex.test(gmapsInput.value.trim())) {
+                        showError(gmapsInput, "Please enter a valid map URL (e.g., Google Maps link).");
+                    } else {
+                        hideError(gmapsInput);
+                    }
+                    
+                    // 5. Validasi Photo(s)                    
+                    if (isValid) {
+                        alert("Form has been submitted!"); // Menambahkan kembali alert sesuai permintaan
+                        modal.classList.add("hidden"); 
+                        e.target.reset();  
+                        fileList.textContent = ''; 
+                        fileUploadPlaceholder.value = ''; 
+                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                        attractionForm.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+                        attractionForm.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+                    }
+                };
+            } else { 
+              console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
             }
 
             function disableOtherButton(clickedButton, parentItem) {
