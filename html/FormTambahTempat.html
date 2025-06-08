@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tourist Attraction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .custom-gradient {
+            background: linear-gradient(to bottom, #FFC107, #FFFFFF);
+        }
+        /* Custom input styles to match image */
+        .form-box {
+            background-color: white;
+            border-radius: 1rem; /* rounded-xl */
+            padding: 1.25rem; /* p-5 */
+            margin-bottom: 1rem; /* space-y-4 equivalent */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        .form-box label {
+            display: block;
+            font-weight: 600; /* font-semibold */
+            color: #4B5563; /* text-gray-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-size: 1.1em; /* Slightly larger label */
+        }
+        .form-box input[type="text"],
+        .form-box textarea {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #D1D5DB; /* border-gray-300 */
+            padding: 0.5rem 0.1rem; /* py-2 px-1 (adjust as needed) */
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+        }
+        .form-box input[type="text"]:focus,
+        .form-box textarea:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box textarea {
+            resize: vertical; /* Allow vertical resize */
+        }
+        .form-box input::placeholder,
+        .form-box textarea::placeholder {
+            color: #9CA3AF; 
+        }
+        .form-box select {
+            width: 100%;
+            background-color: transparent; 
+            border: none;
+            border-bottom: 1px solid #D1D5DB; /* Garis bawah yang sama */
+            padding: 0.5rem 0.1rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E"); /* Ikon panah ke bawah */
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem; 
+            color: #9CA3AF; 
+        }
+        .form-box select:focus {
+            border-bottom-color: #F59E0B; /* border-amber-500 */
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box select option {
+            color: black; 
+        }
+        .form-box select:valid {
+            color: black; 
+        }
+        .radio-group-container {
+            display: flex; 
+            gap: 1.5rem;
+            padding-top: 1rem; 
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #4B5563; /* text-gray-600 */
+        }
+        .radio-option input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #D1D5DB; 
+            border-radius: 50%; 
+            margin-right: 0.1rem; 
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            position: relative; 
+        }
+        .radio-option input[type="radio"]:checked {
+            background-color: #F59E0B; 
+            border-color: #F59E0B; 
+        }
+        .radio-option input[type="radio"]:focus {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.5); 
+        }
+        .radio-option input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 0.5rem; 
+            height: 0.5rem;
+            background-color: white; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .radio-option span {
+            font-weight: 400; 
+            padding-bottom: 0.3rem;
+        }
+        .google-map-input-container input[type="url"],
+        .google-map-input-container input[type="text"][readonly] {
+            border-bottom: none; 
+            padding-bottom: 0;  
+        }
+
+        /* Pastikan juga efek fokusnya hilang atau diganti jika tidak ada border */
+        .google-map-input-container input[type="url"]:focus,
+        .google-map-input-container input[type="text"][readonly]:focus {
+            box-shadow: none;
+            ring: 0;
+        }
+        .google-map-input-container {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0.1rem;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .google-map-input-container input {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            padding: 0; 
+            color: #4B5563;
+            vertical-align: middle;
+            line-height: normal; 
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .google-map-input-container input::placeholder {
+            color: #9CA3AF;
+            vertical-align: middle; 
+            line-height: normal; 
+        }
+        .google-map-input-container svg {
+            margin-right: 0.3rem;
+            flex-shrink: 0;
+            position: relative; 
+            bottom: 3px; 
+        }
+        .google-map-input-container:hover input::placeholder,
+        .google-map-input-container:hover svg {
+            color: #F59E0B;
+            text-decoration: underline; 
+        }
+        .google-map-input-container input::placeholder {
+            color: #9CA3AF; 
+            vertical-align: middle;
+            line-height: normal;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; 
+        }
+        .google-map-input-container svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            color: #9CA3AF; 
+            vertical-align: middle;
+            transition: color 0.2s ease-in-out; 
+        }
+        #uploadIcon {
+            position: relative;
+            top: 2px;
+        }
+        /* Style for the modal content area for scrolling */
+        .modal-scroll-area {
+            max-height: 75vh; /* Adjust as needed */
+            overflow-y: auto;
+            padding-right: 15px; /* Space for scrollbar */
+            margin-right: -15px; /* Compensate for padding */
+        }
+         /* Simple scrollbar styling (optional) */
+        .modal-scroll-area::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll-area::-webkit-scrollbar-thumb {
+            background-color: #E6A94E;
+            border-radius: 4px;
+        }
+        .modal-scroll-area::-webkit-scrollbar-track {
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body class="bg-yellow-50 flex items-center justify-center min-h-screen">
+
+    <button id="openModalBtn" class="bg-amber-400 hover:bg-amber-500 text-white font-bold py-3 px-8 rounded-lg shadow-xl text-lg transition duration-300">
+        Add Tourist Attraction
+    </button>
+
+    <div id="modalForm" class="fixed inset-0 bg-black bg-opacity-40 hidden z-50 flex items-center justify-center p-4">
+        <div class="custom-gradient rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-lg relative">
+
+            <button id="closeModalBtn" class="absolute top-4 right-5 text-white hover:text-gray-200 text-3xl font-bold">&times;</button>
+
+            <h2 class="text-3xl font-bold text-center text-white mb-3">
+                Add tourist attraction
+            </h2>
+            <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                All questions (<span class="text-[#FF0000]">*</span>) must be answered. Once submitted, answers cannot be changed. <br>
+                Please ensure the answers are correct before submitting.
+            </p>
+
+            <form id="attractionForm" class="modal-scroll-area">
+                <div class="form-box">
+                    <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="place_name" required rows="1" placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label>Category<span class="text-[#FF0000]">*</span></label>
+                    <div class="radio-group-container">
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="tourist_destination" required>
+                            <span>Tourist destination</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="culinary">
+                            <span>Culinary</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-box">
+                    <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
+                    <select id="district_city" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="mataram">Mataram</option>
+                        <option value="lombok_barat">Lombok Barat</option>
+                        <option value="lombok_tengah">Lombok Tengah</option>
+                        <option value="lombok_timur">Lombok Timur</option>
+                        <option value="lombok_utara">Lombok Utara</option>
+                    </select>
+                </div>
+                <div class="form-box">
+                    <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="subdistrict" required rows="1" placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="village">Village<span class="text-[#FF0000]">*</span></label>
+                    <input type="text" id="village" required rows="1" placeholder="Answer" />
+                </div>
+                <div class="form-box">
+                    <label for="street">Street<span class="text-[#FF0000]">*</span></label>
+                    <textarea id="street" required rows="1" placeholder="Answer"></textarea>
+                </div>
+                <div class="form-box">
+                    <label for="Maps_link">Google Map Location<span class="text-[#FF0000]">*</span></label>
+                    <div class="google-map-input-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                        </svg>
+                        <input type="url" id="Maps_link" required placeholder="Google Maps" />
+                    </div>
+                </div>
+                <div class="form-box">
+                    <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
+                    <textarea id="description" required rows="1" placeholder="Answer"></textarea>
+                </div>
+                <div class="form-box">
+                    <label>Photo(s)</label>
+                    <div id="fileUploadVisual" class="google-map-input-container"> 
+                        <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                        <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly />
+                    </div>
+                    <input id="file-upload" type="file" multiple required class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> 
+                </div>
+
+                <div class="mt-8 mb-4"> <button type="submit" class="w-full bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold py-3 rounded-full text-lg shadow-md transition duration-200">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<script>
+    // Memastikan DOM sudah sepenuhnya dimuat sebelum menjalankan skrip
+    document.addEventListener("DOMContentLoaded", function() {
+        const modal = document.getElementById("modalForm");
+        const openBtn = document.getElementById("openModalBtn");
+        const closeBtn = document.getElementById("closeModalBtn");
+        const fileInput = document.getElementById("file-upload");
+        const fileList = document.getElementById("file-list");
+        const fileUploadVisual = document.getElementById("fileUploadVisual");
+        const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
+        const googleMapsInputVisual = document.getElementById("googleMapsInputVisual");
+        const mapsLinkInput = document.getElementById("Maps_link"); // Ambil input link Google Maps sebenarnya
+
+        // --- Event Listener untuk membuka Modal ---
+        // Pindahkan ke sini agar dieksekusi lebih awal dan setelah semua variabel ditemukan
+        if (openBtn) { // Lakukan pengecekan elemen untuk mencegah error jika ID salah
+            openBtn.onclick = () => modal.classList.remove("hidden");
+        } else {
+            console.error("Error: Tombol 'openModalBtn' tidak ditemukan!");
+        }
+
+        // Event Listener untuk menutup Modal
+        if (closeBtn) {
+            closeBtn.onclick = () => modal.classList.add("hidden");
+        } else {
+            console.error("Error: Tombol 'closeModalBtn' tidak ditemukan!");
+        }
+
+        // Event Listener untuk menutup Modal saat klik di luar modal
+        if (modal) {
+            window.onclick = (e) => {
+                if (e.target === modal) modal.classList.add("hidden");
+            };
+        }
+
+        // --- Event Listener untuk Google Maps ---
+        if (googleMapsInputVisual) {
+            googleMapsInputVisual.onclick = (e) => {
+                // Mencegah klik pada input itu sendiri memicu tindakan ganda jika input tidak readonly
+                if (e.target.id === "Maps_link") {
+                    return;
+                }
+
+                const newWindow = window.open("https://www.google.com/maps", "_blank");
+
+                if (newWindow) { // Jika window berhasil dibuka (tidak diblokir)
+                    alert("Silakan cari dan tandai lokasi di Google Maps yang baru saja terbuka.\n\n" +
+                          "Setelah menemukan lokasi, klik tombol 'Bagikan' atau 'Share',\n" +
+                          "lalu salin link yang diberikan dan tempelkan ke kolom ini.");
+                    if (mapsLinkInput) {
+                        mapsLinkInput.focus();
+                    }
+                } else {
+                    // Jika diblokir, beritahu pengguna untuk menonaktifkan pop-up blocker
+                    alert("Pop-up untuk Google Maps mungkin diblokir oleh browser Anda. " +
+                          "Harap izinkan pop-up untuk situs ini atau buka Google Maps secara manual:\n\n" +
+                          "https://www.google.com/maps\n\n" +
+                          "Setelah menemukan lokasi, salin link-nya dan tempelkan ke kolom ini.");
+                }
+            };
+        } else {
+            console.error("Error: Div 'googleMapsInputVisual' tidak ditemukan!");
+        }
+
+        // Modifikasi: Klik visual container untuk memicu input file tersembunyi
+        if (fileUploadVisual) {
+            fileUploadVisual.onclick = () => {
+                fileInput.click();
+            };
+        } else {
+            console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+        }
+
+        // Modifikasi: Klik visual container untuk memicu input file tersembunyi
+        if (fileUploadVisual) { // Lakukan pengecekan elemen
+            fileUploadVisual.onclick = () => {
+                fileInput.click();
+            };
+        } else {
+            console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+        }
+
+        // Show selected file names and update placeholder
+        if (fileInput) { // Lakukan pengecekan elemen
+            fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                    let filesText = Array.from(fileInput.files)
+                                            .map(file => file.name)
+                                            .join(', ');
+                    fileList.textContent = `Selected: ${filesText}`;
+                    fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; // Update placeholder value
+                } else {
+                    fileList.textContent = '';
+                    fileUploadPlaceholder.value = ''; // Clear placeholder value
+                    fileUploadPlaceholder.placeholder = "Upload File(s)"; // Reset placeholder text
+                }
+            };
+        } else {
+            console.error("Error: Input 'file-upload' tidak ditemukan!");
+        }
+
+        // Event Listener untuk submit form
+        document.getElementById("attractionForm").onsubmit = (e) => {
+            e.preventDefault();
+            const selectedCategory = document.querySelector('input[name="category"]:checked');
+            if (selectedCategory) {
+                console.log("Category selected:", selectedCategory.value);
+            } else {
+                alert("Please select a category.");
+                return;
+            }
+
+            const googleMapsLink = document.getElementById("Maps_link").value;
+            if (googleMapsLink) {
+                console.log("Google Maps Link:", googleMapsLink);
+            } else {
+                alert("Please enter a Google Maps link.");
+                return;
+            }
+
+            if (fileInput.files.length === 0 && fileInput.required) {
+                alert("Please upload at least one photo.");
+                return;
+            }
+
+            alert("Form submitted!");
+            modal.classList.add("hidden");
+            e.target.reset();
+            fileList.textContent = '';
+            fileUploadPlaceholder.value = '';
+            fileUploadPlaceholder.placeholder = "Upload File(s)";
+            if (mapsLinkInput) { // Pastikan input ada saat direset
+                mapsLinkInput.value = '';
+            }
+        };
+    }); 
+</script>
+
+</body>
+</html>
