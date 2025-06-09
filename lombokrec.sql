@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2025 pada 18.04
+-- Waktu pembuatan: 09 Jun 2025 pada 03.16
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `akun` (
   `ID_akun` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `foto_profil` varchar(500) DEFAULT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `nama_depan` tinytext NOT NULL,
@@ -37,6 +38,16 @@ CREATE TABLE `akun` (
   `is_pemilik` tinyint(1) NOT NULL,
   `is_admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `akun`
+--
+
+INSERT INTO `akun` (`ID_akun`, `username`, `foto_profil`, `password`, `email`, `nama_depan`, `nama_belakang`, `is_pemilik`, `is_admin`) VALUES
+(1, 'admin', NULL, 'admin123', 'admin@gmail.com', 'Admin', 'Admin', 0, 1),
+(2, 'enjiji', 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\profil.jpg', 'enji123', 'anggijuwita@gmail.com', 'Anggi', 'Juwita', 0, 0),
+(3, 'ihdal_f', NULL, 'ihdal123', 'ihdalfahroni@gmail.com', 'Ihdal', 'Fahroni', 0, 0),
+(4, 'vivivi', NULL, 'devita123', 'devitaamalia@gmail.com', 'Devita', 'Amalia', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -48,7 +59,7 @@ CREATE TABLE `form_klaim` (
   `ID_formKlaim` int(11) NOT NULL,
   `ID_akun` int(11) NOT NULL,
   `nama_lengkap` tinytext NOT NULL,
-  `no_hp` varchar(15) NOT NULL,
+  `no_hp` varchar(20) NOT NULL,
   `npwp` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `dokumen_pendukung` varchar(100) NOT NULL,
@@ -85,10 +96,19 @@ CREATE TABLE `form_pengajuantempat` (
 CREATE TABLE `menu` (
   `ID_menu` int(11) NOT NULL,
   `ID_tempat` int(11) NOT NULL,
+  `foto_menu` varchar(500) DEFAULT NULL,
   `nama_menu` varchar(255) NOT NULL,
   `deskripsi_menu` varchar(500) NOT NULL,
   `harga_menu` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `menu`
+--
+
+INSERT INTO `menu` (`ID_menu`, `ID_tempat`, `foto_menu`, `nama_menu`, `deskripsi_menu`, `harga_menu`) VALUES
+(1, 2, 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\Pelecing.png', 'Pelecing Kangkung', 'Kale(kangkung) blanched (or steamed) and served cold with spicy tomato chili sauce', 10000),
+(2, 2, NULL, 'Nasi Puyung', 'A dish consisting of white rice, spicy shredded chicken, dried shredded chicken, plus fried peanuts and soybeans', 20000);
 
 -- --------------------------------------------------------
 
@@ -100,7 +120,8 @@ CREATE TABLE `notifikasi` (
   `ID_notif` int(11) NOT NULL,
   `ID_akun` int(11) NOT NULL,
   `header` varchar(255) NOT NULL,
-  `isi_notif` varchar(255) NOT NULL
+  `isi_notif` varchar(255) NOT NULL,
+  `tanggal_jam` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -117,6 +138,14 @@ CREATE TABLE `promo` (
   `valid_until` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `promo`
+--
+
+INSERT INTO `promo` (`ID_promo`, `ID_tempat`, `nama_promo`, `deskripsi_promo`, `valid_until`) VALUES
+(1, 2, 'Buy 2 Get 3', 'Buy 2 serving get 3 serving of Es Campur', '2025-10-01'),
+(2, 2, 'Discount 10%', 'Every purchase over Rp100.000', '2025-07-31');
+
 -- --------------------------------------------------------
 
 --
@@ -127,11 +156,19 @@ CREATE TABLE `review` (
   `ID_review` int(11) NOT NULL,
   `ID_akun` int(11) NOT NULL,
   `ID_tempat` int(11) NOT NULL,
-  `komentar` varchar(255) NOT NULL,
-  `rating` int(1) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `waktu` time NOT NULL
+  `komentar` text NOT NULL,
+  `rating` decimal(5,2) NOT NULL,
+  `foto` varchar(500) NOT NULL,
+  `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `review`
+--
+
+INSERT INTO `review` (`ID_review`, `ID_akun`, `ID_tempat`, `komentar`, `rating`, `foto`, `waktu`) VALUES
+(1, 3, 1, 'Pantai Selong Belanak adalah salah satu destinasi pantai paling memukau di Lombok, Nusa Tenggara Barat. \r\nPantai ini sangat cocok untuk wisatawan yang ingin bersantai, menikmati matahari, atau belajar surfing—karena ombak di bagian ujung pantai cukup tenang untuk pemula. Di sepanjang pantai, pengunjung juga bisa menemukan \r\nderetan warung yang menyajikan makanan lokal dan minuman segar.', 4.50, 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\review_selong_belanak.png', '2025-06-09 08:00:00'),
+(2, 3, 2, 'Pegawainya ramah, pagi2 menu sudah banyak yang siap, tempatnya bersih, kalau untuk rasa saya agak kurang cocok, makanan yang saya pesan rawon dan gulai kambing.', 4.70, 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\review_sumberRejeki.png', '2025-06-09 03:09:58');
 
 -- --------------------------------------------------------
 
@@ -142,15 +179,23 @@ CREATE TABLE `review` (
 CREATE TABLE `tempat` (
   `ID_tempat` int(11) NOT NULL,
   `nama_tempat` varchar(100) NOT NULL,
-  `kabupaten_kota` varchar(100) NOT NULL,
+  `kabupaten_kota` enum('mataram','lombok_barat','lombok_tengah','lombok_timur','lombok_utara') NOT NULL,
   `kecamatan` varchar(100) NOT NULL,
   `kelurahan` varchar(100) NOT NULL,
   `nama_jalan` varchar(250) NOT NULL,
-  `kategori` enum('Tempat Wisata','Tempat Kuliner') NOT NULL,
-  `deskripsi` varchar(500) NOT NULL,
-  `foto` varchar(255) NOT NULL,
+  `kategori` enum('tourist_destination','culinary') NOT NULL,
+  `deskripsi` text NOT NULL,
+  `foto` varchar(500) NOT NULL,
   `google_maps` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tempat`
+--
+
+INSERT INTO `tempat` (`ID_tempat`, `nama_tempat`, `kabupaten_kota`, `kecamatan`, `kelurahan`, `nama_jalan`, `kategori`, `deskripsi`, `foto`, `google_maps`) VALUES
+(1, 'Selong Belanak Beach', 'lombok_tengah', 'West Praya ', 'Selong Belanak', 'Selong Belanak Street', 'tourist_destination', 'Selong Belanak Beach is one of the most stunning beach destinations in Lombok, West Nusa Tenggara. This beach is perfect for travelers looking to relax, soak up the sun, or learn to surf, as the waves at the end of the beach are calm enough for beginners. Along the beach, visitors can also find a row of stalls serving local food and refreshing drinks. The main attraction at Selong Belanak Beach is the sunset view.', 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\SelongBelanakPic.png', 'https://maps.app.goo.gl/64PXP5dDJuWBxW5W6'),
+(2, 'RM Sumber Rejeki', 'lombok_tengah', 'Praya', 'Panjisari', 'Mareje Street', 'culinary', 'RM Sumber Rejeki is a traditional Indonesian restaurant that serves various home-style dishes with authentic flavors. The signature dishes at RM Sumber Rejeki include fried chicken, grilled fish, sour vegetable soup, tempeh with chili sauce, and a spicy chili sauce that is sure to tantalize your taste buds. The restaurant\'s simple yet comfortable atmosphere makes dining here an enjoyable experience, perfect for family lunches or group meals with tourists. The friendly and efficient service at RM Sumber Rejeki is another major draw, attracting many customers.', 'C:\\xampp\\htdocs\\TubesWeb\\PemWebIDEA\\Assets\\sumber_rejeki.png', 'https://maps.app.goo.gl/aEu7SmWdVg7CFdYE7');
 
 -- --------------------------------------------------------
 
@@ -160,8 +205,15 @@ CREATE TABLE `tempat` (
 
 CREATE TABLE `tempat_kuliner` (
   `ID_tempat` int(11) NOT NULL,
-  `ID_akun` int(11) NOT NULL
+  `ID_akun` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tempat_kuliner`
+--
+
+INSERT INTO `tempat_kuliner` (`ID_tempat`, `ID_akun`) VALUES
+(2, NULL);
 
 -- --------------------------------------------------------
 
@@ -173,6 +225,13 @@ CREATE TABLE `tempat_wisata` (
   `ID_tempat` int(11) NOT NULL,
   `harga_tiket` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tempat_wisata`
+--
+
+INSERT INTO `tempat_wisata` (`ID_tempat`, `harga_tiket`) VALUES
+(1, 5000);
 
 --
 -- Indexes for dumped tables
@@ -254,13 +313,13 @@ ALTER TABLE `tempat_wisata`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `ID_akun` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_akun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `form_klaim`
 --
 ALTER TABLE `form_klaim`
-  MODIFY `ID_formKlaim` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_formKlaim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `form_pengajuantempat`
@@ -272,7 +331,7 @@ ALTER TABLE `form_pengajuantempat`
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `ID_menu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `notifikasi`
@@ -284,19 +343,19 @@ ALTER TABLE `notifikasi`
 -- AUTO_INCREMENT untuk tabel `promo`
 --
 ALTER TABLE `promo`
-  MODIFY `ID_promo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `review`
 --
 ALTER TABLE `review`
-  MODIFY `ID_review` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tempat`
 --
 ALTER TABLE `tempat`
-  MODIFY `ID_tempat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

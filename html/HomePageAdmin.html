@@ -31,24 +31,24 @@
             transition: background-color 0.3s;
         }
         ::-webkit-scrollbar {width: 6px;}
-        ::-webkit-scrollbar-track {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-track {background: #FFFFFF}
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
+            background: #FFC107;
             border-radius: 3px;
         }
-        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 50px, #FFFFFF 300px);}
         .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #FFFFFF); }
         .form-box {
             background-color: white;
             border-radius: 1rem;
             padding: 1.25rem;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.1), -1px 1px 2px 0 rgba(0, 0, 0, 0.06);
         }
         .form-box label {
             display: block;
             font-weight: 600;
-            color: #4B5563;
+            color: #000000;
             margin-bottom: 0.5rem;
             font-size: 1.1em;
         }
@@ -67,14 +67,153 @@
         .form-box textarea {resize: vertical;}
         .form-box input::placeholder,
         .form-box textarea::placeholder {color: #9CA3AF;}
+
+        .form-box select {
+            width: 100%;
+            background-color: transparent; 
+            border: none;
+            border-bottom: 1px solid #D1D5DB; 
+            padding: 0.5rem 0.1rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E"); /* Ikon panah ke bawah */
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem; 
+            color: #9CA3AF; 
+        }
+        .form-box select:focus {
+            border-bottom-color: #F59E0B; 
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box select option {
+            color: black; 
+        }
+        .form-box select:valid {
+            color: black; 
+        }
+        .radio-group-container {
+            display: flex; 
+            gap: 1.5rem;
+            padding-top: 1rem; 
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #4B5563; 
+        }
+        .radio-option input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #D1D5DB; 
+            border-radius: 50%; 
+            margin-right: 0.1rem; 
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            position: relative; 
+        }
+        .radio-option input[type="radio"]:checked {
+            background-color: #F59E0B; 
+            border-color: #F59E0B; 
+        }
+        .radio-option input[type="radio"]:focus {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.5); 
+        }
+        .radio-option input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 0.5rem; 
+            height: 0.5rem;
+            background-color: white; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .radio-option span {
+            font-weight: 400; 
+            padding-bottom: 0.3rem;
+        }
+        .upload-photo-container input[type="url"],
+        .upload-photo-container input[type="text"][readonly] {
+            border-bottom: none; 
+            padding-bottom: 0;  
+        }
+
+        .upload-photo-container {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0.1rem;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .upload-photo-container input {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            padding: 0; 
+            color: #4B5563;
+            vertical-align: middle;
+            line-height: normal; 
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF;
+            vertical-align: middle; 
+            line-height: normal; 
+        }
+        .upload-photo-container svg {
+            margin-right: 0.3rem;
+            flex-shrink: 0;
+            position: relative; 
+            bottom: 3px; 
+        }
+        .upload-photo-container:hover input::placeholder,
+        .upload-photo-container:hover svg {
+            color: #F59E0B;
+            text-decoration: underline; 
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF; 
+            vertical-align: middle;
+            line-height: normal;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; 
+        }
+        .upload-photo-container svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            color: #9CA3AF; 
+            vertical-align: middle;
+            transition: color 0.2s ease-in-out; 
+        }
+        #uploadIcon {
+            position: relative;
+            top: 2px;
+        }
+
         .modal-scroll-area {
             max-height: 70vh;
             overflow-y: auto;
             padding-right: 10px;
         }
         .modal-scroll-area::-webkit-scrollbar { width: 8px; }
-        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
-        .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #4B5563; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-track { background-color: #4B5563; border-radius: 4px; }
 
         .btn-disabled {
             opacity: 0.5;
@@ -86,27 +225,27 @@
 
     <aside class="sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-bars text-[#FF9800] text-xl"></i>
         </div>
 
         <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-home text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-home text-[#FF9800] text-xl"></i>
         </div>  
 
         <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-plus text-[#FF9800] text-xl"></i>
         </div>
         
         <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-clipboard-check text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-clipboard-check text-[#FF9800] text-xl"></i>
         </div>
 
         <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-bell text-[#FF9800] text-xl"></i>
         </div>
 
         <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-            <i class="fa-solid fa-user text-[#FFC107] text-xl"></i>
+            <i class="fa-solid fa-user text-[#FF9800] text-xl"></i>
         </div>
     </aside>
 
@@ -122,19 +261,19 @@
 
         <div class="flex-1 p-5 space-y-2">
             <a href="#" id="openHomeBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-home warna-kuning"></i></span>
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-home warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning pt-2">Home</span>
             </a>
             <a href="#" id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning pt-2">Add Place</span>
             </a>
             <a href="#" id="openManageVerificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning pt-2">Manage Verification</span>
             </a>
             <a href="#" id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100 text-gray-800">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FFC107] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
                 <span class="text-lg font-medium warna-kuning pt-1">Notifications</span>
             </a>
         </div>
@@ -155,11 +294,11 @@
             <div id="header" class="header text-center mb-5 ">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
-                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
-                        <i class="fa-solid fa-location-dot"></i> Tourist destination
+                    <button class="filter-button py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-location-dot"></i> <span class="relative top-px">Tourist destination</span>
                     </button>
-                    <button class="tab py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 hover:shadow-lg shadow-md hover:opacity-80 font-light">
-                        <i class="fa-solid fa-utensils"></i> Culinary
+                    <button class="filter-button py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-utensils"></i> <span class="relative top-px">Culinary</span>
                     </button>
                 </div>
                 <div class="search-container flex justify-center">
@@ -175,33 +314,33 @@
             <div id="awal" class="space-y-6 ">
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Belanak+Beach" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover ">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-0">Selong Belanak Beach, South Lombok</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-0">Selong Belanak Beach, South Lombok</div>
                                 <div class="flex justify-between items-center mt-2">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Rinjani+Mountain" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-2.5">Rinjani Mountain, East Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Gili+Meno" alt="Gili Meno" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-2.5">Gili Meno, North Lombok</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
@@ -213,33 +352,33 @@
 
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+1" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/nasi_puyung.png" alt="Nasi Puyung" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Local Restaurant, Mataram</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-2.5">D'rice, Mataram</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+2" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/the_shack.png" alt="The Shack" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Seafood Shack, Senggigi</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-2.5">The Shack, Senggigi</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Culinary+Place+3" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="destination-card bg-[#ffffff] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                            <img src="../Assets/yessy_cafe.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
                             <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Traditional Cafe, Kuta Lombok</div>
+                                <div class="text-lg font-bold text-[#5C3211] mb-2.5">Yessy Cafe, Senggigi</div>
                                 <div class="flex justify-between items-center mt-auto">
                                     <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                                    <div class="text-[#5C3211] text-xs font-medium hover:underline">See details</div>
                                 </div>
                             </div>
                         </div>
@@ -254,7 +393,7 @@
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="flex flex-col sm:flex-row w-full gap-6">
                         <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Belanak+Beach" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
+                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
                             <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
                                 <span class="hover:underline">Google Maps</span>
                                 <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
@@ -272,7 +411,7 @@
                 <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
                     <div class="flex flex-col sm:flex-row w-full gap-6">
                         <div class="flex flex-col items-center sm:items-start w-full sm:w-1/3">
-                            <img src="https://placehold.co/600x400/FFC107/ffffff?text=Selong+Selo+Restaurant" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
+                            <img src="../Assets/SelongSelo.png" alt="Selong Belanak Beach" class="w-full h-50 object-cover rounded-lg mb-4">
                             <a href="#" target="_blank" class="flex items-center gap-2 text-[#5C3211] font-medium mt-2">
                                 <span class="hover:underline">Google Maps</span>
                                 <i class="fa-solid fa-location-dot text-[#5C3211]"></i>
@@ -320,18 +459,38 @@
                 <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
                     Add tourist attraction
                 </h2>
-                <p class="text-xs font-light text-gray-600 text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
-                    All questions must be answered. Once submitted, answers cannot be changed. <br>
+                <p class="text-xs font-light text-black text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
+                    All questions (<span class="text-[#FF0000]">*</span>) must be answered. Once submitted, answers cannot be changed. <br>
                     Please check the answers are correct before submitting.
                 </p>
-
+                <form id="attractionForm">
                 <div class="form-box">
                     <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
                     <input type="text" id="place_name" required placeholder="Answer" />
                 </div>
                 <div class="form-box">
+                    <label>Category<span class="text-[#FF0000]">*</span></label>
+                    <div class="radio-group-container">
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="tourist_destination" required>
+                            <span>Tourist destination</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="category" value="culinary">
+                            <span>Culinary</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-box">
                     <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="district_city" required placeholder="Answer" />
+                    <select id="district_city" required>
+                        <option value="" disabled selected>Choose</option>
+                        <option value="mataram">Mataram</option>
+                        <option value="lombok_barat">West Lombok</option>
+                        <option value="lombok_tengah">Central Lombok</option>
+                        <option value="lombok_timur">East Lombok</option>
+                        <option value="lombok_utara">North Lombok</option>
+                    </select>
                 </div>
                 <div class="form-box">
                     <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
@@ -343,32 +502,34 @@
                 </div>
                 <div class="form-box">
                     <label for="street">Street<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="street" required placeholder="Answer" />
+                    <input type="text" id="street" required rows="1" placeholder="Answer" />
                 </div>
                 <div class="form-box">
                     <label for="gmaps">Google Map Location<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="gmaps" required placeholder="Google Maps" />
+                    <input type="text" id="gmaps" required placeholder="Paste Google Map location link here" />
                 </div>
                 <div class="form-box">
                     <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
-                    <textarea id="description" required rows="3" placeholder="Answer"></textarea>
+                    <textarea id="description" required rows="1" placeholder="Answer"></textarea>
                 </div>
                 <div class="form-box">
                     <label>Photo(s)</label>
-                    <label for="file-upload" class="cursor-pointer flex items-center text-gray-600 border border-dashed border-gray-400 p-4 rounded-lg justify-center hover:bg-gray-50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    <div id="fileUploadVisual" class="upload-photo-container"> 
+                        <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
-                        <span class="font-medium">Upload File(s)</span>
-                    </label>
-                    <input id="file-upload" type="file" multiple required class="hidden"/>
-                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> </div>
+                        <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly />
+                    </div>
+                    <input id="file-upload" type="file" multiple class="hidden"/>
+                    <p id="file-list" class="text-xs text-gray-500 mt-2"></p> 
+                </div>
 
                 <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
-                    <button type="submit" class="bg-[#E6A94E] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
+                    <button type="submit" class="bg-[#FFC107] hover:bg-[#D4983E] text-white font-bold px-6 py-2 rounded-md text-lg shadow-md transition duration-200">
                         Submit
                     </button>
                 </div>
+                </form>
             </div>
 
             <div id="manageVerification" class="header mb-5 hidden">
@@ -377,11 +538,11 @@
                     
                     <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div class="flex-grow">
-                            <p class="font-semibold text-lg text-gray-700">ihdal_f</p>
+                            <p class="font-semibold text-lg">ihdal_f</p>
                             <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
                             <h3 class="font-semibold mt-2 text-base md:text-lg">Addition of new place</h3>
                             <a href="#" class="view-form-link text-blue-500 text-sm hover:underline flex items-center mt-1">
-                                <i class="fa-solid fa-file-alt mr-1"></i> Lihat formulir
+                                <i class="fa-solid fa-file-alt mr-1"></i> <span class="relative top-px">Lihat formulir</span>
                             </a>
                         </div>
                         <div class="flex-shrink-0 flex gap-2">
@@ -396,11 +557,11 @@
 
                     <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                         <div class="flex-grow">
-                            <p class="font-semibold text-lg text-gray-700">ihdal_f</p>
+                            <p class="font-semibold text-lg">ihdal_f</p>
                             <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
                             <h3 class="font-semibold mt-2 text-base md:text-lg">Claim culinary request</h3>
                             <a href="#" class="view-form-link text-blue-500 text-sm hover:underline flex items-center mt-1">
-                                <i class="fa-solid fa-file-alt mr-1"></i> Lihat formulir
+                                <i class="fa-solid fa-file-alt mr-1"></i> <span class="relative top-px">Lihat formulir</span>
                             </a>
                         </div>
                         <div class="flex-shrink-0 flex gap-2">
@@ -425,7 +586,6 @@
                             <span class="text-5xl font-normal text-[#5C3211]">Admin</span>
                         </div>
                     </div>
-                    <!-- editProfilePage disembunyikan secara permanen -->
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
                         <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
                         <img src="https://placehold.co/200x200/FFC107/ffffff?text=Profile" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
@@ -452,23 +612,23 @@
                         </button> 
                     </div>
                 </div>
-                <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div class="w-full relative">
                         <button id="closeAccountSettingBtn" class="absolute right-4 text-[#5C3211] hover:bg-gray-100 rounded-full transition" title="Close">
                             <i class="fa-solid fa-xmark text-2xl"></i>
                         </button>
                         <div class="mb-4">
-                            <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
+                            <span class="text-2xl font-bold">Account Setting</span>
                         </div>
                         <div class="mb-4">
-                            <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
+                            <span class="text-lg font-semibold">Change Password</span>
                         </div>
                         <div class="flex flex-col max-w-sm gap-3"> 
-                            <input type="password" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <input type="password" id="currentPassword" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
                             <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
                             <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
                         </div>
-                        <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                        <button id="savePasswordBtn" class="border border-[#FF9800] hover:bg-[#FF9800]/90 hover:text-white/90 text-[#FF9800] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
                             Save new password
                         </button>
                     </div>
@@ -493,6 +653,7 @@
             const profile = document.getElementById('profil');
             
             const searchIcon = document.getElementById('searchIcon');
+            const filterButtons = document.querySelectorAll('.filter-button');
             const openHomeBtns = [document.getElementById('homeBtn'), document.getElementById('openHomeBtn')]
             const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
             const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
@@ -505,11 +666,22 @@
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
+            const savePasswordBtn = document.getElementById('savePasswordBtn');
+            const currentPasswordInput = document.getElementById('currentPassword');
+            const newPasswordInput = document.getElementById('newPass');
+            const passwordError = document.getElementById('passwordError');
+            
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
             
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
+
+            const fileInput = document.getElementById("file-upload");
+            const fileList = document.getElementById("file-list");
+            const fileUploadVisual = document.getElementById("fileUploadVisual");
+            const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
+            const gmapsInput = document.getElementById("gmaps");
 
             let activePanel = 'awal'; 
 
@@ -635,6 +807,163 @@
                         passError.classList.add('hidden');
                     }
                 });
+            }
+
+            const validateAndUpdateButton = () => {
+                const currentPass = currentPasswordInput.value.trim();
+                const newPass = newPasswordInput.value.trim();
+                const isNewPassLengthValid = newPass.length >= 8 && newPass.length <= 20;
+
+                if (newPass !== '' && !isNewPassLengthValid) {
+                    passwordError.classList.remove('hidden');
+                } else {
+                    passwordError.classList.add('hidden');
+                }
+
+                const isFormValid = currentPass !== '' && newPass !== '' && isNewPassLengthValid;
+
+                if (isFormValid) {
+                    savePasswordBtn.disabled = false;
+                    savePasswordBtn.classList.remove('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                    savePasswordBtn.classList.add('bg-[#FF9800]', 'text-white');
+                } else {
+                    savePasswordBtn.disabled = true;
+                    savePasswordBtn.classList.remove('bg-[#FF9800]', 'text-white');
+                    savePasswordBtn.classList.add('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                }
+            };
+
+            currentPasswordInput.addEventListener('input', validateAndUpdateButton);
+            newPasswordInput.addEventListener('input', validateAndUpdateButton);
+            
+            validateAndUpdateButton();
+
+            if (savePasswordBtn) {
+                savePasswordBtn.addEventListener('click', () => {
+                    if (savePasswordBtn.disabled) {
+                        return;
+                    }
+                    
+                    alert('Successfully change password');
+                    
+                    currentPasswordInput.value = '';
+                    newPasswordInput.value = '';
+                    
+                    validateAndUpdateButton();
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const isActive = button.classList.contains('bg-[#FF9800]');
+                    if (isActive) {
+                        button.classList.remove('bg-[#FF9800]', 'text-white');
+                        button.classList.add('bg-white', 'text-[#FF9800]');
+                    } else {
+                        button.classList.remove('bg-white', 'text-[#FF9800]');
+                        button.classList.add('bg-[#FF9800]', 'text-white');
+                    }
+                });
+            });
+
+            if (gmapsInput) {
+                let mapsAlertShown = false; 
+                gmapsInput.addEventListener('focus', () => {
+                    if (!mapsAlertShown) {
+                        window.open('https://www.google.com/maps', '_blank');
+                
+                        alert("Please search for and mark the location on Google Maps that just opened.\n\n" +
+                            "Once you have found the location, click the 'Share' button,\n" +
+                            "then copy the link provided and paste it into this field.");
+                        mapsAlertShown = true; 
+                    }
+                });
+            }
+
+            if (fileUploadVisual) { 
+            fileUploadVisual.onclick = () => {
+                fileInput.click();
+                };
+            } else {
+                console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+            }
+
+            if (fileInput) { 
+            fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                    let filesText = Array.from(fileInput.files)
+                                            .map(file => file.name)
+                                            .join(', ');
+                    fileList.textContent = `Selected: ${filesText}`;
+                    fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; 
+                } else {
+                    fileList.textContent = '';
+                    fileUploadPlaceholder.value = ''; 
+                    fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                }
+            };
+            } else {
+                console.error("Error: Input 'file-upload' tidak ditemukan!");
+            }
+
+            const attractionForm = document.getElementById("attractionForm");
+            if (attractionForm) {
+                attractionForm.onsubmit = (e) => {
+                    e.preventDefault(); 
+                    let isValid = true; 
+
+                    const showError = (inputElement, message) => {
+                        inputElement.classList.add('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (!errorSpan || !errorSpan.classList.contains('error-message')) {
+                            errorSpan = document.createElement('p');
+                            errorSpan.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
+                            inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling); 
+                        }
+                        errorSpan.textContent = message;
+                        isValid = false; 
+                    };
+                   
+                    const hideError = (inputElement) => {
+                        inputElement.classList.remove('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (errorSpan && errorSpan.classList.contains('error-message')) {
+                            errorSpan.textContent = ''; 
+                            
+                        }
+                    };
+
+                    attractionForm.querySelectorAll('input[type="text"]:not(#fileUploadPlaceholder), textarea').forEach(input => {
+                        if (!input.value.trim()) {
+                            showError(input, "This field is required.");
+                        } else {
+                            hideError(input);
+                        }
+                    });
+
+                    const urlRegex = /^(https?:\/\/(?:www\.|m\.)?google\.(?:com|co\.\w{2}|ru)\/maps\S*|https?:\/\/maps\.app\.goo\.gl\/\S*)/i;
+
+                    if (!gmapsInput.value.trim()) {
+                        showError(gmapsInput, "This field is required.");
+                    } else if (!urlRegex.test(gmapsInput.value.trim())) {
+                        showError(gmapsInput, "Please enter a valid map URL (e.g., Google Maps link).");
+                    } else {
+                        hideError(gmapsInput);
+                    }
+                           
+                    if (isValid) {
+                        alert("Form has been submitted!"); 
+                        modal.classList.add("hidden"); 
+                        e.target.reset();  
+                        fileList.textContent = ''; 
+                        fileUploadPlaceholder.value = ''; 
+                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                        attractionForm.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+                        attractionForm.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+                    }
+                };
+            } else { 
+              console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
             }
 
             function disableOtherButton(clickedButton, parentItem) {
