@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jaldi&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #FFFFF0;
+            background-color: #FFFFFF;
             font-family: 'Josefin Sans';
         }
         .main-container {
@@ -80,7 +80,7 @@
             cursor: not-allowed;
         }
     </style>
-</head>
+</head> 
 <body class="flex min-h-screen">
 
     <aside class="text-[#FFC107] sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
@@ -149,10 +149,10 @@
         </div>
     </div>
 
-    <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFF0]">
+    <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFFF]">
         <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="awal">
-                <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8">Selong Belanak Beach</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Selong Belanak Beach</h1>
 
                 <div class="flex justify-end items-center space-x-3">
                     <div id="openEdit" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition mb-3 shadow-lg">
@@ -173,20 +173,16 @@
                                 class="hidden text-sm text-[#5C3211] opacity-50 font-bold w-full bg-transparent focus:outline-none"
                             >Selong Belanak, Kec. Praya Bar., Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83572</textarea>
                             </textarea>
-                            <a id="gmaps" href="#" class="text-[#5C3211] text-sm hover:underline flex items-center gap-1 font-bold">
-                                Google Maps<i class="fas fa-map-marker-alt text-base"></i> 
+                            <a id="gmaps" href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                                <span class="relative top-0.5">Google Maps</span>
+                                <i class="fa-solid fa-location-dot"></i>
                             </a>
                             <textarea id="editGmaps"
-                                class="hidden text-[#5C3211] opacity-50 text-sm font-bold w-full bg-transparent focus:outline-none flex items-center">Google Maps
+                                class="hidden text-[#5C3211] opacity-50 text-sm font-medium w-full bg-transparent focus:outline-none flex items-center">Google Maps
                             </textarea>
                         </div>
                         <div class="md:w-2/3">
-                            <div class="flex items-center mb-2 text-[#FFC107] text-2xl">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i> </div>
+                            <div class="text-yellow-500 my-1 text-4xl">★★★★★</div>
                             <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4"> <p class="text-[#5C3211] text-base font-light">Kategori</p>
                                 <p class="text-[#5C3211] font-medium text-base">Tempat wisata</p>
 
