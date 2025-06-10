@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jaldi&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #FFFFF0;
+            background-color: #FFFFFF;
             font-family: 'Josefin Sans';
         }
         .main-container {
@@ -75,23 +75,23 @@
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="text-[#FFC107] sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
-        <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+    <aside class="text-[#FF9800] sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
+        <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bars text-xl"></i>
         </div>
-        <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-house text-xl"></i>
         </div>
-        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-plus text-xl"></i>
         </div>
-        <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bell text-xl"></i>
         </div>
         <div id="manageBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-arrows-up-down text-xl"></i>
         </div>
-        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-user text-xl"></i>
         </div>
     </aside>
@@ -99,24 +99,24 @@
     <div id="sidebarMenu" class="text-[#FFC107] fixed top-0 w-72 h-screen bg-[#FFFFFF] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer" id="closeBtn">
-                    <i class="fa-solid fa-bars text-xl hover:scale-125"></i>
+                <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer hover:scale-110 hover:bg-gray-100" id="closeBtn">
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </div>
                 <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
             </div>
         </div>
         <div class="flex-1 p-5 space-y-2">
-            <a  id="openHomeBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-house hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Homepage</span>
+            <a  id="openHomeBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-house"></i></span>
+                <span class="text-lg font-medium">Homepage</span>
             </a>
-            <a id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-plus hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Add Place</span>
+            <a id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-plus"></i></span>
+                <span class="text-lg font-medium">Add Place</span>
             </a>
             <a id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-bell hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Notifications</span>
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-bell"></i></span>
+                <span class="text-lg font-medium">Notifications</span>
             </a>
             <a class="flex flex-col items-start gap-1 p-3 rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <div id="openManageBtn" class="flex items-center gap-4">
@@ -127,8 +127,8 @@
             </a>
         </div>
         <div class="p-5 space-y-3">''
-            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded ">
-                <span class="w-12 h-12 flex items-center justify-center text-xl rounded-full"><i class="fa-solid fa-user hover:scale-125"></i></span>
+            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded hover:scale-110 hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-xl rounded-full"><i class="fa-solid fa-user"></i></span>
                 <div class="flex flex-col">
                     <span class="text-lg font-semibold">pemilik</span>
                     <span class="text-base font-light">@email.gmail.com</span>
@@ -160,80 +160,69 @@
             </div>
 
             <div id="awal" class="space-y-6 ">
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden border border-[#F0D3B3]">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-0">Selong Belanak Beach, South Lombok</div>
-                                <div class="flex justify-between items-center mt-2">
-                                    <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
-                                    <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
-                                    <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-0">Selong Belanak Beach, South Lombok</div>
+                            <div class="flex justify-between items-center mt-2">
+                                <div class="text-yellow-500 text-sm">★★★★★</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                             </div>
                         </div>
                     </div>
-                    <button class="ml-4 rounded-full w-12 h-12 text-[#FF9800] cursor-pointer transition flex items-center justify-center flex-shrink-0 group">
-                        <i class="fa-solid fa-chevron-right text-xl group-hover:text-[#E6A94E] transition-colors"></i>
-                    </button>
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm">★★★★☆</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Gili Meno, North Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm">★★★★☆</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
-                                    <div class="text-yellow-500 text-sm">★★★★★</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
-                                    <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
-                            <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
-                            <div class="p-4 flex flex-col flex-1 jaldi-font">
-                                <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
-                                <div class="flex justify-between items-center mt-auto">
-                                    <div class="text-yellow-500 text-sm">★★★★☆</div>
-                                    <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
-                                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm">★★★★★</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
                             </div>
                         </div>
                     </div>
-                    <button class="ml-4 rounded-full w-12 h-12 text-[#FF9800] cursor-pointer transition flex items-center justify-center flex-shrink-0 group">
-                        <i class="fa-solid fa-chevron-right text-xl group-hover:text-[#E6A94E] transition-colors"></i>
-                    </button>
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm">★★★★☆</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#fffdcf] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm">★★★★☆</div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
