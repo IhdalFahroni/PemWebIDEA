@@ -27,13 +27,13 @@
             transition: background-color 0.3s;
         }
         ::-webkit-scrollbar {width: 6px;}
-        ::-webkit-scrollbar-track {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
+        ::-webkit-scrollbar-track {background: #F8F9FA}
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);
+            background: #FFC107;
             border-radius: 3px;
         }
-        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 0%, #FFFFFF 30%);}
-        .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #FFFFFF); }
+        ::-webkit-scrollbar-thumb:hover {background: #FF9800;}
+        .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #F8F9FA); }
         .form-box {
             background-color: white;
             border-radius: 1rem;
@@ -44,7 +44,7 @@
         .form-box label {
             display: block;
             font-weight: 600;
-            color: #4B5563;
+            color: #000000;
             margin-bottom: 0.5rem;
             font-size: 1.1em;
         }
@@ -69,8 +69,8 @@
             padding-right: 10px;
         }
         .modal-scroll-area::-webkit-scrollbar { width: 8px; }
-        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #E6A94E; border-radius: 4px; }
-        .modal-scroll-area::-webkit-scrollbar-track { background-color: #f0f0f0; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #FFC107; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-track { background-color: #FFFFFF; border-radius: 4px; }
     </style>
 </head>
 <body class="flex min-h-screen">
@@ -148,7 +148,7 @@
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFFF]">
         <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
             <div id="header" class="header text-center mb-5 ">
-                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
+                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
                     <button class="filter-button py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
                         <i class="fa-solid fa-location-dot"></i> <span class="relative top-px">Tourist destination</span>
@@ -306,7 +306,7 @@
 
             </div>
             <div id="notification" class="header mb-5 hidden">
-                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Notifications</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
                     <h3 class="font-semibold mb-1 text-lg">
                         New place Approved
@@ -351,7 +351,7 @@
                 </div>
             </div>
             <div id="addPlace" class="header mb-5 hidden">
-                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
+                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">
                     Add tourist attraction
                 </h2>
                 <p class="text-xs font-light text-black text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">

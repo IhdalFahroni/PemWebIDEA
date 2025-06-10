@@ -304,11 +304,11 @@
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
             </div>
-            <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-clipboard-check text-[#FFC107] text-xl"></i>
-            </div>
             <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
+            </div>
+            <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+                <i class="fa-solid fa-clipboard-check text-[#FFC107] text-xl"></i>
             </div>
         </div>
 
@@ -338,13 +338,13 @@
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-plus warna-kuning"></i></span>
                 <span class="text-lg font-medium text-[#5C3211] pt-2">Add Place</span>
             </a>
-            <a href="#" id="openManageVerificationBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
-                <span class="text-lg font-medium text-[#5C3211] pt-2">Manage Verification</span>
-            </a>
             <a href="#" id="openNotificationBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-bell warna-kuning"></i></span>
                 <span class="text-lg font-medium text-[#5C3211] pt-1">Notifications</span>
+            </a>
+            <a href="#" id="openManageVerificationBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-lg"><i class="fa-solid fa-clipboard-check warna-kuning"></i></span>
+                <span class="text-lg font-medium text-[#5C3211] pt-2">Manage Verification</span>
             </a>
         </div>
 
@@ -617,7 +617,7 @@
                 </div>
 
                 <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
-                    <button type="submit" class="border border-[#FF9800] bg-[#FF9800] text-white hover:bg-[#FF9800]/90 hover:text-white/90 px-4 py-1 rounded-full shadow font-semibold transition duration-200">
+                    <button type="submit" class="bg-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-4 py-1 rounded-full shadow font-semibold transition duration-200">
                         Submit
                     </button>
                 </div>
@@ -755,7 +755,7 @@
                             <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
                             <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
                         </div>
-                        <button id="savePasswordBtn" class="border border-[#FF9800] hover:bg-[#FF9800]/90 hover:text-white/90 text-[#FF9800] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                        <button id="savePasswordBtn" class="border border-[#FF9800] hover:border-[#FF9800]/80 hover:bg-[#FF9800]/80 hover:text-white/80 text-[#FF9800] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
                             Save new password
                         </button>
                     </div>
