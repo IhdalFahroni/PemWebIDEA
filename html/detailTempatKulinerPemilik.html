@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #FFFFF0;
+            background-color: #FFFFFF;
             font-family: 'Josefin Sans';
         }
         .main-container {
@@ -72,63 +72,63 @@
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="text-[#FFC107] sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFF0]">
-        <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+    <aside class="text-[#FFC107] sidebar w-20 p-4 flex flex-col items-center justify-start space-y-10 pt-8 fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
+        <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bars text-xl"></i>
         </div>
-        <a href="HomePagePemilik.html" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <a href="HomePagePemilik.html" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-house text-xl"></i>
         </a>
-        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="addPlaceBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-plus text-xl"></i>
         </div>
-        <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-bell text-xl"></i>
         </div>
-        <div id="manageBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="manageBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-arrows-up-down text-xl"></i>
         </div>
-        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-125">
+        <div id="profilBtn" class="absolute bottom-10 left-4 w-12 h-12 rounded-full flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
             <i class="fa-solid fa-user text-xl"></i>
         </div>
     </aside>
 
-    <div id="sidebarMenu" class="text-[#FFC107] fixed top-0 w-72 h-screen bg-[#FFFFF0] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
+    <div id="sidebarMenu" class="text-[#FFC107] fixed top-0 w-72 h-screen bg-[#FFFFFF] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5">
             <div class="flex items-center gap-3">
                 <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer" id="closeBtn">
-                    <i class="fa-solid fa-bars text-xl hover:scale-125"></i>
+                    <i class="fa-solid fa-bars text-xl"></i>
                 </div>
-                <span class="text-xl font-bold text-gray-800">LOMBOK<span class="bg-gray-800 text-white px-1.5 py-0.5 rounded ml-1">REC</span></span>
+                <img src="../Assets/Logo1.png" alt="Lombok REC Logo" class="h-8 w-auto">
             </div>
         </div>
         <div class="flex-1 p-5 space-y-2">
-            <a href="HomePagePemilik.html" class="flex items-center gap-4 p-3 rounded cursor-pointer transition">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-house hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Homepage</span>
+            <a href="HomePagePemilik.html" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-house"></i></span>
+                <span class="text-lg font-medium text-[#5C3211]">Homepage</span>
             </a>
-            <a id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition ">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-plus hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Add Place</span>
+            <a id="openAddPlaceBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-plus"></i></span>
+                <span class="text-lg font-medium text-[#5C3211]">Add Place</span>
             </a>
-            <a id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition">
-                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-bell hover:scale-125"></i></span>
-                <span class="text-lg font-medium hover:scale-110">Notifications</span>
+            <a id="openNotificationBtn" class="flex items-center gap-4 p-3 rounded cursor-pointer transition hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-bell"></i></span>
+                <span class="text-lg font-medium text-[#5C3211]">Notifications</span>
             </a>
-            <a class="flex flex-col items-start gap-1 p-3 rounded cursor-pointer transition">
+            <a class="flex flex-col items-start gap-1 p-3 rounded cursor-pointer transition hover:bg-gray-100">
                 <div id="openManageBtn" class="flex items-center gap-4">
-                    <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-arrows-up-down hover:scale-125"></i></span>
-                    <span class="text-lg font-medium hover:scale-110">Manage place</span>
+                    <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-arrows-up-down"></i></span>
+                    <span class="text-lg font-medium text-[#5C3211]">Manage place</span>
                 </div>
-                <span id="listPlace" class="text-sm font-light ml-16 hidden hover:font-bold">RM Sumber Rejeki</span>
+                <span id="listPlace" class="text-sm font-light ml-16 hidden hover:underline">RM Sumber Rejeki</span>
             </a>
         </div>
         <div class="p-5 space-y-3">
-            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded">
-                <span class="w-12 h-12 flex items-center justify-center text-[#FF9800] text-xl rounded-full"><i class="fa-solid fa-user hover:scale-125"></i></span>
+            <div id="openProfilBtn" class="flex items-center gap-4 p-3 rounded hover:bg-gray-100">
+                <span class="w-12 h-12 flex items-center justify-center text-xl rounded-full"><i class="fa-solid fa-user"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold hover:scale-110">username</span>
-                    <span class="text-base font-light hover:scale-110">@email.gmail.com</span>
+                    <span class="text-lg font-semibold text-[#5C3211]">Pemilik</span>
+                    <span class="text-base font-light text-[#5C3211]">@email.gmail.com</span>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@
         <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
 
             <div id="awal">
-                <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8">RM Sumber Rejeki</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">RM Sumber Rejeki</h1>
 
                 <div class="flex justify-end items-center space-x-3">
                     <div id="openEdit" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition mb-3 shadow-lg">
@@ -161,11 +161,12 @@
                                 class="hidden text-sm text-[#5C3211] opacity-50 font-bold w-full bg-transparent focus:outline-none"
                                 >Jl. Mareje, Panjisari, Kec. Praya, Kabupaten Lombok Tengah, Nusa Tenggara Bar. 83511</textarea>
                             </textarea>
-                            <a id="gmaps" href="#" class="text-[#5C3211] text-sm hover:underline flex items-center gap-1 font-bold">
-                                Google Maps<i class="fas fa-map-marker-alt text-base"></i> 
+                            <a id="gmaps" href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                                <span class="relative top-0.5">Google Maps</span>
+                                <i class="fa-solid fa-location-dot"></i>
                             </a>
                             <textarea id="editGmaps"
-                                class="hidden text-[#5C3211] opacity-50 text-sm font-bold w-full bg-transparent focus:outline-none flex items-center">Google Maps
+                                class="hidden text-[#5C3211] opacity-50 text-sm font-medium w-full bg-transparent focus:outline-none flex items-center">Google Maps
                             </textarea>
                             <div class="flex items-center gap-x-3 mt-3"> 
                                 <div id="openMenu" class="bg-[#FFC107] text-white text-sm font-bold px-4 py-1.5 rounded-md cursor-pointer hover:bg-yellow-500 transition shadow-md">
@@ -183,12 +184,7 @@
                             </div>
                         </div>
                         <div class="md:w-2/3">
-                            <div class="flex items-center mb-2 text-[#FFC107] text-2xl">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i> </div>
+                            <div class="text-yellow-500 my-1 text-4xl">★★★★★</div>
                             <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4"> 
                                 <p class="text-[#5C3211] text-base font-light">Kategori</p>
                                 <p class="text-[#5C3211] font-medium text-base">Tempat kuliner</p>
@@ -209,9 +205,9 @@
                 <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#F0B845]">
                     <div id="review">
                         <div class="mt-2 px-6 md:px-8"> 
-                            <div id="addReview" class=" w-full">
-                                <i class="fas fa-plus-circle text-lg text-[#8E5E38] opacity-50 "></i> 
-                                <span class="font-medium text-[#8E5E38] opacity-50 cursor-pointer hover:text-black transition">Add review</span>
+                            <div id="addReview" class="w-full cursor-pointer group">
+                                <i class="fas fa-plus-circle text-lg text-[#8E5E38] opacity-50 group-hover:opacity-100 transition"></i> 
+                                <span class="font-medium text-[#8E5E38] opacity-50 group-hover:opacity-100 transition">Add review</span>
                                 <hr class="border-[#8E5E38] opacity-50 mt-1 mb-6">
                             </div>
                             <div id="fillReview" class="w-full hidden">
@@ -223,23 +219,23 @@
                                     </div>
                                     <div id="afterImage" class="hidden inline-flex items-center gap-1.5 bg-[#5C3211] text-white px-3 py-1 rounded-full text-sm shadow-sm">
                                         <i class="fas fa-image"></i>
-                                        <span class="font-semibold">sumber_rejeki_review.jpg</span>
+                                        <span class="font-semibold">selong_belanak_review.jpg</span>
                                         <i id="cancelImage" class="fas fa-xmark cursor-pointer hover:scale-110 transition-transform"></i>
                                     </div>
                                 </div>
                                 <div class="flex justify-between items-center mb-0">
                                     <input type="text"
                                         id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
-                                        class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#8E5E38] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
+                                        class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#5C3211] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
                                         <div class="flex gap-3 text-lg">
-                                        <i id="closeReview" class="fas fa-xmark text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                                        <i class="fas fa-paper-plane text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                        <i id="closeReview" class="fas fa-xmark text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                        <i class="fas fa-paper-plane text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
                                     </div>
                                 </div>
-                                <hr class="border-[#8E5E38] opacity-40">
+                                <hr class="border-[#5C3211] opacity-60">
                                 <div class="flex gap-3 text-lg mt-3 mb-4">
-                                    <i id="openRating" class="fas fa-star text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
-                                    <i id="openImage" class="fas fa-image text-[#8E5E38] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                    <i id="openRating" class="fas fa-star text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
+                                    <i id="openImage" class="fas fa-image text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
                                 </div>
                             </div>
                         </div>
