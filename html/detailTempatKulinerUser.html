@@ -611,6 +611,34 @@
         const passwordInput = document.getElementById('newPass');
         const passError = document.getElementById('passwordError');
 
+        const openMenus = document.getElementById('openMenu');
+        const openPromos = document.getElementById('openPromo');
+        const closeMenus = document.getElementById('closeMenu');
+        const closePromos = document.getElementById('closePromo');
+        const menu = document.getElementById('menuModal');
+        const promo = document.getElementById('promoModal');
+
+        const addReview = document.getElementById('addReview');
+        const closeReview = document.getElementById('closeReview');
+        const fillReview = document.getElementById('fillReview');
+        
+        const openRating = document.getElementById('openRating');
+        const ratingModal = document.getElementById('ratingModal');
+        const closeRating = document.getElementById('closeRating');
+        
+        const openImage = document.getElementById('openImage');
+        const imageModal = document.getElementById('imageModal');
+        const closeImage = document.getElementById('closeImage');
+        
+        const cancelRating = document.getElementById('cancelRating');
+        const afterRating = document.getElementById('afterRating');
+        
+        const cancelImage = document.getElementById('cancelImage');
+        const afterImage = document.getElementById('afterImage');
+        
+        const openAfterImage = document.getElementById('openAfterImage');
+        const openAfterRating = document.getElementById('openAfterRating');
+
         let activePanel = 'awal'; 
 
         function showPanel(panelName) {
@@ -750,65 +778,93 @@
                 }
             });
         }
+
+        if(addReview) {
+            addReview.addEventListener('click', function() {
+                addReview.classList.add('hidden');
+                fillReview.classList.remove('hidden');
+            });
+        }
+        
+        if(closeReview) {
+            closeReview.addEventListener('click', function() {
+                addReview.classList.remove('hidden');
+                fillReview.classList.add('hidden');
+            });
+        }
+        
+        if(openRating) {
+            openRating.addEventListener('click', function() {
+                ratingModal.classList.remove('hidden');
+            });
+        }
+        if(closeRating) {
+            closeRating.addEventListener('click', function() {
+                ratingModal.classList.add('hidden');
+            });
+        }
+        
+        if(openImage) {
+            openImage.addEventListener('click', function() {
+                imageModal.classList.remove('hidden');
+            });
+        }
+        if(closeImage) {
+            closeImage.addEventListener('click', function() {
+                imageModal.classList.add('hidden');
+            });
+        }
+
+        if(cancelRating) {
+            cancelRating.addEventListener('click', function() {
+                afterRating.classList.add('hidden');
+                ratingModal.classList.remove('hidden');
+            });
+        }
+        if(cancelImage) {
+            cancelImage.addEventListener('click', function() {
+                afterImage.classList.add('hidden');
+                imageModal.classList.remove('hidden');
+            });
+        }
+        
+        if(openAfterRating) {
+            openAfterRating.addEventListener('click', function() {
+                ratingModal.classList.add('hidden');
+                fillReview.classList.remove('hidden');
+                afterRating.classList.remove('hidden');
+            });
+        }
+        if(openAfterImage) {
+            openAfterImage.addEventListener('click', function() {
+                imageModal.classList.add('hidden');
+                fillReview.classList.remove('hidden');
+                afterImage.classList.remove('hidden');
+            });
+        }
+
+        if(openMenus) {
+            openMenus.addEventListener('click', function(){
+                menu.classList.remove('hidden');
+            });
+        }
+        if(openPromos) {
+            openPromos.addEventListener('click', function(){
+                promo.classList.remove('hidden');
+            });
+        }
+        if(closeMenus) {
+            closeMenus.addEventListener('click', function(){
+                menu.classList.add('hidden');
+            });
+        }
+        if(closePromos) {
+            closePromos.addEventListener('click', function(){
+                promo.classList.add('hidden');
+            });
+        }
         
         showPanel('awal');
-
-        document.getElementById('openMenu').addEventListener('click', function() {
-            document.getElementById('menuModal').classList.remove('hidden');
-        });
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            document.getElementById('menuModal').classList.add('hidden');
-        });
-        document.getElementById('openPromo').addEventListener('click', function() {
-            document.getElementById('promoModal').classList.remove('hidden');
-        });
-        document.getElementById('closePromo').addEventListener('click', function() {
-            document.getElementById('promoModal').classList.add('hidden');
-        });
-
-        document.getElementById('addReview').addEventListener('click', function() {
-            document.getElementById('addReview').classList.add('hidden');
-            document.getElementById('fillReview').classList.remove('hidden');
-        });
-
-        document.getElementById('closeReview').addEventListener('click', function() {
-            document.getElementById('fillReview').classList.add('hidden');
-            document.getElementById('addReview').classList.remove('hidden');
-        });
-        document.getElementById('openRating').addEventListener('click', function() {
-            document.getElementById('ratingModal').classList.remove('hidden');
-        });
-        document.getElementById('closeRating').addEventListener('click', function() {
-            document.getElementById('ratingModal').classList.add('hidden');
-        });
-        document.getElementById('openImage').addEventListener('click', function() {
-            document.getElementById('imageModal').classList.remove('hidden');
-        });
-        document.getElementById('closeImage').addEventListener('click', function() {
-            document.getElementById('imageModal').classList.add('hidden');
-        });
-        document.getElementById('cancelRating').addEventListener('click', function() {
-            document.getElementById('afterRating').classList.add('hidden');
-            document.getElementById('ratingModal').classList.remove('hidden');
-        });
-        document.getElementById('cancelImage').addEventListener('click', function() {
-            document.getElementById('afterImage').classList.add('hidden');
-            document.getElementById('imageModal').classList.remove('hidden');
-        });
-        document.querySelectorAll('#openAfterRating').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.getElementById('ratingModal').classList.add('hidden');
-                document.getElementById('fillReview').classList.remove('hidden');
-                document.getElementById('afterRating').classList.remove('hidden');
-            });
-        });
-        document.querySelectorAll('#openAfterImage').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.getElementById('imageModal').classList.add('hidden');
-                document.getElementById('fillReview').classList.remove('hidden');
-                document.getElementById('afterImage').classList.remove('hidden');
-            });
-        });
     </script>
     
 </body>
