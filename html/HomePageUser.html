@@ -39,7 +39,8 @@
             border-radius: 1rem;
             padding: 1.25rem;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.1), -1px 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid #F0D3B3;
         }
         .form-box label {
             display: block;
@@ -63,10 +64,143 @@
         .form-box textarea {resize: vertical;}
         .form-box input::placeholder,
         .form-box textarea::placeholder {color: #9CA3AF;}
-        .modal-scroll-area {
-            max-height: 70vh;
-            overflow-y: auto;
-            padding-right: 10px;
+
+        .form-box select {
+            width: 100%;
+            background-color: transparent; 
+            border: none;
+            border-bottom: 1px solid #D1D5DB; 
+            padding: 0.5rem 0.1rem;
+            outline: none;
+            transition: border-color 0.2s ease-in-out;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E"); /* Ikon panah ke bawah */
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem; 
+            color: #9CA3AF; 
+        }
+        .form-box select:focus {
+            border-bottom-color: #F59E0B; 
+            box-shadow: none;
+            ring: 0;
+        }
+        .form-box select option {
+            color: black; 
+        }
+        .form-box select:valid {
+            color: black; 
+        }
+        .radio-group-container {
+            display: flex; 
+            gap: 1.5rem;
+            padding-top: 1rem; 
+        }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #4B5563; 
+        }
+        .radio-option input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid #D1D5DB; 
+            border-radius: 50%; 
+            margin-right: 0.1rem; 
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            position: relative; 
+        }
+        .radio-option input[type="radio"]:checked {
+            background-color: #F59E0B; 
+            border-color: #F59E0B; 
+        }
+        .radio-option input[type="radio"]:focus {
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.5); 
+        }
+        .radio-option input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 0.5rem; 
+            height: 0.5rem;
+            background-color: white; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .radio-option span {
+            font-weight: 400; 
+            padding-bottom: 0.3rem;
+        }
+        .upload-photo-container input[type="url"],
+        .upload-photo-container input[type="text"][readonly] {
+            border-bottom: none; 
+            padding-bottom: 0;  
+        }
+
+        .upload-photo-container {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 0.1rem;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .upload-photo-container input {
+            flex-grow: 1;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            padding: 0; 
+            color: #4B5563;
+            vertical-align: middle;
+            line-height: normal; 
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF;
+            vertical-align: middle; 
+            line-height: normal; 
+        }
+        .upload-photo-container svg {
+            margin-right: 0.3rem;
+            flex-shrink: 0;
+            position: relative; 
+            bottom: 3px; 
+        }
+        .upload-photo-container:hover input::placeholder,
+        .upload-photo-container:hover svg {
+            color: #F59E0B;
+            text-decoration: underline; 
+        }
+        .upload-photo-container input::placeholder {
+            color: #9CA3AF; 
+            vertical-align: middle;
+            line-height: normal;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out; 
+        }
+        .upload-photo-container svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+            color: #9CA3AF; 
+            vertical-align: middle;
+            transition: color 0.2s ease-in-out; 
+        }
+        #uploadIcon {
+            position: relative;
+            top: 2px;
         }
         .modal-scroll-area::-webkit-scrollbar { width: 8px; }
         .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #FFC107; border-radius: 4px; }
@@ -412,7 +546,7 @@
                 </div>
 
                 <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
-                    <button type="submit" class="border border-[#FF9800] bg-[#FF9800] text-white hover:bg-[#FF9800]/90 hover:text-white/90 px-4 py-1 rounded-full shadow font-semibold transition duration-200">
+                    <button type="submit" class="bg-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold transition duration-200">
                         Submit
                     </button>
                 </div>
@@ -421,7 +555,7 @@
             <div id="profil" class="header mb-5 hidden">
                 <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
-                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
+                        <button id="editProfileBtn" class="absolute top-4 right-4 bg-[#FF9800] text-[#FFFFFF] hover:bg-[#FF9800]/80 hover:text-[#FFFFFF]/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
                         <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
                             <span class="text-5xl font-normal text-[#5C3211]">Username</span>
@@ -432,13 +566,18 @@
                         </div>
                     </div>
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
-                        <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
-                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">
+                            Save change
+                        </button>
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">                       
                         <div class="ml-6 flex flex-col">
-                            <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg mb-1 px-3" placeholder="Username" />
-                            <p id="usernameError" class="text-sm text-[#FF0000] hidden">Username must be 8-20 characters</p>
-                            <div class="flex items-center mt-2 gap-4">
-                                <input type="text" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg px-3" placeholder="Nama Lengkap" />
+                            <div class="relative">
+                                <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg focus:outline-none focus:border-[#FF9800] px-3 pt-3" placeholder="Username" />                           
+                                <p id="usernameError" class="absolute top-full mt-1 text-sm text-[#FF0000] hidden">
+                                    Username must be 8-20 characters
+                                </p>
+                            </div>
+                            <div class="flex items-center mt-6 gap-4"> <input type="text" id="editFullName" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg focus:outline-none focus:border-[#FF9800] px-3 pt-3" placeholder="Nama Lengkap" />
                                 <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
                             </div>
                         </div>
@@ -447,37 +586,56 @@
                 <div id="bawahProfil" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3] hidden">
                     <div class="flex flex-col w-full">
                         <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
-                            <i class="fas fa-gear text-xl hover:opacity-50"></i>
-                            <span class="hover:underline">Account setting</span>
+                            <i class="fas fa-gear text-xl"></i>
+                            <span class="hover:underline pt-1">Account setting</span>
                         </button>
                         <hr class="my-3 border-[#F0D3B3]">
-                        <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
-                            <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
-                            <span class="hover:underline">Logout</span>
+                        <button id="logoutBtn" class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fa-solid fa-right-from-bracket text-xl"></i>
+                            <span class="hover:underline pt-1">Logout</span>
                         </button>
                     </div>
                 </div>
-                <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-8 shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div class="w-full relative">
-                        <button id="closeAccountSettingBtn" class="absolute right-4 text-[#5C3211] hover:bg-gray-100 rounded-full transition" title="Close">
-                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        <button id="closeAccountSettingBtn" class="absolute top-0 right-0 text-[#5C3211] hover:bg-gray-100 rounded-full transition w-8 h-8 flex items-center justify-center" title="Close">
+                            <i class="fa-solid fa-xmark text-xl"></i>
                         </button>
+                        
                         <div class="mb-4">
-                            <span class="text-2xl font-bold">Account Setting</span>
+                            <span class="text-3xl font-bold">Account settings</span>
                         </div>
-                        <div class="mb-4">
-                            <span class="text-lg font-semibold">Change Password</span>
+                        
+                        <hr class="border-t border-[#5C3211]/30 my-6">
+
+                        <div>
+                            <div class="mb-4">
+                                <span class="text-xl font-semibold">Change password</span>
+                            </div>
+                            <div class="flex flex-col max-w-sm gap-4"> 
+                                <input type="password" id="currentPassword" placeholder="Current password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#FF9800]">
+                                <div class="relative">
+                                    <input id="newPass" type="password" placeholder="New password" class="border border-[#5C3211] w-full rounded-lg px-4 py-2 focus:outline-none focus:border-[#FF9800]">
+                                    <p id="passwordError" class="absolute mt-1 text-sm text-red-500 hidden">Password need to contain at least 8 characters.</p>
+                                </div>
+                            </div>
+                            <button id="savePasswordBtn" class="border border-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-8">
+                                Save new password
+                            </button>
                         </div>
-                        <div class="flex flex-col max-w-sm gap-3"> 
-                            <input type="password" id="currentPassword" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+
+                        <div class="mt-12">
+                            <div class="mb-2">
+                                <span class="text-xl font-semibold">Delete account</span>
+                            </div>
+                            <p class="text-base font-light">Permanently delete your account</p>
+                            <button id="deleteAccountBtn" class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-4">
+                                Delete account
+                            </button>
                         </div>
-                        <button id="savePasswordBtn" class="border border-[#FF9800] hover:bg-[#FF9800]/90 hover:text-white/90 text-[#FF9800] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
-                            Save new password
-                        </button>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
@@ -506,16 +664,22 @@
             const containerProfile = document.getElementById('containerProfile');
             const profilPage = document.getElementById('profilPage');
             const editProfilePage = document.getElementById('editProfilePage');
+            const editUsernameInput = document.getElementById('editUsername');
+            const editFullNameInput = document.getElementById('editFullName');
+            const usernameError = document.getElementById('usernameError');
+            const saveEditBtn = document.getElementById('saveEditBtn');
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
-           const savePasswordBtn = document.getElementById('savePasswordBtn');
+            const savePasswordBtn = document.getElementById('savePasswordBtn');
             const currentPasswordInput = document.getElementById('currentPassword');
             const newPasswordInput = document.getElementById('newPass');
             const passwordError = document.getElementById('passwordError');
             
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
+            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
             
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
@@ -614,6 +778,42 @@
                 editProfilePage.classList.add('hidden');
             });
             }
+
+            function validateProfileForm() {
+                if (!editUsernameInput || !editFullNameInput || !saveEditBtn) return; // Pengaman jika elemen tidak ada
+
+                const username = editUsernameInput.value.trim();
+                const fullName = editFullNameInput.value.trim();
+                const isUsernameLengthValid = username.length >= 8 && username.length <= 20;
+                
+                if (username.length > 0 && !isUsernameLengthValid) {
+                    usernameError.classList.remove('hidden');
+                } else {
+                    usernameError.classList.add('hidden');
+                }
+
+                const isFormValid = isUsernameLengthValid && fullName.length > 0;
+
+                if (isFormValid) {
+                    saveEditBtn.disabled = false;
+                    saveEditBtn.classList.remove('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                    saveEditBtn.classList.add('bg-[#FF9800]', 'text-white');
+                } else {
+                    saveEditBtn.disabled = true;
+                    saveEditBtn.classList.remove('bg-[#FF9800]', 'text-white');
+                    saveEditBtn.classList.add('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                }
+            }
+            if (editUsernameInput && editFullNameInput) {
+                editUsernameInput.addEventListener('input', validateProfileForm);
+                editFullNameInput.addEventListener('input', validateProfileForm);
+            }
+
+            openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPanel('profil');
+                validateProfileForm(); 
+            }));
             
             if (openAccountSettingBtn) {
                 openAccountSettingBtn.addEventListener('click', () => {
@@ -640,6 +840,21 @@
                         passError.classList.remove('hidden');
                     } else {
                         passError.classList.add('hidden');
+                    }
+                });
+            }
+
+            if (deleteAccountBtn) {
+                deleteAccountBtn.addEventListener('click', () => {
+                    const message = "This action will permanently delete your account. Are you sure you want to continue?";                   
+                    const userConfirmed = window.confirm(message);
+                    if (userConfirmed) {
+                        console.log("Pengguna mengonfirmasi penghapusan akun.");
+                        alert("Your account has been successfully deleted.");
+                        // Arahkan pengguna ke halaman login atau halaman utama
+                        // window.location.href = '/login.html'; 
+                    } else {
+                        console.log("Account deletion canceled.");
                     }
                 });
             }
@@ -685,6 +900,24 @@
                     newPasswordInput.value = '';
                     
                     validateAndUpdateButton();
+                });
+            }
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    const message = "Are you sure you want to log out? You can still log in with this account in the next session.";
+                    
+                    const userConfirmed = window.confirm(message);
+
+                    if (userConfirmed) {
+                        console.log("Logging out...");
+                        // Mengarahkan pengguna ke halaman login
+                        // window.location.href = '/halaman-login.html'; 
+                        alert("You have been successfully logged out.");
+                    } else {
+                        console.log("Log out canceled.");
+                    }
                 });
             }
 

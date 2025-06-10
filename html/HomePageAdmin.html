@@ -44,6 +44,7 @@
             padding: 1.25rem;
             margin-bottom: 1rem;
             box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 0.1), -1px 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid #F0D3B3;
         }
         .form-box label {
             display: block;
@@ -617,7 +618,7 @@
                 </div>
 
                 <div class="mt-8 mb-4 max-w-xs mx-auto text-center"> 
-                    <button type="submit" class="bg-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-4 py-1 rounded-full shadow font-semibold transition duration-200">
+                    <button type="submit" class="bg-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold transition duration-200">
                         Submit
                     </button>
                 </div>
@@ -728,15 +729,15 @@
                 </div>
                 <div id="bawahProfil" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3] hidden">
                     <div class="flex flex-col w-full">
-                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
-                            <i class="fas fa-gear text-xl hover:opacity-50"></i>
-                            <span class="hover:underline">Account setting</span>
+                        <button id="openAccountSettingBtn" class="flex items-center gap-3 py-2 px-4  rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fas fa-gear text-xl"></i>
+                            <span class="hover:underline pt-1">Account setting</span>
                         </button>
                         <hr class="my-3 border-[#F0D3B3]">
-                        <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
-                            <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
-                            <span class="hover:underline">Logout</span>
-                        </button> 
+                        <button id="logoutBtn" class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fa-solid fa-right-from-bracket text-xl"></i>
+                            <span class="hover:underline pt-1">Logout</span>
+                        </button>
                     </div>
                 </div>
                 <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
@@ -750,12 +751,13 @@
                         <div class="mb-4">
                             <span class="text-lg font-semibold">Change Password</span>
                         </div>
-                        <div class="flex flex-col max-w-sm gap-3"> 
-                            <input type="password" id="currentPassword" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+                        <div class="flex flex-col max-w-sm gap-4"> <input type="password" id="currentPassword" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                            <div class="relative">
+                                <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] w-full rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
+                                <p id="passwordError" class="absolute mt-1 text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+                            </div>
                         </div>
-                        <button id="savePasswordBtn" class="border border-[#FF9800] hover:border-[#FF9800]/80 hover:bg-[#FF9800]/80 hover:text-white/80 text-[#FF9800] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
+                        <button id="savePasswordBtn" class="border border-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-8">
                             Save new password
                         </button>
                     </div>
@@ -800,6 +802,7 @@
             const currentPasswordInput = document.getElementById('currentPassword');
             const newPasswordInput = document.getElementById('newPass');
             const passwordError = document.getElementById('passwordError');
+            const logoutBtn = document.getElementById('logoutBtn');
             
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
@@ -1045,6 +1048,24 @@
                     newPasswordInput.value = '';
                     
                     validateAndUpdateButton();
+                });
+            }
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    const message = "Are you sure you want to log out? You can still log in with this account in the next session.";
+                    
+                    const userConfirmed = window.confirm(message);
+
+                    if (userConfirmed) {
+                        console.log("Logging out...");
+                        // Mengarahkan pengguna ke halaman login
+                        // window.location.href = '/halaman-login.html'; 
+                        alert("You have been successfully logged out.");
+                    } else {
+                        console.log("Log out canceled.");
+                    }
                 });
             }
 
