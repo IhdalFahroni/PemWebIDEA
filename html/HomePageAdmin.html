@@ -36,7 +36,7 @@
             background: #FFC107;
             border-radius: 3px;
         }
-        ::-webkit-scrollbar-thumb:hover {background: linear-gradient(to bottom, #FFC107 50px, #F8F9FA 300px);}
+        ::-webkit-scrollbar-thumb:hover {background: #FF9800;}
         .custom-gradient-modal {background: linear-gradient(to bottom, #FFC107, #F8F9FA); }
         .form-box {
             background-color: white;
@@ -213,14 +213,74 @@
         -webkit-line-clamp: 2;
         }
 
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-container {
+            background: linear-gradient(to bottom, #FFC107, #F8F9FA);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .modal-close-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .modal-field {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+        }
+        .modal-field label {
+            display: block;
+            color: #4B5563;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+        .modal-field p {
+            color: #1F2937;
+            font-weight: 600;
+        }
+        .modal-field a {
+            color: #2563EB;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
         .modal-scroll-area {
             max-height: 70vh;
             overflow-y: auto;
             padding-right: 10px;
         }
-        .modal-scroll-area::-webkit-scrollbar { width: 8px; }
-        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #4B5563; border-radius: 4px; }
-        .modal-scroll-area::-webkit-scrollbar-track { background-color: #4B5563; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar { width: 6px; }
+        .modal-scroll-area::-webkit-scrollbar-thumb { background-color: #FFC107; border-radius: 4px; }
+        .modal-scroll-area::-webkit-scrollbar-track { background-color: #FFFFFF; border-radius: 4px; }
 
         .btn-disabled {
             opacity: 0.5;
@@ -233,22 +293,22 @@
     <aside class="sidebar w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div class="p-5">
             <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-bars text-[#FF9800] text-xl"></i>
+                <i class="fa-solid fa-bars text-[#FFC107] text-xl"></i>
             </div>
         </div>
 
         <div class="flex-1 p-5 space-y-12">
             <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-home text-[#FF9800] text-xl"></i>
+                <i class="fa-solid fa-home text-[#FFC107] text-xl"></i>
             </div>
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-plus text-[#FF9800] text-xl"></i>
+                <i class="fa-solid fa-plus text-[#FFC107] text-xl"></i>
             </div>
             <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-clipboard-check text-[#FF9800] text-xl"></i>
+                <i class="fa-solid fa-clipboard-check text-[#FFC107] text-xl"></i>
             </div>
             <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-bell text-[#FF9800] text-xl"></i>
+                <i class="fa-solid fa-bell text-[#FFC107] text-xl"></i>
             </div>
         </div>
 
@@ -302,7 +362,7 @@
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFFF]">
         <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="header" class="header text-center mb-5 ">
-                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Where do you want to go?</h1>
+                <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
                     <button class="filter-button py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
                         <i class="fa-solid fa-location-dot"></i> <span class="relative top-px">Tourist destination</span>
@@ -461,7 +521,7 @@
             </div>
 
             <div id="notification" class="header mb-5 hidden">
-                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Notifications</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
                     <h3 class="font-semibold mb-1 text-lg">
                         Request for new place addition
@@ -488,7 +548,7 @@
             </div>
 
             <div id="addPlace" class="header mb-5 hidden">
-                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">
+                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">
                     Add tourist attraction
                 </h2>
                 <p class="text-xs font-light text-black text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
@@ -565,10 +625,10 @@
             </div>
 
             <div id="manageVerification" class="header mb-5 hidden">
-                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Manage Verification</h1>
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Manage Verification</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3] modal-scroll-area">
                     
-                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" data-type="add-place">
                         <div class="flex-grow">
                             <p class="font-semibold text-lg">ihdal_f</p>
                             <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
@@ -587,7 +647,7 @@
                         </div>
                     </div>
 
-                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="verification-item mb-4 p-4 border border-gray-200 rounded-lg shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4" data-type="claim-culinary">
                         <div class="flex-grow">
                             <p class="font-semibold text-lg">ihdal_f</p>
                             <p class="text-sm text-gray-500">ihdalfahroni@gmail.com</p>
@@ -607,6 +667,41 @@
                     </div>
 
                     <p class="pt-3 text-center">That's all.</p>
+                </div>
+            </div>
+
+            <div id="addPlaceModal" class="modal-overlay hidden">
+                <div class="modal-container">
+                    <div class="modal-close-btn" data-close-modal="addPlaceModal">
+                        <i class="fa-solid fa-xmark text-lg text-gray-800"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-6 [text-shadow:1px_1px_rgba(0,0,0,0.5)]">Add new place</h2>
+                    <div class="modal-scroll-area pr-2">
+                        <div class="modal-field"><label>Place name*</label><p id="add_placeName"></p></div>
+                        <div class="modal-field"><label>Category*</label><p id="add_category"></p></div>
+                        <div class="modal-field"><label>District/city*</label><p id="add_district"></p></div>
+                        <div class="modal-field"><label>Subdistrict*</label><p id="add_subdistrict"></p></div>
+                        <div class="modal-field"><label>Village*</label><p id="add_village"></p></div>
+                        <div class="modal-field"><label>Street*</label><p id="add_street"></p></div>
+                        <div class="modal-field"><label>Google Map Location*</label><a id="add_gmaps" href="#" target="_blank"></a></div>
+                        <div class="modal-field"><label>Place description*</label><p id="add_description"></p></div>
+                        <div class="modal-field"><label>Photo(s)</label><p id="add_photo"></p></div>
+                    </div>
+                </div>
+            </div>
+            <div id="claimCulinaryModal" class="modal-overlay hidden">
+                <div class="modal-container">
+                    <div class="modal-close-btn" data-close-modal="claimCulinaryModal">
+                        <i class="fa-solid fa-xmark text-lg text-gray-800"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-center text-white mb-6 [text-shadow:1px_1px_rgba(0,0,0,0.5)]">Claim culinary site</h2>
+                    <div class="modal-scroll-area pr-2">
+                        <div class="modal-field"><label>Full name*</label><p id="claim_fullName"></p></div>
+                        <div class="modal-field"><label>Phone number*</label><p id="claim_phone"></p></div>
+                        <div class="modal-field"><label>Email*</label><p id="claim_email"></p></div>
+                        <div class="modal-field"><label>Taxpayer Identification Number*</label><p id="claim_tin"></p></div>
+                        <div class="modal-field"><label>Supporting document(s)</label><p id="claim_document"></p></div>
+                    </div>
                 </div>
             </div>
 
@@ -682,6 +777,9 @@
             const notification = document.getElementById('notification');
             const addPlaceForm = document.getElementById('addPlace');
             const manageVerification = document.getElementById('manageVerification'); 
+            const addPlaceModal = document.getElementById('addPlaceModal');
+            const claimCulinaryModal = document.getElementById('claimCulinaryModal');
+
             const profile = document.getElementById('profil');
             
             const searchIcon = document.getElementById('searchIcon');
@@ -806,6 +904,39 @@
                     });
                 });
             }));
+
+            function openAddPlaceModal(data) {
+                document.getElementById('add_placeName').textContent = data.placeName;
+                document.getElementById('add_category').textContent = data.category;
+                document.getElementById('add_district').textContent = data.district;
+                document.getElementById('add_subdistrict').textContent = data.subdistrict;
+                document.getElementById('add_village').textContent = data.village;
+                document.getElementById('add_street').textContent = data.street;
+                const gmapsLink = document.getElementById('add_gmaps');
+                gmapsLink.href = data.gmaps;
+                gmapsLink.textContent = data.gmaps;
+                document.getElementById('add_description').textContent = data.description;
+                document.getElementById('add_photo').textContent = data.photo;
+                addPlaceModal.classList.remove('hidden');
+            }
+
+            function openClaimCulinaryModal(data) {
+                document.getElementById('claim_fullName').textContent = data.fullName;
+                document.getElementById('claim_phone').textContent = data.phone;
+                document.getElementById('claim_email').textContent = data.email;
+                document.getElementById('claim_tin').textContent = data.tin; // Taxpayer Identification Number
+                document.getElementById('claim_document').textContent = data.document;
+                claimCulinaryModal.classList.remove('hidden');
+            }
+
+            document.querySelectorAll('.modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modalId = this.dataset.closeModal;
+                    const modalToClose = document.getElementById(modalId);
+                    closeModal(modalToClose);
+                });
+            });
+        
             
             openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -1020,6 +1151,8 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault(); 
                     const parentItem = link.closest('.verification-item');
+                    const requestType = parentItem.dataset.type;
+
                     if (parentItem) {
                         const approveBtn = parentItem.querySelector('.approve-btn');
                         const denyBtn = parentItem.querySelector('.deny-btn');
@@ -1034,6 +1167,60 @@
                         
                         approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
                         approveBtn.classList.remove('bg-blue-500', 'text-white');
+                    }
+
+                    // --- Bagian 2: Logika BARU untuk menampilkan modal dengan data ---
+                    // Tampilkan modal yang sesuai
+                    if (requestType === 'add-place') {
+                        const addData = {
+                            placeName: "Universitas Mataram",
+                            category: "Tourist destination",
+                            district: "Mataram",
+                            subdistrict: "Selaparang",
+                            village: "Gomong",
+                            street: "Majapahit Street No.62",
+                            gmaps: "https://maps.app.goo.gl/96YcpUGoX1Xedrss7",
+                            description: "Universitas Mataram is a state university in the city of Mataram, West Nusa Tenggara province, Indonesia.",
+                            photo: "unram.jpg"
+                        };
+                        openAddPlaceModal(addData);
+                    } else if (requestType === 'claim-culinary') {
+                        const claimData = {
+                            fullName: "Ihdal Fahroni", //
+                            phone: "08877776663", //
+                            email: "rmsumberejeki@gmail.com", //
+                            tin: "123456789", //
+                            document: "npwp.jpg" //
+                        };
+                        openClaimCulinaryModal(claimData);
+                    }
+                });
+            });
+
+            function closeModal(modalElement) {
+                if (modalElement) {
+                    modalElement.classList.add('hidden');
+                }
+            }
+
+            // Event listener untuk semua tombol close di setiap modal
+            document.querySelectorAll('.modal-close-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Ambil ID modal dari atribut data-close-modal
+                    const modalId = this.dataset.closeModal;
+                    // Cari elemen modal berdasarkan ID tersebut
+                    const modalToClose = document.getElementById(modalId);
+                    // Panggil fungsi untuk menutupnya
+                    closeModal(modalToClose);
+                });
+            });
+
+            // Event listener untuk menutup modal saat area gelap di klik
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    // Jika yang diklik adalah area overlay (latar belakang), tutup modal
+                    if (e.target === this) {
+                        closeModal(this);
                     }
                 });
             });
