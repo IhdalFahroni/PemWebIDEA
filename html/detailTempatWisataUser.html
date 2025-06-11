@@ -37,11 +37,12 @@
             padding: 1.25rem;
             margin-bottom: 1rem;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border: 1px solid #F0D3B3;
         }
         .form-box label {
             display: block;
             font-weight: 600;
-            color: #4B5563;
+            color: #000000;
             margin-bottom: 0.5rem;
             font-size: 1.1em;
         }
@@ -60,6 +61,22 @@
         .form-box textarea {resize: vertical;}
         .form-box input::placeholder,
         .form-box textarea::placeholder {color: #9CA3AF;}
+        .upload-photo-container input[type="text"][readonly] {
+            border-bottom: none; 
+            padding-bottom: 0;  
+        }
+        .custom-radio:checked::before {
+            content: '';
+            display: block;
+            width: 0.5rem; 
+            height: 0.5rem;
+            background-color: white; 
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
 </head>
 <body class="flex min-h-screen">
@@ -276,26 +293,36 @@
                 </div>
                 <div class="form-box">
                     <label>Category<span class="text-[#FF0000]">*</span></label>
-                    <div class="radio-group-container">
-                        <label class="radio-option">
-                            <input type="radio" name="category" value="tourist_destination" required>
-                            <span>Tourist destination</span>
+                    <div class="flex items-center gap-8 pt-4">
+                        <label class="flex items-center gap-2 cursor-pointer text-gray-600">
+                            <input type="radio" name="category" value="tourist_destination" required 
+                                class="custom-radio appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
+                                        checked:bg-[#F59E0B] checked:border-[#F59E0B]
+                                        focus:ring-[3px] focus:ring-[#F59E0B]/50">
+                            <span class="font-normal">Tourist destination</span>
                         </label>
-                        <label class="radio-option">
-                            <input type="radio" name="category" value="culinary">
-                            <span>Culinary</span>
+                        <label class="flex items-center gap-2 cursor-pointer text-gray-600">
+                            <input type="radio" name="category" value="culinary"
+                                class="custom-radio appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
+                                        checked:bg-[#F59E0B] checked:border-[#F59E0B]
+                                        focus:ring-[3px] focus:ring-[#F59E0B]/50">
+                            <span class="font-normal">Culinary</span>
                         </label>
                     </div>
                 </div>
                 <div class="form-box">
                     <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
-                    <select id="district_city" required>
+                    <select id="district_city" required
+                        class=" w-full bg-transparent border-b border-gray-300 py-2 px-[0.1rem] pr-2 text-gray-400 appearance-none 
+                                bg-no-repeat bg-right bg-[length:1rem] focus:outline-none focus:ring-0 focus:border-b-[#F59E0B] transition-colors duration-200 
+                                ease-in-out valid:text-black"
+                        style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20stroke%3D%22%236B7280%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E');">
                         <option value="" disabled selected>Choose</option>
-                        <option value="mataram">Mataram</option>
-                        <option value="lombok_barat">West Lombok</option>
-                        <option value="lombok_tengah">Central Lombok</option>
-                        <option value="lombok_timur">East Lombok</option>
-                        <option value="lombok_utara">North Lombok</option>
+                        <option value="mataram" class="text-black">Mataram</option>
+                        <option value="lombok_barat" class="text-black">West Lombok</option>
+                        <option value="lombok_tengah" class="text-black">Central Lombok</option>
+                        <option value="lombok_timur" class="text-black">East Lombok</option>
+                        <option value="lombok_utara" class="text-black">North Lombok</option>
                     </select>
                 </div>
                 <div class="form-box">
@@ -320,11 +347,17 @@
                 </div>
                 <div class="form-box">
                     <label>Photo(s)</label>
-                    <div id="fileUploadVisual" class="upload-photo-container"> 
-                        <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <div id="fileUploadVisual" 
+                        class="group flex upload-photo-container items-center py-2 cursor-pointer transition-all duration-200">
+                        <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" 
+                            class="h-5 w-5 flex-shrink-0 mr-2 text-gray-400 transition-colors group-hover:text-[#F59E0B] relative top-1" 
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
-                        <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly />
+                        <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly 
+                            class="flex-grow bg-transparent p-0 border-none outline-none text-gray-600
+                                    placeholder:text-gray-400 placeholder:transition-colors 
+                                    group-hover:placeholder:text-[#F59E0B] group-hover:placeholder:underline" />
                     </div>
                     <input id="file-upload" type="file" multiple class="hidden"/>
                     <p id="file-list" class="text-xs text-gray-500 mt-2"></p> 
@@ -476,206 +509,319 @@
     </div>
 
     <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const closeSidebarMenuBtn = document.getElementById('closeBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContent = document.querySelector('main');
-        
-        const awalDiv = document.getElementById('awal');
-        const notification = document.getElementById('notification');
-        const addPlaceForm = document.getElementById('addPlace');
-        const profile = document.getElementById('profil');
-        
-        const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
-        const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
-        const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
-        
-        const containerProfile = document.getElementById('containerProfile');
-        const profilPage = document.getElementById('profilPage');
-        const editProfilePage = document.getElementById('editProfilePage');
-        const bawahProfil = document.getElementById('bawahProfil');
-        const accountSetting = document.getElementById('accountSetting');
-        
-        const editProfileBtn = document.getElementById('editProfileBtn');
-        const saveEditBtn = document.getElementById('saveEditBtn');
-        const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
-        const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
-        
-        const usernameInput = document.getElementById('editUsername');
-        const userError = document.getElementById('usernameError');
-        const passwordInput = document.getElementById('newPass');
-        const passError = document.getElementById('passwordError');
-
-        let activePanel = 'awal'; 
-
-        function showPanel(panelName) {
-            awalDiv.classList.add('hidden');
-            notification.classList.add('hidden');
-            addPlaceForm.classList.add('hidden');
-            profile.classList.add('hidden');
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const closeSidebarMenuBtn = document.getElementById('closeBtn');
+            const sidebarMenu = document.getElementById('sidebarMenu');
+            const mainContent = document.querySelector('main');
             
-            switch (panelName) {
-                case 'awal':
-                    awalDiv.classList.remove('hidden');
-                    break;
-                case 'notification':
-                    notification.classList.remove('hidden');
-                    break;
-                case 'addPlace':
-                    addPlaceForm.classList.remove('hidden');
-                    break;
-                case 'profil':
-                    profile.classList.remove('hidden');
-                    containerProfile.classList.remove('hidden');
-                    profilPage.classList.remove('hidden');
-                    bawahProfil.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                    accountSetting.classList.add('hidden');
-                    break;
-            }
-            activePanel = panelName;
+            const awalDiv = document.getElementById('awal');
+            const notification = document.getElementById('notification');
+            const addPlaceForm = document.getElementById('addPlace');
+            const profile = document.getElementById('profil');
+            
+            const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
+            const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
+            const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
+            
+            const containerProfile = document.getElementById('containerProfile');
+            const profilPage = document.getElementById('profilPage');
+            const editProfilePage = document.getElementById('editProfilePage');
+            const bawahProfil = document.getElementById('bawahProfil');
+            const accountSetting = document.getElementById('accountSetting');
+            
+            const editProfileBtn = document.getElementById('editProfileBtn');
+            const saveEditBtn = document.getElementById('saveEditBtn');
+            const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
+            const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
+            
+            const usernameInput = document.getElementById('editUsername');
+            const userError = document.getElementById('usernameError');
+            const passwordInput = document.getElementById('newPass');
+            const passError = document.getElementById('passwordError');
 
-            if (sidebarMenu.classList.contains('translate-x-0')) {
-                sidebarMenu.classList.remove('translate-x-0');
+            // UNTUK FILE EXPLORER DAN GMAP
+            const attractionForm = document.getElementById("attractionForm");
+            const fileInput = document.getElementById("addPlace_file-upload");
+            const fileList = document.getElementById("addPlace_file-list");
+            const fileUploadVisual = document.getElementById("addPlace_fileUploadVisual");
+            const fileUploadPlaceholder = document.getElementById("addPlace_fileUploadPlaceholder");
+            const gmapsInput = document.getElementById("gmaps");
+
+            let activePanel = 'awal'; 
+
+            function showPanel(panelName) {
+                awalDiv.classList.add('hidden');
+                notification.classList.add('hidden');
+                addPlaceForm.classList.add('hidden');
+                profile.classList.add('hidden');
+                
+                switch (panelName) {
+                    case 'awal':
+                        awalDiv.classList.remove('hidden');
+                        break;
+                    case 'notification':
+                        notification.classList.remove('hidden');
+                        break;
+                    case 'addPlace':
+                        addPlaceForm.classList.remove('hidden');
+                        break;
+                    case 'profil':
+                        profile.classList.remove('hidden');
+                        containerProfile.classList.remove('hidden');
+                        profilPage.classList.remove('hidden');
+                        bawahProfil.classList.remove('hidden');
+                        editProfilePage.classList.add('hidden');
+                        accountSetting.classList.add('hidden');
+                        break;
+                }
+                activePanel = panelName;
+
+                if (sidebarMenu.classList.contains('translate-x-0')) {
+                    sidebarMenu.classList.remove('translate-x-0');
+                    sidebarMenu.classList.add('-translate-x-full');
+                    mainContent.style.marginLeft = '5rem';
+                }
+            }
+
+            mainContent.style.transition = 'margin-left 0.3s';
+            hamburgerBtn.addEventListener('click', () => {
+                sidebarMenu.classList.remove('-translate-x-full');
+                mainContent.style.marginLeft = '18rem'; 
+            });
+            closeSidebarMenuBtn.addEventListener('click', () => {
                 sidebarMenu.classList.add('-translate-x-full');
-                mainContent.style.marginLeft = '5rem';
-            }
-        }
-
-        mainContent.style.transition = 'margin-left 0.3s';
-        hamburgerBtn.addEventListener('click', () => {
-            sidebarMenu.classList.remove('-translate-x-full');
-            mainContent.style.marginLeft = '18rem'; 
-        });
-        closeSidebarMenuBtn.addEventListener('click', () => {
-            sidebarMenu.classList.add('-translate-x-full');
-            mainContent.style.marginLeft = '5rem'; 
-        });
-        
-        openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'notification') {
-                showPanel('awal');
-            } else {
-                showPanel('notification');
-            }
-        }));
-
-        openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'addPlace') {
-                showPanel('awal');
-            } else {
-                showPanel('addPlace');
-            }
-        }));
-        
-        openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'profil') {
-                showPanel('awal');
-            } else {
-                showPanel('profil');
-            }
-        }));
-        
-        if (editProfileBtn) {
-            editProfileBtn.addEventListener('click', () => {
-                profilPage.classList.add('hidden');
-                editProfilePage.classList.remove('hidden');
+                mainContent.style.marginLeft = '5rem'; 
             });
-        }
-
-        if (saveEditBtn) {
-            saveEditBtn.addEventListener('click', () => {
-                profilPage.classList.remove('hidden');
-                editProfilePage.classList.add('hidden');
-            });
-        }
-        
-        if (openAccountSettingBtn) {
-            openAccountSettingBtn.addEventListener('click', () => {
-                containerProfile.classList.add('hidden');
-                bawahProfil.classList.add('hidden');
-                accountSetting.classList.remove('hidden');
-            });
-        }
-
-        if (closeAccountSettingBtn) {
-            closeAccountSettingBtn.addEventListener('click', () => {
-                accountSetting.classList.add('hidden');
-                containerProfile.classList.remove('hidden');
-                bawahProfil.classList.remove('hidden');
-                profilPage.classList.remove('hidden');
-                editProfilePage.classList.add('hidden');
-            });
-        }
-
-        if (usernameInput) {
-            usernameInput.addEventListener('input', () => {
-                const username = usernameInput.value.trim();
-                if (username.length > 0 && (username.length < 8 || username.length > 20)) {
-                    userError.classList.remove('hidden');
+            
+            openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'notification') {
+                    showPanel('awal');
                 } else {
-                    userError.classList.add('hidden');
+                    showPanel('notification');
                 }
-            });
-        }
+            }));
 
-        if (passwordInput) {
-            passwordInput.addEventListener('input', () => {
-                const password = passwordInput.value.trim();
-                if (password.length > 0 && (password.length < 8 || password.length > 20)) {
-                    passError.classList.remove('hidden');
+            openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'addPlace') {
+                    showPanel('awal');
                 } else {
-                    passError.classList.add('hidden');
+                    showPanel('addPlace');
                 }
+            }));
+            
+            openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (activePanel === 'profil') {
+                    showPanel('awal');
+                } else {
+                    showPanel('profil');
+                }
+            }));
+            
+            if (editProfileBtn) {
+                editProfileBtn.addEventListener('click', () => {
+                    profilPage.classList.add('hidden');
+                    editProfilePage.classList.remove('hidden');
+                });
+            }
+
+            if (saveEditBtn) {
+                saveEditBtn.addEventListener('click', () => {
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+            
+            if (openAccountSettingBtn) {
+                openAccountSettingBtn.addEventListener('click', () => {
+                    containerProfile.classList.add('hidden');
+                    bawahProfil.classList.add('hidden');
+                    accountSetting.classList.remove('hidden');
+                });
+            }
+
+            if (closeAccountSettingBtn) {
+                closeAccountSettingBtn.addEventListener('click', () => {
+                    accountSetting.classList.add('hidden');
+                    containerProfile.classList.remove('hidden');
+                    bawahProfil.classList.remove('hidden');
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+
+            if (usernameInput) {
+                usernameInput.addEventListener('input', () => {
+                    const username = usernameInput.value.trim();
+                    if (username.length > 0 && (username.length < 8 || username.length > 20)) {
+                        userError.classList.remove('hidden');
+                    } else {
+                        userError.classList.add('hidden');
+                    }
+                });
+            }
+
+            if (passwordInput) {
+                passwordInput.addEventListener('input', () => {
+                    const password = passwordInput.value.trim();
+                    if (password.length > 0 && (password.length < 8 || password.length > 20)) {
+                        passError.classList.remove('hidden');
+                    } else {
+                        passError.classList.add('hidden');
+                    }
+                });
+            }
+
+            // UNTUK OPEN GMAP
+            if (gmapsInput) {
+                    let mapsAlertShown = false; 
+                    gmapsInput.addEventListener('focus', () => {
+                        if (!mapsAlertShown) {
+                            window.open('https://www.google.com/maps', '_blank');
+                    
+                            alert("Please search for and mark the location on Google Maps that just opened.\n\n" +
+                                "Once you have found the location, click the 'Share' button,\n" +
+                                "then copy the link provided and paste it into this field.");
+                            mapsAlertShown = true; 
+                        }
+                    });
+                }
+
+                // INI UNTUK CEK INPUTAN FORM
+            if (attractionForm) {
+                attractionForm.onsubmit = (e) => {
+                    e.preventDefault(); 
+                    let isValid = true; 
+
+                    const showError = (inputElement, message) => {
+                        inputElement.classList.add('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (!errorSpan || !errorSpan.classList.contains('error-message')) {
+                            errorSpan = document.createElement('p');
+                            errorSpan.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
+                            inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling); 
+                        }
+                        errorSpan.textContent = message;
+                        isValid = false; 
+                    };
+                    
+                    const hideError = (inputElement) => {
+                        inputElement.classList.remove('border-red-500'); 
+                        let errorSpan = inputElement.nextElementSibling;
+                        if (errorSpan && errorSpan.classList.contains('error-message')) {
+                            errorSpan.textContent = ''; 
+                                
+                        }
+                    };
+
+                    attractionForm.querySelectorAll('input[type="text"]:not(#fileUploadPlaceholder), textarea').forEach(input => {
+                        if (!input.value.trim()) {
+                            showError(input, "This field is required.");
+                        } else {
+                            hideError(input);
+                        }
+                    });
+
+                    const urlRegex = /^(https?:\/\/(?:www\.|m\.)?google\.(?:com|co\.\w{2}|ru)\/maps\S*|https?:\/\/maps\.app\.goo\.gl\/\S*)/i;
+
+                    if (!gmapsInput.value.trim()) {
+                        showError(gmapsInput, "This field is required.");
+                    } else if (!urlRegex.test(gmapsInput.value.trim())) {
+                        showError(gmapsInput, "Please enter a valid map URL (e.g., Google Maps link).");
+                    } else {
+                        hideError(gmapsInput);
+                    }
+                            
+                    if (isValid) {
+                        alert("Form has been submitted!"); 
+                        modal.classList.add("hidden"); 
+                        e.target.reset();  
+                        fileList.textContent = ''; 
+                        fileUploadPlaceholder.value = ''; 
+                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                        attractionForm.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+                        attractionForm.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+                    }
+                };
+            } else { 
+                console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
+            }
+
+            // INI UNTUK UPLOAD FILE
+            if (fileUploadVisual) { 
+                fileUploadVisual.onclick = () => {
+                    fileInput.click();
+                };
+            } else {
+                console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+            }
+
+            // INI UNTUK MENAMPILKAN NAMA FILE SETELAH DIPILIH
+            if (fileInput) { 
+                fileInput.onchange = () => {
+                    if (fileInput.files.length > 0) {
+                        let filesText = Array.from(fileInput.files)
+                                                .map(file => file.name)
+                                                .join(', ');
+                        fileList.textContent = `Selected: ${filesText}`;
+                        fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; 
+                    } else {
+                        fileList.textContent = '';
+                        fileUploadPlaceholder.value = ''; 
+                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                    }
+                };
+            } else {
+                console.error("Error: Input 'file-upload' tidak ditemukan!");
+            }
+            
+            showPanel('awal');
+
+            document.getElementById('addReview').addEventListener('click', function() {
+                document.getElementById('addReview').classList.add('hidden');
+                document.getElementById('fillReview').classList.remove('hidden');
             });
-        }
-        
-        showPanel('awal');
 
-        document.getElementById('addReview').addEventListener('click', function() {
-            document.getElementById('addReview').classList.add('hidden');
-            document.getElementById('fillReview').classList.remove('hidden');
-        });
-
-        document.getElementById('closeReview').addEventListener('click', function() {
-            document.getElementById('fillReview').classList.add('hidden');
-            document.getElementById('addReview').classList.remove('hidden');
-        });
-        document.getElementById('openRating').addEventListener('click', function() {
-            document.getElementById('ratingModal').classList.remove('hidden');
-        });
-        document.getElementById('closeRating').addEventListener('click', function() {
-            document.getElementById('ratingModal').classList.add('hidden');
-        });
-        document.getElementById('openImage').addEventListener('click', function() {
-            document.getElementById('imageModal').classList.remove('hidden');
-        });
-        document.getElementById('closeImage').addEventListener('click', function() {
-            document.getElementById('imageModal').classList.add('hidden');
-        });
-        document.getElementById('cancelRating').addEventListener('click', function() {
-            document.getElementById('afterRating').classList.add('hidden');
-            document.getElementById('ratingModal').classList.remove('hidden');
-        });
-        document.getElementById('cancelImage').addEventListener('click', function() {
-            document.getElementById('afterImage').classList.add('hidden');
-            document.getElementById('imageModal').classList.remove('hidden');
-        });
-        document.querySelectorAll('#openAfterRating').forEach(function(btn) {
-            btn.addEventListener('click', function() {
+            document.getElementById('closeReview').addEventListener('click', function() {
+                document.getElementById('fillReview').classList.add('hidden');
+                document.getElementById('addReview').classList.remove('hidden');
+            });
+            document.getElementById('openRating').addEventListener('click', function() {
+                document.getElementById('ratingModal').classList.remove('hidden');
+            });
+            document.getElementById('closeRating').addEventListener('click', function() {
                 document.getElementById('ratingModal').classList.add('hidden');
-                document.getElementById('fillReview').classList.remove('hidden');
-                document.getElementById('afterRating').classList.remove('hidden');
             });
-        });
-        document.querySelectorAll('#openAfterImage').forEach(function(btn) {
-            btn.addEventListener('click', function() {
+            document.getElementById('openImage').addEventListener('click', function() {
+                document.getElementById('imageModal').classList.remove('hidden');
+            });
+            document.getElementById('closeImage').addEventListener('click', function() {
                 document.getElementById('imageModal').classList.add('hidden');
-                document.getElementById('fillReview').classList.remove('hidden');
-                document.getElementById('afterImage').classList.remove('hidden');
+            });
+            document.getElementById('cancelRating').addEventListener('click', function() {
+                document.getElementById('afterRating').classList.add('hidden');
+                document.getElementById('ratingModal').classList.remove('hidden');
+            });
+            document.getElementById('cancelImage').addEventListener('click', function() {
+                document.getElementById('afterImage').classList.add('hidden');
+                document.getElementById('imageModal').classList.remove('hidden');
+            });
+            document.querySelectorAll('#openAfterRating').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.getElementById('ratingModal').classList.add('hidden');
+                    document.getElementById('fillReview').classList.remove('hidden');
+                    document.getElementById('afterRating').classList.remove('hidden');
+                });
+            });
+            document.querySelectorAll('#openAfterImage').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    document.getElementById('imageModal').classList.add('hidden');
+                    document.getElementById('fillReview').classList.remove('hidden');
+                    document.getElementById('afterImage').classList.remove('hidden');
+                });
             });
         });
     </script>
