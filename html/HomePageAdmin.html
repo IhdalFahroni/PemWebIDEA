@@ -962,16 +962,13 @@
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Cek dulu apakah tombol yang diklik sudah aktif atau belum
                     const wasActive = button.classList.contains('bg-[#FF9800]');
 
-                    // 1. Langkah pertama: Nonaktifkan SEMUA tombol filter
                     filterButtons.forEach(btn => {
                         btn.classList.remove('bg-[#FF9800]', 'text-white');
                         btn.classList.add('bg-white', 'text-[#FF9800]');
                     });
 
-                    // 2. Langkah kedua: Jika tombol yang diklik tadi BELUM aktif, maka sekarang aktifkan
                     if (!wasActive) {
                         button.classList.remove('bg-white', 'text-[#FF9800]');
                         button.classList.add('bg-[#FF9800]', 'text-white');
