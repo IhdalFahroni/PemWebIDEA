@@ -6,38 +6,9 @@
     <title>Lombok Recommendation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../public/output.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Jaldi&family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'page-bg': '#fffaf2',
-                        'border-card': '#ccc',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .header {
-            transition: background-image 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-        .bg-linear {
-            background: linear-gradient(to top, #FFC107 0%, #FFE083 5%,  #FFFFFF 30%);
-        }
-        body {
-            font-family: 'Jaldi', sans-serif;
-        }
-        .josefin-sans {
-            font-family: 'Josefin Sans', sans-serif;
-        }
-    </style>
+    <script src="../js/Landing.js"></script>
 </head>
-<body class=" text-[#ffffff]">
+<body class="text-[#ffffff] font-jaldi">
 
     <div class="header h-screen relative text-white flex flex-col justify-between p-5">
         <nav class="top-nav text-right text-2xl my-2.5 mx-5">
@@ -48,114 +19,191 @@
         <div class="hero flex-1 flex transition-all duration-1000 ease-in-out p-5">
             <h1
                 id="hero-text"
-                class="text-4xl md:text-6xl font-semibold leading-relaxed inline-block p-5 rounded-lg text-white transition-opacity duration-500 ease-in-out josefin-sans"> </h1>
+                class="text-4xl md:text-6xl font-semibold leading-relaxed inline-block p-5 rounded-lg text-white transition-opacity duration-500 ease-in-out font-josefin"> </h1>
         </div>
 
         <div class="h-10"></div>
     </div>
 
-    <div class="about py-10 text-[#5C3211] text-center max-w-6xl mx-auto px-4 josefin-sans">  <h2 class="text-6xl font-bold mb-4">About Lombok</h2>
+    <div class="about py-10 text-[#5C3211] text-center max-w-6xl mx-auto px-4 font-josefin">  <h2 class="text-6xl font-bold mb-4">About Lombok</h2>
         <p class="mb-5 text-2xl leading-normal">Lombok is a beautiful island in Indonesia, known for its stunning natural landscapes,<br> rich cultural heritage, and warm hospitality. The local traditions, influenced by the unique Sasak culture, <br>are reflected in its vibrant festivals, music, and handicrafts. <br>Its culinary delights, with bold flavors and aromatic spices, offer a true taste of Indonesian cuisine.</p>
         <div class="video-container mt-5 flex justify-center">
-            <video controls autoplay muted loop class="w-full max-w-[1250px] rounded-lg shadow-lg">
+            <video controls autoplay muted loop class="w-full max-w-[1250px] rounded-lg">
                 <source src="https://youtu.be/wM1TK0eCJoo?feature=shared" type="video/mp4"> Your browser does not support the video.
             </video>
         </div>
     </div>
 
-    <div class="search pt-10 pb-3 text-center bg-[#FFFFFF]">
-        <input type="text" placeholder="Destination or restaurant name..." class="p-2.5 w-8/12 border border-gray-200 rounded-xl text-[#918E8E] font-semibold placeholder:text-[#918E8E] focus:outline-none focus:ring-2 focus:ring-[#D7D5BA] transition duration-300" id="searchInput">
-        <button class="px-2 py-2 bg-[#FF8E13] text-white text-xl font-bold rounded-xl ml-2.5 w-32 cursor-pointer hover:bg-opacity-80">SEARCH</button>
-    </div>
+    <main class="flex-1overflow-y-auto mx-10">
+        <div class="main-container min-h-screen p-6 md:p-8 w-full">
+            <div id="header" class="header text-center mb-5 ">
+                <div class="filter-tabs flex justify-center gap-5 mb-5">
+                    <button class="filter-button-tourist py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-location-dot"></i> <span class="relative top-px">Tourist destination</span>
+                    </button>
+                    <button class="filter-button-culinary py-2 px-6 bg-white rounded-full text-[#FF9800] cursor-pointer transition flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-utensils"></i> <span class="relative top-px">Culinary</span>
+                    </button>
+                </div>
+                <div class="search-container flex justify-center">
+                    <div class="relative w-full max-w-[500px]">
+                        <input type="text" class="search-box w-full py-2.5 px-6 pr-12 border-none rounded-full bg-white text-base text-[#FF8400] outline-none shadow-md placeholder:text-[#5C3211]/50" placeholder="Search...">
+                        <span id="searchIcon" class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 rounded-full cursor-pointer transition">
+                            <i class="fa-solid fa-magnifying-glass text-[#F4A261] hover:opacity-45 text-lg"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-    <div class=" section-box bg-[#FFFFFF] rounded-lg p-5 md:p-8 mb-5 mt-2 mx-auto w-11/12 max-w-[1200px] drop-shadow-2xl">
-        <h3 class="mb-5 text-2xl font-bold text-[#6C6363] text-left tracking-wider">Top 3 Destination in Lombok</h3>
-        <div class="cards flex flex-wrap gap-5 justify-center md:justify-between">
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic2.png" alt="Selong Belanak Beach" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Selong Belanak Beach, South Lombok</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="4.2">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
+            <div id="awal" class="space-y-6 text-[#5C3211]">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold mb-0">Selong Belanak Beach, South Lombok</div>
+                            <div class="flex justify-between items-center mt-2">
+                                <div class="text-yellow-500 text-sm rating" data-rating="4.5"></div>
+                                <div class="text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm rating" data-rating="4.5"></div>
+                                <div class="text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/GiliMenoPic.png" alt="Gili Meno" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold mb-2.5">Gili Meno, North Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm rating" data-rating="4"></div>
+                                <div class="text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm rating" data-rating="3"></div>
+                                <div class="text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm rating" data-rating="4"></div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="destination-card bg-[#FFFFFF] rounded-xl overflow-hidden shadow-lg transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer flex flex-col">
+                        <img src="../Assets/RinjaniPic.png" alt="Rinjani Mountain" class="w-full h-52 object-cover">
+                        <div class="p-4 flex flex-col flex-1 jaldi-font">
+                            <div class="text-lg font-bold text-[#8D6E63] mb-2.5">Rinjani Mountain, East Lombok</div>
+                            <div class="flex justify-between items-center mt-auto">
+                                <div class="text-yellow-500 text-sm rating" data-rating="1"></div>
+                                <div class="text-[#8D6E63] text-xs font-medium hover:underline">See details</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic3.png" alt="Rinjani Mountain" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Rinjani Mountain, East Lombok</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="5">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
+
+            <div id="afterSearch" class="space-y-4 hidden">
+                <div class="bg-white rounded-xl p-4 flex items-center shadow-md border border-[#F0D3B3] gap-4">
+                    <img src="../Assets/SelongBelanakPic.png" alt="Resort" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                    
+                    <div class="flex-grow flex flex-col self-stretch">
+                        <div>
+                            <h2 class="text-lg font-bold text-[#5C3211]">Resort</h2>
+                            <div class="text-yellow-500 my-1 text-sm rating" data-rating="2"></div>
+                            <p class="text-sm text-[#5C3211] line-clamp-2">
+                                Selong Selo, khususnya Aura Lounge & Bar, adalah restoran terkenal di Lombok Selatan yang dikenal dengan pemandangan lautnya yang menakjubkan dan menu makanan Indonesia autentik. Restoran ini menawarkan hidangan lezat yang dibuat oleh chef terkenal, serta berbagai macam minuman dan koktail.
+                            </p>
+                        </div>
+                        <a href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                            <span class="relative top-0.5">Google Maps</span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic4.png" alt="Gili Meno" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Gili Meno, North Lombok</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="3.4">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
+
+                <div class="bg-white rounded-xl p-4 flex items-center shadow-md border border-[#F0D3B3] gap-4">
+                    <img src="../Assets/SelongSelo.png" alt="Selong Selo Restaurant" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                    <div class="flex-grow flex flex-col self-stretch">
+                        <div>
+                            <h2 class="text-lg font-bold text-[#5C3211]">Selong Selo Restaurant</h2>
+                            <div class="text-yellow-500 my-1 text-sm rating" data-rating="3.5"></div>
+                            <p class="text-sm text-[#5C3211] line-clamp-2">
+                                Selong Selo, khususnya Aura Lounge & Bar, adalah restoran terkenal di Lombok Selatan yang dikenal dengan pemandangan lautnya yang menakjubkan dan menu makanan Indonesia autentik. Restoran ini menawarkan hidangan lezat yang dibuat oleh chef terkenal, serta berbagai macam minuman dan koktail.
+                            </p>
+                        </div>
+                        <a href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                            <span class="relative top-0.5">Google Maps</span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
                 </div>
+
+                <div class="bg-white rounded-xl p-4 flex items-center shadow-md border border-[#F0D3B3] gap-4">
+                    <img src="../Assets/SelongSelo.png" alt="Karaoke" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                    <div class="flex-grow flex flex-col self-stretch">
+                        <div>
+                            <h2 class="text-lg font-bold text-[#5C3211]">Karaoke</h2>
+                            <div class="text-yellow-500 my-1 text-sm rating" data-rating="4.5"></div>
+                            <p class="text-sm text-[#5C3211] line-clamp-2">
+                                Selong Selo, khususnya Aura Lounge & Bar, adalah restoran terkenal di Lombok Selatan yang dikenal dengan...
+                            </p>
+                        </div>
+                        <a href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                            <span class="relative top-0.5">Google Maps</span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-4 flex items-center shadow-md border border-[#F0D3B3] gap-4">
+                    <img src="../Assets/SelongSelo.png" alt="Karaoke" class="w-32 h-32 object-cover rounded-lg flex-shrink-0">
+                    <div class="flex-grow flex flex-col self-stretch">
+                        <div>
+                            <h2 class="text-lg font-bold text-[#5C3211]">Resort</h2>
+                            <div class="text-yellow-500 my-1 text-sm rating" data-rating="5"></div>
+                            <p class="text-sm text-[#5C3211] line-clamp-2">
+                                Selong Selo, khususnya Aura Lounge & Bar, adalah restoran terkenal di Lombok Selatan yang dikenal dengan...
+                            </p>
+                        </div>
+                        <a href="#" target="_blank" class="text-[#5C3211] text-sm font-medium hover:underline flex items-center gap-1 mt-auto">
+                            <span class="relative top-0.5">Google Maps</span>
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+    </main>
 
-    <div class="section-box bg-[#FFFFFF] rounded-lg p-5 md:p-8 my-5 mx-auto w-11/12 max-w-[1200px] drop-shadow-2xl">
-    <h3 class="mb-5 text-2xl font-bold text-[#6C6363] text-left tracking-wider">Top 3 Culinary in Lombok</h3>
-        <div class="cards flex flex-wrap gap-5 justify-center md:justify-between">
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic4.png" alt="Plecing Kangkung" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Plecing Kangkung</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="4.8">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
-                </div>
-            </div>
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic5.png" alt="Sate Bulayak" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Sate Bulayak</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="3.6">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
-                </div>
-            </div>
-            <div class="card w-full sm:w-[48%] md:w-[31%] bg-[#FFFFDC] border border-border-card rounded-lg overflow-hidden flex flex-col justify-between pb-2.5 transition duration-300 hover:scale-105 shadow-md">
-                <img src="../Assets/LandingPagePic6.png" alt="Nasi Puyung" class="w-full h-40 object-cover">
-                <p class="m-2 text-base font-bold text-[#8D6E63]">Nasi Puyung</p>
-                <div class="flex justify-between items-center m-2 text-sm">
-                    <span class="rating text-[#FED113]" data-rating="1.2">
-                    </span>
-                    <span class="text-[#8D6E63] hover:underline cursor-pointer">
-                        See details
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="bg-linear text-[#5C3211] py-10 px-5 text-center">
+    <footer class="bg-gradient-to-t from-[#FFC107] 0% via-[#FFE083] 1% to-[#FFFFFF] 5% text-[#5C3211] py-10 px-5 text-center">
         <h3 class="text-3xl font-extrabold mb-5">Contact Us</h3>
-        <p class="my-2.5 text-base flex justify-center items-center gap-2">
+        <p class="my-2.5 text-base flex justify-center items-center gap-2"> 
             <i class="fab fa-twitter"></i> X: lombokrec |
             <i class="fas fa-envelope"></i> email: lombokrec@gmail.com |
             <i class="fab fa-instagram"></i> IG: lombokrec
         </p>
         <p class="my-2.5 text-base font-bold">Thank you for visiting our page, hope this website helps you make your itinerary on Lombok</p>
     </footer>
-
-    <script src="../js/script.js"></script>
 </body>
 </html>
