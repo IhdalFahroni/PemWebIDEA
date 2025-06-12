@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jun 2025 pada 03.16
+-- Waktu pembuatan: 12 Jun 2025 pada 12.35
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -62,8 +62,8 @@ CREATE TABLE `form_klaim` (
   `no_hp` varchar(20) NOT NULL,
   `npwp` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `dokumen_pendukung` varchar(100) NOT NULL,
-  `is_verified` tinyint(1) NOT NULL
+  `dokumen_pendukung` varchar(500) DEFAULT NULL,
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -81,10 +81,10 @@ CREATE TABLE `form_pengajuantempat` (
   `kelurahan` varchar(255) NOT NULL,
   `nama_jalan` varchar(255) NOT NULL,
   `kategori` enum('tourist_destination','culinary') NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `deskripsi` varchar(500) NOT NULL,
+  `foto` varchar(500) DEFAULT NULL,
+  `deskripsi` text NOT NULL,
   `google_maps` varchar(255) NOT NULL,
-  `is_verified` tinyint(1) NOT NULL
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -120,7 +120,7 @@ CREATE TABLE `notifikasi` (
   `ID_notif` int(11) NOT NULL,
   `ID_akun` int(11) NOT NULL,
   `header` varchar(255) NOT NULL,
-  `isi_notif` varchar(255) NOT NULL,
+  `isi_notif` text NOT NULL,
   `tanggal_jam` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -134,7 +134,7 @@ CREATE TABLE `promo` (
   `ID_promo` int(11) NOT NULL,
   `ID_tempat` int(11) NOT NULL,
   `nama_promo` varchar(255) NOT NULL,
-  `deskripsi_promo` varchar(255) NOT NULL,
+  `deskripsi_promo` varchar(500) NOT NULL,
   `valid_until` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -158,7 +158,7 @@ CREATE TABLE `review` (
   `ID_tempat` int(11) NOT NULL,
   `komentar` text NOT NULL,
   `rating` decimal(5,2) NOT NULL,
-  `foto` varchar(500) NOT NULL,
+  `foto` varchar(500) DEFAULT NULL,
   `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -178,14 +178,14 @@ INSERT INTO `review` (`ID_review`, `ID_akun`, `ID_tempat`, `komentar`, `rating`,
 
 CREATE TABLE `tempat` (
   `ID_tempat` int(11) NOT NULL,
-  `nama_tempat` varchar(100) NOT NULL,
+  `nama_tempat` varchar(255) NOT NULL,
   `kabupaten_kota` enum('mataram','lombok_barat','lombok_tengah','lombok_timur','lombok_utara') NOT NULL,
-  `kecamatan` varchar(100) NOT NULL,
-  `kelurahan` varchar(100) NOT NULL,
-  `nama_jalan` varchar(250) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kelurahan` varchar(255) NOT NULL,
+  `nama_jalan` varchar(255) NOT NULL,
   `kategori` enum('tourist_destination','culinary') NOT NULL,
   `deskripsi` text NOT NULL,
-  `foto` varchar(500) NOT NULL,
+  `foto` varchar(500) DEFAULT NULL,
   `google_maps` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
