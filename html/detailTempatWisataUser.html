@@ -12,7 +12,16 @@
             background-color: #FFFFFF;
             font-family: 'Josefin Sans';
         }
+
+        /*ADA DUA MAIN CONTAINER KARENA MAIN CONTAINER UNTUK DETAIL TEMPAT DIA BEDA SENDIRI*/
         .main-container {
+            background: linear-gradient(to bottom, #FFC107 50px, #F8F9FA 300px); 
+            border-top-left-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
+            position: relative; 
+            z-index: 30; 
+        }
+        .main-container-detail {
             background-image: linear-gradient(to bottom right, #FFC107, #FFFFFF);
             border-top-left-radius: 1rem;
         }
@@ -88,7 +97,7 @@
             </div>
         </div>
 
-        <div class="flex-1 p-5 space-y-12">
+        <div class="flex-1 p-5 space-y-6">
             <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-home text-xl"></i>
             </div>
@@ -117,7 +126,7 @@
             </div>
         </div>
 
-        <div class="flex-1 p-5 space-y-12">
+        <div class="flex-1 p-5 space-y-6">
             <a href="HomePageUser.html" id="openHomeBtn" class="flex items-center rounded cursor-pointer transition hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-home"></i></span>
                 <span class="text-lg font-medium text-[#5C3211] pt-2">Home</span>
@@ -144,11 +153,11 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20">
-        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full">
+        `INI PAKEIN ID=MAIN-CONTENT-AREA`
+        <div id="main-content-area" class="min-h-screen p-6 md:p-8 shadow-2xl w-full">
 
             <div id="awal">
                 <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Selong Belanak Beach</h1>
-
                 <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#F0B845]">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="md:w-1/3 flex-shrink-0"><img src="../Assets/SelongBelanakPic.png" alt="Selong Belanak Beach" class="rounded-xl w-full h-auto object-cover shadow-md mb-3">
@@ -159,7 +168,7 @@
                             </a>
                         </div>
                         <div class="md:w-2/3">
-                            <div class="text-yellow-500 my-1 text-4xl">★★★★★</div>
+                            <div class="text-yellow-500 my-1 text-lg rating" data-rating="4.5"></div>
                             <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4">
                                 <p class="text-[#5C3211] text-base font-light">Kategori</p>
                                 <p class="text-[#5C3211] font-medium text-base">Tempat wisata</p>
@@ -176,13 +185,14 @@
                     </div>
                 </div>
 
+                'PAKAI #5C3211 BUAT WARNA TULISAN DAN ICON, ADA BEBERAPA DETAIL KECIL YANG DIUBAH DISINI'
                 <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#F0B845]">
-
-                    <div class="mt-2 px-6 md:px-8"> 
+                    
+                    <div class="mt-2 px-6 md:px-8"> 'KLO MAU AMAN, COPY AJA LANGSUNG DARI SINI'
                         <div id="addReview" class="w-full cursor-pointer group">
-                            <i class="fas fa-plus-circle text-lg text-[#8E5E38] opacity-50 group-hover:opacity-100 transition"></i> 
-                            <span class="font-medium text-[#8E5E38] opacity-50 group-hover:opacity-100 transition">Add review</span>
-                            <hr class="border-[#8E5E38] opacity-50 mt-1 mb-6">
+                            <i class="fas fa-plus-circle text-lg text-[#5C3211] opacity-50 group-hover:opacity-100 transition"></i> 
+                            <span class="font-medium text-[#5C3211] opacity-50 group-hover:opacity-100 transition">Add review</span>
+                            <hr class="border-[#5C3211] opacity-50 mt-1 mb-6">
                         </div>
                         <div id="fillReview" class="w-full hidden">
                             <div class="mb-3">
@@ -200,7 +210,7 @@
                             <div class="flex justify-between items-center mb-0">
                                 <input type="text"
                                     id="reviewTextInput" placeholder="Please refrain from using harsh or inappropriate language"
-                                    class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#5C3211] placeholder:text-[#8E5E38] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
+                                    class="flex-1 bg-transparent border-0 p-0 text-sm font-normal text-[#5C3211] placeholder:text-[#5C3211] placeholder:opacity-60 focus:outline-none focus:ring-0 focus:border-0 mr-3">
                                     <div class="flex gap-3 text-lg">
                                     <i id="closeReview" class="fas fa-xmark text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
                                     <i class="fas fa-paper-plane text-[#5C3211] hover:opacity-60 cursor-pointer transition-opacity"></i>
@@ -214,7 +224,7 @@
                         </div>
                     </div>
                     
-                    <hr class="border-[#8D6E63] mb-4">
+                    <hr class="border-[#5C3211] mb-4">
                     
                     <div class="space-y-8">
                         <div>
@@ -233,8 +243,62 @@
                     </div> 
                 </div>
             </div>
+
+            'ratingModal sama imageModal saya pindahin ke atas supaya nd terlalu jauh sama addReview'
+            'DISINI JUGA BANYAK DETAIL2 KECIL YANG DIUBAH, BIAR AMAN COPY LANGSUNG SATU DIV INI'
+            <div id="ratingModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
+                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#5C3211]/30 w-full max-w-lg relative text-[#5C3211]">
+                    <div class="border border-[#5C3211] rounded-xl p-6 relative">
+                        <button id="closeRating" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#5C3211] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
+                            <i class="fas fa-xmark text-base"></i>
+                        </button>
+                        <div class="text-center">
+                            <h2 class="text-xl font-bold mt-0 mb-2">Rating</h2>
+                            <p class="opacity-80 mb-10 font-normal max-w-xs mx-auto">
+                                You can give rating from 1 to 5. Decimal is allowed.
+                            </p>
+                            <input type="text"
+                                id="ratingInput"
+                                placeholder="Example 4.5"
+                                class="rating-input block w-3/5 mx-auto border-0 border-b-2 border-[#5C3211]/60 text-center pt-2 px-2 pb-0 text-[#5C3211] placeholder:text-[#5C3211] placeholder:opacity-60 placeholder:font-light focus:outline-none focus:ring-0 focus:border-[#5C3211] mb-12">
+                            <button id="openAfterRating" class="block mx-auto bg-[#5C3211] text-white px-7 py-1 rounded-full shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                                OK
+                            </button>
+                        </div>
+                    </div> 
+                </div> 
+            </div>
+
+            'DISINI JUGA ADA YG DIUBAH, COPY LANGSUNG SATU DIV'
+            <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
+                <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#5C3211]/30 w-full max-w-lg relative text-[#5C3211]">
+                    <div class="border border-[#5C3211] rounded-xl p-6 relative">
+                        <button id="closeImage" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#5C3211] flex items-center justify-center text-[#5C3211] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
+                            <i class="fas fa-xmark text-base"></i>
+                        </button>
+                        <div class="text-center">
+                            <h2 class="text-xl font-bold mt-0 mb-2">Add Photos</h2>
+                            <p class="opacity-80 mb-6 font-normal max-w-xs mx-auto">
+                                You can photo up to 5. The photo can be jpg or png.
+                            </p>
+                            <div class="flex items-center justify-center text-center pt-2 px-2 pb-8">
+                                <label for="fileUpload" class="flex items-center gap-2 cursor-pointer group py-4 pb-2">
+                                    <i class="fa-solid fa-arrow-up-from-bracket text-lg text-[#5C3211]/60 transition-colors group-hover:text-[#5C3211]"></i>
+                                    <span class="text-lg font-medium text-[#5C3211] opacity-60 group-hover:opacity-100 transition pt-1">Upload</span>
+                                    <input type="file" id="fileUpload" class="hidden">
+                                </label>
+                            </div>
+                            <input type="file" id="fileUpload" class="hidden">
+                            <button id="openAfterImage" class="block mx-auto bg-[#5C3211] text-white px-7 py-1 rounded-full shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
+                                OK
+                            </button>
+                        </div>
+                    </div> 
+                </div> 
+            </div>
+
             <div id="notification" class="header mb-5 hidden">
-                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_rgba(0,0,0,0.7)]">Notifications</h1>
+                <h1 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Notifications</h1>
                 <div class="bg-white text-[#5C3211] rounded-xl p-6 shadow-md max-w-3xl mx-auto border border-[#F0D3B3]">
                     <h3 class="font-semibold mb-1 text-lg">
                         New place Approved
@@ -279,7 +343,7 @@
                 </div>
             </div>
             <div id="addPlace" class="header mb-5 hidden">
-                <h2 class="text-3xl font-bold text-center text-white mb-3 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">
+                <h2 class="text-white text-center text-3xl md:text-5xl font-bold mb-5 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">
                     Add tourist attraction
                 </h2>
                 <p class="text-xs font-light text-black text-center bg-white p-2 rounded-lg mb-6 shadow-sm border border-yellow-200">
@@ -373,7 +437,7 @@
             <div id="profil" class="header mb-5 hidden">
                 <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
-                        <button id="editProfileBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
+                        <button id="editProfileBtn" class="absolute top-4 right-4 bg-[#FF9800] text-[#FFFFFF] hover:bg-[#FF9800]/80 hover:text-[#FFFFFF]/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
                         <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
                             <span class="text-5xl font-normal text-[#5C3211]">Username</span>
@@ -383,14 +447,26 @@
                             </div>
                         </div>
                     </div>
+                    'SAYA TAMBAHIN BUTTON CANCEL DISINI, SUDAH JUGA DITAMBAH DI HOMEPAGE USER DAN PEMILIK'
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
-                        <button id="saveEditBtn" class="absolute top-4 right-4 border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Save change</button>
-                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
+                        <div class="absolute top-4 right-4 flex items-center gap-3">
+                            <button id="cancelEditBtn" class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-7 py-1 rounded-full shadow font-semibold transition">
+                                Cancel
+                            </button>
+                            <button id="saveEditBtn" class="border border-[#FF9800] text-[#FF9800] hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">
+                                Save change
+                            </button>
+                        </div>
+                        
+                        <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">                       
                         <div class="ml-6 flex flex-col">
-                            <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg mb-1 px-3" placeholder="Username" />
-                            <p id="usernameError" class="text-sm text-[#FF0000] hidden">Username must be 8-20 characters</p>
-                            <div class="flex items-center mt-2 gap-4">
-                                <input type="text" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg px-3" placeholder="Nama Lengkap" />
+                            <div class="relative">
+                                <input type="text" id="editUsername" class="text-5xl py-2 font-normal text-[#5C3211] border border-[#5C3211] rounded-lg focus:outline-none focus:border-[#FF9800] px-3 pt-3" placeholder="Username" />                           
+                                <p id="usernameError" class="absolute top-full mt-1 text-sm text-[#FF0000] hidden">
+                                    Username must be 8-20 characters
+                                </p>
+                            </div>
+                            <div class="flex items-center mt-6 gap-4"> <input type="text" id="editFullName" class="text-xl py-2 text-[#5C3211] font-normal border border-[#5C3211] rounded-lg focus:outline-none focus:border-[#FF9800] px-3 pt-3" placeholder="Nama Lengkap" />
                                 <span class="text-lg text-[#5C3211] font-light">email@gmail.com</span>
                             </div>
                         </div>
@@ -403,110 +479,57 @@
                             <span class="hover:underline">Account setting</span>
                         </button>
                         <hr class="my-3 border-[#F0D3B3]">
-                        <button class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
-                            <i class="fa-solid fa-right-from-bracket text-xl hover:opacity-50"></i>
-                            <span class="hover:underline">Logout</span>
+                        <button id="logoutBtn" class="flex items-center gap-3 py-2 px-4 rounded transition text-[#5C3211] font-medium text-lg focus:outline-none">
+                            <i class="fa-solid fa-right-from-bracket text-xl"></i>
+                            <span class="hover:underline pt-1">Logout</span>
                         </button>
                     </div>
                 </div>
-                <div id="accountSetting" class="bg-[#FFFFFF] hidden rounded-xl p-4 items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
+                `SAYA UBAH BAGIAN INI`
+                <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-8 shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div class="w-full relative">
-                        <button id="closeAccountSettingBtn" class="absolute right-4 text-[#5C3211] hover:bg-gray-100 rounded-full transition" title="Close">
-                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        <button id="closeAccountSettingBtn" class="absolute top-0 right-0 text-[#5C3211] hover:bg-gray-100 rounded-full transition w-8 h-8 flex items-center justify-center" title="Close">
+                            <i class="fa-solid fa-xmark text-xl"></i>
                         </button>
+                        
                         <div class="mb-4">
-                            <span class="text-2xl font-bold text-[#5C3211]">Account Setting</span>
+                            <span class="text-3xl font-bold">Account settings</span>
                         </div>
-                        <hr class="my-3 border-[#5C3211] opacity-50">
-                        <div class="mb-4">
-                            <span class="text-lg font-semibold text-[#5C3211]">Change Password</span>
+                        
+                        <hr class="border-t border-[#5C3211]/30 my-6">
+
+                        <div>
+                            <div class="mb-4">
+                                <span class="text-xl font-semibold">Change password</span>
+                            </div>
+                            <div class="flex flex-col max-w-sm gap-4"> 
+                                <input type="password" id="currentPassword" placeholder="Current password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#FF9800]">
+                                <div class="relative">
+                                    <input id="newPass" type="password" placeholder="New password" class="border border-[#5C3211] w-full rounded-lg px-4 py-2 focus:outline-none focus:border-[#FF9800]">
+                                    <p id="passwordError" class="absolute mt-1 text-sm text-red-500 hidden">Password need to contain at least 8 characters.</p>
+                                </div>
+                            </div>
+                            <button id="savePasswordBtn" class="border border-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-8">
+                                Save new password
+                            </button>
                         </div>
-                        <div class="flex flex-col max-w-sm gap-3"> 
-                            <input type="password" placeholder="Current Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <input id="newPass" type="password" placeholder="New Password" class="border border-[#5C3211] rounded-lg px-4 py-2 focus:outline-none focus:border-[#5C3211]">
-                            <p id="passwordError" class="text-sm text-[#FF0000] hidden">Password need to be contain 8-20 characters</p>
+
+                        <div class="mt-12">
+                            <div class="mb-2">
+                                <span class="text-xl font-semibold">Delete account</span>
+                            </div>
+                            <p class="text-base font-light">Permanently delete your account</p>
+                            <button id="deleteAccountBtn" class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-4">
+                                Delete account
+                            </button>
                         </div>
-                        <button id="editProfileBtn" class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#5C3211] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
-                            Save new password
-                        </button>
-                        <div class="mt-8">
-                            <span class="text-lg font-semibold text-[#5C3211]">Delete Account</span>
-                        </div>
-                        <div class="mb-4">
-                            <span class="text-sm font-normal text-[#5C3211]">Permanently delete your account</span>
-                        </div>
-                        <button class="border border-[#5C3211] hover:bg-[#5C3211]/5 text-[#ff0000] px-4 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition mt-3">
-                            Delete account
-                        </button>
                     </div>
                 </div>
+
             </div>
         </div>
+        
     </main>
-
-    <div id="ratingModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
-
-        <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#8D6E63]/30 w-full max-w-lg relative text-[#8D6E63]">
-            
-            <div class="border border-[#8D6E63] rounded-xl p-6 relative">
-                
-                <button id="closeRating" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#8D6E63] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
-                    <i class="fas fa-xmark text-base"></i>
-                </button>
-
-                <div class="text-center">
-                    <h2 class="text-xl font-bold mt-0 mb-2">Rating</h2>
-
-                    <p class="text-sm opacity-80 mb-10 font-light max-w-xs mx-auto">
-                        You can give rating from 1 to 5. Decimal is allowed.
-                    </p>
-
-                    <input type="text"
-                        id="ratingInput"
-                        placeholder="Example 4.5"
-                        class="rating-input block w-3/5 mx-auto border-0 border-b-2 border-[#8D6E63]/60 text-center pt-2 px-2 pb-0 text-base opacity-50 font-light focus:outline-none focus:ring-0 focus:border-[#8D6E63] mb-12">
-
-                    <button id="openAfterRating" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
-                        OK
-                    </button>
-                </div>
-            </div> 
-        </div> 
-    </div>
-
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
-
-        <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#8E5E38]/30 w-full max-w-lg relative text-[#8E5E38]">
-            
-            <div class="border border-[#8E5E38] rounded-xl p-6 relative">
-                
-                <button id="closeImage" class="absolute top-3 left-3 w-7 h-7 rounded-full border border-[#8E5E38] flex items-center justify-center text-[#8E5E38] hover:bg-gray-100 hover:text-[#8E5E38] transition focus:outline-none">
-                    <i class="fas fa-xmark text-base"></i>
-                </button>
-
-                <div class="text-center">
-                    <h2 class="text-xl font-bold mt-0 mb-2">Add Photos</h2>
-
-                    <p class="text-sm opacity-80 mb-10 font-light max-w-xs mx-auto">
-                        You can photo up to 5. The photo can be jpg or png.
-                    </p>
-                    <div class="flex items-center justify-center text-center gap-2"> 
-                        <div class="flex flex-col items-center">
-                            <i class="fas fa-upload text-3xl text-black opacity-40 mb-2"></i>
-                            <label for="fileUpload" class="cursor-pointer text-lg font-light text-[#8D6E63] opacity-50">
-                                Upload
-                                <input type="file" id="fileUpload" class="hidden">
-                            </label>
-                        </div>  
-                    </div>
-                    <input type="file" id="fileUpload" class="hidden">
-                    <button id="openAfterImage" class="block mx-auto bg-[#8D6E63] text-white px-4 py-0 rounded-lg shadow-md hover:bg-opacity-80 transition font-semibold text-lg tracking-wider">
-                        OK
-                    </button>
-                </div>
-            </div> 
-        </div> 
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -524,19 +547,35 @@
             const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
             const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
             
+            // Variabel untuk halaman profil
             const containerProfile = document.getElementById('containerProfile');
             const profilPage = document.getElementById('profilPage');
             const editProfilePage = document.getElementById('editProfilePage');
             const bawahProfil = document.getElementById('bawahProfil');
             const accountSetting = document.getElementById('accountSetting');
             
+            // Variabel untuk form edit profil
             const editProfileBtn = document.getElementById('editProfileBtn');
             const saveEditBtn = document.getElementById('saveEditBtn');
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const editUsernameInput = document.getElementById('editUsername');
+            const editFullNameInput = document.getElementById('editFullName');
+            const usernameError = document.getElementById('usernameError');
+
+            //INI BUAT UBAH CONTAINER
+            const mainContentArea = document.getElementById('main-content-area');
+            
             const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
             const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
+            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
             
-            const usernameInput = document.getElementById('editUsername');
-            const userError = document.getElementById('usernameError');
+            //INI BUAT UBAH PASSOWRD
+            const savePasswordBtn = document.getElementById('savePasswordBtn');
+            const currentPasswordInput = document.getElementById('currentPassword');
+            const newPasswordInput = document.getElementById('newPass');
+            const passwordError = document.getElementById('passwordError');
+
             const passwordInput = document.getElementById('newPass');
             const passError = document.getElementById('passwordError');
 
@@ -556,15 +595,21 @@
                 addPlaceForm.classList.add('hidden');
                 profile.classList.add('hidden');
                 
+                // TAMBAHIN INI
+                mainContentArea.classList.remove('main-container', 'main-container-detail');
+
                 switch (panelName) {
                     case 'awal':
                         awalDiv.classList.remove('hidden');
+                        mainContentArea.classList.add('main-container-detail'); //TAMBAH INI
                         break;
                     case 'notification':
                         notification.classList.remove('hidden');
+                        mainContentArea.classList.add('main-container'); //INI JUGA
                         break;
                     case 'addPlace':
                         addPlaceForm.classList.remove('hidden');
+                        mainContentArea.classList.add('main-container'); //INI JUGA
                         break;
                     case 'profil':
                         profile.classList.remove('hidden');
@@ -573,6 +618,7 @@
                         bawahProfil.classList.remove('hidden');
                         editProfilePage.classList.add('hidden');
                         accountSetting.classList.add('hidden');
+                        mainContentArea.classList.add('main-container'); //INI LAGI
                         break;
                 }
                 activePanel = panelName;
@@ -621,20 +667,6 @@
                 }
             }));
             
-            if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', () => {
-                    profilPage.classList.add('hidden');
-                    editProfilePage.classList.remove('hidden');
-                });
-            }
-
-            if (saveEditBtn) {
-                saveEditBtn.addEventListener('click', () => {
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            }
-            
             if (openAccountSettingBtn) {
                 openAccountSettingBtn.addEventListener('click', () => {
                     containerProfile.classList.add('hidden');
@@ -653,15 +685,65 @@
                 });
             }
 
-            if (usernameInput) {
-                usernameInput.addEventListener('input', () => {
-                    const username = usernameInput.value.trim();
-                    if (username.length > 0 && (username.length < 8 || username.length > 20)) {
-                        userError.classList.remove('hidden');
-                    } else {
-                        userError.classList.add('hidden');
-                    }
+            //Tambahin ini juga
+            function validateProfileForm() {
+                if (!editUsernameInput || !editFullNameInput || !saveEditBtn || !usernameError) return;
+
+                const username = editUsernameInput.value.trim();
+                const fullName = editFullNameInput.value.trim();
+                const isUsernameLengthValid = username.length >= 8 && username.length <= 20;
+                
+                if (username.length > 0 && !isUsernameLengthValid) {
+                    usernameError.classList.remove('hidden');
+                } else {
+                    usernameError.classList.add('hidden');
+                }
+
+                const isFormValid = isUsernameLengthValid && fullName.length > 0;
+
+                if (isFormValid) {
+                    saveEditBtn.disabled = false;
+                    saveEditBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    saveEditBtn.classList.add('hover:bg-[#FF9800]/80', 'hover:text-white/80');
+                } else {
+                    saveEditBtn.disabled = true;
+                    saveEditBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    saveEditBtn.classList.remove('hover:bg-[#FF9800]/80', 'hover:text-white/80');
+                }
+            }
+
+            // 2. EVENT LISTENER PADA TOMBOL EDIT, SAVE, DAN CANCEL
+            if (editProfileBtn) {
+                editProfileBtn.addEventListener('click', () => {
+                    profilPage.classList.add('hidden');
+                    editProfilePage.classList.remove('hidden');
+                    
+                    // !! INI BAGIAN PENTING YANG HILANG !!
+                    // Panggil validasi untuk mengatur kondisi awal tombol "Save"
+                    validateProfileForm(); 
                 });
+            }
+
+            if (saveEditBtn) {
+                saveEditBtn.addEventListener('click', () => {
+                    // Logika penyimpanan data bisa ditambahkan di sini
+                    // Contoh: alert('Perubahan disimpan!');
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+
+            if (cancelEditBtn) {
+                cancelEditBtn.addEventListener('click', () => {
+                    profilPage.classList.remove('hidden');
+                    editProfilePage.classList.add('hidden');
+                });
+            }
+            
+            // 3. PASANG EVENT LISTENER 'INPUT' UNTUK VALIDASI REAL-TIME
+            if (editUsernameInput && editFullNameInput) {
+                editUsernameInput.addEventListener('input', validateProfileForm);
+                editFullNameInput.addEventListener('input', validateProfileForm);
             }
 
             if (passwordInput) {
@@ -675,6 +757,108 @@
                 });
             }
 
+            const validateAndUpdateButton = () => {
+                const currentPass = currentPasswordInput.value.trim();
+                const newPass = newPasswordInput.value.trim();
+                const isNewPassLengthValid = newPass.length >= 8 && newPass.length <= 20;
+
+                if (newPass !== '' && !isNewPassLengthValid) {
+                    passwordError.classList.remove('hidden');
+                } else {
+                    passwordError.classList.add('hidden');
+                }
+
+                const isFormValid = currentPass !== '' && newPass !== '' && isNewPassLengthValid;
+
+                if (isFormValid) {
+                    savePasswordBtn.disabled = false;
+                    savePasswordBtn.classList.remove('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                    savePasswordBtn.classList.add('bg-[#FF9800]', 'text-white');
+                } else {
+                    savePasswordBtn.disabled = true;
+                    savePasswordBtn.classList.remove('bg-[#FF9800]', 'text-white');
+                    savePasswordBtn.classList.add('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
+                }
+            };
+
+            currentPasswordInput.addEventListener('input', validateAndUpdateButton);
+            newPasswordInput.addEventListener('input', validateAndUpdateButton);
+            
+            validateAndUpdateButton();
+
+            if (savePasswordBtn) {
+                savePasswordBtn.addEventListener('click', () => {
+                    if (savePasswordBtn.disabled) {
+                        return;
+                    }
+                    
+                    alert('Successfully change password');
+                    
+                    currentPasswordInput.value = '';
+                    newPasswordInput.value = '';
+                    
+                    validateAndUpdateButton();
+                });
+            }
+
+            if (deleteAccountBtn) {
+                deleteAccountBtn.addEventListener('click', () => {
+                    const message = "This action will permanently delete your account. Are you sure you want to continue?";                   
+                    const userConfirmed = window.confirm(message);
+                    if (userConfirmed) {
+                        console.log("Pengguna mengonfirmasi penghapusan akun.");
+                        alert("Your account has been successfully deleted.");
+                        // Arahkan pengguna ke halaman login atau halaman utama
+                        // window.location.href = '/login.html'; 
+                    } else {
+                        console.log("Account deletion canceled.");
+                    }
+                });
+            }  
+
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    const message = "Are you sure you want to log out? You can still log in with this account in the next session.";
+                    
+                    const userConfirmed = window.confirm(message);
+
+                    if (userConfirmed) {
+                        console.log("Logging out...");
+                        // Mengarahkan pengguna ke halaman login
+                        // window.location.href = '/halaman-login.html'; 
+                        alert("You have been successfully logged out.");
+                    } else {
+                        console.log("Log out canceled.");
+                    }
+                });
+            }
+
+            function generateStars(element) {
+                let rating = parseFloat(element.getAttribute("data-rating")); // Ambil rating
+                let fullStars = Math.floor(rating); // Bintang penuh
+                let halfStar = rating % 1 >= 0.5 ? 1 : 0; // Bintang setengah jika >= 0.5
+                let emptyStars = 5 - (fullStars + halfStar); // Sisa bintang kosong
+
+                let starsHTML = "";
+
+                // Tambah bintang penuh
+                for (let i = 0; i < fullStars; i++) {
+                    starsHTML += '<i class="fa-solid fa-star"></i>';
+                }
+                // Tambah bintang setengah jika ada
+                if (halfStar) {
+                    starsHTML += '<i class="fa-solid fa-star-half-alt"></i>';
+                }
+                // Tambah bintang kosong
+                for (let i = 0; i < emptyStars; i++) {
+                    starsHTML += '<i class="fa-regular fa-star"></i>';
+                }
+
+                element.innerHTML = starsHTML;
+            }
+
+            document.querySelectorAll(".rating").forEach(generateStars);
             // UNTUK OPEN GMAP
             if (gmapsInput) {
                     let mapsAlertShown = false; 
