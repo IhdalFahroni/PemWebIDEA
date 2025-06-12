@@ -72,33 +72,55 @@ window.addEventListener('DOMContentLoaded', (event) => {
     } else {
         console.error("Elemen header, hero, atau hero-text tidak ditemukan!");
     }
-
-    document.querySelectorAll('.rating').forEach(el => {
-        const rating = parseFloat(el.getAttribute('data-rating'));
-        if (isNaN(rating)) return;
-
-        const fullStars = Math.floor(rating);
-        const halfStar = rating % 1 >= 0.3 && rating % 1 < 0.8 ? 1 : 0;
-        const fullStarsAdjusted = rating % 1 >= 0.8 ? fullStars + 1 : fullStars;
-        const halfStarAdjusted = rating % 1 >= 0.3 && rating % 1 < 0.8 ? 1 : 0;
-        const emptyStars = 5 - fullStarsAdjusted - halfStarAdjusted;
-        
-        let starsHTML = '';
-
-        for (let i = 0; i < fullStarsAdjusted; i++) {
-            starsHTML += '<i class="fas fa-star text-[#FED113]"></i>';
-        }
-        if (halfStarAdjusted) {
-            starsHTML += '<i class="fas fa-star-half-alt text-[#FED113]"></i>';
-        }
-        for (let i = 0; i < emptyStars; i++) {
-            starsHTML += '<i class="far fa-star text-[#FED113}"></i>';
-        }
-    });
-
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+    const searchIcon = document.getElementById('searchIcon');
+    const filterButtonTourist = document.querySelector('.filter-button-tourist');
+    const filterButtonCulinary = document.querySelector('.filter-button-culinary');
+    const afterSearchDiv = document.getElementById('afterSearch');
+    const awalDiv = document.getElementById('awal');
+
+    if (searchIcon) {
+        searchIcon.addEventListener('click', () => {
+            awalDiv.classList.add('hidden');
+            afterSearchDiv.classList.remove('hidden');
+        });
+    }
+
+    filterButtonTourist.addEventListener('click', () => {
+        const isTouristActive = filterButtonTourist.classList.contains('bg-[#FF9800]');
+        const isCulinaryActive = filterButtonCulinary.classList.contains('bg-[#FF9800]');
+        if (isTouristActive) {
+            filterButtonTourist.classList.remove('bg-[#FF9800]', 'text-white');
+            filterButtonTourist.classList.add('bg-white', 'text-[#FF9800]');
+        } else if (isCulinaryActive){
+            filterButtonTourist.classList.remove('bg-white', 'text-[#FF9800]');
+            filterButtonTourist.classList.add('bg-[#FF9800]', 'text-white');
+            filterButtonCulinary.classList.remove('bg-[#FF9800]', 'text-white');
+            filterButtonCulinary.classList.add('bg-white', 'text-[#FF9800]');
+        }else {
+            filterButtonTourist.classList.remove('bg-white', 'text-[#FF9800]');
+            filterButtonTourist.classList.add('bg-[#FF9800]', 'text-white');
+        }
+    });
+    filterButtonCulinary.addEventListener('click', () => {
+        const isTouristActive = filterButtonTourist.classList.contains('bg-[#FF9800]');
+        const isCulinaryActive = filterButtonCulinary.classList.contains('bg-[#FF9800]');
+        if (isCulinaryActive) {
+            filterButtonCulinary.classList.remove('bg-[#FF9800]', 'text-white');
+            filterButtonCulinary.classList.add('bg-white', 'text-[#FF9800]');
+        } else if (isTouristActive) {
+            filterButtonCulinary.classList.remove('bg-white', 'text-[#FF9800]');
+            filterButtonCulinary.classList.add('bg-[#FF9800]', 'text-white');
+            filterButtonTourist.classList.remove('bg-[#FF9800]', 'text-white');
+            filterButtonTourist.classList.add('bg-white', 'text-[#FF9800]');
+        }else {
+            filterButtonCulinary.classList.remove('bg-white', 'text-[#FF9800]');
+            filterButtonCulinary.classList.add('bg-[#FF9800]', 'text-white');
+        }
+    });
+    
     function generateStars(element) {
         let rating = parseFloat(element.getAttribute("data-rating")); // Ambil rating
         let fullStars = Math.floor(rating); // Bintang penuh
