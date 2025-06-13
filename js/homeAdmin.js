@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const searchIcon = document.getElementById('searchIcon');
     const filterButtons = document.querySelectorAll('.filter-button');
-    const openHomeBtns = [document.getElementById('homeBtn'), document.getElementById('openHomeBtn')]
+    const openHomeBtns = [document.getElementById('homeBtn'), document.getElementById('openHomeBtn')];
     const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
     const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
     const openManageVerificationBtns = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')];
