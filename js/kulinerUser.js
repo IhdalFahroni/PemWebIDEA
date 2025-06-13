@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
     const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
     const openClaimForm = document.getElementById('openClaim');
+     const claimFormContainer = document.getElementById('claimForm');
 
     const containerProfile = document.getElementById('containerProfile');
     const profilPage = document.getElementById('profilPage');
@@ -468,6 +469,20 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("Error: Input 'file-upload' tidak ditemukan!");
     }
+
+   
+    if (claimFormContainer) {
+        const theForm = claimFormContainer.querySelector('form');
+
+        if (theForm) {
+            theForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                alert('Form has been submitted');
+            });
+        }
+    }
+    
     
     showPanel('awal');
 
