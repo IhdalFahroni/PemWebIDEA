@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page | LombokRec</title>
+    <title>Home Page User| LombokRec</title>
     <script src="../js/homeUser.js"></script>
-    <link rel="stylesheet" href="../public/output.css">>
+    <link rel="stylesheet" href="../public/output.css">
     <style>
         ::-webkit-scrollbar {width: 6px;}
         ::-webkit-scrollbar-track {background: #F8F9FA}
@@ -20,7 +20,7 @@
 
     <aside class="text-[#FFC107] w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div class="p-5">
-            <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <div id="hamburgerBtn" class="w-12 h-12 mt-2 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-bars text-xl"></i>
             </div>
         </div>
@@ -39,21 +39,20 @@
 
         <div class="p-5 space-y-3">
             <div id="profilBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-user text-xl"></i>
+                <i class="fa-solid fa-user text-[#FFC107 text-xl"></i>
             </div>
         </div>
     </aside>
 
     <div id="sidebarMenu" class="text-[#FFC107] fixed top-0 w-72 h-screen bg-[#FFFFFF] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5">
-            <div class="flex items-center">
+            <div class="flex items-center mt-2">
                 <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer hover:scale-110 hover:bg-gray-100" id="closeBtn">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </div>
                 <img src="../Assets/Logo1.png" alt="Lombok REC Logo" class="h-8 w-auto">
             </div>
         </div>
-
         <div class="flex-1 p-5 space-y-6">
             <a href="#" id="openHomeBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-home"></i></span>
@@ -68,12 +67,11 @@
                 <span class="text-lg font-medium text-[#5C3211] pt-1">Notifications</span>
             </a>
         </div>
-
         <div class="p-5 space-y-3">
             <div id="openProfilBtn" class="flex items-center rounded cursor-pointer transition hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-xl"><i class="fa-solid fa-user"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold text-[#5C3211]">Username</span> 
+                    <span class="text-lg font-semibold text-[#5C3211]">Owner</span> 
                     <span class="text-base font-light text-[#5C3211]">@email.gmail.com</span>
                 </div>
             </div>
@@ -410,7 +408,7 @@
             <div id="profil" class="header mb-5 hidden">
                 <div id="containerProfile" class="bg-[#FFFFFF] rounded-xl p-4 flex items-center justify-between shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div id="profilPage" class="flex items-center w-full relative">
-                        <button id="editProfileBtn" class="absolute top-4 right-4 bg-[#FF9800] text-[#FFFFFF] hover:bg-[#FF9800]/80 hover:text-[#FFFFFF]/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
+                        <button id="editProfileBtn" class="absolute top-4 right-4 bg-[#FF9800] text-white hover:bg-[#FF9800]/80 hover:text-white/80 px-7 py-1 rounded-full shadow font-semibold flex items-center gap-2 transition">Edit</button>
                         <img src="../Assets/profil.jpg" alt="Profile" class="w-52 h-52 rounded-full object-cover shadow mx-6 my-6">
                         <div class="ml-6 flex flex-col">
                             <span class="text-5xl font-normal text-[#5C3211]">Username</span>
@@ -496,9 +494,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </main>
+    
 </body>
 </html>
