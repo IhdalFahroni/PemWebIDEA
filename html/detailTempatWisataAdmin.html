@@ -37,7 +37,7 @@
         </div>
 
         <div class="flex-1 p-5 space-y-6">
-            <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <div href="HomePageAdmin.html" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-home text-xl"></i>
             </div>
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
@@ -69,7 +69,7 @@
         </div>
 
         <div class="flex-1 p-5 space-y-6">
-            <a href="#" id="openHomeBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <a href="HomePageAdmin.html" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-home"></i></span>
                 <span class="text-lg font-medium text-[#5C3211] pt-2">Home</span>
             </a>
@@ -99,7 +99,7 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFFF]">
-        <div class="main-container min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
+        <div id="main-content-area" class="min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="awal">
                 <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Selong Belanak Beach</h1>
 
@@ -131,7 +131,7 @@
                             </textarea>
                         </div>
                         <div class="md:w-2/3">
-                            <div class="text-yellow-500 my-1 text-4xl rating" data-rating="4.5"></div>
+                            <div class="text-yellow-500 my-1 text-lg rating" data-rating="4.5"></div>
                             <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 mt-4"> <p class="text-[#5C3211] text-base font-light">Kategori</p>
                                 <p class="text-[#5C3211] font-medium text-base">Tempat wisata</p>
 
@@ -507,256 +507,6 @@
             </div> 
         </div> 
     </div>
-
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const closeSidebarMenuBtn = document.getElementById('closeBtn');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContent = document.querySelector('main');
-        
-        const awalDiv = document.getElementById('awal');
-        const notification = document.getElementById('notification');
-        const addPlaceForm = document.getElementById('addPlace');
-        const manageVerif = document.getElementById('manageVerification');
-        const profile = document.getElementById('profil');
-        
-        const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')].filter(Boolean);
-        const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')].filter(Boolean);
-        const manageVerifBtn = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')].filter(Boolean);
-        const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')].filter(Boolean);
-
-        const containerProfile = document.getElementById('containerProfile');
-        const profilPage = document.getElementById('profilPage');
-        const editProfilePage = document.getElementById('editProfilePage');
-        const bawahProfil = document.getElementById('bawahProfil');
-        const accountSetting = document.getElementById('accountSetting');
-        
-        const editProfileBtn = document.getElementById('editProfileBtn');
-        const saveEditBtn = document.getElementById('saveEditBtn');
-        const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
-        const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
-        
-        const usernameInput = document.getElementById('editUsername');
-        const userError = document.getElementById('usernameError');
-        const passwordInput = document.getElementById('newPass');
-        const passError = document.getElementById('passwordError');
-
-        const openEdit = document.getElementById('openEdit');
-        const saveEdit = document.getElementById('saveEdit');
-        const editAlamat = document.getElementById('editAlamat');
-        const editGmaps = document.getElementById('editGmaps');
-        const editTiket = document.getElementById('editTiket');
-        const editDeskripsi = document.getElementById('editDeskripsi');
-        const Alamat = document.getElementById('alamat');
-        const Tiket = document.getElementById('tiket');
-        const Gmaps = document.getElementById('gmaps');
-        const Deskripsi = document.getElementById('deskripsi');
-
-        const manageReview = document.getElementById('manageReviewBtn');
-        const saveReview = document.getElementById('saveReviewBtn');
-        const trash = document.getElementById('trashCan');
-        const deleteReview = document.getElementById('deleteReviewModal');
-        const closeDeleteReview = document.getElementById('closeDeleteReviewBtn');
-
-        let activePanel = 'awal'; 
-
-        function showPanel(panelName) {
-            awalDiv.classList.add('hidden');
-            notification.classList.add('hidden');
-            addPlaceForm.classList.add('hidden');
-            manageVerif.classList.add('hidden');
-            profile.classList.add('hidden');
-            
-            switch (panelName) {
-            case 'awal':
-                awalDiv.classList.remove('hidden');
-                break;
-            case 'notification':
-                notification.classList.remove('hidden');
-                break;
-            case 'addPlace':
-                addPlaceForm.classList.remove('hidden');
-                break;
-            case 'manageVerification':
-                manageVerif.classList.remove('hidden');
-                break;
-            case 'profil':
-                profile.classList.remove('hidden');
-                containerProfile.classList.remove('hidden');
-                profilPage.classList.remove('hidden');
-                bawahProfil.classList.remove('hidden');
-                editProfilePage.classList.add('hidden');
-                accountSetting.classList.add('hidden');
-                break;
-            }
-            activePanel = panelName;
-
-            if (sidebarMenu.classList.contains('translate-x-0')) {
-            sidebarMenu.classList.remove('translate-x-0');
-            sidebarMenu.classList.add('-translate-x-full');
-            mainContent.style.marginLeft = '5rem';
-            }
-        }
-
-        mainContent.style.transition = 'margin-left 0.3s';
-        hamburgerBtn.addEventListener('click', () => {
-            sidebarMenu.classList.remove('-translate-x-full');
-            mainContent.style.marginLeft = '18rem'; 
-        });
-        closeSidebarMenuBtn.addEventListener('click', () => {
-            sidebarMenu.classList.add('-translate-x-full');
-            mainContent.style.marginLeft = '5rem'; 
-        });
-        
-        openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'notification') {
-            showPanel('awal');
-            } else {
-            showPanel('notification');
-            }
-        }));
-
-        openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'addPlace') {
-            showPanel('awal');
-            } else {
-            showPanel('addPlace');
-            }
-        }));
-
-        manageVerifBtn.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'manageVerification') {
-            showPanel('awal');
-            } else {
-            showPanel('manageVerification');
-            }
-        }));
-        
-        openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (activePanel === 'profil') {
-            showPanel('awal');
-            } else {
-            showPanel('profil');
-            }
-        }));
-        
-        if (editProfileBtn) {
-            editProfileBtn.addEventListener('click', () => {
-            profilPage.classList.add('hidden');
-            editProfilePage.classList.remove('hidden');
-            });
-        }
-
-        if (saveEditBtn) {
-            saveEditBtn.addEventListener('click', () => {
-            profilPage.classList.remove('hidden');
-            editProfilePage.classList.add('hidden');
-            });
-        }
-        
-        if (openAccountSettingBtn) {
-            openAccountSettingBtn.addEventListener('click', () => {
-            containerProfile.classList.add('hidden');
-            bawahProfil.classList.add('hidden');
-            accountSetting.classList.remove('hidden');
-            });
-        }
-
-        if (closeAccountSettingBtn) {
-            closeAccountSettingBtn.addEventListener('click', () => {
-            accountSetting.classList.add('hidden');
-            containerProfile.classList.remove('hidden');
-            bawahProfil.classList.remove('hidden');
-            profilPage.classList.remove('hidden');
-            editProfilePage.classList.add('hidden');
-            });
-        }
-
-        if (usernameInput) {
-            usernameInput.addEventListener('input', () => {
-            const username = usernameInput.value.trim();
-            if (username.length > 0 && (username.length < 8 || username.length > 20)) {
-                userError.classList.remove('hidden');
-            } else {
-                userError.classList.add('hidden');
-            }
-            });
-        }
-
-        if (passwordInput) {
-            passwordInput.addEventListener('input', () => {
-            const password = passwordInput.value.trim();
-            if (password.length > 0 && (password.length < 8 || password.length > 20)) {
-                passError.classList.remove('hidden');
-            } else {
-                passError.classList.add('hidden');
-            }
-            });
-        }
-        
-        showPanel('awal');
-
-        if (openEdit) {
-            openEdit.addEventListener('click', function () {
-                saveEdit.classList.remove('hidden');
-                openEdit.classList.add('hidden');
-                editAlamat.classList.remove('hidden');
-                Alamat.classList.add('hidden');
-                editGmaps.classList.remove('hidden');
-                Gmaps.classList.add('hidden');
-                editDeskripsi.classList.remove('hidden');
-                Deskripsi.classList.add('hidden');
-                editTiket.classList.remove('hidden');
-                Tiket.classList.add('hidden');
-            });
-        }
-
-        if(saveEdit) {
-            saveEdit.addEventListener('click', function () {
-                saveEdit.classList.add('hidden');
-                openEdit.classList.remove('hidden');
-                editAlamat.classList.add('hidden');
-                Alamat.classList.remove('hidden');
-                editGmaps.classList.add('hidden');
-                Gmaps.classList.remove('hidden');
-                editDeskripsi.classList.add('hidden');
-                Deskripsi.classList.remove('hidden');
-                editTiket.classList.add('hidden');
-                Tiket.classList.remove('hidden');
-            });
-        }
-
-        if(manageReview) {
-            manageReview.addEventListener('click', function() {
-                manageReview.classList.add('hidden');
-                saveReview.classList.remove('hidden');
-                trash.classList.remove('hidden');
-            });
-        }
-
-        if(saveReview) {
-            saveReview.addEventListener('click', function() {
-                manageReview.classList.remove('hidden');
-                saveReview.classList.add('hidden');
-                trash.classList.add('hidden');
-            });
-        }
-
-        if(trash) {
-            trash.addEventListener('click', function() {
-                deleteReview.classList.remove('hidden');
-            });
-        }
-        if(closeDeleteReview) {
-            closeDeleteReview.addEventListener('click', function() {
-                deleteReview.classList.add('hidden');
-            });
-        }
-    </script>
     
 </body>
 </html>

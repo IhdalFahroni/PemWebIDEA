@@ -1,31 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const closeSidebarMenuBtn = document.getElementById('closeBtn');
+    const closeSidebarMenuBtn = document.getElementById('closeBtn'); 
     const sidebarMenu = document.getElementById('sidebarMenu');
     const mainContent = document.querySelector('main');
     
     const awalDiv = document.getElementById('awal');
     const notification = document.getElementById('notification');
     const addPlaceForm = document.getElementById('addPlace');
-    const manageVerification = document.getElementById('manageVerification'); 
+    const manageVerification = document.getElementById('manageVerification');
     const addPlaceModal = document.getElementById('addPlaceModal');
     const claimCulinaryModal = document.getElementById('claimCulinaryModal');
 
     const profile = document.getElementById('profil');
+
+    const mainContentArea = document.getElementById('main-content-area');
     
-    const openHomeBtns = [document.getElementById('homeBtn'), document.getElementById('openHomeBtn')]
     const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
     const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
     const openManageVerificationBtns = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')];
     const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
-
+    
     const containerProfile = document.getElementById('containerProfile');
     const profilPage = document.getElementById('profilPage');
     const editProfilePage = document.getElementById('editProfilePage');
     const bawahProfil = document.getElementById('bawahProfil');
     const accountSetting = document.getElementById('accountSetting');
-
-    const mainContentArea = document.getElementById('main-content-area');
     
     const savePasswordBtn = document.getElementById('savePasswordBtn');
     const currentPasswordInput = document.getElementById('currentPassword');
@@ -47,20 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openEdit = document.getElementById('openEdit');
     const saveEdit = document.getElementById('saveEdit');
+    const editTiket = document.getElementById('editTiket');
     const editAlamat = document.getElementById('editAlamat');
     const editGmaps = document.getElementById('editGmaps');
-    const editTiket = document.getElementById('editTiket');
     const editDeskripsi = document.getElementById('editDeskripsi');
+    const tiket = document.getElementById('tiket');
     const Alamat = document.getElementById('alamat');
-    const Tiket = document.getElementById('tiket');
     const Gmaps = document.getElementById('gmaps');
     const Deskripsi = document.getElementById('deskripsi');
 
-    const manageReview = document.getElementById('manageReviewBtn');
-    const saveReview = document.getElementById('saveReviewBtn');
-    const trash = document.getElementById('trashCan');
-    const deleteReview = document.getElementById('deleteReviewModal');
-    const closeDeleteReview = document.getElementById('closeDeleteReviewBtn');
+    
 
     let activePanel = 'awal'; 
 
@@ -68,44 +63,42 @@ document.addEventListener('DOMContentLoaded', () => {
         awalDiv.classList.add('hidden');
         notification.classList.add('hidden');
         addPlaceForm.classList.add('hidden');
-        manageVerification.classList.add('hidden');
+        manageVerification.classList.add('hidden'); 
         profile.classList.add('hidden');
-
         mainContentArea.classList.remove('main-container', 'main-container-detail');
-        
         switch (panelName) {
-        case 'awal':
-            awalDiv.classList.remove('hidden');
-            mainContentArea.classList.add('main-container-detail'); //TAMBAH INI
-            break;
-        case 'notification':
-            notification.classList.remove('hidden');
-            mainContentArea.classList.add('main-container'); //INI JUGA
-            break;
-        case 'addPlace':
-            addPlaceForm.classList.remove('hidden');
-            mainContentArea.classList.add('main-container'); //INI JUGA
-            break;
-        case 'manageVerification':
-            manageVerification.classList.remove('hidden');
-            mainContentArea.classList.add('main-container'); //INI JUGA
-            break;
-        case 'profil':
-            profile.classList.remove('hidden');
-            containerProfile.classList.remove('hidden');
-            profilPage.classList.remove('hidden');
-            bawahProfil.classList.remove('hidden');
-            editProfilePage.classList.add('hidden');
-            accountSetting.classList.add('hidden');
-            mainContentArea.classList.add('main-container'); //INI JUGA
-            break;
+            case 'awal':
+                awalDiv.classList.remove('hidden');
+                mainContentArea.classList.add('main-container-detail'); //TAMBAH INI
+                break;
+            case 'notification':
+                notification.classList.remove('hidden');
+                mainContentArea.classList.add('main-container'); //INI JUGA
+                break;
+            case 'addPlace':
+                addPlaceForm.classList.remove('hidden');
+                mainContentArea.classList.add('main-container'); //INI JUGA
+                break;
+            case 'manageVerification':
+                manageVerification.classList.remove('hidden');
+                mainContentArea.classList.add('main-container'); //INI JUGA
+                break;
+            case 'profil':
+                profile.classList.remove('hidden');
+                containerProfile.classList.remove('hidden');
+                profilPage.classList.remove('hidden');
+                bawahProfil.classList.remove('hidden');
+                editProfilePage.classList.add('hidden'); 
+                accountSetting.classList.add('hidden');
+                mainContentArea.classList.add('main-container'); //INI JUGA
+                break;
         }
         activePanel = panelName;
 
         if (sidebarMenu.classList.contains('translate-x-0')) {
-        sidebarMenu.classList.remove('translate-x-0');
-        sidebarMenu.classList.add('-translate-x-full');
-        mainContent.style.marginLeft = '5rem';
+            sidebarMenu.classList.remove('translate-x-0');
+            sidebarMenu.classList.add('-translate-x-full');
+            mainContent.style.marginLeft = '5rem';
         }
     }
 
@@ -118,11 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarMenu.classList.add('-translate-x-full');
         mainContent.style.marginLeft = '5rem'; 
     });
-    
-    openHomeBtns.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPanel('awal'); 
-    }));
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -338,64 +326,282 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
-    
-    showPanel('awal');
+
+    if (gmapsInput) {
+        let mapsAlertShown = false; 
+        gmapsInput.addEventListener('focus', () => {
+            if (!mapsAlertShown) {
+                window.open('https://www.google.com/maps', '_blank');
+        
+                alert("Please search for and mark the location on Google Maps that just opened.\n\n" +
+                    "Once you have found the location, click the 'Share' button,\n" +
+                    "then copy the link provided and paste it into this field.");
+                mapsAlertShown = true; 
+            }
+        });
+    }
+
+    if (fileUploadVisual) { 
+    fileUploadVisual.onclick = () => {
+        fileInput.click();
+        };
+    } else {
+        console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
+    }
+
+    if (fileInput) { 
+    fileInput.onchange = () => {
+        if (fileInput.files.length > 0) {
+            let filesText = Array.from(fileInput.files)
+                                    .map(file => file.name)
+                                    .join(', ');
+            fileList.textContent = `Selected: ${filesText}`;
+            fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; 
+        } else {
+            fileList.textContent = '';
+            fileUploadPlaceholder.value = ''; 
+            fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+        }
+    };
+    } else {
+        console.error("Error: Input 'file-upload' tidak ditemukan!");
+    }
+
+    const attractionForm = document.getElementById("attractionForm");
+    if (attractionForm) {
+        attractionForm.onsubmit = (e) => {
+            e.preventDefault(); 
+            let isValid = true; 
+
+            const showError = (inputElement, message) => {
+                inputElement.classList.add('border-red-500'); 
+                let errorSpan = inputElement.nextElementSibling;
+                if (!errorSpan || !errorSpan.classList.contains('error-message')) {
+                    errorSpan = document.createElement('p');
+                    errorSpan.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
+                    inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling); 
+                }
+                errorSpan.textContent = message;
+                isValid = false; 
+            };
+            
+            const hideError = (inputElement) => {
+                inputElement.classList.remove('border-red-500'); 
+                let errorSpan = inputElement.nextElementSibling;
+                if (errorSpan && errorSpan.classList.contains('error-message')) {
+                    errorSpan.textContent = ''; 
+                    
+                }
+            };
+
+            attractionForm.querySelectorAll('input[type="text"]:not(#fileUploadPlaceholder), textarea').forEach(input => {
+                if (!input.value.trim()) {
+                    showError(input, "This field is required.");
+                } else {
+                    hideError(input);
+                }
+            });
+
+            const urlRegex = /^(https?:\/\/(?:www\.|m\.)?google\.(?:com|co\.\w{2}|ru)\/maps\S*|https?:\/\/maps\.app\.goo\.gl\/\S*)/i;
+
+            if (!gmapsInput.value.trim()) {
+                showError(gmapsInput, "This field is required.");
+            } else if (!urlRegex.test(gmapsInput.value.trim())) {
+                showError(gmapsInput, "Please enter a valid map URL (e.g., Google Maps link).");
+            } else {
+                hideError(gmapsInput);
+            }
+                    
+            if (isValid) {
+                alert("Form has been submitted!"); 
+                e.target.reset();  
+                fileList.textContent = ''; 
+                fileUploadPlaceholder.value = ''; 
+                fileUploadPlaceholder.placeholder = "Upload File(s)"; 
+                attractionForm.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
+                attractionForm.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            }
+        };
+    } else { 
+        console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
+    }
+
+    function disableOtherButton(clickedButton, parentItem) {
+        const approveBtn = parentItem.querySelector('.approve-btn');
+        const denyBtn = parentItem.querySelector('.deny-btn');
+
+        approveBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        approveBtn.disabled = true;
+        denyBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        denyBtn.disabled = true;
+
+        if (clickedButton === approveBtn) {
+            approveBtn.classList.remove('border', 'border-blue-500', 'text-blue-500');
+            approveBtn.classList.add('bg-blue-500', 'text-white');
+        } else if (clickedButton === denyBtn) {
+            denyBtn.classList.remove('border', 'border-red-500', 'text-red-500');
+            denyBtn.classList.add('bg-red-500', 'text-white');
+        }
+    }
+
+    document.querySelectorAll('.view-form-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            const parentItem = link.closest('.verification-item');
+            const requestType = parentItem.dataset.type;
+
+            if (parentItem) {
+                const approveBtn = parentItem.querySelector('.approve-btn');
+                const denyBtn = parentItem.querySelector('.deny-btn');
+
+                approveBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                approveBtn.disabled = false;
+                denyBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                denyBtn.disabled = false;
+                
+                denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
+                denyBtn.classList.remove('bg-red-500', 'text-white');
+                
+                approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
+                approveBtn.classList.remove('bg-blue-500', 'text-white');
+            }
+
+            if (requestType === 'add-place') {
+                const addData = {
+                    placeName: "Universitas Mataram",
+                    category: "Tourist destination",
+                    district: "Mataram",
+                    subdistrict: "Selaparang",
+                    village: "Gomong",
+                    street: "Majapahit Street No.62",
+                    gmaps: "https://maps.app.goo.gl/96YcpUGoX1Xedrss7",
+                    description: "Universitas Mataram is a state university in the city of Mataram, West Nusa Tenggara province, Indonesia.",
+                    photo_link: ["unram.jpg",]
+                };
+                openAddPlaceModal(addData);
+            } else if (requestType === 'claim-culinary') {
+                const claimData = {
+                    fullName: "Ihdal Fahroni", 
+                    phone: "08877776663", 
+                    email: "rmsumberejeki@gmail.com", 
+                    tin: "123456789", 
+                    supporting_document: ["sumber_rejeki.png",]
+                };
+                openClaimCulinaryModal(claimData);
+            }
+        });
+    });
+
+    function closeModal(modalElement) {
+        if (modalElement) {
+            modalElement.classList.add('hidden');
+        }
+    }
+
+    // Event listener untuk semua tombol close di setiap modal
+    document.querySelectorAll('.modal-close-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Ambil ID modal dari atribut data-close-modal
+            const modalId = this.dataset.closeModal;
+            // Cari elemen modal berdasarkan ID tersebut
+            const modalToClose = document.getElementById(modalId);
+            // Panggil fungsi untuk menutupnya
+            closeModal(modalToClose);
+        });
+    });
+
+    // Event listener untuk menutup modal saat area gelap di klik
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            // Jika yang diklik adalah area overlay (latar belakang), tutup modal
+            if (e.target === this) {
+                closeModal(this);
+            }
+        });
+    });
+
+    document.querySelectorAll('.deny-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            if (!button.disabled) {
+                if (window.confirm('Are you sure you want to DENY this request?')) {
+                    const parentItem = button.closest('.verification-item');
+                    disableOtherButton(button, parentItem);
+                }
+            }
+        });
+    });
+
+    document.querySelectorAll('.approve-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            if (!button.disabled) {
+                if (window.confirm('Are you sure you want to APPROVE this request?')) {
+                    const parentItem = button.closest('.verification-item');
+                    disableOtherButton(button, parentItem);
+                }
+            }
+        });
+    });
 
     if (openEdit) {
         openEdit.addEventListener('click', function () {
-            saveEdit.classList.remove('hidden');
-            openEdit.classList.add('hidden');
-            editAlamat.classList.remove('hidden');
-            Alamat.classList.add('hidden');
-            editGmaps.classList.remove('hidden');
-            Gmaps.classList.add('hidden');
-            editDeskripsi.classList.remove('hidden');
-            Deskripsi.classList.add('hidden');
-            editTiket.classList.remove('hidden');
-            Tiket.classList.add('hidden');
+        saveEdit.classList.remove('hidden');
+        openEdit.classList.add('hidden');
+        editTiket.classList.remove('hidden');
+        tiket.classList.add('hidden');
+        editAlamat.classList.remove('hidden');
+        Alamat.classList.add('hidden');
+        editGmaps.classList.remove('hidden');
+        Gmaps.classList.add('hidden');
+        editDeskripsi.classList.remove('hidden');
+        Deskripsi.classList.add('hidden');
         });
     }
 
     if(saveEdit) {
         saveEdit.addEventListener('click', function () {
-            saveEdit.classList.add('hidden');
-            openEdit.classList.remove('hidden');
-            editAlamat.classList.add('hidden');
-            Alamat.classList.remove('hidden');
-            editGmaps.classList.add('hidden');
-            Gmaps.classList.remove('hidden');
-            editDeskripsi.classList.add('hidden');
-            Deskripsi.classList.remove('hidden');
-            editTiket.classList.add('hidden');
-            Tiket.classList.remove('hidden');
+        saveEdit.classList.add('hidden');
+        openEdit.classList.remove('hidden');
+        editTiket.classList.add('hidden');
+        tiket.classList.remove('hidden');
+        editAlamat.classList.add('hidden');
+        Alamat.classList.remove('hidden');
+        editGmaps.classList.add('hidden');
+        Gmaps.classList.remove('hidden');
+        editDeskripsi.classList.add('hidden');
+        Deskripsi.classList.remove('hidden');
         });
     }
 
-    if(manageReview) {
-        manageReview.addEventListener('click', function() {
-            manageReview.classList.add('hidden');
-            saveReview.classList.remove('hidden');
-            trash.classList.remove('hidden');
+    const manageReviewBtn = document.getElementById('manageReviewBtn');
+    const saveReviewBtn = document.getElementById('saveReviewBtn');
+    const trash = document.getElementById('trashCan');
+    const deleteReviewModal = document.getElementById('deleteReviewModal');
+    const closeDeleteReviewBtn = document.getElementById('closeDeleteReviewBtn');
+
+    if(manageReviewBtn) {
+        manageReviewBtn.addEventListener('click', function () {
+        manageReviewBtn.classList.add('hidden');
+        saveReviewBtn.classList.remove('hidden');
+        trash.classList.remove('hidden');
         });
     }
-
-    if(saveReview) {
-        saveReview.addEventListener('click', function() {
-            manageReview.classList.remove('hidden');
-            saveReview.classList.add('hidden');
-            trash.classList.add('hidden');
+    if(saveReviewBtn) {
+        saveReviewBtn.addEventListener('click', function () {
+        manageReviewBtn.classList.remove('hidden');
+        saveReviewBtn.classList.add('hidden');
+        trash.classList.add('hidden');
         });
     }
-
     if(trash) {
-        trash.addEventListener('click', function() {
-            deleteReview.classList.remove('hidden');
+        trash.addEventListener('click', function () {
+        deleteReviewModal.classList.remove('hidden');
         });
     }
-    if(closeDeleteReview) {
-        closeDeleteReview.addEventListener('click', function() {
-            deleteReview.classList.add('hidden');
+    if(closeDeleteReviewBtn) {
+        closeDeleteReviewBtn.addEventListener('click', function () {
+            deleteReviewModal.classList.add('hidden');
         });
     }
+    
+    showPanel('awal');
 });
