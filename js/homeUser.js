@@ -103,18 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
     searchIcon.addEventListener('click', () => showPanel('afterSearch'));
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        showPanel('notification');
+        e.preventDefault();
+        if (activePanel === 'notification') {
+            showPanel('awal');
+        } else {
+            showPanel('notification');
+        }
     }));
 
     openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
-        showPanel('addPlace');
+        if (activePanel === 'addPlace') {
+            showPanel('awal');
+        } else {
+            showPanel('addPlace');
+        }
     }));
     
     openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
-        showPanel('profil');
+        if (activePanel === 'profil') {
+            showPanel('awal');
+        } else {
+            showPanel('profil');
+        }
     }));
     
     if (editProfileBtn) {

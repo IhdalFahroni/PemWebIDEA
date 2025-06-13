@@ -111,12 +111,29 @@ document.addEventListener('DOMContentLoaded', () => {
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
-        showPanel('notification');
+        if (activePanel === 'notification') {
+            showPanel('awal');
+        } else {
+            showPanel('notification');
+        }
     }));
 
     openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
-        showPanel('addPlace');
+        if (activePanel === 'addPlace') {
+            showPanel('awal');
+        } else {
+            showPanel('addPlace');
+        }
+    }));
+    
+    openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (activePanel === 'profil') {
+            showPanel('awal');
+        } else {
+            showPanel('profil');
+        }
     }));
     
     if (openManage[0]) { 
@@ -133,11 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
             listManage.classList.toggle('hidden');
         });
     }
-
-    openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPanel('profil');
-    }));
 
     if (editProfileBtn) {
     editProfileBtn.addEventListener('click', () => {

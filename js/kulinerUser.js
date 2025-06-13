@@ -167,11 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openClaimForm) {
         openClaimForm.addEventListener('click', (e) => {
             e.preventDefault();
-            if (activePanel === 'claimForm') {
-                showPanel('awal');
-            } else {
-                showPanel('claimForm');
-            }
+            showPanel('claimForm');
         });
     }
     
