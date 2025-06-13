@@ -46,16 +46,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const openEdit = document.getElementById('openEdit');
     const saveEdit = document.getElementById('saveEdit');
-    const editTiket = document.getElementById('editTiket');
     const editAlamat = document.getElementById('editAlamat');
     const editGmaps = document.getElementById('editGmaps');
     const editDeskripsi = document.getElementById('editDeskripsi');
-    const tiket = document.getElementById('tiket');
     const Alamat = document.getElementById('alamat');
     const Gmaps = document.getElementById('gmaps');
     const Deskripsi = document.getElementById('deskripsi');
 
-    
+    const manageReviewBtn = document.getElementById('manageReviewBtn');
+    const saveReviewBtn = document.getElementById('saveReviewBtn');
+    const trash = document.getElementById('trashCan');
+    const deleteReviewModal = document.getElementById('deleteReviewModal');
+    const closeDeleteReviewBtn = document.getElementById('closeDeleteReviewBtn');
+
+    const openMenus = document.getElementById('openMenu');
+    const openPromos = document.getElementById('openPromo');
+    const closeMenus = document.getElementById('closeMenu');
+    const closePromos = document.getElementById('closePromo');
+    const menu = document.getElementById('menuModal');
+    const promo = document.getElementById('promoModal');
+
+    const editMenu = document.getElementById('editMenu');
+    const editPromo = document.getElementById('editPromo');
+    const editMenuModal = document.getElementById('editMenuModal');
+    const editPromoModal = document.getElementById('editPromoModal');
+    const closeEditMenu = document.getElementById('closeEditMenu');
+    const closeEditPromo = document.getElementById('closeEditPromo');
 
     let activePanel = 'awal'; 
 
@@ -109,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     closeSidebarMenuBtn.addEventListener('click', () => {
         sidebarMenu.classList.add('-translate-x-full');
-        mainContent.style.marginLeft = '5rem'; 
+        mainContent.style.marginLeft = '5rem';
     });
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
@@ -587,12 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const manageReviewBtn = document.getElementById('manageReviewBtn');
-    const saveReviewBtn = document.getElementById('saveReviewBtn');
-    const trash = document.getElementById('trashCan');
-    const deleteReviewModal = document.getElementById('deleteReviewModal');
-    const closeDeleteReviewBtn = document.getElementById('closeDeleteReviewBtn');
-
     if(manageReviewBtn) {
         manageReviewBtn.addEventListener('click', function () {
         manageReviewBtn.classList.add('hidden');
@@ -615,6 +625,84 @@ document.addEventListener('DOMContentLoaded', () => {
     if(closeDeleteReviewBtn) {
         closeDeleteReviewBtn.addEventListener('click', function () {
             deleteReviewModal.classList.add('hidden');
+        });
+    }
+
+    if (openEdit) {
+        openEdit.addEventListener('click', function () {
+        saveEdit.classList.remove('hidden');
+        openEdit.classList.add('hidden');
+        editMenu.classList.remove('hidden');
+        openMenus.classList.add('hidden');
+        editPromo.classList.remove('hidden');
+        openPromos.classList.add('hidden');
+        editAlamat.classList.remove('hidden');
+        Alamat.classList.add('hidden');
+        editGmaps.classList.remove('hidden');
+        Gmaps.classList.add('hidden');
+        editDeskripsi.classList.remove('hidden');
+        Deskripsi.classList.add('hidden');
+        review.classList.add('hidden');
+        });
+    }
+
+    if(saveEdit) {
+        saveEdit.addEventListener('click', function () {
+        saveEdit.classList.add('hidden');
+        openEdit.classList.remove('hidden');
+        editMenu.classList.add('hidden');
+        openMenus.classList.remove('hidden');
+        editPromo.classList.add('hidden');
+        openPromos.classList.remove('hidden');
+        editAlamat.classList.add('hidden');
+        Alamat.classList.remove('hidden');
+        editGmaps.classList.add('hidden');
+        Gmaps.classList.remove('hidden');
+        editDeskripsi.classList.add('hidden');
+        Deskripsi.classList.remove('hidden');
+        review.classList.remove('hidden');
+        });
+    }
+
+    if(openMenus) {
+        openMenus.addEventListener('click', function(){
+            menu.classList.remove('hidden');
+        });
+    }
+    if(openPromos) {
+        openPromos.addEventListener('click', function(){
+            promo.classList.remove('hidden');
+        });
+    }
+    if(closeMenus) {
+        closeMenus.addEventListener('click', function(){
+            menu.classList.add('hidden');
+        });
+    }
+    if(closePromos) {
+        closePromos.addEventListener('click', function(){
+            promo.classList.add('hidden');
+        });
+    }
+
+    if(editMenu) {
+        editMenu.addEventListener('click', function() {
+            editMenuModal.classList.remove('hidden');
+        });
+    }
+    if(closeEditMenu) {
+        closeEditMenu.addEventListener('click', function() {
+            editMenuModal.classList.add('hidden');
+        });
+    }
+    if(editPromo) {
+        editPromo.addEventListener('click', function() {
+            editPromoModal.classList.remove('hidden');
+        });
+    }
+    if(closeEditPromo) {
+        closeEditPromo.addEventListener('click', function() {
+            editPromoModal.classList.add('hidden');
         });
     }
     
