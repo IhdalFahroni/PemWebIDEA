@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page Admin | LombokRec</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="../js/homeAdmin.js"></script>
     <link rel="stylesheet" href="../public/output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         ::-webkit-scrollbar {width: 6px;}
         ::-webkit-scrollbar-track {background: #F8F9FA}
@@ -20,7 +18,7 @@
 </head>
 <body class="bg-[#FFFFFF] font-josefin flex min-h-screen">
 
-    <aside class="p-1.5 rounded-full bg-white/20 text-[#FFC107] cursor-pointer transition-colors duration-300 w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
+    <aside class="text-[#FFC107] w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div class="p-5">
             <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-bars text-xl"></i>
@@ -29,22 +27,22 @@
 
         <div class="flex-1 p-5 space-y-6">
             <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-home text-xl"></i>
+                <i class="fa-solid fa-home text-xl p-1.5 rounded-full bg-white/20 cursor-pointer transition-colors duration-300"></i>
             </div>
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-plus text-xl"></i>
+                <i class="fa-solid fa-plus text-xl p-1.5 rounded-full bg-white/20 cursor-pointer transition-colors duration-300"></i>
             </div>
             <div id="notificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-bell text-xl"></i>
+                <i class="fa-solid fa-bell text-xl p-1.5 rounded-full bg-white/20 cursor-pointer transition-colors duration-300"></i>
             </div>
             <div id="manageVerificationBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-clipboard-check text-xl"></i>
+                <i class="fa-solid fa-clipboard-check text-xl p-1.5 rounded-full bg-white/20 cursor-pointer transition-colors duration-300"></i>
             </div>
         </div>
 
         <div class="p-5 space-y-3">
             <div id="profilBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-user text-xl"></i>
+                <i class="fa-solid fa-user text-xl "></i>
             </div>
         </div>
     </aside>
@@ -90,11 +88,7 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20 bg-[#FFFFFF]">
-        <div class="bg-[linear-gradient(to_bottom,#FFC107_50px,#F8F9FA_300px)] 
-    rounded-tl-xl 
-    shadow-[0_10px_20px_rgba(0,0,0,0.3),0_6px_6px_rgba(0,0,0,0.2)] 
-    relative 
-    z-30 min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
+        <div class="bg-[linear-gradient(to_bottom,#FFC107_50px,#F8F9FA_300px)] rounded-tl-xl relative z-30 min-h-screen p-6 md:p-8 shadow-2xl w-full"> 
             <div id="header" class="header text-center mb-5 ">
                 <h1 class="text-white text-3xl md:text-5xl font-bold mb-5 pt-10 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Where do you want to go?</h1>
                 <div class="filter-tabs flex justify-center gap-5 mb-5">
