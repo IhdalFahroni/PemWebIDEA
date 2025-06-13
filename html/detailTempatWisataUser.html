@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Tempat Wisata User</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/output.css">
+    <script src="../js/wisataUser.js"></script>
     <style>
-        body {
-            background-color: #FFFFFF;
-            font-family: 'Josefin Sans';
-        }
-
         /*ADA DUA MAIN CONTAINER KARENA MAIN CONTAINER UNTUK DETAIL TEMPAT DIA BEDA SENDIRI*/
         .main-container {
             background: linear-gradient(to bottom, #FFC107 50px, #F8F9FA 300px); 
@@ -25,14 +19,6 @@
             background-image: linear-gradient(to bottom right, #FFC107, #FFFFFF);
             border-top-left-radius: 1rem;
         }
-        .sidebar i {
-            padding: 6px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #FFC107;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
         ::-webkit-scrollbar {width: 6px;}
         ::-webkit-scrollbar-track {background: #f1f1f1;}
         ::-webkit-scrollbar-thumb {
@@ -40,57 +26,11 @@
             border-radius: 3px;
         }
         ::-webkit-scrollbar-thumb:hover {background: #e0a800;}
-        .form-box {
-            background-color: white;
-            border-radius: 1rem;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            border: 1px solid #F0D3B3;
-        }
-        .form-box label {
-            display: block;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.5rem;
-            font-size: 1.1em;
-        }
-        .form-box input[type="text"],
-        .form-box textarea {
-            width: 100%;
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid #D1D5DB;
-            padding: 0.5rem 0.1rem;
-            outline: none;
-            transition: border-color 0.2s ease-in-out;
-        }
-        .form-box input[type="text"]:focus,
-        .form-box textarea:focus {border-bottom-color: #F59E0B;}
-        .form-box textarea {resize: vertical;}
-        .form-box input::placeholder,
-        .form-box textarea::placeholder {color: #9CA3AF;}
-        .upload-photo-container input[type="text"][readonly] {
-            border-bottom: none; 
-            padding-bottom: 0;  
-        }
-        .custom-radio:checked::before {
-            content: '';
-            display: block;
-            width: 0.5rem; 
-            height: 0.5rem;
-            background-color: white; 
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
     </style>
 </head>
-<body class="flex min-h-screen">
+<body class="flex min-h-screen bg-white font-josefin">
 
-    <aside class="text-[#FFC107] sidebar w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
+    <aside class="text-[#FFC107] w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div class="p-5">
             <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-bars text-xl"></i>
@@ -98,9 +38,9 @@
         </div>
 
         <div class="flex-1 p-5 space-y-6">
-            <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <a id="homeBtn" href="HomePageUser.html" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-home text-xl"></i>
-            </div>
+            </a>
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-plus text-xl"></i>
             </div>
@@ -153,8 +93,8 @@
     </div>
 
     <main class="flex-1 pt-3 overflow-y-auto ml-20">
-        `INI PAKEIN ID=MAIN-CONTENT-AREA`
-        <div id="main-content-area" class="min-h-screen p-6 md:p-8 shadow-2xl w-full">
+        <!-- INI PAKEIN ID=MAIN-CONTENT-AREA -->
+        <div id="main-content-area" class="main-container main-container-detail min-h-screen p-6 md:p-8 shadow-2xl w-full">
 
             <div id="awal">
                 <h1 class="text-3xl md:text-4xl font-bold text-[#FFFFFF] text-center mb-8 [text-shadow:1px_1px_3px_rgba(0,0,0,0.5)]">Selong Belanak Beach</h1>
@@ -185,10 +125,10 @@
                     </div>
                 </div>
 
-                'PAKAI #5C3211 BUAT WARNA TULISAN DAN ICON, ADA BEBERAPA DETAIL KECIL YANG DIUBAH DISINI'
+                <!-- PAKAI #5C3211 BUAT WARNA TULISAN DAN ICON, ADA BEBERAPA DETAIL KECIL YANG DIUBAH DISINI' -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 border border-[#F0B845]">
                     
-                    <div class="mt-2 px-6 md:px-8"> 'KLO MAU AMAN, COPY AJA LANGSUNG DARI SINI'
+                    <div class="mt-2 px-6 md:px-8"> <!-- 'KLO MAU AMAN, COPY AJA LANGSUNG DARI SINI' -->
                         <div id="addReview" class="w-full cursor-pointer group">
                             <i class="fas fa-plus-circle text-lg text-[#5C3211] opacity-50 group-hover:opacity-100 transition"></i> 
                             <span class="font-medium text-[#5C3211] opacity-50 group-hover:opacity-100 transition">Add review</span>
@@ -244,8 +184,8 @@
                 </div>
             </div>
 
-            'ratingModal sama imageModal saya pindahin ke atas supaya nd terlalu jauh sama addReview'
-            'DISINI JUGA BANYAK DETAIL2 KECIL YANG DIUBAH, BIAR AMAN COPY LANGSUNG SATU DIV INI'
+            <!-- 'ratingModal sama imageModal saya pindahin ke atas supaya nd terlalu jauh sama addReview'
+            'DISINI JUGA BANYAK DETAIL2 KECIL YANG DIUBAH, BIAR AMAN COPY LANGSUNG SATU DIV INI' -->
             <div id="ratingModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
                 <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#5C3211]/30 w-full max-w-lg relative text-[#5C3211]">
                     <div class="border border-[#5C3211] rounded-xl p-6 relative">
@@ -269,7 +209,7 @@
                 </div> 
             </div>
 
-            'DISINI JUGA ADA YG DIUBAH, COPY LANGSUNG SATU DIV'
+            <!-- 'DISINI JUGA ADA YG DIUBAH, COPY LANGSUNG SATU DIV' -->
             <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4 hidden">
                 <div class="bg-white p-4 rounded-2xl shadow-2xl border border-[#5C3211]/30 w-full max-w-lg relative text-[#5C3211]">
                     <div class="border border-[#5C3211] rounded-xl p-6 relative">
@@ -351,31 +291,39 @@
                     Please check the answers are correct before submitting.
                 </p>
                 <form id="attractionForm">
-                <div class="form-box">
-                    <label for="place_name">Place name<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="place_name" required placeholder="Answer" />
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
+                    <label for="place_name">
+                        Place name<span class="text-[#FF0000]">*</span>
+                    </label>
+                    <input type="text" id="place_name"
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF]"
+                        required placeholder="Answer" />
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label>Category<span class="text-[#FF0000]">*</span></label>
                     <div class="flex items-center gap-8 pt-4">
                         <label class="flex items-center gap-2 cursor-pointer text-gray-600">
                             <input type="radio" name="category" value="tourist_destination" required 
-                                class="custom-radio appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
+                                class="appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
                                         checked:bg-[#F59E0B] checked:border-[#F59E0B]
-                                        focus:ring-[3px] focus:ring-[#F59E0B]/50">
-                            <span class="font-normal">Tourist destination</span>
+                                        focus:ring-[3px] focus:ring-[#F59E0B]/50
+                                        before:content-[''] before:block before:w-2 before:h-2 before:bg-white before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 checked:before:block">
+                            <span class="font-normal pt-1 text-black">Tourist destination</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer text-gray-600">
                             <input type="radio" name="category" value="culinary"
-                                class="custom-radio appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
+                                class="appearance-none w-4 h-4 border-2 border-gray-300 rounded-full transition-all duration-200 ease-in-out relative
                                         checked:bg-[#F59E0B] checked:border-[#F59E0B]
-                                        focus:ring-[3px] focus:ring-[#F59E0B]/50">
-                            <span class="font-normal">Culinary</span>
+                                        focus:ring-[3px] focus:ring-[#F59E0B]/50
+                                        before:content-[''] before:block before:w-2 before:h-2 before:bg-white before:rounded-full before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 checked:before:block">
+                            <span class="font-normal pt-1 text-black">Culinary</span>
                         </label>
                     </div>
                 </div>
-                <div class="form-box">
-                    <label for="district_city">District/city<span class="text-[#FF0000]">*</span></label>
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
+                    <label for="district_city">
+                        District/city<span class="text-[#FF0000]">*</span>
+                    </label>
                     <select id="district_city" required
                         class=" w-full bg-transparent border-b border-gray-300 py-2 px-[0.1rem] pr-2 text-gray-400 appearance-none 
                                 bg-no-repeat bg-right bg-[length:1rem] focus:outline-none focus:ring-0 focus:border-b-[#F59E0B] transition-colors duration-200 
@@ -389,37 +337,47 @@
                         <option value="lombok_utara" class="text-black">North Lombok</option>
                     </select>
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label for="subdistrict">Subdistrict<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="subdistrict" required placeholder="Answer" />
+                    <input type="text" id="subdistrict"
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF]"
+                        required placeholder="Answer" />
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label for="village">Village<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="village" required placeholder="Answer" />
+                    <input type="text" id="village" 
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF]"
+                        required placeholder="Answer" />
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label for="street">Street<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="street" required rows="1" placeholder="Answer" />
+                    <input type="text" id="street" 
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF]"
+                        required rows="1" placeholder="Answer" />
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label for="gmaps">Google Map Location<span class="text-[#FF0000]">*</span></label>
-                    <input type="text" id="gmaps" required placeholder="Paste Google Map location link here" />
+                    <input type="text" id="gmaps" 
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF]"
+                        required placeholder="Paste Google Map location link here" />
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label for="description">Place description<span class="text-[#FF0000]">*</span></label>
-                    <textarea id="description" required rows="1" placeholder="Answer"></textarea>
+                    <textarea id="description" 
+                        class="w-full bg-transparent border-b border-[#D1D5DB] py-2 px-[0.1rem] outline-none transition-colors duration-200 ease-in-out focus:border-[#F59E0B] placeholder-[#9CA3AF] resize-y"
+                        required rows="1" placeholder="Answer"></textarea>
                 </div>
-                <div class="form-box">
+                <div class="bg-white rounded-xl p-5 mb-4 shadow-[-2px_2px_3px_0_rgba(0,0,0,0.1),-1px_1px_2px_0_rgba(0,0,0,0.06)] border border-[#F0D3B3]">
                     <label>Photo(s)</label>
-                    <div id="fileUploadVisual" 
-                        class="group flex upload-photo-container items-center py-2 cursor-pointer transition-all duration-200">
+                    <div id="fileUploadVisual"
+                        class="group flex border-b-0 pb-0 items-center py-2 cursor-pointer transition-all duration-200">
                         <svg id="uploadIcon" xmlns="http://www.w3.org/2000/svg" 
                             class="h-5 w-5 flex-shrink-0 mr-2 text-gray-400 transition-colors group-hover:text-[#F59E0B] relative top-1" 
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
                         <input type="text" id="fileUploadPlaceholder" placeholder="Upload File(s)" readonly 
-                            class="flex-grow bg-transparent p-0 border-none outline-none text-gray-600
+                            class="flex-grow bg-transparent p-0 pt-3 border-none outline-none text-gray-600
                                     placeholder:text-gray-400 placeholder:transition-colors 
                                     group-hover:placeholder:text-[#F59E0B] group-hover:placeholder:underline" />
                     </div>
@@ -447,7 +405,7 @@
                             </div>
                         </div>
                     </div>
-                    'SAYA TAMBAHIN BUTTON CANCEL DISINI, SUDAH JUGA DITAMBAH DI HOMEPAGE USER DAN PEMILIK'
+                    <!-- 'SAYA TAMBAHIN BUTTON CANCEL DISINI, SUDAH JUGA DITAMBAH DI HOMEPAGE USER DAN PEMILIK' -->
                     <div id="editProfilePage" class="flex items-center w-full relative hidden">
                         <div class="absolute top-4 right-4 flex items-center gap-3">
                             <button id="cancelEditBtn" class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-7 py-1 rounded-full shadow font-semibold transition">
@@ -485,7 +443,7 @@
                         </button>
                     </div>
                 </div>
-                `SAYA UBAH BAGIAN INI`
+                <!-- `SAYA UBAH BAGIAN INI` -->
                 <div id="accountSetting" class="bg-[#FFFFFF] text-[#5C3211] hidden rounded-xl p-8 shadow-md overflow-hidden mt-8 border border-[#F0D3B3]">
                     <div class="w-full relative">
                         <button id="closeAccountSettingBtn" class="absolute top-0 right-0 text-[#5C3211] hover:bg-gray-100 rounded-full transition w-8 h-8 flex items-center justify-center" title="Close">
@@ -528,487 +486,6 @@
 
             </div>
         </div>
-        
     </main>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const closeSidebarMenuBtn = document.getElementById('closeBtn');
-            const sidebarMenu = document.getElementById('sidebarMenu');
-            const mainContent = document.querySelector('main');
-            
-            const awalDiv = document.getElementById('awal');
-            const notification = document.getElementById('notification');
-            const addPlaceForm = document.getElementById('addPlace');
-            const profile = document.getElementById('profil');
-            
-            const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
-            const openAddPlaceBtns = [document.getElementById('addPlaceBtn'), document.getElementById('openAddPlaceBtn')];
-            const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
-            
-            // Variabel untuk halaman profil
-            const containerProfile = document.getElementById('containerProfile');
-            const profilPage = document.getElementById('profilPage');
-            const editProfilePage = document.getElementById('editProfilePage');
-            const bawahProfil = document.getElementById('bawahProfil');
-            const accountSetting = document.getElementById('accountSetting');
-            
-            // Variabel untuk form edit profil
-            const editProfileBtn = document.getElementById('editProfileBtn');
-            const saveEditBtn = document.getElementById('saveEditBtn');
-            const cancelEditBtn = document.getElementById('cancelEditBtn');
-            const editUsernameInput = document.getElementById('editUsername');
-            const editFullNameInput = document.getElementById('editFullName');
-            const usernameError = document.getElementById('usernameError');
-
-            //INI BUAT UBAH CONTAINER
-            const mainContentArea = document.getElementById('main-content-area');
-            
-            const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
-            const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
-            const deleteAccountBtn = document.getElementById('deleteAccountBtn');
-            const logoutBtn = document.getElementById('logoutBtn');
-            
-            //INI BUAT UBAH PASSOWRD
-            const savePasswordBtn = document.getElementById('savePasswordBtn');
-            const currentPasswordInput = document.getElementById('currentPassword');
-            const newPasswordInput = document.getElementById('newPass');
-            const passwordError = document.getElementById('passwordError');
-
-            const passwordInput = document.getElementById('newPass');
-            const passError = document.getElementById('passwordError');
-
-            // UNTUK FILE EXPLORER DAN GMAP
-            const attractionForm = document.getElementById("attractionForm");
-            const fileInput = document.getElementById("file-upload");
-            const fileList = document.getElementById("file-list");
-            const fileUploadVisual = document.getElementById("fileUploadVisual");
-            const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
-            const gmapsInput = document.getElementById("gmaps");
-
-            let activePanel = 'awal'; 
-
-            function showPanel(panelName) {
-                awalDiv.classList.add('hidden');
-                notification.classList.add('hidden');
-                addPlaceForm.classList.add('hidden');
-                profile.classList.add('hidden');
-                
-                // TAMBAHIN INI
-                mainContentArea.classList.remove('main-container', 'main-container-detail');
-
-                switch (panelName) {
-                    case 'awal':
-                        awalDiv.classList.remove('hidden');
-                        mainContentArea.classList.add('main-container-detail'); //TAMBAH INI
-                        break;
-                    case 'notification':
-                        notification.classList.remove('hidden');
-                        mainContentArea.classList.add('main-container'); //INI JUGA
-                        break;
-                    case 'addPlace':
-                        addPlaceForm.classList.remove('hidden');
-                        mainContentArea.classList.add('main-container'); //INI JUGA
-                        break;
-                    case 'profil':
-                        profile.classList.remove('hidden');
-                        containerProfile.classList.remove('hidden');
-                        profilPage.classList.remove('hidden');
-                        bawahProfil.classList.remove('hidden');
-                        editProfilePage.classList.add('hidden');
-                        accountSetting.classList.add('hidden');
-                        mainContentArea.classList.add('main-container'); //INI LAGI
-                        break;
-                }
-                activePanel = panelName;
-
-                if (sidebarMenu.classList.contains('translate-x-0')) {
-                    sidebarMenu.classList.remove('translate-x-0');
-                    sidebarMenu.classList.add('-translate-x-full');
-                    mainContent.style.marginLeft = '5rem';
-                }
-            }
-
-            mainContent.style.transition = 'margin-left 0.3s';
-            hamburgerBtn.addEventListener('click', () => {
-                sidebarMenu.classList.remove('-translate-x-full');
-                mainContent.style.marginLeft = '18rem'; 
-            });
-            closeSidebarMenuBtn.addEventListener('click', () => {
-                sidebarMenu.classList.add('-translate-x-full');
-                mainContent.style.marginLeft = '5rem'; 
-            });
-            
-            openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (activePanel === 'notification') {
-                    showPanel('awal');
-                } else {
-                    showPanel('notification');
-                }
-            }));
-
-            openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (activePanel === 'addPlace') {
-                    showPanel('awal');
-                } else {
-                    showPanel('addPlace');
-                }
-            }));
-            
-            openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (activePanel === 'profil') {
-                    showPanel('awal');
-                } else {
-                    showPanel('profil');
-                }
-            }));
-            
-            if (openAccountSettingBtn) {
-                openAccountSettingBtn.addEventListener('click', () => {
-                    containerProfile.classList.add('hidden');
-                    bawahProfil.classList.add('hidden');
-                    accountSetting.classList.remove('hidden');
-                });
-            }
-
-            if (closeAccountSettingBtn) {
-                closeAccountSettingBtn.addEventListener('click', () => {
-                    accountSetting.classList.add('hidden');
-                    containerProfile.classList.remove('hidden');
-                    bawahProfil.classList.remove('hidden');
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            }
-
-            //Tambahin ini juga
-            function validateProfileForm() {
-                if (!editUsernameInput || !editFullNameInput || !saveEditBtn || !usernameError) return;
-
-                const username = editUsernameInput.value.trim();
-                const fullName = editFullNameInput.value.trim();
-                const isUsernameLengthValid = username.length >= 8 && username.length <= 20;
-                
-                if (username.length > 0 && !isUsernameLengthValid) {
-                    usernameError.classList.remove('hidden');
-                } else {
-                    usernameError.classList.add('hidden');
-                }
-
-                const isFormValid = isUsernameLengthValid && fullName.length > 0;
-
-                if (isFormValid) {
-                    saveEditBtn.disabled = false;
-                    saveEditBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                    saveEditBtn.classList.add('hover:bg-[#FF9800]/80', 'hover:text-white/80');
-                } else {
-                    saveEditBtn.disabled = true;
-                    saveEditBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                    saveEditBtn.classList.remove('hover:bg-[#FF9800]/80', 'hover:text-white/80');
-                }
-            }
-
-            // 2. EVENT LISTENER PADA TOMBOL EDIT, SAVE, DAN CANCEL
-            if (editProfileBtn) {
-                editProfileBtn.addEventListener('click', () => {
-                    profilPage.classList.add('hidden');
-                    editProfilePage.classList.remove('hidden');
-                    
-                    // !! INI BAGIAN PENTING YANG HILANG !!
-                    // Panggil validasi untuk mengatur kondisi awal tombol "Save"
-                    validateProfileForm(); 
-                });
-            }
-
-            if (saveEditBtn) {
-                saveEditBtn.addEventListener('click', () => {
-                    // Logika penyimpanan data bisa ditambahkan di sini
-                    // Contoh: alert('Perubahan disimpan!');
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            }
-
-            if (cancelEditBtn) {
-                cancelEditBtn.addEventListener('click', () => {
-                    profilPage.classList.remove('hidden');
-                    editProfilePage.classList.add('hidden');
-                });
-            }
-            
-            // 3. PASANG EVENT LISTENER 'INPUT' UNTUK VALIDASI REAL-TIME
-            if (editUsernameInput && editFullNameInput) {
-                editUsernameInput.addEventListener('input', validateProfileForm);
-                editFullNameInput.addEventListener('input', validateProfileForm);
-            }
-
-            if (passwordInput) {
-                passwordInput.addEventListener('input', () => {
-                    const password = passwordInput.value.trim();
-                    if (password.length > 0 && (password.length < 8 || password.length > 20)) {
-                        passError.classList.remove('hidden');
-                    } else {
-                        passError.classList.add('hidden');
-                    }
-                });
-            }
-
-            const validateAndUpdateButton = () => {
-                const currentPass = currentPasswordInput.value.trim();
-                const newPass = newPasswordInput.value.trim();
-                const isNewPassLengthValid = newPass.length >= 8 && newPass.length <= 20;
-
-                if (newPass !== '' && !isNewPassLengthValid) {
-                    passwordError.classList.remove('hidden');
-                } else {
-                    passwordError.classList.add('hidden');
-                }
-
-                const isFormValid = currentPass !== '' && newPass !== '' && isNewPassLengthValid;
-
-                if (isFormValid) {
-                    savePasswordBtn.disabled = false;
-                    savePasswordBtn.classList.remove('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
-                    savePasswordBtn.classList.add('bg-[#FF9800]', 'text-white');
-                } else {
-                    savePasswordBtn.disabled = true;
-                    savePasswordBtn.classList.remove('bg-[#FF9800]', 'text-white');
-                    savePasswordBtn.classList.add('text-[#FF9800]', 'bg-white', 'opacity-50', 'cursor-not-allowed');
-                }
-            };
-
-            currentPasswordInput.addEventListener('input', validateAndUpdateButton);
-            newPasswordInput.addEventListener('input', validateAndUpdateButton);
-            
-            validateAndUpdateButton();
-
-            if (savePasswordBtn) {
-                savePasswordBtn.addEventListener('click', () => {
-                    if (savePasswordBtn.disabled) {
-                        return;
-                    }
-                    
-                    alert('Successfully change password');
-                    
-                    currentPasswordInput.value = '';
-                    newPasswordInput.value = '';
-                    
-                    validateAndUpdateButton();
-                });
-            }
-
-            if (deleteAccountBtn) {
-                deleteAccountBtn.addEventListener('click', () => {
-                    const message = "This action will permanently delete your account. Are you sure you want to continue?";                   
-                    const userConfirmed = window.confirm(message);
-                    if (userConfirmed) {
-                        console.log("Pengguna mengonfirmasi penghapusan akun.");
-                        alert("Your account has been successfully deleted.");
-                        // Arahkan pengguna ke halaman login atau halaman utama
-                        // window.location.href = '/login.html'; 
-                    } else {
-                        console.log("Account deletion canceled.");
-                    }
-                });
-            }  
-
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', (e) => {
-                    e.preventDefault(); 
-                    const message = "Are you sure you want to log out? You can still log in with this account in the next session.";
-                    
-                    const userConfirmed = window.confirm(message);
-
-                    if (userConfirmed) {
-                        console.log("Logging out...");
-                        // Mengarahkan pengguna ke halaman login
-                        // window.location.href = '/halaman-login.html'; 
-                        alert("You have been successfully logged out.");
-                    } else {
-                        console.log("Log out canceled.");
-                    }
-                });
-            }
-
-            function generateStars(element) {
-                let rating = parseFloat(element.getAttribute("data-rating")); // Ambil rating
-                let fullStars = Math.floor(rating); // Bintang penuh
-                let halfStar = rating % 1 >= 0.5 ? 1 : 0; // Bintang setengah jika >= 0.5
-                let emptyStars = 5 - (fullStars + halfStar); // Sisa bintang kosong
-
-                let starsHTML = "";
-
-                // Tambah bintang penuh
-                for (let i = 0; i < fullStars; i++) {
-                    starsHTML += '<i class="fa-solid fa-star"></i>';
-                }
-                // Tambah bintang setengah jika ada
-                if (halfStar) {
-                    starsHTML += '<i class="fa-solid fa-star-half-alt"></i>';
-                }
-                // Tambah bintang kosong
-                for (let i = 0; i < emptyStars; i++) {
-                    starsHTML += '<i class="fa-regular fa-star"></i>';
-                }
-
-                element.innerHTML = starsHTML;
-            }
-
-            document.querySelectorAll(".rating").forEach(generateStars);
-            // UNTUK OPEN GMAP
-            if (gmapsInput) {
-                    let mapsAlertShown = false; 
-                    gmapsInput.addEventListener('focus', () => {
-                        if (!mapsAlertShown) {
-                            window.open('https://www.google.com/maps', '_blank');
-                    
-                            alert("Please search for and mark the location on Google Maps that just opened.\n\n" +
-                                "Once you have found the location, click the 'Share' button,\n" +
-                                "then copy the link provided and paste it into this field.");
-                            mapsAlertShown = true; 
-                        }
-                    });
-                }
-
-                // INI UNTUK CEK INPUTAN FORM
-            if (attractionForm) {
-                attractionForm.onsubmit = (e) => {
-                    e.preventDefault(); 
-                    let isValid = true; 
-
-                    const showError = (inputElement, message) => {
-                        inputElement.classList.add('border-red-500'); 
-                        let errorSpan = inputElement.nextElementSibling;
-                        if (!errorSpan || !errorSpan.classList.contains('error-message')) {
-                            errorSpan = document.createElement('p');
-                            errorSpan.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
-                            inputElement.parentNode.insertBefore(errorSpan, inputElement.nextSibling); 
-                        }
-                        errorSpan.textContent = message;
-                        isValid = false; 
-                    };
-                    
-                    const hideError = (inputElement) => {
-                        inputElement.classList.remove('border-red-500'); 
-                        let errorSpan = inputElement.nextElementSibling;
-                        if (errorSpan && errorSpan.classList.contains('error-message')) {
-                            errorSpan.textContent = ''; 
-                                
-                        }
-                    };
-
-                    attractionForm.querySelectorAll('input[type="text"]:not(#fileUploadPlaceholder), textarea').forEach(input => {
-                        if (!input.value.trim()) {
-                            showError(input, "This field is required.");
-                        } else {
-                            hideError(input);
-                        }
-                    });
-
-                    const urlRegex = /^(https?:\/\/(?:www\.|m\.)?google\.(?:com|co\.\w{2}|ru)\/maps\S*|https?:\/\/maps\.app\.goo\.gl\/\S*)/i;
-
-                    if (!gmapsInput.value.trim()) {
-                        showError(gmapsInput, "This field is required.");
-                    } else if (!urlRegex.test(gmapsInput.value.trim())) {
-                        showError(gmapsInput, "Please enter a valid map URL (e.g., Google Maps link).");
-                    } else {
-                        hideError(gmapsInput);
-                    }
-                            
-                    if (isValid) {
-                        alert("Form has been submitted!"); 
-                        modal.classList.add("hidden"); 
-                        e.target.reset();  
-                        fileList.textContent = ''; 
-                        fileUploadPlaceholder.value = ''; 
-                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
-                        attractionForm.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
-                        attractionForm.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-                    }
-                };
-            } else { 
-                console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
-            }
-
-            // INI UNTUK UPLOAD FILE
-            if (fileUploadVisual) { 
-                fileUploadVisual.onclick = () => {
-                    fileInput.click();
-                };
-            } else {
-                console.error("Error: Div 'fileUploadVisual' tidak ditemukan!");
-            }
-
-            // INI UNTUK MENAMPILKAN NAMA FILE SETELAH DIPILIH
-            if (fileInput) { 
-                fileInput.onchange = () => {
-                    if (fileInput.files.length > 0) {
-                        let filesText = Array.from(fileInput.files)
-                                                .map(file => file.name)
-                                                .join(', ');
-                        fileList.textContent = `Selected: ${filesText}`;
-                        fileUploadPlaceholder.value = `${fileInput.files.length} file(s) selected`; 
-                    } else {
-                        fileList.textContent = '';
-                        fileUploadPlaceholder.value = ''; 
-                        fileUploadPlaceholder.placeholder = "Upload File(s)"; 
-                    }
-                };
-            } else {
-                console.error("Error: Input 'file-upload' tidak ditemukan!");
-            }
-            
-            showPanel('awal');
-
-            document.getElementById('addReview').addEventListener('click', function() {
-                document.getElementById('addReview').classList.add('hidden');
-                document.getElementById('fillReview').classList.remove('hidden');
-            });
-
-            document.getElementById('closeReview').addEventListener('click', function() {
-                document.getElementById('fillReview').classList.add('hidden');
-                document.getElementById('addReview').classList.remove('hidden');
-            });
-            document.getElementById('openRating').addEventListener('click', function() {
-                document.getElementById('ratingModal').classList.remove('hidden');
-            });
-            document.getElementById('closeRating').addEventListener('click', function() {
-                document.getElementById('ratingModal').classList.add('hidden');
-            });
-            document.getElementById('openImage').addEventListener('click', function() {
-                document.getElementById('imageModal').classList.remove('hidden');
-            });
-            document.getElementById('closeImage').addEventListener('click', function() {
-                document.getElementById('imageModal').classList.add('hidden');
-            });
-            document.getElementById('cancelRating').addEventListener('click', function() {
-                document.getElementById('afterRating').classList.add('hidden');
-                document.getElementById('ratingModal').classList.remove('hidden');
-            });
-            document.getElementById('cancelImage').addEventListener('click', function() {
-                document.getElementById('afterImage').classList.add('hidden');
-                document.getElementById('imageModal').classList.remove('hidden');
-            });
-            document.querySelectorAll('#openAfterRating').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    document.getElementById('ratingModal').classList.add('hidden');
-                    document.getElementById('fillReview').classList.remove('hidden');
-                    document.getElementById('afterRating').classList.remove('hidden');
-                });
-            });
-            document.querySelectorAll('#openAfterImage').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    document.getElementById('imageModal').classList.add('hidden');
-                    document.getElementById('fillReview').classList.remove('hidden');
-                    document.getElementById('afterImage').classList.remove('hidden');
-                });
-            });
-        });
-    </script>
-    
 </body>
 </html>
