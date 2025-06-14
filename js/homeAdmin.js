@@ -1,20 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
+    //navigasi sidebar
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const closeSidebarMenuBtn = document.getElementById('closeBtn'); 
     const sidebarMenu = document.getElementById('sidebarMenu');
     const mainContent = document.querySelector('main');
     
+    //div yang akan muncul di main container
     const headerDiv = document.getElementById('header');
     const awalDiv = document.getElementById('awal');
     const afterSearchDiv = document.getElementById('afterSearch');
     const notification = document.getElementById('notification');
     const addPlaceForm = document.getElementById('addPlace');
     const manageVerification = document.getElementById('manageVerification'); 
+    const profile = document.getElementById('profil');
+
+    //pop up form untuk diverifikasi admin
     const addPlaceModal = document.getElementById('addPlaceModal');
     const claimCulinaryModal = document.getElementById('claimCulinaryModal');
-
-    const profile = document.getElementById('profil');
     
+    //tombol
     const searchIcon = document.getElementById('searchIcon');
     const filterButtons = document.querySelectorAll('.filter-button');
     const openNotificationBtns = [document.getElementById('notificationBtn'), document.getElementById('openNotificationBtn')];
@@ -22,24 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const openManageVerificationBtns = [document.getElementById('manageVerificationBtn'), document.getElementById('openManageVerificationBtn')];
     const openProfilBtns = [document.getElementById('profilBtn'), document.getElementById('openProfilBtn')];
     
+    //tampilan profil
     const containerProfile = document.getElementById('containerProfile');
     const profilPage = document.getElementById('profilPage');
     const editProfilePage = document.getElementById('editProfilePage');
     const bawahProfil = document.getElementById('bawahProfil');
     const accountSetting = document.getElementById('accountSetting');
     
+    //changa password profil
     const savePasswordBtn = document.getElementById('savePasswordBtn');
     const currentPasswordInput = document.getElementById('currentPassword');
     const newPasswordInput = document.getElementById('newPass');
     const passwordError = document.getElementById('passwordError');
-    const logoutBtn = document.getElementById('logoutBtn');
     
+    //tombol di profil
+    const logoutBtn = document.getElementById('logoutBtn');
     const openAccountSettingBtn = document.getElementById('openAccountSettingBtn');
     const closeAccountSettingBtn = document.getElementById('closeAccountSettingBtn');
     
-    const passwordInput = document.getElementById('newPass');
-    const passError = document.getElementById('passwordError');
-
+    //file upload dan direct ke gmaps untuk form addplace
     const fileInput = document.getElementById("file-upload");
     const fileList = document.getElementById("file-list");
     const fileUploadVisual = document.getElementById("fileUploadVisual");
@@ -48,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activePanel = 'awal'; 
 
+    // fungsi untuk ganti ganti main content
     function showPanel(panelName) {
         headerDiv.classList.add('hidden');
         awalDiv.classList.add('hidden');
@@ -94,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     mainContent.style.transition = 'margin-left 0.3s';
+
+    //buka tutup sidebar
     hamburgerBtn.addEventListener('click', () => {
         sidebarMenu.classList.remove('-translate-x-full');
         mainContent.style.marginLeft = '18rem'; 
@@ -103,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainContent.style.marginLeft = '5rem'; 
     });
 
+    //search icon untuk after search
     searchIcon.addEventListener('click', () => showPanel('afterSearch'));
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
@@ -131,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showPanel('profil');
         }
     }));
+
 
     openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -236,6 +246,60 @@ document.addEventListener('DOMContentLoaded', () => {
         claimCulinaryModal.classList.remove('hidden');
     }
 
+    document.querySelectorAll('.view-form-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); 
+            const parentItem = link.closest('.verification-item');
+            const requestType = parentItem.dataset.type;
+
+            if (parentItem) {
+                const approveBtn = parentItem.querySelector('.approve-btn');
+                const denyBtn = parentItem.querySelector('.deny-btn');
+
+                approveBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                approveBtn.disabled = false;
+                denyBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                denyBtn.disabled = false;
+                
+                denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
+                denyBtn.classList.remove('bg-red-500', 'text-white');
+                
+                approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
+                approveBtn.classList.remove('bg-blue-500', 'text-white');
+            }
+
+            if (requestType === 'add-place') {
+                const addData = {
+                    placeName: "Universitas Mataram",
+                    category: "Tourist destination",
+                    district: "Mataram",
+                    subdistrict: "Selaparang",
+                    village: "Gomong",
+                    street: "Majapahit Street No.62",
+                    gmaps: "https://maps.app.goo.gl/96YcpUGoX1Xedrss7",
+                    description: "Universitas Mataram is a state university in the city of Mataram, West Nusa Tenggara province, Indonesia.",
+                    photo_link: ["unram.jpg",]
+                };
+                openAddPlaceModal(addData);
+            } else if (requestType === 'claim-culinary') {
+                const claimData = {
+                    fullName: "Ihdal Fahroni", 
+                    phone: "08877776663", 
+                    email: "rmsumberejeki@gmail.com", 
+                    tin: "123456789", 
+                    supporting_document: ["sumber_rejeki.png",]
+                };
+                openClaimCulinaryModal(claimData);
+            }
+        });
+    });
+
+    function closeModal(modalElement) {
+        if (modalElement) {
+            modalElement.classList.add('hidden');
+        }
+    }
+
     document.querySelectorAll('.modal-close-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const modalId = this.dataset.closeModal;
@@ -259,17 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
             bawahProfil.classList.remove('hidden');
             profilPage.classList.remove('hidden');
             editProfilePage.classList.add('hidden');
-        });
-    }
-
-    if (passwordInput) {
-        passwordInput.addEventListener('input', () => {
-            const password = passwordInput.value.trim();
-            if (password.length > 0 && (password.length < 8 || password.length > 20)) {
-                passError.classList.remove('hidden');
-            } else {
-                passError.classList.add('hidden');
-            }
         });
     }
 
@@ -465,60 +518,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (clickedButton === denyBtn) {
             denyBtn.classList.remove('border', 'border-red-500', 'text-red-500');
             denyBtn.classList.add('bg-red-500', 'text-white');
-        }
-    }
-
-    document.querySelectorAll('.view-form-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); 
-            const parentItem = link.closest('.verification-item');
-            const requestType = parentItem.dataset.type;
-
-            if (parentItem) {
-                const approveBtn = parentItem.querySelector('.approve-btn');
-                const denyBtn = parentItem.querySelector('.deny-btn');
-
-                approveBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                approveBtn.disabled = false;
-                denyBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                denyBtn.disabled = false;
-                
-                denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
-                denyBtn.classList.remove('bg-red-500', 'text-white');
-                
-                approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
-                approveBtn.classList.remove('bg-blue-500', 'text-white');
-            }
-
-            if (requestType === 'add-place') {
-                const addData = {
-                    placeName: "Universitas Mataram",
-                    category: "Tourist destination",
-                    district: "Mataram",
-                    subdistrict: "Selaparang",
-                    village: "Gomong",
-                    street: "Majapahit Street No.62",
-                    gmaps: "https://maps.app.goo.gl/96YcpUGoX1Xedrss7",
-                    description: "Universitas Mataram is a state university in the city of Mataram, West Nusa Tenggara province, Indonesia.",
-                    photo_link: ["unram.jpg",]
-                };
-                openAddPlaceModal(addData);
-            } else if (requestType === 'claim-culinary') {
-                const claimData = {
-                    fullName: "Ihdal Fahroni", 
-                    phone: "08877776663", 
-                    email: "rmsumberejeki@gmail.com", 
-                    tin: "123456789", 
-                    supporting_document: ["sumber_rejeki.png",]
-                };
-                openClaimCulinaryModal(claimData);
-            }
-        });
-    });
-
-    function closeModal(modalElement) {
-        if (modalElement) {
-            modalElement.classList.add('hidden');
         }
     }
 
