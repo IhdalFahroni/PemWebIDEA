@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const passwordInput = document.getElementById('password');
     const togglePasswordIcon = document.getElementById('togglePasswordIcon');
+    const loginBtn = document.getElementById('loginBtn');
 
     if (togglePasswordIcon) {
         togglePasswordIcon.addEventListener('click', function () {
@@ -12,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function handleAuth() {
-        console.log("Login button clicked!");
-        return false;
+    if(loginBtn) {
+        loginBtn.addEventListener('click', function () {
+            window.location.href = "HomePageUser.html";
+        });
     }
 });
