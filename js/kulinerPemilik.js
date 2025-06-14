@@ -445,7 +445,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     
             if (isValid) {
                 alert("Form has been submitted!"); 
-                modal.classList.add("hidden"); 
                 e.target.reset();  
                 fileList.textContent = ''; 
                 fileUploadPlaceholder.value = ''; 
