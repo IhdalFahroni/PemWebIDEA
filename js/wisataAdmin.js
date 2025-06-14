@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileList = document.getElementById("file-list");
     const fileUploadVisual = document.getElementById("fileUploadVisual");
     const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
-    const gmapsInput = document.getElementById("gmaps");
+    const gmapsInput = document.getElementById("gmaps_input");
 
     const openEdit = document.getElementById('openEdit');
     const saveEdit = document.getElementById('saveEdit');
