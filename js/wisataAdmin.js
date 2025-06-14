@@ -114,30 +114,51 @@ document.addEventListener('DOMContentLoaded', () => {
     
     openNotificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
+        if (activePanel === 'notification') {
+            showPanel('awal');
+        } else {
             showPanel('notification');
+        }
     }));
 
     openAddPlaceBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
+        if (activePanel === 'addPlace') {
+            showPanel('awal');
+        } else {
             showPanel('addPlace');
+        }
+    }));
+    
+    openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (activePanel === 'profil') {
+            showPanel('awal');
+        } else {
+            showPanel('profil');
+        }
     }));
 
     openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
         e.preventDefault();
+        if(activePanel === 'manageVerification') {
+            showPanel('awal');
+        } else {
             showPanel('manageVerification');
-        document.querySelectorAll('.verification-item').forEach(item => {
-            item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
-                button.classList.add('opacity-50', 'cursor-not-allowed');
-                button.disabled = true;
-                if (button.classList.contains('deny-btn')) {
-                    button.classList.add('border', 'border-red-500', 'text-red-500');
-                    button.classList.remove('bg-red-500', 'text-white'); 
-                } else if (button.classList.contains('approve-btn')) {
-                    button.classList.add('border', 'border-blue-500', 'text-blue-500'); 
-                    button.classList.remove('bg-blue-500', 'text-white'); 
-                }
+            document.querySelectorAll('.verification-item').forEach(item => {
+                item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
+                    button.classList.add('opacity-50', 'cursor-not-allowed');
+                    button.disabled = true;
+                    if (button.classList.contains('deny-btn')) {
+                        button.classList.add('border', 'border-red-500', 'text-red-500');
+                        button.classList.remove('bg-red-500', 'text-white'); 
+                    } else if (button.classList.contains('approve-btn')) {
+                        button.classList.add('border', 'border-blue-500', 'text-blue-500'); 
+                        button.classList.remove('bg-blue-500', 'text-white'); 
+                    }
+                });
             });
-        });
+        }
     }));
 
     function generateStars(element) {
@@ -229,12 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal(modalToClose);
         });
     });
-
-    
-    openProfilBtns.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-            showPanel('profil');
-    }));
     
     if (openAccountSettingBtn) {
         openAccountSettingBtn.addEventListener('click', () => {

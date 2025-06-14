@@ -19,6 +19,9 @@ module.exports = {
       transitionProperty: {
         'bg-img': 'background-image',
       },
+      backgroundImage: {
+        'Landing': "url('../Assets/LandingPagePic1.jpg')",
+      },
     },
   },
   plugins: [],

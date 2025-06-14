@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mainContent.style.transition = 'margin-left 0.3s';
     hamburgerBtn.addEventListener('click', () => {
         sidebarMenu.classList.remove('-translate-x-full');
-        mainContent.style.marginLeft = '18rem'; 
+        mainContent.style.marginLeft = '18rem';
     });
     closeSidebarMenuBtn.addEventListener('click', () => {
         sidebarMenu.classList.add('-translate-x-full');

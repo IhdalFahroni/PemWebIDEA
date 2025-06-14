@@ -9,14 +9,14 @@
     <style>
         .main-container {
             background: linear-gradient(to bottom, #FFC107 50px, #F8F9FA 300px); 
-            border-top-left-radius: 1rem;
+            border-top-left-radius: 0.75rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.2);
             position: relative; 
             z-index: 30; 
         }
         .main-container-detail {
             background-image: linear-gradient(to bottom right, #FFC107, #FFFFFF);
-            border-top-left-radius: 1rem;
+            border-top-left-radius: 0.75rem;
         }
         ::-webkit-scrollbar {width: 6px;}
         ::-webkit-scrollbar-track {background: #f1f1f1;}
@@ -31,15 +31,15 @@
 
     <aside class="text-[#FFC107] w-20 flex flex-col items-center fixed top-0 left-0 h-screen z-20 bg-[#FFFFFF]">
         <div class="p-5">
-            <div id="hamburgerBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <div id="hamburgerBtn" class="w-12 h-12 mt-2 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-bars text-xl"></i>
             </div>
         </div>
 
         <div class="flex-1 p-5 space-y-6">
-            <a id="homeBtn" href="HomePageUser.html" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <div id="homeBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-home text-xl"></i>
-            </a>
+            </div>
             <div id="addPlaceBtn" class="w-12 h-12  rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <i class="fa-solid fa-plus text-xl"></i>
             </div>
@@ -50,23 +50,22 @@
 
         <div class="p-5 space-y-3">
             <div id="profilBtn" class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer transition hover:scale-110 hover:bg-gray-100">
-                <i class="fa-solid fa-user text-xl"></i>
+                <i class="fa-solid fa-user text-[#FFC107 text-xl"></i>
             </div>
         </div>
     </aside>
 
     <div id="sidebarMenu" class="text-[#FFC107] fixed top-0 w-72 h-screen bg-[#FFFFFF] backdrop-blur-md z-[200] flex flex-col duration-300 ease-in-out -translate-x-full">
         <div class="p-5">
-            <div class="flex items-center">
-                <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer" id="closeBtn">
+            <div class="flex items-center mt-2">
+                <div class="w-12 h-12 rounded flex items-center justify-center font-bold cursor-pointer hover:scale-110 hover:bg-gray-100" id="closeBtn">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </div>
                 <img src="../Assets/Logo1.png" alt="Lombok REC Logo" class="h-8 w-auto">
             </div>
         </div>
-
         <div class="flex-1 p-5 space-y-6">
-            <a href="HomePageUser.html" id="openHomeBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
+            <a href="#" id="openHomeBtn" class="flex items-center rounded cursor-pointer transition hover:scale-110 hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-lg"><i class="fa-solid fa-home"></i></span>
                 <span class="text-lg font-medium text-[#5C3211] pt-2">Home</span>
             </a>
@@ -79,12 +78,11 @@
                 <span class="text-lg font-medium text-[#5C3211] pt-1">Notifications</span>
             </a>
         </div>
-
         <div class="p-5 space-y-3">
             <div id="openProfilBtn" class="flex items-center rounded cursor-pointer transition hover:bg-gray-100">
                 <span class="w-12 h-12 flex items-center justify-center text-xl"><i class="fa-solid fa-user"></i></span>
                 <div class="flex flex-col">
-                    <span class="text-lg font-semibold text-[#5C3211]">Username</span> 
+                    <span class="text-lg font-semibold text-[#5C3211]">Owner</span> 
                     <span class="text-base font-light text-[#5C3211]">@email.gmail.com</span>
                 </div>
             </div>
