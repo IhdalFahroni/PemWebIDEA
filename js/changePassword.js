@@ -4,6 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const togglePasswordIcon = document.getElementById('togglePasswordIcon');
     const passwordError = document.getElementById('passwordError');
     const passwordDontMatchError = document.getElementById('passwordDontMatch');
+    const changeBtn = document.getElementById('changeBtn');
+
+    function updateChangeBtnState() {
+        const password = newPass.value;
+        const confirm = confirmNewPass.value;
+        const isPasswordValid = password.length >= 8 && password.length <= 20;
+        const isMatch = password === confirm;
+        const isFilled = password !== "" && confirm !== "";
+
+        if (isPasswordValid && isMatch && isFilled) {
+            changeBtn.classList.remove('cursor-not-allowed', 'opacity-50');
+            changeBtn.classList.add('cursor-pointer');
+            changeBtn.disabled = false;
+        } else {
+            changeBtn.classList.add('cursor-not-allowed', 'opacity-50');
+            changeBtn.classList.remove('cursor-pointer');
+            changeBtn.disabled = true;
+        }
+    }
 
     if (togglePasswordIcon) {
         togglePasswordIcon.addEventListener('click', function () {
@@ -14,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Initial state
+    updateChangeBtnState();
+
     newPass.addEventListener('input', function() {
         const password = newPass.value;
         if (password.length < 8 || password.length > 20) {
@@ -21,26 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             passwordError.classList.add('hidden'); 
         }
+        updateChangeBtnState();
     });
 
-    function handleChange() {
+    confirmNewPass.addEventListener('input', function() {
         const password = newPass.value;
-        const newPassword = confirmNewPass.value;
-
-        let isValid = true;
-
-        if (password.length < 8 || password.length > 20) {
-            passwordError.classList.remove('hidden');
-            isValid = false;
+        const confirm = confirmNewPass.value;
+        if (password != confirm) {
+            passwordDontMatchError.classList.remove('hidden');
         } else {
-            passwordError.classList.add('hidden');
+            passwordDontMatchError.classList.add('hidden'); 
         }
+        updateChangeBtnState();
+    });
 
-        if (isValid) {
-            console.log("Sign Up button clicked!");
-            console.log("Password:", password);
-        }
-
-        return isValid; 
+    if (changeBtn) {
+        changeBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (changeBtn.disabled) return;
+            alert('Successfuly change password');
+            window.location.href = 'LoginPage.html';
+        });
     }
 });

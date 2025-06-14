@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('emailError');
+    const forgotBtn = document.getElementById('forgotBtn');
 
     emailInput.addEventListener('input', function() {
         const email = emailInput.value;
@@ -8,25 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
             emailError.classList.remove('hidden');
         } else {
             emailError.classList.add('hidden');
+            forgotBtn.classList.remove('cursor-not-allowed', 'opacity-50');
+            forgotBtn.classList.add('cursor-pointer');
         }
     });
-
-    function handleSendLink() {
-        const email = emailInput.value;
-        let isValid = true;
-
-        if (!email.includes('@')) {
-            emailError.classList.remove('hidden');
-            isValid = false;
-        } else {
-            emailError.classList.add('hidden');
-        }
-
-        if (isValid) {
-            console.log("Send Link to Email button clicked!");
-            console.log("Email to send link:", email); 
-        }
-
-        return isValid;
+    if (forgotBtn) {
+        forgotBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            alert('The Link has been sent to your email');
+            window.location.href = 'LoginPage.html';
+        });
     }
 });
