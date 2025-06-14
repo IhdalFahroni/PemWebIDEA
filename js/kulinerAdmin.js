@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const editGmaps = document.getElementById('editGmaps');
     const editDeskripsi = document.getElementById('editDeskripsi');
     const Alamat = document.getElementById('alamat');
-    const Gmaps = document.getElementById('gmaps');
+    const GoogleMaps = document.getElementById('googleMaps');
     const Deskripsi = document.getElementById('deskripsi');
 
     const manageReviewBtn = document.getElementById('manageReviewBtn');
@@ -639,7 +639,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editAlamat.classList.remove('hidden');
         Alamat.classList.add('hidden');
         editGmaps.classList.remove('hidden');
-        Gmaps.classList.add('hidden');
+        GoogleMaps.classList.add('hidden');
         editDeskripsi.classList.remove('hidden');
         Deskripsi.classList.add('hidden');
         review.classList.add('hidden');
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editAlamat.classList.add('hidden');
         Alamat.classList.remove('hidden');
         editGmaps.classList.add('hidden');
-        Gmaps.classList.remove('hidden');
+        GoogleMaps.classList.remove('hidden');
         editDeskripsi.classList.add('hidden');
         Deskripsi.classList.remove('hidden');
         review.classList.remove('hidden');

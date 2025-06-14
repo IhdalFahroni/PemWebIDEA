@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const fileUploadPlaceholder = document.getElementById("fileUploadPlaceholder");
     const gmapsInput = document.getElementById("gmaps");
 
+    //UNTUK CLAIM
+    const fileInputClaim = document.getElementById("file-upload-claim");
+    const fileListClaim = document.getElementById("file-list-claim");
+    const fileUploadVisualClaim = document.getElementById("fileUploadVisualClaim");
+    const fileUploadPlaceholderClaim = document.getElementById("fileUploadPlaceholderClaim");
+
     const openMenus = document.getElementById('openMenu');
     const openPromos = document.getElementById('openPromo');
     const closeMenus = document.getElementById('closeMenu');
@@ -464,6 +470,32 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     } else {
         console.error("Error: Input 'file-upload' tidak ditemukan!");
+    }
+
+    if (fileUploadVisualClaim) { 
+        fileUploadVisualClaim.onclick = () => {
+            fileInput.click();
+        };
+    } else {
+        console.error("Error: Div 'fileUploadVisualClaim' tidak ditemukan!");
+    }
+
+    if (fileInputClaim) { 
+        fileInputClaim.onchange = () => {
+            if (fileInputClaim.files.length > 0) {
+                let filesText = Array.from(fileInputClaim.files)
+                                        .map(file => file.name)
+                                        .join(', ');
+                fileListClaim.textContent = `Selected: ${filesText}`;
+                fileUploadPlaceholderClaim.value = `${fileInput.files.length} file(s) selected`; 
+            } else {
+                fileListClaim.textContent = '';
+                fileUploadPlaceholderClaim.value = ''; 
+                fileUploadPlaceholderClaim.placeholder = "Upload File(s)"; 
+            }
+        };
+    } else {
+        console.error("Error: Input 'file-upload-claim' tidak ditemukan!");
     }
 
    
