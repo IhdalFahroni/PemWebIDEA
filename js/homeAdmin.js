@@ -472,6 +472,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function setButtonState(parentItem, selected) {
         const approveBtn = parentItem.querySelector('.approve-btn');
         const denyBtn = parentItem.querySelector('.deny-btn');
+        const Approve = parentItem.querySelector('.approve');
+        const Deny = parentItem.querySelector('.deny');
         if (parentItem.dataset.verified === 'true') {
             // Sudah diverifikasi, disable semua tombol
             approveBtn.disabled = true;
@@ -480,17 +482,13 @@ document.addEventListener('DOMContentLoaded', () => {
             denyBtn.classList.add('opacity-50', 'cursor-not-allowed');
             // Style sesuai hasil
             if (parentItem.dataset.selected === 'approve') {
-                approveBtn.classList.remove('bg-white');
-                approveBtn.classList.add('bg-blue-500', 'text-white');
-                approveBtn.classList.remove('border', 'border-blue-500', 'text-blue-500');
-                denyBtn.classList.remove('bg-red-500', 'text-white');
-                denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
+                approveBtn.classList.add('hidden');
+                denyBtn.classList.add('hidden');
+                Approve.classList.remove('hidden');
             } else if (parentItem.dataset.selected === 'deny') {
-                denyBtn.classList.remove('bg-white');
-                denyBtn.classList.add('bg-red-500', 'text-white');
-                denyBtn.classList.remove('border', 'border-red-500', 'text-red-500');
-                approveBtn.classList.remove('bg-blue-500', 'text-white');
-                approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
+                approveBtn.classList.add('hidden');
+                denyBtn.classList.add('hidden');
+                Deny.classList.remove('hidden');
             }
         } else {
             // Belum diverifikasi, enable tombol

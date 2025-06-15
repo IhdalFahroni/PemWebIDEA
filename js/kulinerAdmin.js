@@ -155,28 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }));
 
-    openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if(activePanel === 'manageVerification') {
-            showPanel('awal');
-        } else {
-            showPanel('manageVerification');
-            document.querySelectorAll('.verification-item').forEach(item => {
-                item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
-                    button.classList.add('opacity-50', 'cursor-not-allowed');
-                    button.disabled = true;
-                    if (button.classList.contains('deny-btn')) {
-                        button.classList.add('border', 'border-red-500', 'text-red-500');
-                        button.classList.remove('bg-red-500', 'text-white'); 
-                    } else if (button.classList.contains('approve-btn')) {
-                        button.classList.add('border', 'border-blue-500', 'text-blue-500'); 
-                        button.classList.remove('bg-blue-500', 'text-white'); 
-                    }
-                });
-            });
-        }
-    }));
-
     function generateStars(element) {
         let rating = parseFloat(element.getAttribute("data-rating")); // Ambil rating
         let fullStars = Math.floor(rating); // Bintang penuh
@@ -258,6 +236,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         claimCulinaryModal.classList.remove('hidden');
     }
+
+    function closeModal(modalElement) {
+        if (modalElement) {
+            modalElement.classList.add('hidden');
+        }
+    }
+
+    // Event listener untuk semua tombol close di setiap modal
+    document.querySelectorAll('.modal-close-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Ambil ID modal dari atribut data-close-modal
+            const modalId = this.dataset.closeModal;
+            // Cari elemen modal berdasarkan ID tersebut
+            const modalToClose = document.getElementById(modalId);
+            // Panggil fungsi untuk menutupnya
+            closeModal(modalToClose);
+        });
+    });
+
+    // Event listener untuk menutup modal saat area gelap di klik
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            // Jika yang diklik adalah area overlay (latar belakang), tutup modal
+            if (e.target === this) {
+                closeModal(this);
+            }
+        });
+    });
 
     document.querySelectorAll('.modal-close-btn').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -457,45 +463,77 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error: Form dengan ID 'attractionForm' tidak ditemukan!");
     }
 
-    function disableOtherButton(clickedButton, parentItem) {
+    document.querySelectorAll('.verification-item').forEach(item => {
+        item.querySelectorAll('.approve-btn, .deny-btn').forEach(button => {
+            button.classList.add('opacity-50', 'cursor-not-allowed');
+            button.disabled = true;
+            // Style awal: border & text color
+            if (button.classList.contains('deny-btn')) {
+                button.classList.add('border', 'border-red-500', 'text-red-500');
+                button.classList.remove('bg-red-500', 'text-white');
+            } else if (button.classList.contains('approve-btn')) {
+                button.classList.add('border', 'border-blue-500', 'text-blue-500');
+                button.classList.remove('bg-blue-500', 'text-white');
+            }
+        });
+        // Tandai status verifikasi di dataset
+        item.dataset.verified = 'false';
+        item.dataset.selected = '';
+    });
+
+    openManageVerificationBtns.forEach(btn => btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (activePanel === 'manageVerification') {
+            showPanel('awal');
+        } else {
+            showPanel('manageVerification');
+            // Tidak perlu reset tombol di sini, biarkan status tetap
+        }
+    }));
+
+    function setButtonState(parentItem, selected) {
         const approveBtn = parentItem.querySelector('.approve-btn');
         const denyBtn = parentItem.querySelector('.deny-btn');
-
-        approveBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        approveBtn.disabled = true;
-        denyBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        denyBtn.disabled = true;
-
-        if (clickedButton === approveBtn) {
-            approveBtn.classList.remove('border', 'border-blue-500', 'text-blue-500');
-            approveBtn.classList.add('bg-blue-500', 'text-white');
-        } else if (clickedButton === denyBtn) {
-            denyBtn.classList.remove('border', 'border-red-500', 'text-red-500');
-            denyBtn.classList.add('bg-red-500', 'text-white');
+        const Approve = parentItem.querySelector('.approve');
+        const Deny = parentItem.querySelector('.deny');
+        if (parentItem.dataset.verified === 'true') {
+            // Sudah diverifikasi, disable semua tombol
+            approveBtn.disabled = true;
+            denyBtn.disabled = true;
+            approveBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            denyBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            // Style sesuai hasil
+            if (parentItem.dataset.selected === 'approve') {
+                approveBtn.classList.add('hidden');
+                denyBtn.classList.add('hidden');
+                Approve.classList.remove('hidden');
+            } else if (parentItem.dataset.selected === 'deny') {
+                approveBtn.classList.add('hidden');
+                denyBtn.classList.add('hidden');
+                Deny.classList.remove('hidden');
+            }
+        } else {
+            // Belum diverifikasi, enable tombol
+            approveBtn.disabled = false;
+            denyBtn.disabled = false;
+            approveBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            denyBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            // Style default
+            approveBtn.classList.remove('bg-blue-500', 'text-white');
+            approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500', 'bg-white');
+            denyBtn.classList.remove('bg-red-500', 'text-white');
+            denyBtn.classList.add('border', 'border-red-500', 'text-red-500', 'bg-white');
         }
     }
 
     document.querySelectorAll('.view-form-link').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             const parentItem = link.closest('.verification-item');
             const requestType = parentItem.dataset.type;
 
-            if (parentItem) {
-                const approveBtn = parentItem.querySelector('.approve-btn');
-                const denyBtn = parentItem.querySelector('.deny-btn');
-
-                approveBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                approveBtn.disabled = false;
-                denyBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                denyBtn.disabled = false;
-                
-                denyBtn.classList.add('border', 'border-red-500', 'text-red-500');
-                denyBtn.classList.remove('bg-red-500', 'text-white');
-                
-                approveBtn.classList.add('border', 'border-blue-500', 'text-blue-500');
-                approveBtn.classList.remove('bg-blue-500', 'text-white');
-            }
+            // Hanya enable tombol jika belum diverifikasi
+            setButtonState(parentItem);
 
             if (requestType === 'add-place') {
                 const addData = {
@@ -512,10 +550,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 openAddPlaceModal(addData);
             } else if (requestType === 'claim-culinary') {
                 const claimData = {
-                    fullName: "Ihdal Fahroni", 
-                    phone: "08877776663", 
-                    email: "rmsumberejeki@gmail.com", 
-                    tin: "123456789", 
+                    fullName: "Ihdal Fahroni",
+                    phone: "08877776663",
+                    email: "rmsumberejeki@gmail.com",
+                    tin: "123456789",
                     supporting_document: ["sumber_rejeki.png",]
                 };
                 openClaimCulinaryModal(claimData);
@@ -523,52 +561,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function closeModal(modalElement) {
-        if (modalElement) {
-            modalElement.classList.add('hidden');
-        }
-    }
-
-    // Event listener untuk semua tombol close di setiap modal
-    document.querySelectorAll('.modal-close-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Ambil ID modal dari atribut data-close-modal
-            const modalId = this.dataset.closeModal;
-            // Cari elemen modal berdasarkan ID tersebut
-            const modalToClose = document.getElementById(modalId);
-            // Panggil fungsi untuk menutupnya
-            closeModal(modalToClose);
-        });
-    });
-
-    // Event listener untuk menutup modal saat area gelap di klik
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-        overlay.addEventListener('click', function(e) {
-            // Jika yang diklik adalah area overlay (latar belakang), tutup modal
-            if (e.target === this) {
-                closeModal(this);
-            }
-        });
-    });
-
     document.querySelectorAll('.deny-btn').forEach(button => {
         button.addEventListener('click', () => {
-            if (!button.disabled) {
-                if (window.confirm('Are you sure you want to DENY this request?')) {
-                    const parentItem = button.closest('.verification-item');
-                    disableOtherButton(button, parentItem);
-                }
+            if (button.disabled) return;
+            if (window.confirm('Are you sure you want to DENY this request?')) {
+                const parentItem = button.closest('.verification-item');
+                parentItem.dataset.verified = 'true';
+                parentItem.dataset.selected = 'deny';
+                setButtonState(parentItem, 'deny');
             }
         });
     });
 
     document.querySelectorAll('.approve-btn').forEach(button => {
         button.addEventListener('click', () => {
-            if (!button.disabled) {
-                if (window.confirm('Are you sure you want to APPROVE this request?')) {
-                    const parentItem = button.closest('.verification-item');
-                    disableOtherButton(button, parentItem);
-                }
+            if (button.disabled) return;
+            if (window.confirm('Are you sure you want to APPROVE this request?')) {
+                const parentItem = button.closest('.verification-item');
+                parentItem.dataset.verified = 'true';
+                parentItem.dataset.selected = 'approve';
+                setButtonState(parentItem, 'approve');
             }
         });
     });
